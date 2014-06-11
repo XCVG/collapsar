@@ -1,7 +1,7 @@
 # Heroin Dusk
 Version 1.0
 
-Heroin Dusk is a basic dungeon crawl made using an old aesthetic. It began as a drunken joke I thought up when I was tired.
+Heroin Dusk is a basic dungeon crawl made using an old aesthetic. It began as a stupid joke I thought up when I was tired.
 
 The game's world is set in the streets of a decripit city on the edge of ruin (Detroit). Gangs are using the safety of ineffective police to invade. You are a gangsta who takes up arms to find some more heroin.
 
@@ -19,6 +19,8 @@ Heroin Dusk contains mature and offensive content, which includes but is not lim
 
 This game is a PARODY. It is a JOKE. It is meant to be RIDICULOUS.
 The material presented in-game and in the in-character documentation should not be taken to reflect the views of the author.
+
+HEROINDUSK.rtf also contains large amounts of coarse language.
 
 ## Technology
 

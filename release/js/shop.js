@@ -52,9 +52,9 @@ shop[6].item[0] = {type:SHOP_MESSAGE, msg1:"Got some lockpicks here.", msg2:"Ope
 shop[6].item[1] = {type:SHOP_SPELL, value:3};
 shop[6].background = 3;
 
-shop[7].name = "Thieves Guild";
-shop[7].item[0] = {type:SHOP_MESSAGE, msg1:"For a small fee we can", msg2:"grant you safe passage"};
-shop[7].item[1] = {type:SHOP_MESSAGE, msg1:"into Stonegate City.", msg2:"(Buy the full version!)"};
+shop[7].name = "Italian Tony";
+shop[7].item[0] = {type:SHOP_MESSAGE, msg1:"Hey, man, these streets", msg2:"aren't safe tonight!"};
+shop[7].item[1] = {type:SHOP_MESSAGE, msg1:"Fuckin' bikers moving", msg2:"into the city."};
 shop[7].background = 3;
 
 shop[8].name = "Midnight";

@@ -25,17 +25,17 @@ function title_set_menu(id) {
     title.menu[1] = "Options";
   }
   else if (id == TITLE_MENU_OPTIONS) {
-    if (OPTIONS.animation) title.menu[0] = "Animations are on";
-    else title.menu[0] = "Animations are off";
+    if (OPTIONS.animation) title.menu[0] = "Animations";
+    else title.menu[0] = "No animation";
 
-    if (OPTIONS.music) title.menu[1] = "Music is on";
-    else title.menu[1] = "Music is off";
+    if (OPTIONS.music) title.menu[1] = "Ghettoblaster";
+    else title.menu[1] = "No tunes";
 
-    if (OPTIONS.sfx) title.menu[2] = "Sounds are on";
-    else title.menu[2] = "Sounds are off";
+    if (OPTIONS.sfx) title.menu[2] = "Making noise";
+    else title.menu[2] = "Not making noise";
 
-    if (OPTIONS.minimap) title.menu[3] = "Minimap is on";
-    else title.menu[3] = "Minimap is off";
+    if (OPTIONS.minimap) title.menu[3] = "Got a GPS";
+    else title.menu[3] = "No GPS";
     
     title.menu[4] = "Back";
   }
@@ -44,6 +44,7 @@ function title_set_menu(id) {
 }
 
 function title_init() {
+  mazemap_set_music("title");
   title.img.src = "images/backgrounds/title.png";
   title.img.onload = function() {title_onload();};
   title_set_menu(TITLE_MENU_MAIN);
@@ -143,15 +144,15 @@ function title_render() {
   }
   
   if (title.menu_id == TITLE_MENU_MAIN) {
-    bitfont_render("by Clint Bellanger 2013", 80, 100, JUSTIFY_CENTER);
-    bitfont_render("ft. music by Yubatake", 80, 110, JUSTIFY_CENTER);
+    bitfont_render("Streets of Detroit", 80, 100, JUSTIFY_CENTER);
+    bitfont_render("", 80, 110, JUSTIFY_CENTER);
   }
 }
 
 function title_start() {
   gamestate = STATE_DIALOG;
   shop_set(8);
-  dialog.option[2].msg1 = "Wake up";
+  dialog.option[2].msg1 = "Get moving";
   mazemap_set_music(atlas.maps[mazemap.current_id].music);
   redraw = true;
 }

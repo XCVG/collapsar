@@ -42,9 +42,11 @@ function treasure_img_onload() {treasure.img_loaded = true;}
  * This function renders a gold pile
  * with correct gold value up to 1023 currently
  */
+ //replaced with a lazy version by XCVG
 function treasure_render_gold(total_value) {
 
   // arranged in treasure pile draw order
+  /*
   if (total_value & 128) treasure_render_gold_icon(7);
   if (total_value & 512) treasure_render_gold_icon(9);
   if (total_value & 32) treasure_render_gold_icon(5);
@@ -55,6 +57,18 @@ function treasure_render_gold(total_value) {
   if (total_value & 64) treasure_render_gold_icon(6);
   if (total_value & 2) treasure_render_gold_icon(1);
   if (total_value & 256) treasure_render_gold_icon(8);
+  */
+  
+  if(total_value < 2)
+	treasure_render_gold_icon(0);
+  else if(total_value < 10)
+	treasure_render_gold_icon(1);
+  else if(total_value < 20)
+	treasure_render_gold_icon(2);
+  else if(total_value < 100)
+	treasure_render_gold_icon(3);
+  else
+	treasure_render_gold_icon(4);
 
 }
 

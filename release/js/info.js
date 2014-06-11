@@ -37,30 +37,30 @@ function info_init() {
   info.button_img.onload = function() {info_button_onload();};
   
   info.weapons[0] = {name:"Bare Fists",  atk_min:1,  atk_max:4,  gold:0};
-  info.weapons[1] = {name:"Wood Stick",  atk_min:2,  atk_max:6,  gold:0};
-  info.weapons[2] = {name:"Iron Knife",  atk_min:3,  atk_max:8,  gold:50};
-  info.weapons[3] = {name:"Bronze Mace", atk_min:4,  atk_max:10, gold:200};
-  info.weapons[4] = {name:"Steel Sword", atk_min:5,  atk_max:12, gold:1000};
-  info.weapons[5] = {name:"War Hammer",  atk_min:6,  atk_max:14, gold:5000};
-  info.weapons[6] = {name:"Battle Axe",  atk_min:7,  atk_max:16, gold:20000};
-  info.weapons[7] = {name:"Great Sword", atk_min:8,  atk_max:18, gold:100000};
+  info.weapons[1] = {name:"Knuckle Dusters",  atk_min:2,  atk_max:6,  gold:0};
+  info.weapons[2] = {name:"Shiv",  atk_min:3,  atk_max:8,  gold:10};
+  info.weapons[3] = {name:"Switchblade", atk_min:4,  atk_max:10, gold:50};
+  info.weapons[4] = {name:"Machete", atk_min:5,  atk_max:12, gold:100};
+  info.weapons[5] = {name:"Gat",  atk_min:6,  atk_max:14, gold:500};
+  info.weapons[6] = {name:"Uzi",  atk_min:7,  atk_max:16, gold:1000};
+  info.weapons[7] = {name:"Machine Gun", atk_min:8,  atk_max:18, gold:2000};
   
-  info.armors[0] = {name:"No Armor",      def:0,  gold:0};
-  info.armors[1] = {name:"Serf Rags",     def:2,  gold:0};
-  info.armors[2] = {name:"Travel Cloak",  def:4,  gold:50};
-  info.armors[3] = {name:"Hide Cuirass",  def:6,  gold:200};
-  info.armors[4] = {name:"Rivet Leather", def:8,  gold:1000};
-  info.armors[5] = {name:"Chain Maille",  def:10, gold:5000};
-  info.armors[6] = {name:"Plate Armor",   def:12, gold:20000};
-  info.armors[7] = {name:"Wyvern Scale",  def:14, gold:100000};
+  info.armors[0] = {name:"Birthday Suit",      def:0,  gold:0};
+  info.armors[1] = {name:"Boxers",     def:2,  gold:0};
+  info.armors[2] = {name:"Street Clothes",  def:4,  gold:10};
+  info.armors[3] = {name:"Biker Jacket",  def:6,  gold:50};
+  info.armors[4] = {name:"Mall Ninja Vest", def:8,  gold:100};
+  info.armors[5] = {name:"Bulletproof Vest",  def:10, gold:500};
+  info.armors[6] = {name:"Soldier Armor",   def:12, gold:1000};
+  info.armors[7] = {name:"Bomb Suit",  def:14, gold:2000};
   
   info.spells[0] = {name:"No Spell", gold:0};
   info.spells[1] = {name:"Heal", gold:0};
-  info.spells[2] = {name:"Burn", gold:100};
-  info.spells[3] = {name:"Unlock", gold:500};
-  info.spells[4] = {name:"Light", gold:2500};
-  info.spells[5] = {name:"Freeze", gold:10000};
-  info.spells[6] = {name:"Reflect", gold:50000};
+  info.spells[2] = {name:"Burn", gold:50};
+  info.spells[3] = {name:"Unlock", gold:100};
+  info.spells[4] = {name:"Light", gold:250};
+  info.spells[5] = {name:"Freeze", gold:500};
+  info.spells[6] = {name:"Reflect", gold:1000};
   
 } 
 
@@ -124,7 +124,7 @@ function info_render() {
   bitfont_render("INFO", 80, 2, JUSTIFY_CENTER);
   
   if (avatar.spellbook > 0) {
-    bitfont_render("Spells", 158, 30, JUSTIFY_RIGHT);
+    bitfont_render("Abilities", 158, 30, JUSTIFY_RIGHT);
   }
 
   info_render_equipment();
@@ -172,19 +172,21 @@ function info_render_equiplayer(itemtier, itemtype) {
 function info_render_itemlist() {
   var item_string;
 
+  //bonus display: removed because ugly
+  
   // ARMOR  
   item_string = info.armors[avatar.armor].name;
   if (avatar.bonus_def > 0) {
-    item_string += " +";
-    item_string += avatar.bonus_def;
+    //item_string += " +";
+    //item_string += avatar.bonus_def;
   }
   bitfont_render(item_string, 2, 65, JUSTIFY_LEFT);
   
   // WEAPON
   item_string = info.weapons[avatar.weapon].name;  
   if (avatar.bonus_atk > 0) {
-    item_string += " +";
-    item_string += avatar.bonus_atk;    
+    //item_string += " +";
+    //item_string += avatar.bonus_atk;    
   }  
   bitfont_render(item_string, 2, 75, JUSTIFY_LEFT);
   
@@ -196,7 +198,7 @@ function info_render_hpmp() {
 }
 
 function info_render_gold() {
-  bitfont_render(avatar.gold + " Gold", 158, 110, JUSTIFY_RIGHT);
+  bitfont_render("$ " + avatar.gold, 158, 110, JUSTIFY_RIGHT);
 }
 
 function info_render_button() {

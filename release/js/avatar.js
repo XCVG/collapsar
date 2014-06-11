@@ -77,8 +77,9 @@ function avatar_respawn() {
   avatar.hp = avatar.max_hp;
   avatar.mp = avatar.max_mp;
   
-  // cost of death: lose all gold
-  avatar.gold = 0;
+  // cost of death: lose all gold (NOPE)
+  //cost of death: lose half your money (like GTA)
+  avatar.gold = Math.round(avatar.gold / 2); //fixed
 }
 
 function avatar_explore() {

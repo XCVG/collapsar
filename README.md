@@ -2,37 +2,33 @@
 
 Coming Summer 2014
 
-# Collapsar
+Ascension: Adventure is a retro dungeon crawler and semi-sequel to Ascension.
 
-Collapsar is the internal name for the "engine" that powers a few XCVG Systems games.
+Ascension: Adventure is based on the Collapsar engine which is based on Heroine Dusk by Clint Bellanger http://clintbellanger.net
 
+## Story
 
-* Heroin Dusk
-* Ascension: Adventure
+It is five years after the people came down from the sky and changed everything you thought you knew. Some are already predicting that the Empire will collapse and kingdoms will fall. Some even say that magic will disappear.
 
-Collapsar is better defined as common chunks of code than an actual engine.
-Collapsar is based on Heroine Dusk by Clint Ballanger http://clintbellanger.net
+You're an adventurer. You explore the unknown and you fight monsters. You're a good one, maybe even a great one. You've done some good and made a name for yourself.
+
+Idarous, a town in Phellaes, needs your help. Something is grabbing people from the outlying villages at night. As soon as you hear it, you know there's more to it than monsters.
+
+The day of the adventurer is coming to a close. But it's not over yet. You've got one last journey to make.
 
 ## Technology
 
 Collapsar is written in Javascript using HTML5 canvas.
 
-* Truecolor (Heroine Dusk's art is 16-color but the code doesn't care)
-* 160x120 native resolution (this can be changed)
-* Keyboard controls: WASD or Arrows for movement, Space or Enter for interaction
-* Mouse controls: click to move or turn, or click buttons to interact.
-* Touch controls: as mouse controls, supported on some modern device browsers.
+* 256 colors (custom palette)
+* 320x240 native resolution
+* OGG/MP3 music (handled by browser)
+
+See the Collapsar readme for more details.
 
 ## Compatibility
 
-Collapsar should, in theory, work on any modern browser.
-
-* Firefox 29 PC: Works.
-* Chrome 35 PC: Works.
-* IE11: Scaling issues.
-* Android ICS Browser: Extremely slow.
-* Android JB Broswer: Extremely slow.
-* Chrome Android: Works. Sizing issues on some devices.
+See the Collapsar readme for details.
 
 ## License
 

@@ -8,6 +8,10 @@ var AVATAR_SPRITE_W = 80;
 var AVATAR_SPRITE_H = 100;
 var AVATAR_DRAW_X = 40;
 var AVATAR_DRAW_Y = 20;
+var ARMOR_DRAW_X = 20;
+var ARMOR_DRAW_Y = 20;
+var WEAPON_DRAW_X = 40;
+var WEAPON_DRAW_Y = 20;
 var TYPE_ARMOR = 0;
 var TYPE_WEAPON = 1;
 
@@ -36,23 +40,23 @@ function info_init() {
   info.button_img.src = "images/interface/info_button.png";
   info.button_img.onload = function() {info_button_onload();};
   
-  info.weapons[0] = {name:"Bare Fists",  atk_min:1,  atk_max:4,  gold:0};
-  info.weapons[1] = {name:"Knuckle Dusters",  atk_min:2,  atk_max:6,  gold:0};
-  info.weapons[2] = {name:"Shiv",  atk_min:3,  atk_max:8,  gold:10};
-  info.weapons[3] = {name:"Switchblade", atk_min:4,  atk_max:10, gold:50};
-  info.weapons[4] = {name:"Machete", atk_min:5,  atk_max:12, gold:100};
-  info.weapons[5] = {name:"Gat",  atk_min:6,  atk_max:14, gold:500};
-  info.weapons[6] = {name:"Uzi",  atk_min:7,  atk_max:16, gold:1000};
-  info.weapons[7] = {name:"Machine Gun", atk_min:8,  atk_max:18, gold:2000};
+  info.weapons[0] = {name:"Fists",  atk_min:1,  atk_max:4,  gold:0};
+  info.weapons[1] = {name:"Stick",  atk_min:2,  atk_max:6,  gold:0};
+  info.weapons[2] = {name:"Knife",  atk_min:3,  atk_max:8,  gold:10};
+  info.weapons[3] = {name:"Sword", atk_min:4,  atk_max:10, gold:50};
+  info.weapons[4] = {name:"Claymore", atk_min:5,  atk_max:12, gold:100};
+  info.weapons[5] = {name:"Dwarven Sword",  atk_min:6,  atk_max:14, gold:500};
+  info.weapons[6] = {name:"Force Blade",  atk_min:7,  atk_max:16, gold:1000};
+  info.weapons[7] = {name:"MM Spike", atk_min:8,  atk_max:18, gold:5000};
   
-  info.armors[0] = {name:"Birthday Suit",      def:0,  gold:0};
-  info.armors[1] = {name:"Boxers",     def:2,  gold:0};
-  info.armors[2] = {name:"Street Clothes",  def:4,  gold:10};
-  info.armors[3] = {name:"Biker Jacket",  def:6,  gold:50};
-  info.armors[4] = {name:"Mall Ninja Vest", def:8,  gold:100};
-  info.armors[5] = {name:"Bulletproof Vest",  def:10, gold:500};
-  info.armors[6] = {name:"Soldier Armor",   def:12, gold:1000};
-  info.armors[7] = {name:"Bomb Suit",  def:14, gold:2000};
+  info.armors[0] = {name:"",      def:0,  gold:0};
+  info.armors[1] = {name:"Tunic",     def:2,  gold:0};
+  info.armors[2] = {name:"Cloak",  def:4,  gold:10};
+  info.armors[3] = {name:"Linen",  def:6,  gold:50};
+  info.armors[4] = {name:"Leather", def:8,  gold:100};
+  info.armors[5] = {name:"Chainmail",  def:10, gold:500};
+  info.armors[6] = {name:"Plate",   def:12, gold:1000};
+  info.armors[7] = {name:"Wyvern",  def:14, gold:5000};
   
   info.spells[0] = {name:"No Spell", gold:0};
   info.spells[1] = {name:"Heal", gold:0};
@@ -107,6 +111,8 @@ function info_logic() {
     power_map_unlock();
     redraw = true;
   }
+  
+  //TODO: code other powers!
 
 }
 
@@ -153,20 +159,54 @@ function info_render_equipment() {
   info_render_equiplayer(avatar.weapon, TYPE_WEAPON);
   
 }
-
+//oddly, drawing weapons and armor differently was partially implemented
 function info_render_equiplayer(itemtier, itemtype) {
 
-  ctx.drawImage(
-    info.avatar_img,
-    itemtier * AVATAR_SPRITE_W * PRESCALE,
-    itemtype * AVATAR_SPRITE_H * PRESCALE,
-    AVATAR_SPRITE_W * PRESCALE,
-    AVATAR_SPRITE_H * PRESCALE,	
-    AVATAR_DRAW_X * SCALE,
-    AVATAR_DRAW_Y * SCALE,
-    AVATAR_SPRITE_W * SCALE,
-    AVATAR_SPRITE_H * SCALE
-  );
+	if(itemtype == TYPE_ARMOR)
+	{
+	//draw ARMOR
+	ctx.drawImage(
+		info.avatar_img,
+		itemtier * AVATAR_SPRITE_W * PRESCALE,
+		itemtype * AVATAR_SPRITE_H * PRESCALE,
+		AVATAR_SPRITE_W * PRESCALE,
+		AVATAR_SPRITE_H * PRESCALE,	
+		ARMOR_DRAW_X * SCALE,
+		ARMOR_DRAW_Y * SCALE,
+		AVATAR_SPRITE_W * SCALE,
+		AVATAR_SPRITE_H * SCALE
+	  );
+	}
+	else if(itemtype == TYPE_WEAPON)
+	{
+	//draw weapon
+	ctx.drawImage(
+		info.avatar_img,
+		itemtier * AVATAR_SPRITE_W * PRESCALE,
+		itemtype * AVATAR_SPRITE_H * PRESCALE,
+		AVATAR_SPRITE_W * PRESCALE,
+		AVATAR_SPRITE_H * PRESCALE,	
+		WEAPON_DRAW_X * SCALE,
+		WEAPON_DRAW_Y * SCALE,
+		AVATAR_SPRITE_W * SCALE,
+		AVATAR_SPRITE_H * SCALE
+	  );	
+	}
+	else
+	{
+	//fallback
+	ctx.drawImage(
+		info.avatar_img,
+		itemtier * AVATAR_SPRITE_W * PRESCALE,
+		itemtype * AVATAR_SPRITE_H * PRESCALE,
+		AVATAR_SPRITE_W * PRESCALE,
+		AVATAR_SPRITE_H * PRESCALE,	
+		AVATAR_DRAW_X * SCALE,
+		AVATAR_DRAW_Y * SCALE,
+		AVATAR_SPRITE_W * SCALE,
+		AVATAR_SPRITE_H * SCALE
+	  );
+	}
 }
 
 function info_render_itemlist() {

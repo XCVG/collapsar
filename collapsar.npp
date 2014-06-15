@@ -1,0 +1,11 @@
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="3">
+            <File firstVisibleLine="209" xOffset="0" scrollWidth="856" startPos="8861" endPos="8861" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\atlas.js" />
+            <File firstVisibleLine="223" xOffset="0" scrollWidth="688" startPos="3496" endPos="3496" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\info.js" />
+            <File firstVisibleLine="63" xOffset="0" scrollWidth="696" startPos="3154" endPos="3154" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\tileset.js" />
+            <File firstVisibleLine="60" xOffset="0" scrollWidth="1184" startPos="3109" endPos="3109" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\enemy.js" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>

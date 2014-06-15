@@ -2,6 +2,30 @@
  Atlas.js
  Collection of maps and transition data
  */
+ 
+ /**
+ TILESET
+ 0 - none
+ 1 - dungeon floor
+ 2 - dungeon wall
+ 3 - dungeon door
+ 4 - exterior pillar
+ 5 - dungeon ceiling
+ 6 - grass
+ 7 - interior pillar
+ 8 - interior chest
+ 9 - exterior chest
+ 10- house wall
+ 11- house door
+ 12- tree
+ 13- burnt house
+ 14- gravestone
+ 15- water
+ 16- skull pile
+ 17- hay pile
+ 18- locked door
+ 19- cult leader tile
+ */
 
 var MAP_COUNT = 11;
 

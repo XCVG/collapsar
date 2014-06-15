@@ -1,0 +1,30 @@
+TILESET
+ 0 - none
+ 1 - dungeon floor
+ 2 - dungeon wall
+ 3 - dungeon door
+ 4 - exterior pillar
+ 5 - dungeon ceiling
+ 6 - grass
+ 7 - interior pillar
+ 8 - interior chest
+ 9 - exterior chest
+ 10- house wall
+ 11- house door
+ 12- tree
+ 13- burnt house
+ 14- gravestone
+ 15- water
+ 16- skull pile
+ 17- hay pile
+ 18- locked door
+ 19- cult leader tile
+
+BACKGROUND
+ 0 - black
+ 1 - Exterior sky	(nightsky.png)
+ 2 - "tempest"		(tempest.png)
+ 3 - Interior bldg	(interior.png)
+ 4 - Ending screen	(busted.png)
+ 5 - Interior fade	(intsky.png)
+ 6 - Hades		(hades.png)

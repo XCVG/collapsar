@@ -28,3 +28,12 @@ BACKGROUND
  4 - Ending screen	(busted.png)
  5 - Interior fade	(intsky.png)
  6 - Hades		(hades.png)
+
+ABILITIES
+ 0 - No spell
+ 1 - Heal
+ 2 - Burn
+ 3 - Unlock
+ 4 - Light
+ 5 - Freeze
+ 6 - Reflect

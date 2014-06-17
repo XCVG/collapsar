@@ -18,29 +18,30 @@ for (var i=0; i<SHOP_COUNT; i++) {
 }
 
 // Cedar Village Shops
-shop[0].name = "Andy";
+shop[0].name = "Weapon Shop";
 shop[0].item[0] = {type:SHOP_WEAPON, value:2};
 shop[0].item[1] = {type:SHOP_WEAPON, value:3};
 shop[0].background = 3;
 
-shop[1].name = "Thrift Store";
+shop[1].name = "Armor Shop";
 shop[1].item[0] = {type:SHOP_ARMOR, value:2};
 shop[1].item[1] = {type:SHOP_ARMOR, value:3};
 shop[1].background = 3;
 
-shop[2].name = "Shifty Jimmy";
-shop[2].item[0] = {type:SHOP_MESSAGE, msg1:"Wanna get fucked up?", msg2:"Don't got no smack tho."};
+shop[2].name = "Inn";
+shop[2].item[0] = {type:SHOP_MESSAGE, msg1:"I heard of dark things", msg2:"at the ruined temple."};
 shop[2].item[1] = {type:SHOP_ROOM, value:10};
 shop[2].background = 3;
 
-shop[3].name = "Flamer Joe";
-shop[3].item[0] = {type:SHOP_MESSAGE, msg1:"Burning people good", msg2:"I sell flamethrower"};
+shop[3].name = "Apothecary";
+shop[3].item[0] = {type:SHOP_MESSAGE, msg1:"Fire magic can also", msg2:"burn some obstacles."};
 shop[3].item[1] = {type:SHOP_SPELL, value:2};
 shop[3].background = 3;
 
 //Lone hosue
-shop[4].name = "Paul";
-shop[4].item[1] = {type:SHOP_MESSAGE, msg1:"Them bikers been around.", msg2:"They fucking shot me!"};
+shop[4].name = "Ilisia";
+shop[4].item[0] = {type:SHOP_MESSAGE, msg1:"They came from shadows", msg2:"Rose from the night"};
+shop[4].item[1] = {type:SHOP_MESSAGE, msg1:"The ones evil touched", msg2:"were changed to things"};
 shop[4].background = 3;
 
 //Mall shops
@@ -49,20 +50,20 @@ shop[5].item[0] = {type:SHOP_ENDING, msg1:"Aw, fuck! I have rights!", msg2:""};
 shop[5].item[1] = {type:SHOP_ENDING, msg1:"You got arrested", msg2:"by the police!"};
 shop[5].background = 4;
 
-shop[6].name = "Tommy the Fence";
-shop[6].item[0] = {type:SHOP_MESSAGE, msg1:"Got some lockpicks here.", msg2:"Open that shit right up."};
+shop[6].name = "Shifty Individual";
+shop[6].item[0] = {type:SHOP_MESSAGE, msg1:"I can show you how to", msg2:"open any locked door."};
 shop[6].item[1] = {type:SHOP_SPELL, value:3};
 shop[6].background = 3;
 
-shop[7].name = "Italian Tony";
-shop[7].item[0] = {type:SHOP_MESSAGE, msg1:"Hey, man, these streets", msg2:"aren't safe tonight!"};
-shop[7].item[1] = {type:SHOP_MESSAGE, msg1:"Fuckin' bikers moving", msg2:"into the city."};
+shop[7].name = "Thieves Guild";
+shop[7].item[0] = {type:SHOP_MESSAGE, msg1:"For a small fee we can", msg2:"grant you safe passage"};
+shop[7].item[1] = {type:SHOP_MESSAGE, msg1:"into Stonegate City.", msg2:"(Buy the full version!)"};
 shop[7].background = 3;
 
 //begin message
 shop[8].name = "Midnight";
-shop[8].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
-shop[8].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[8].item[0] = {type:SHOP_MESSAGE, msg1:"You've arrived", msg2:"too late."};
+shop[8].item[1] = {type:SHOP_MESSAGE, msg1:"The village is", msg2:"already destroyed."};
 shop[8].background = 2;
 
 //additional shops

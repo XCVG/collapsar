@@ -45,17 +45,17 @@ function info_init() {
   info.weapons[2] = {name:"Knife",  atk_min:3,  atk_max:8,  gold:10};
   info.weapons[3] = {name:"Sword", atk_min:4,  atk_max:10, gold:50};
   info.weapons[4] = {name:"Claymore", atk_min:5,  atk_max:12, gold:100};
-  info.weapons[5] = {name:"Dwarven Sword",  atk_min:6,  atk_max:14, gold:500};
-  info.weapons[6] = {name:"Force Blade",  atk_min:7,  atk_max:16, gold:1000};
+  info.weapons[5] = {name:"Dwarven",  atk_min:6,  atk_max:14, gold:500};
+  info.weapons[6] = {name:"Force",  atk_min:7,  atk_max:16, gold:1000};
   info.weapons[7] = {name:"MM Spike", atk_min:8,  atk_max:18, gold:5000};
   
   info.armors[0] = {name:"",      def:0,  gold:0};
   info.armors[1] = {name:"Tunic",     def:2,  gold:0};
-  info.armors[2] = {name:"Cloak",  def:4,  gold:10};
-  info.armors[3] = {name:"Linen",  def:6,  gold:50};
-  info.armors[4] = {name:"Leather", def:8,  gold:100};
-  info.armors[5] = {name:"Chainmail",  def:10, gold:500};
-  info.armors[6] = {name:"Plate",   def:12, gold:1000};
+  info.armors[2] = {name:"Linen",  def:4,  gold:10};
+  info.armors[3] = {name:"Leather",  def:6,  gold:50};
+  info.armors[4] = {name:"Chainmail", def:8,  gold:100};
+  info.armors[5] = {name:"Plate",  def:10, gold:500};
+  info.armors[6] = {name:"Dwarven",   def:12, gold:1000};
   info.armors[7] = {name:"Wyvern",  def:14, gold:5000};
   
   info.spells[0] = {name:"No Spell", gold:0};

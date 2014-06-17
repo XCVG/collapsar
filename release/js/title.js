@@ -25,17 +25,17 @@ function title_set_menu(id) {
     title.menu[1] = "Options";
   }
   else if (id == TITLE_MENU_OPTIONS) {
-    if (OPTIONS.animation) title.menu[0] = "Animations";
-    else title.menu[0] = "No animation";
+    if (OPTIONS.animation) title.menu[0] = "Animations are on";
+    else title.menu[0] = "Animations are off";
 
-    if (OPTIONS.music) title.menu[1] = "Ghettoblaster";
-    else title.menu[1] = "No tunes";
+    if (OPTIONS.music) title.menu[1] = "Music is on";
+    else title.menu[1] = "Music is off";
 
-    if (OPTIONS.sfx) title.menu[2] = "Making noise";
-    else title.menu[2] = "Not making noise";
+    if (OPTIONS.sfx) title.menu[2] = "Sounds are on";
+    else title.menu[2] = "Sounds are off";
 
-    if (OPTIONS.minimap) title.menu[3] = "Got a GPS";
-    else title.menu[3] = "No GPS";
+    if (OPTIONS.minimap) title.menu[3] = "Minimap is on";
+    else title.menu[3] = "Minimap is off";
     
     title.menu[4] = "Back";
   }
@@ -144,7 +144,7 @@ function title_render() {
   }
   
   if (title.menu_id == TITLE_MENU_MAIN) {
-    bitfont_render("Streets of Detroit", 80, 100, JUSTIFY_CENTER);
+    bitfont_render("XCVG Systems 2014", 80, 100, JUSTIFY_CENTER);
     bitfont_render("", 80, 110, JUSTIFY_CENTER);
   }
 }

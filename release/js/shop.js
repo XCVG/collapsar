@@ -10,7 +10,6 @@ var SHOP_SPELL = 2;
 var SHOP_ROOM = 3;
 var SHOP_MESSAGE = 4;
 var SHOP_ENDING = 5; //old ending script for Heroin Dusk
-var SHOP_AAENDING = 6; //new ending script for Ascension Adventure
 
 var shop = new Array();
 for (var i=0; i<SHOP_COUNT; i++) {
@@ -74,8 +73,8 @@ shop[9].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack
 shop[9].background = 2;
 
 shop[10].name = "AA ENDING";
-shop[10].item[0] = {type:SHOP_AAENDING, msg1:"Aw, fuck, man!", msg2:""};
-shop[10].item[1] = {type:SHOP_AAENDING, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[10].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
+shop[10].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
 shop[10].background = 2;
 
 //additional messages

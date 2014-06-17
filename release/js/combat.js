@@ -78,6 +78,8 @@ function combat_logic() {
 }
 
 function combat_logic_intro() {
+	mazemap_set_music("combat");
+
     if (OPTIONS.animation == true) {
       combat.timer--;
       
@@ -230,6 +232,8 @@ function combat_logic_victory() {
   if (pressing.mouse && !input_lock.mouse) {  
     input_lock.mouse = true;
     combat_clear_messages();
+	//music gross hack
+	mazemap_set_music(atlas.maps[mazemap.current_id].music);
     gamestate = STATE_EXPLORE;
     redraw = true;
     return;  
@@ -238,6 +242,8 @@ function combat_logic_victory() {
   if (pressing.action && !input_lock.action) {
     input_lock.action = true;
     combat_clear_messages();
+	//music gross hack
+	mazemap_set_music(atlas.maps[mazemap.current_id].music);
     gamestate = STATE_EXPLORE;
     redraw = true;
     return;  	
@@ -245,6 +251,7 @@ function combat_logic_victory() {
 }
 
 function combat_logic_defeat() {
+	mazemap_set_music("defeat");
   return;
 }
 

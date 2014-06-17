@@ -137,6 +137,9 @@ function mapscript_fsmessage(x, y, status, message) {
 // ending screen load
 function mapscript_ending(x, y, ending_id) {
 
+	//ending.id = ENDING_GOOD;
+	//ending.id = ENDING_BAD;
+
   // don't spawn the enemy if just loading
   if (!init_complete) return false;
   

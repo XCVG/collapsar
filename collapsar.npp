@@ -1,10 +1,19 @@
 <NotepadPlus>
     <Session activeView="0">
-        <mainView activeIndex="3">
-            <File firstVisibleLine="209" xOffset="0" scrollWidth="856" startPos="8861" endPos="8861" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\atlas.js" />
-            <File firstVisibleLine="223" xOffset="0" scrollWidth="688" startPos="3496" endPos="3496" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\info.js" />
-            <File firstVisibleLine="63" xOffset="0" scrollWidth="696" startPos="3154" endPos="3154" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\tileset.js" />
-            <File firstVisibleLine="60" xOffset="0" scrollWidth="1184" startPos="3109" endPos="3109" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\enemy.js" />
+        <mainView activeIndex="7">
+            <File firstVisibleLine="255" xOffset="0" scrollWidth="856" startPos="10165" endPos="10165" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\atlas.js" />
+            <File firstVisibleLine="30" xOffset="0" scrollWidth="696" startPos="2204" endPos="2204" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\tileset.js" />
+            <File firstVisibleLine="36" xOffset="0" scrollWidth="688" startPos="1946" endPos="1946" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\info.js" />
+            <File firstVisibleLine="62" xOffset="0" scrollWidth="1227" startPos="3006" endPos="3006" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\enemy.js" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1144" startPos="172" endPos="172" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\combat.js" />
+            <File firstVisibleLine="144" xOffset="0" scrollWidth="672" startPos="3893" endPos="3893" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\mazemap.js" />
+            <File firstVisibleLine="129" xOffset="0" scrollWidth="736" startPos="4092" endPos="4092" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\mapscript.js" />
+            <File firstVisibleLine="127" xOffset="0" scrollWidth="904" startPos="2673" endPos="2673" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\shop.js" />
+            <File firstVisibleLine="30" xOffset="0" scrollWidth="640" startPos="711" endPos="711" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\dialog.js" />
+            <File firstVisibleLine="24" xOffset="0" scrollWidth="728" startPos="870" endPos="870" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\explore.js" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="232" startPos="327" endPos="327" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\gamestate.js" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="696" startPos="79" endPos="79" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\title.js" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="696" startPos="101" endPos="101" selMode="0" lang="Javascript" encoding="-1" filename="E:\Games\cerium\cerium_src\release\js\ending.js" />
         </mainView>
         <subView activeIndex="0" />
     </Session>

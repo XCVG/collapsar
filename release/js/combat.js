@@ -234,7 +234,15 @@ function combat_logic_victory() {
     combat_clear_messages();
 	//music gross hack
 	mazemap_set_music(atlas.maps[mazemap.current_id].music);
-    gamestate = STATE_EXPLORE;
+	//boss special
+	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
+	{
+		gamestate = STATE_ENDING;
+	}
+	else
+	{
+		gamestate = STATE_EXPLORE;
+	}
     redraw = true;
     return;  
   }
@@ -244,7 +252,15 @@ function combat_logic_victory() {
     combat_clear_messages();
 	//music gross hack
 	mazemap_set_music(atlas.maps[mazemap.current_id].music);
-    gamestate = STATE_EXPLORE;
+	//boss special
+	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
+	{
+		gamestate = STATE_ENDING;
+	}
+	else
+	{
+		gamestate = STATE_EXPLORE;
+	}
     redraw = true;
     return;  	
   }

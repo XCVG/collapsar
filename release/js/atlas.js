@@ -52,7 +52,7 @@ atlas.maps[0].tiles = [
 ];
 atlas.maps[0].exits[0] = {exit_x:0, exit_y:2, dest_map:1, dest_x:6, dest_y:6};
 
-atlas.maps[1].name = "Burned Village";
+atlas.maps[1].name = "Karpos Koriis";
 atlas.maps[1].music = "m31";
 atlas.maps[1].width = 9;
 atlas.maps[1].height = 11;

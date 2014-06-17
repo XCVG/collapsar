@@ -39,30 +39,30 @@ function mapscript_exec(map_id) {
       return false;
 
     case 2: // Monk Quarters (Somebody's Apartment)
-      return mapscript_chest(1,1,"stick", "Knuckle Dusters", 1);
+      return mapscript_chest(1,1,"stick", "Stick", 1);
 
     case 3: // Meditation Point (Rooftop)
-      return mapscript_chest(2,1,"heal", "Book: First Aid", 1);
+      return mapscript_chest(2,1,"heal", "Spell: Heal", 1);
 
     case 4: // Monastery Trail (Brush Park)
-      return mapscript_chest(2,2,"hp1", "Whiskey (HP Up)", 1);
+      return mapscript_chest(2,2,"hp1", "Endurance Crystal", 1);
 
     case 5: // Cedar Village (Mack Avenue)
-      return mapscript_chest(7,10,"g1", "Dollars", 10);
+      return mapscript_chest(7,10,"g1", "Gold", 10);
 
     case 6: // Zuruth Plains (Wyoming Street)
-      return mapscript_chest(9,4,"mp1", "Energy Drink (MP Up)", 1);
+      return mapscript_chest(9,4,"mp1", "Stamina Crystal", 1);
 
     case 7: // Canal Boneyard (Decrepit Graveyard)
-      return mapscript_chest(13,5,"def1", "Morphine (Def Up)", 1);
+      return mapscript_chest(13,5,"def1", "Toughness Crystal", 1);
 
     case 8: // Mausoleum (Abandoned Church)
       mapscript_bone_pile_load(8);
       mapscript_locked_door_load(8);
       result = mapscript_haybale(11,9);
-      result = result || mapscript_chest(3,2,"atk1", "Adrenaline (Atk Up)", 1);
-      result = result || mapscript_chest(3,12,"mp2", "Energy Drink (MP Up)", 1);
-      result = result || mapscript_chest(6,9, "g2", "Dollars", 25);
+      result = result || mapscript_chest(3,2,"atk1", "Strength Crystal", 1);
+      result = result || mapscript_chest(3,12,"mp2", "Stamina Crystal", 1);
+      result = result || mapscript_chest(6,9, "g2", "Gold", 25);
 
       return result;
     
@@ -77,8 +77,8 @@ function mapscript_exec(map_id) {
       mapscript_locked_door_load(10);
       mapscript_bone_pile_load(10);
       
-      result = mapscript_chest(11,2, "hp2", "Whiskey (HP Up)", 1);
-      result = result || mapscript_chest(13,2, "g3", "Dollars", 100);
+      result = mapscript_chest(11,2, "hp2", "Endurance Crystal", 1);
+      result = result || mapscript_chest(13,2, "g3", "Gold", 100);
       result = result || mapscript_enemy(14,9, ENEMY_MIMIC, "");
       result = result || mapscript_enemy(6,4, ENEMY_MIMIC, "");
 
@@ -161,36 +161,36 @@ function mapscript_grant_item(item, item_count) {
     explore.message = "Found " + item_count + " " + item;
   }
 
-  if (item == "Dollars") {
+  if (item == "Gold") {
     avatar.gold += item_count;
 
     // flag gold treasure for display while exploring    
     explore.gold_value = item_count;
   }
-  else if (item == "Knuckle Dusters") {
+  else if (item == "Stick") {
     // only keep the stick if it's better than what you already have
     if (avatar.weapon == 0) avatar.weapon = 1;
     explore.treasure_id = 10;
   }
-  else if (item == "Book: First Aid") {
+  else if (item == "Spell: Heal") {
     if (avatar.spellbook == 0) avatar.spellbook = 1;
     explore.treasure_id = 11;
   }
-  else if (item == "Energy Drink (MP Up)") {
+  else if (item == "Stamina Crystal") {
     avatar.mp += 4;
     avatar.max_mp += 4;
     explore.treasure_id = 12;
   }
-  else if (item == "Whiskey (HP Up)") {
+  else if (item == "Endurance Crystal") {
     avatar.hp += 10;
     avatar.max_hp += 10;
     explore.treasure_id = 13;
   }
-  else if (item == "Adrenaline (Atk Up)") {
+  else if (item == "Strength Crystal") {
     avatar.bonus_atk += 2;
     explore.treasure_id = 14;
   }
-  else if (item == "Morphine (Def Up)") {
+  else if (item == "Toughness Crystal") {
     avatar.bonus_def += 2;
     explore.treasure_id = 15;
   }

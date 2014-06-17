@@ -37,3 +37,13 @@ ABILITIES
  4 - Light
  5 - Freeze
  6 - Reflect
+
+ENEMIES
+ ENEMY_SHADOW_TENDRILS	Slime
+ ENEMY_IMP		Giant Rat
+ ENEMY_SHADOW_SOUL	Cave Bat
+ ENEMY_ZOMBIE		Highwayman
+ ENEMY_SKELETON		Creeper
+ ENEMY_DRUID		Berserker
+ ENEMY_MIMIC		Cultist
+ ENEMY_DEATH_SPEAKER	Cult Leader

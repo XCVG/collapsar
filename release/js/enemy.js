@@ -74,12 +74,12 @@ function enemy_init() {
 
   enemy.stats[ENEMY_SKELETON] = {name:"Creeper", hp:20, atk_min:3, atk_max:8, gold_min:5, gold_max:10, category:ENEMY_CATEGORY_UNDEAD};
   enemy.stats[ENEMY_SKELETON].powers = [ENEMY_POWER_ATTACK];
-
-  enemy.stats[ENEMY_DRUID] = {name:"Berserker", hp:10, atk_min:7, atk_max:14, gold_min:5, gold_max:10, category:ENEMY_CATEGORY_UNDEAD};
-  enemy.stats[ENEMY_DRUID].powers = [ENEMY_POWER_ATTACK];
-
-  enemy.stats[ENEMY_MIMIC] = {name:"Cultist", hp:30, atk_min:10, atk_max:16, gold_min:16, gold_max:25, category:ENEMY_CATEGORY_DEMON};
-  enemy.stats[ENEMY_MIMIC].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_SCORCH];
+  
+  enemy.stats[ENEMY_MIMIC] = {name:"Berserker", hp:10, atk_min:7, atk_max:14, gold_min:5, gold_max:10, category:ENEMY_CATEGORY_UNDEAD};
+  enemy.stats[ENEMY_MIMIC].powers = [ENEMY_POWER_ATTACK]; 
+  
+  enemy.stats[ENEMY_DRUID] = {name:"Cultist", hp:30, atk_min:10, atk_max:16, gold_min:16, gold_max:25, category:ENEMY_CATEGORY_DEMON};
+  enemy.stats[ENEMY_DRUID].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_SCORCH];
 
   enemy.stats[ENEMY_DEATH_SPEAKER] = {name:"Cult Leader", hp:84, atk_min:8, atk_max:15, gold_min:225, gold_max:275, category:ENEMY_CATEGORY_AUTOMATON};
   enemy.stats[ENEMY_DEATH_SPEAKER].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_SCORCH, ENEMY_POWER_HPDRAIN, ENEMY_POWER_MPDRAIN];

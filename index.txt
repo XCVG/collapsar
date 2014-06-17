@@ -44,6 +44,6 @@ ENEMIES
  ENEMY_SHADOW_SOUL	Cave Bat
  ENEMY_ZOMBIE		Highwayman
  ENEMY_SKELETON		Creeper
- ENEMY_DRUID		Berserker
- ENEMY_MIMIC		Cultist
+ ENEMY_DRUID		Cultist
+ ENEMY_MIMIC		Berserker
  ENEMY_DEATH_SPEAKER	Cult Leader

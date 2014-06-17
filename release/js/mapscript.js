@@ -81,6 +81,8 @@ function mapscript_exec(map_id) {
       result = result || mapscript_chest(13,2, "g3", "Gold", 100);
       result = result || mapscript_enemy(14,9, ENEMY_MIMIC, "");
       result = result || mapscript_enemy(6,4, ENEMY_MIMIC, "");
+	  //result = result || mapscript_message(2,14, 0, "LOL MESSAGE");
+	  result = result || mapscript_ending(2,14, 0);
 
       return result;
   }
@@ -88,22 +90,68 @@ function mapscript_exec(map_id) {
 }
 
 // general script types
+//huh. this is never used AFAICT
+//added status 0 for no check
 function mapscript_message(x, y, status, message) {
   if (avatar.x == x && avatar.y == y) {
 
     // if the player has already read this message, skip it
-    if (avatar.campaign.indexOf(status) > -1) {
-      return false;
-    }
-
+	if(status != 0)
+	{
+		if (avatar.campaign.indexOf(status) > -1) {
+		  return false;
+		}
+	}
     explore.message = message;
-    avatar.campaign.push(status);
+	if(status != 0)
+		avatar.campaign.push(status);
+		
     return true;
 
   }
   return false;
 }
 
+//NOT IMPLEMENTED: DO NOT USE
+//this is supposed to display a fullscreen message with background, but it's not implemented
+function mapscript_fsmessage(x, y, status, message) {
+  if (avatar.x == x && avatar.y == y) {
+
+    // if the player has already read this message, skip it
+	if(status != 0)
+	{
+		if (avatar.campaign.indexOf(status) > -1) {
+		  return false;
+		}
+	}
+    explore.message = message;
+	if(status != 0)
+		avatar.campaign.push(status);
+		
+    return true;
+
+  }
+  return false;
+}
+
+// ending screen load
+function mapscript_ending(x, y, ending_id) {
+
+  // don't spawn the enemy if just loading
+  if (!init_complete) return false;
+  
+  // if heroine is at the enemy location
+  if (avatar.x == x && avatar.y == y) { 
+   
+    // switch to ending
+    gamestate = STATE_ENDING;
+	
+	//nuke savegame (?)
+
+    return true;
+  }
+  return false;
+}
 
 function mapscript_haybale(x, y) {
 
@@ -150,6 +198,7 @@ function mapscript_chest(x, y, status, item_type, item_count) {
 /**
  Found items have permanent unique effects, handle those here
  */
+ //yes, it checks strings, Tyson-style
 function mapscript_grant_item(item, item_count) {
 
   sounds_play(SFX_COIN);

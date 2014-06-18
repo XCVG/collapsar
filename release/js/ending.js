@@ -21,11 +21,9 @@ ending.menu_id = -1;
 ending.text_h = 11;
 
 function ending_init() {
-  //that... probably shouldn't have gone there
-  //mazemap_set_music("title");
-  ending.good_img.src = "images/backgrounds/ending.png";
+  ending.good_img.src = "images/backgrounds/gending.png";
   ending.good_img.onload = function() {ending_good_onload();};
-  ending.bad_img.src = "images/backgrounds/busted.png";
+  ending.bad_img.src = "images/backgrounds/bending.png";
   ending.bad_img.onload = function() {ending_bad_onload();};
   redraw = true;
 }
@@ -64,7 +62,7 @@ function ending_render() {
 	mazemap_set_music("defeat");
   }
 
-    bitfont_render("XCVG Systems 2014", 80, 100, JUSTIFY_CENTER);
-    bitfont_render("", 80, 110, JUSTIFY_CENTER);
+    //bitfont_render("XCVG Systems 2014", 80, 100, JUSTIFY_CENTER);
+    //bitfont_render("", 80, 110, JUSTIFY_CENTER);
 
 }

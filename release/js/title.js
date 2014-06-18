@@ -44,7 +44,7 @@ function title_set_menu(id) {
 }
 
 function title_init() {
-  mazemap_set_music("title");
+  mazemap_set_music("title"); //shouldn't be here but it works so don't touch it
   title.img.src = "images/backgrounds/title.png";
   title.img.onload = function() {title_onload();};
   title_set_menu(TITLE_MENU_MAIN);

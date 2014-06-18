@@ -54,9 +54,15 @@ function ending_render() {
 
 
   if(ending.id == ENDING_GOOD)
+  {
 	ctx.drawImage(ending.good_img, 0, 0, 160*SCALE, 120*SCALE);
+	mazemap_set_music("victory");
+  }
   else
+  {
 	ctx.drawImage(ending.bad_img, 0, 0, 160*SCALE, 120*SCALE);
+	mazemap_set_music("defeat");
+  }
 
     bitfont_render("XCVG Systems 2014", 80, 100, JUSTIFY_CENTER);
     bitfont_render("", 80, 110, JUSTIFY_CENTER);

@@ -1,0 +1,9 @@
+911 - unused in Ascension: Adventure (for Heroin Dusk)
+combat - combat music
+defeat - defeat/bad ending
+elegy_dm - unused in Ascension: Adventure
+haply - in town theme
+kawarayu - darker contemplative theme
+m31 - generic overworld theme
+title - title theme
+victory - good ending

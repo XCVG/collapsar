@@ -5,6 +5,7 @@
 
 var mapscript = new Object();
 
+//THESE ARE TRACKED HERE?!
 mapscript.bone_piles = new Array();
 mapscript.bone_piles = [
   {map_id:8, x:4, y:7, status:"bone1"},
@@ -45,23 +46,23 @@ function mapscript_exec(map_id) {
       return mapscript_chest(2,1,"heal", "Spell: Heal", 1);
 
     case 4: // Monastery Trail (Brush Park)
-      return mapscript_chest(2,2,"hp1", "Endurance Crystal", 1);
+      return mapscript_chest(2,2,"hp1", "Endurance Dust", 1);
 
     case 5: // Cedar Village (Mack Avenue)
       return mapscript_chest(7,10,"g1", "Gold", 10);
 
     case 6: // Zuruth Plains (Wyoming Street)
-      return mapscript_chest(9,4,"mp1", "Stamina Crystal", 1);
+      return mapscript_chest(9,4,"mp1", "Stamina Dust", 1);
 
     case 7: // Canal Boneyard (Decrepit Graveyard)
-      return mapscript_chest(13,5,"def1", "Toughness Crystal", 1);
+      return mapscript_chest(13,5,"def1", "Toughness Dust", 1);
 
     case 8: // Mausoleum (Abandoned Church)
       mapscript_bone_pile_load(8);
       mapscript_locked_door_load(8);
       result = mapscript_haybale(11,9);
-      result = result || mapscript_chest(3,2,"atk1", "Strength Crystal", 1);
-      result = result || mapscript_chest(3,12,"mp2", "Stamina Crystal", 1);
+      result = result || mapscript_chest(3,2,"atk1", "Strength Dust", 1);
+      result = result || mapscript_chest(3,12,"mp2", "Stamina Dust", 1);
       result = result || mapscript_chest(6,9, "g2", "Gold", 25);
 
       return result;
@@ -77,7 +78,7 @@ function mapscript_exec(map_id) {
       mapscript_locked_door_load(10);
       mapscript_bone_pile_load(10);
       
-      result = mapscript_chest(11,2, "hp2", "Endurance Crystal", 1);
+      result = mapscript_chest(11,2, "hp2", "Endurance Dust", 1);
       result = result || mapscript_chest(13,2, "g3", "Gold", 100);
       result = result || mapscript_enemy(14,9, ENEMY_MIMIC, "");
       result = result || mapscript_enemy(6,4, ENEMY_MIMIC, "");
@@ -228,21 +229,21 @@ function mapscript_grant_item(item, item_count) {
     if (avatar.spellbook == 0) avatar.spellbook = 1;
     explore.treasure_id = 11;
   }
-  else if (item == "Stamina Crystal") {
+  else if (item == "Stamina Dust") {
     avatar.mp += 4;
     avatar.max_mp += 4;
     explore.treasure_id = 12;
   }
-  else if (item == "Endurance Crystal") {
+  else if (item == "Endurance Dust") {
     avatar.hp += 10;
     avatar.max_hp += 10;
     explore.treasure_id = 13;
   }
-  else if (item == "Strength Crystal") {
+  else if (item == "Strength Dust") {
     avatar.bonus_atk += 2;
     explore.treasure_id = 14;
   }
-  else if (item == "Toughness Crystal") {
+  else if (item == "Toughness Dust") {
     avatar.bonus_def += 2;
     explore.treasure_id = 15;
   }

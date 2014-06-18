@@ -144,8 +144,8 @@ function title_render() {
   }
   
   if (title.menu_id == TITLE_MENU_MAIN) {
-    bitfont_render("XCVG Systems 2014", 80, 100, JUSTIFY_CENTER);
-    bitfont_render("", 80, 110, JUSTIFY_CENTER);
+    //bitfont_render("XCVG Systems 2014", 80, 100, JUSTIFY_CENTER);
+    //bitfont_render("", 80, 110, JUSTIFY_CENTER);
   }
 }
 

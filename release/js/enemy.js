@@ -60,7 +60,7 @@ function enemy_init() {
 
   // set enemy stats
 
-  enemy.stats[ENEMY_SHADOW_TENDRILS] = {name:"Slime", hp:6, atk_min:2, atk_max:5, gold_min:1, gold_max:2, category:ENEMY_CATEGORY_SHADOW};
+  enemy.stats[ENEMY_SHADOW_TENDRILS] = {name:"Slime", hp:6, atk_min:2, atk_max:4, gold_min:1, gold_max:2, category:ENEMY_CATEGORY_SHADOW};
   enemy.stats[ENEMY_SHADOW_TENDRILS].powers = [ENEMY_POWER_ATTACK];
 
   enemy.stats[ENEMY_IMP] = {name:"Giant Rat", hp:7, atk_min:2, atk_max:6, gold_min:1, gold_max:3, category:ENEMY_CATEGORY_SHADOW};
@@ -72,7 +72,7 @@ function enemy_init() {
   enemy.stats[ENEMY_ZOMBIE] = {name:"Highwayman", hp:16, atk_min:4, atk_max:10, gold_min:6, gold_max:20, category:ENEMY_CATEGORY_DEMON};
   enemy.stats[ENEMY_ZOMBIE].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_ATTACK, ENEMY_POWER_HPDRAIN];
 
-  enemy.stats[ENEMY_SKELETON] = {name:"Creeper", hp:20, atk_min:3, atk_max:8, gold_min:5, gold_max:10, category:ENEMY_CATEGORY_UNDEAD};
+  enemy.stats[ENEMY_SKELETON] = {name:"Creeper", hp:20, atk_min:2, atk_max:6, gold_min:5, gold_max:10, category:ENEMY_CATEGORY_UNDEAD};
   enemy.stats[ENEMY_SKELETON].powers = [ENEMY_POWER_ATTACK];
   
   enemy.stats[ENEMY_MIMIC] = {name:"Berserker", hp:10, atk_min:7, atk_max:14, gold_min:5, gold_max:10, category:ENEMY_CATEGORY_UNDEAD};

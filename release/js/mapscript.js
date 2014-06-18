@@ -36,7 +36,7 @@ function mapscript_exec(map_id) {
       // result = result || mapscript_message(1,2,"serfmsg","This place is no longer safe");
       return result;
 
-    case 1: // Gar'ashi Monastery (Sunflower Projects)
+    case 1: // Gar'ashi Monastery (Karpos Koriis)
       return false;
 
     case 2: // Monk Quarters (Somebody's Apartment)
@@ -45,19 +45,19 @@ function mapscript_exec(map_id) {
     case 3: // Meditation Point (Rooftop)
       return mapscript_chest(2,1,"heal", "Spell: Heal", 1);
 
-    case 4: // Monastery Trail (Brush Park)
+    case 4: // Monastery Trail (Ouropolokis Fields I)
       return mapscript_chest(2,2,"hp1", "Endurance Dust", 1);
 
-    case 5: // Cedar Village (Mack Avenue)
+    case 5: // Cedar Village (Idarous Polis)
       return mapscript_chest(7,10,"g1", "Gold", 10);
 
-    case 6: // Zuruth Plains (Wyoming Street)
+    case 6: // Zuruth Plains (Ouropolokis Fields II)
       return mapscript_chest(9,4,"mp1", "Stamina Dust", 1);
 
-    case 7: // Canal Boneyard (Decrepit Graveyard)
+    case 7: // Canal Boneyard (Ouropolokis Forest)
       return mapscript_chest(13,5,"def1", "Toughness Dust", 1);
 
-    case 8: // Mausoleum (Abandoned Church)
+    case 8: // Mausoleum (Abandoned Temple)
       mapscript_bone_pile_load(8);
       mapscript_locked_door_load(8);
       result = mapscript_haybale(11,9);
@@ -67,21 +67,21 @@ function mapscript_exec(map_id) {
 
       return result;
     
-    case 9: // Dead Walkways
+    case 9: // Dead Walkways ("Hades Emerging")
       mapscript_bone_pile_load(9);
       boss_alter_map();
       result = mapscript_enemy(4,9, ENEMY_MIMIC, "");
       result = result || mapscript_enemy(11,5, ENEMY_DEATH_SPEAKER, "dspeak");
       return result;
 
-    case 10: // Trade Tunnel
+    case 10: // Trade Tunnel (Catacombs of Epikros)
       mapscript_locked_door_load(10);
       mapscript_bone_pile_load(10);
       
       result = mapscript_chest(11,2, "hp2", "Endurance Dust", 1);
       result = result || mapscript_chest(13,2, "g3", "Gold", 100);
-      result = result || mapscript_enemy(14,9, ENEMY_MIMIC, "");
-      result = result || mapscript_enemy(6,4, ENEMY_MIMIC, "");
+      //result = result || mapscript_enemy(14,9, ENEMY_MIMIC, "");
+      //result = result || mapscript_enemy(6,4, ENEMY_MIMIC, "");
 	  //result = result || mapscript_message(2,14, 0, "LOL MESSAGE");
 	  result = result || mapscript_ending(2,14, 0);
 

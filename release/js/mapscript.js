@@ -8,10 +8,10 @@ var mapscript = new Object();
 //THESE ARE TRACKED HERE?!
 mapscript.bone_piles = new Array();
 mapscript.bone_piles = [
-  {map_id:8, x:4, y:7, status:"bone1"},
+  {map_id:8, x:4, y:5, status:"bone1"},
   {map_id:8, x:4, y:2, status:"bone2"},
-  {map_id:8, x:13, y:7, status:"bone3"},
-  {map_id:8, x:11, y:5, status:"bone4"},
+  {map_id:8, x:13, y:5, status:"bone3"},
+  {map_id:8, x:11, y:3, status:"bone4"},
   {map_id:9, x:5, y:5, status:"bone5"},
   {map_id:9, x:8, y:2, status:"bone6"},
   {map_id:10, x:2, y:4, status:"bone7"},
@@ -20,9 +20,10 @@ mapscript.bone_piles = [
 
 mapscript.locked_doors = new Array();
 mapscript.locked_doors = [
-  {map_id:8, x:4, y:12, status:"door1"},
+  {map_id:8, x:4, y:8, status:"door1"},
   {map_id:10, x:11, y:3, status:"door2"},
-  {map_id:10, x:13, y:3, status:"door3"}
+  {map_id:10, x:13, y:3, status:"door3"},
+  {map_id:8, x:12, y:5, status:"door4"} //added for Ascension: Adventure
 ];
 
 
@@ -60,18 +61,19 @@ function mapscript_exec(map_id) {
     case 8: // Mausoleum (Abandoned Temple)
       mapscript_bone_pile_load(8);
       mapscript_locked_door_load(8);
-      result = mapscript_haybale(11,9);
+      result = mapscript_haybale(11,7);
       result = result || mapscript_chest(3,2,"atk1", "Strength Dust", 1);
-      result = result || mapscript_chest(3,12,"mp2", "Stamina Dust", 1);
-      result = result || mapscript_chest(6,9, "g2", "Gold", 25);
+      result = result || mapscript_chest(3,8,"mp2", "Stamina Dust", 1);
+      result = result || mapscript_chest(6,7, "g2", "Gold", 25);
 
       return result;
     
     case 9: // Dead Walkways ("Hades Emerging")
       mapscript_bone_pile_load(9);
       boss_alter_map();
-      result = mapscript_enemy(4,9, ENEMY_MIMIC, "");
-      result = result || mapscript_enemy(11,5, ENEMY_DEATH_SPEAKER, "dspeak");
+      //result = mapscript_enemy(4,9, ENEMY_MIMIC, "");
+      //result = result || mapscript_enemy(11,5, ENEMY_DEATH_SPEAKER, "dspeak");
+	  result = mapscript_enemy(11,5, ENEMY_DEATH_SPEAKER, "dspeak");
       return result;
 
     case 10: // Trade Tunnel (Catacombs of Epikros)

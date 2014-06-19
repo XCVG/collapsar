@@ -189,24 +189,28 @@ atlas.maps[6].enemies = [ENEMY_IMP, ENEMY_ZOMBIE, ENEMY_IMP, ENEMY_SHADOW_TENDRI
 atlas.maps[7].name = "Ouropolokis Forest";
 atlas.maps[7].music = "m31";
 atlas.maps[7].width = 15;
-atlas.maps[7].height = 11;
+atlas.maps[7].height = 15;
 atlas.maps[7].background = 1;
 atlas.maps[7].tiles = [
   [ 0,15,15,15, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-  [ 0,15,15,15,12, 6, 6, 6, 6, 6,14,14,13,14, 2],
-  [ 0,15,15,15,13, 6,14, 1,14, 6,13,13,14,13, 2],
-  [ 6,15,15,15, 6, 6,14, 1,13, 6, 6, 6, 6, 6, 2],
-  [ 4,15,15,15, 4, 6,13, 1,14, 6, 2, 2, 2, 5, 2],
-  [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 2, 2, 8, 2],
-  [ 4,15,15,15, 4, 6,14, 1,13, 6, 2, 2, 2, 5, 2],
-  [ 6,15,15,15, 6, 6,13, 1,14, 6, 6, 6, 6, 6, 2],
-  [ 0,15,15,15,13, 6,14, 1,13, 6,14,13,13,14, 2],
-  [ 0,15,15,15,12, 6, 6, 6, 6, 6,14,13,14,13, 2],
+  [ 0,15,15,15, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 2],
+  [ 0,15,15,15, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 2],
+  [ 6,15,15,15, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 2],
+  [ 4,15,15,15, 4, 6, 6, 6, 6, 6, 2, 2, 2, 5, 2],
+  [ 1, 1, 1, 1, 1, 6, 6, 6, 6, 1, 3, 2, 2, 8, 2],
+  [ 4,15,15,15, 4, 6, 6, 6, 6, 6, 2, 2, 2, 5, 2],
+  [ 6,15,15,15, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 2],
+  [ 0,15,15,15, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 2],
+  [ 0,15,15,15, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 2],
+  [ 0,15,15,15, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 2],
+  [ 0,15,15,15, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 2],
+  [ 0,15,15,15, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 2],
+  [ 0,15,15,15, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 2],
   [ 0,15,15,15, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]  
 ];
 atlas.maps[7].exits[0] = {exit_x:1, exit_y:5, dest_map:6, dest_x:13, dest_y:7};
 atlas.maps[7].exits[1] = {exit_x:10, exit_y:5, dest_map:8, dest_x:1, dest_y:7};
-atlas.maps[7].enemies = [ENEMY_SHADOW_TENDRILS, ENEMY_ZOMBIE, ENEMY_SKELETON];
+atlas.maps[7].enemies = [ENEMY_MIMIC, ENEMY_SKELETON, ENEMY_DRUID, ENEMY_MIMIC, ENEMY_SKELETON];
 
 atlas.maps[8].name = "Abandoned Temple";
 atlas.maps[8].music = "kawarayu";
@@ -232,7 +236,7 @@ atlas.maps[8].tiles = [
 ];
 atlas.maps[8].exits[0] = {exit_x:0, exit_y:7, dest_map:7, dest_x:9, dest_y:5};
 atlas.maps[8].exits[1] = {exit_x:15, exit_y:7, dest_map:9, dest_x:1, dest_y:5};
-atlas.maps[8].enemies = [ENEMY_ZOMBIE, ENEMY_SKELETON, ENEMY_DRUID];
+atlas.maps[8].enemies = [ENEMY_MIMIC, ENEMY_SKELETON, ENEMY_DRUID];
 
 atlas.maps[9].name = "Hades Emerging";
 atlas.maps[9].music = "kawarayu";

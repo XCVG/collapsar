@@ -238,6 +238,7 @@ function combat_logic_victory() {
 	//boss special
 	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
 	{
+		ending.id = ENDING_GOOD;
 		gamestate = STATE_ENDING;
 	}
 	else
@@ -256,6 +257,7 @@ function combat_logic_victory() {
 	//boss special
 	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
 	{
+		ending.id = ENDING_GOOD;
 		gamestate = STATE_ENDING;
 	}
 	else
@@ -269,6 +271,13 @@ function combat_logic_victory() {
 
 function combat_logic_defeat() {
 	mazemap_set_music("defeat");
+	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
+	{
+		ending.id = ENDING_BAD;
+		gamestate = STATE_ENDING;
+		redraw = true;
+	}	
+	
   return;
 }
 

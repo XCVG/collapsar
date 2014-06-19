@@ -171,6 +171,7 @@ function combat_logic_offense() {
 	// check for successfully running away
 	else if (combat.run_success) {	
       combat_clear_messages();
+	  mazemap_set_music(atlas.maps[mazemap.current_id].music);
       gamestate = STATE_EXPLORE;
       redraw = true;
 	  avatar_save();

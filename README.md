@@ -25,7 +25,8 @@ Collapsar should, in theory, work on any modern browser.
 
 * Firefox 29 PC: Works.
 * Chrome 35 PC: Works.
-* IE11: Scaling issues.
+* IE9: Scales blurry and sound effects don't play.
+* IE11: Scales blurry.
 * Android ICS Browser: Extremely slow.
 * Android JB Broswer: Extremely slow.
 * Chrome Android: Works. Sizing issues on some devices.

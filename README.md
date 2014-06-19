@@ -1,6 +1,6 @@
 # Ascension: Adventure
 
-Coming Summer 2014
+Out now! http://xcvgsystems.net/?page_id=144
 
 Ascension: Adventure is a retro dungeon crawler and semi-sequel to Ascension.
 
@@ -32,11 +32,44 @@ See the Collapsar readme for details.
 
 ## License
 
-* The code for Collapsar is released under GPL v3, with later versions permitted.
-* The visual art for Heroine Dusk and Heroin Dusk is released under CC-BY-SA 3.0, with later versions permitted.
-* Heroine Dusk is a trademark name that belongs to Clint Bellanger.
+### Ascension: Adventure is based on Heroine Dusk:
 
-## Thanks
+Heroine Dusk is created by Clint Bellanger http://clintbellanger.net
+Heroine Dusk features music by Yubatake http://opengameart.org/users/yubatake
+Heroine Dusk is a trademark name that refers to the original game.
 
-* Clint Bellanger for creating the original Heroine Dusk http://clintbellanger.net
-* Justin Jacobs for contributing the Options menu (WTFPL license) https://github.com/dorkster
+License:
+All of the visual art and code for Heroine Dusk was created by Clint Bellanger. http://clintbellanger.net
+The code for Heroine Dusk is released under GPL v3, with later versions permitted.
+The visual art for Heroine Dusk is released under CC-BY-SA 3.0, with later versions permitted.
+The music is by Yubatake (CC-BY 3.0). http://opengameart.org/users/yubatake
+
+Thanks to:
+Justin Jacobs for contributing the Options menu (WTFPL license) https://github.com/dorkster
+Jessica "Zeldyn" Cox, figure model for the heroine and villainess http://zeldyn-stock.deviantart.com/
+DawnBringer at PixelJoint for the 16 color palette http://www.pixeljoint.com/forum/forum_posts.asp?TID=12795
+Yubatake for releasing quality music using a free license https://soundcloud.com/yubatake/
+
+### Ascension: Adventure uses assets from other sources:
+
+Slime by titi_son (http://opengameart.org/content/side-scroller-slime) [CC0]
+10 Fantasy RPG enemies by CharlesGabriel (http://opengameart.org/content/10-fantasy-rpg-enemies) [CC-BY-SA 3.0]
+Bat by thomaswp (http://opengameart.org/content/bat) [CC-BY-SA 3.0]
+Loyalty Lies Monsters - Chaos Monster 08 by Heather Lee Harvey (http://opengameart.org/content/loyalty-lies-monsters-chaos-monster-08) [CC-BY 3.0]
+420 -Pixel Art- Icons for RPG by 7Soul1/Ails/Henrique Lazarini (http://7soul1.deviantart.com/art/420-Pixel-Art-Icons-for-RPG-129892453) [CC-BY 3.0]
+Extra 98 Free RPG Icons by 7Soul1/Ails/Henrique Lazarini (http://7soul1.deviantart.com/art/Extra-98-Free-RPG-Icons-389778011) [CC-BY 3.0]
+SKY3 from Freedoom (http://freedoom.github.io/) [modified BSD license]
+
+RPG - Final Battle by UltimaEpica (http://www.newgrounds.com/audio/listen/210705) [CC-BY-NC-SA 3.0]
+Hero Down by Kevin MacLeod (http://incompetech.com/music/) [CC-BY 3.0]
+Colossus by Kevin MacLeod (http://incompetech.com/music/) [CC-BY 3.0]
+Dark Times by Kevin MacLeod (http://incompetech.com/music/) [CC-BY 3.0]
+Path Walk by HorrorPen (http://opengameart.org/content/path-walk) [CC-BY 3.0]
+Prologue by Telaron (http://opengameart.org/content/prologue) [CC-BY-SA 3.0]
+The King's Crowning by Telaron (http://opengameart.org/content/the-kings-crowning) [CC-BY-SA 3.0]
+
+### Ascension: Adventure is licensed:
+
+The code for Ascension: Adventure is released under GPL v3, with later versions permitted.
+All visual art derived from Heroine Dusk or created specifically for Ascension: Adventure is released under CC-BY-SA 3.0, with later versions permitted.
+All visual art and music from other sources is licensed under their respective licenses.

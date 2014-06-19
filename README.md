@@ -1,5 +1,5 @@
 # Heroin Dusk
-Version 1.0
+Version 1.1b1
 
 Heroin Dusk is a basic dungeon crawl made using an old aesthetic. It began as a stupid joke I thought up when I was tired.
 

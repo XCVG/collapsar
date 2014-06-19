@@ -45,8 +45,8 @@ function treasure_img_onload() {treasure.img_loaded = true;}
  //replaced with a lazy version by XCVG
 function treasure_render_gold(total_value) {
 
-  // arranged in treasure pile draw order
-  /*
+  // arranged in treasure pile draw order (Heroine Dusk behavior)
+
   if (total_value & 128) treasure_render_gold_icon(7);
   if (total_value & 512) treasure_render_gold_icon(9);
   if (total_value & 32) treasure_render_gold_icon(5);
@@ -57,8 +57,10 @@ function treasure_render_gold(total_value) {
   if (total_value & 64) treasure_render_gold_icon(6);
   if (total_value & 2) treasure_render_gold_icon(1);
   if (total_value & 256) treasure_render_gold_icon(8);
-  */
+
   
+  //guesstimate amount (designed for Heroin Dusk)
+  /*
   if(total_value < 2)
 	treasure_render_gold_icon(0);
   else if(total_value < 10)
@@ -69,6 +71,7 @@ function treasure_render_gold(total_value) {
 	treasure_render_gold_icon(3);
   else
 	treasure_render_gold_icon(4);
+	*/
 
 }
 

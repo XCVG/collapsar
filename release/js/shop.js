@@ -2,14 +2,14 @@
  Dialog info for game shops
  */
 
-var SHOP_COUNT = 9;
+var SHOP_COUNT = 16;
 
 var SHOP_WEAPON = 0;
 var SHOP_ARMOR = 1;
 var SHOP_SPELL = 2;
 var SHOP_ROOM = 3;
 var SHOP_MESSAGE = 4;
-var SHOP_ENDING = 5;
+var SHOP_ENDING = 5; //old ending script for Heroin Dusk
 
 var shop = new Array();
 for (var i=0; i<SHOP_COUNT; i++) {
@@ -18,49 +18,90 @@ for (var i=0; i<SHOP_COUNT; i++) {
 }
 
 // Cedar Village Shops
-shop[0].name = "Andy";
+shop[0].name = "Weapon Shop";
 shop[0].item[0] = {type:SHOP_WEAPON, value:2};
 shop[0].item[1] = {type:SHOP_WEAPON, value:3};
 shop[0].background = 3;
 
-shop[1].name = "Thrift Store";
+shop[1].name = "Armor Shop";
 shop[1].item[0] = {type:SHOP_ARMOR, value:2};
 shop[1].item[1] = {type:SHOP_ARMOR, value:3};
 shop[1].background = 3;
 
-shop[2].name = "Shifty Jimmy";
-shop[2].item[0] = {type:SHOP_MESSAGE, msg1:"Wanna get fucked up?", msg2:"Don't got no smack tho."};
+shop[2].name = "Inn";
+shop[2].item[0] = {type:SHOP_MESSAGE, msg1:"I heard of dark things", msg2:"at the ruined temple."};
 shop[2].item[1] = {type:SHOP_ROOM, value:10};
 shop[2].background = 3;
 
-shop[3].name = "Flamer Joe";
-shop[3].item[0] = {type:SHOP_MESSAGE, msg1:"Burning people good", msg2:"I sell flamethrower"};
+shop[3].name = "Apothecary";
+shop[3].item[0] = {type:SHOP_MESSAGE, msg1:"Fire magic can also", msg2:"burn some obstacles."};
 shop[3].item[1] = {type:SHOP_SPELL, value:2};
 shop[3].background = 3;
 
-shop[4].name = "Paul";
-shop[4].item[1] = {type:SHOP_MESSAGE, msg1:"Them bikers been around.", msg2:"They fucking shot me!"};
+//Lone hosue
+shop[4].name = "Ilisia";
+shop[4].item[0] = {type:SHOP_MESSAGE, msg1:"They came from shadows", msg2:"Rose from the night"};
+shop[4].item[1] = {type:SHOP_MESSAGE, msg1:"The ones evil touched", msg2:"were changed to things"};
 shop[4].background = 3;
 
+//Mall shops
 shop[5].name = "Busted!";
 shop[5].item[0] = {type:SHOP_ENDING, msg1:"Aw, fuck! I have rights!", msg2:""};
 shop[5].item[1] = {type:SHOP_ENDING, msg1:"You got arrested", msg2:"by the police!"};
 shop[5].background = 4;
 
-shop[6].name = "Tommy the Fence";
-shop[6].item[0] = {type:SHOP_MESSAGE, msg1:"Got some lockpicks here.", msg2:"Open that shit right up."};
+shop[6].name = "Shifty Individual";
+shop[6].item[0] = {type:SHOP_MESSAGE, msg1:"I can show you how to", msg2:"open any locked door."};
 shop[6].item[1] = {type:SHOP_SPELL, value:3};
 shop[6].background = 3;
 
-shop[7].name = "Italian Tony";
-shop[7].item[0] = {type:SHOP_MESSAGE, msg1:"Hey, man, these streets", msg2:"aren't safe tonight!"};
-shop[7].item[1] = {type:SHOP_MESSAGE, msg1:"Fuckin' bikers moving", msg2:"into the city."};
+shop[7].name = "Shady Dealer";
+shop[7].item[0] = {type:SHOP_WEAPON, value:4};
+shop[7].item[1] = {type:SHOP_ARMOR, value:4};
 shop[7].background = 3;
 
+//begin message
 shop[8].name = "Midnight";
-shop[8].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
-shop[8].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[8].item[0] = {type:SHOP_MESSAGE, msg1:"You've arrived", msg2:"too late."};
+shop[8].item[1] = {type:SHOP_MESSAGE, msg1:"The village is", msg2:"already destroyed."};
 shop[8].background = 2;
+
+//additional shops
+shop[9].name = "empty09";
+shop[9].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
+shop[9].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[9].background = 2;
+
+shop[10].name = "AA ENDING";
+shop[10].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
+shop[10].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[10].background = 2;
+
+//additional messages
+shop[11].name = "msg01";
+shop[11].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
+shop[11].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[11].background = 2;
+
+shop[12].name = "msg02";
+shop[12].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
+shop[12].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[12].background = 2;
+
+shop[13].name = "msg03";
+shop[13].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
+shop[13].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[13].background = 2;
+
+shop[14].name = "msg04";
+shop[14].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
+shop[14].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[14].background = 2;
+
+shop[15].name = "msg05";
+shop[15].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
+shop[15].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[15].background = 2;
 
 //---- Set choice options for shops --------
 
@@ -108,32 +149,32 @@ function shop_set(shop_id) {
 
 function shop_set_weapon(slot, weapon_id) {
   var disable_reason = "";
-  if (weapon_id == avatar.weapon) disable_reason = "(Got it already!)";
-  else if (weapon_id < avatar.weapon) disable_reason = "(Your shit's better!)";
+  if (weapon_id == avatar.weapon) disable_reason = "(You own this)";
+  else if (weapon_id < avatar.weapon) disable_reason = "(Yours is better)";
 
   shop_set_buy(slot, info.weapons[weapon_id].name, info.weapons[weapon_id].gold, disable_reason);
 }
 
 function shop_set_armor(slot, armor_id) {
   var disable_reason = "";
-  if (armor_id == avatar.armor) disable_reason = "(Got it already!)";
-  else if (armor_id < avatar.armor) disable_reason = "(Your shit's better!)";
+  if (armor_id == avatar.armor) disable_reason = "(You own this)";
+  else if (armor_id < avatar.armor) disable_reason = "(Yours is better)";
 
   shop_set_buy(slot, info.armors[armor_id].name, info.armors[armor_id].gold, disable_reason);
 }
 
 function shop_set_spell(slot, spell_id) {
   var disable_reason = "";
-  if (spell_id <= avatar.spellbook) disable_reason = "(Got it already!)";
-  else if (spell_id > avatar.spellbook +1) disable_reason = "(Too fucking hard!)";
+  if (spell_id <= avatar.spellbook) disable_reason = "(You know this)";
+  else if (spell_id > avatar.spellbook +1) disable_reason = "(Too advanced)";
   
   shop_set_buy(slot, "Ability: " + info.spells[spell_id].name, info.spells[spell_id].gold, disable_reason); 
 }
 
 function shop_set_room(slot, room_cost) {
   var disable_reason = "";
-  if (avatar.hp == avatar.max_hp && avatar.mp == avatar.max_mp) disable_reason = "(You all hyper!)";
-  shop_set_buy(slot, "Shot of speed", room_cost, disable_reason);
+  if (avatar.hp == avatar.max_hp && avatar.mp == avatar.max_mp) disable_reason = "(You are well rested)";
+  shop_set_buy(slot, "Room for the night", room_cost, disable_reason);
 }
 
 function shop_set_message(slot, msg1, msg2) {
@@ -163,7 +204,7 @@ function shop_set_buy(slot, name, cost, disable_reason) {
     dialog.option[slot].msg2 = disable_reason;
   }
   else {
-    dialog.option[slot].msg2 = "for $ " + cost;
+    dialog.option[slot].msg2 = "for " + cost + " gold";
   }
 
   // display the dialog button if the item can be purchased
@@ -250,7 +291,7 @@ function shop_buy_spell(spell_id) {
   avatar.gold -= cost;
   sounds_play(SFX_COIN);
   avatar.spellbook = spell_id;
-  dialog.message = "Picked up " + info.spells[spell_id].name;
+  dialog.message = "Learned " + info.spells[spell_id].name;
   shop_set(dialog.shop_id);
   redraw = true;
 }
@@ -260,7 +301,7 @@ function shop_buy_room(cost) {
   
   avatar.gold -= cost;
   sounds_play(SFX_COIN);
-  dialog.message = "Got some speed";
+  dialog.message = "You have rested";
   
   avatar_sleep();
   shop_set(dialog.shop_id);

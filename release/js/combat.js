@@ -78,6 +78,8 @@ function combat_logic() {
 }
 
 function combat_logic_intro() {
+	mazemap_set_music("combat");
+
     if (OPTIONS.animation == true) {
       combat.timer--;
       
@@ -169,6 +171,7 @@ function combat_logic_offense() {
 	// check for successfully running away
 	else if (combat.run_success) {	
       combat_clear_messages();
+	  mazemap_set_music(atlas.maps[mazemap.current_id].music);
       gamestate = STATE_EXPLORE;
       redraw = true;
 	  avatar_save();
@@ -230,7 +233,17 @@ function combat_logic_victory() {
   if (pressing.mouse && !input_lock.mouse) {  
     input_lock.mouse = true;
     combat_clear_messages();
-    gamestate = STATE_EXPLORE;
+	//music gross hack
+	mazemap_set_music(atlas.maps[mazemap.current_id].music);
+	//boss special
+	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
+	{
+		gamestate = STATE_ENDING;
+	}
+	else
+	{
+		gamestate = STATE_EXPLORE;
+	}
     redraw = true;
     return;  
   }
@@ -238,13 +251,24 @@ function combat_logic_victory() {
   if (pressing.action && !input_lock.action) {
     input_lock.action = true;
     combat_clear_messages();
-    gamestate = STATE_EXPLORE;
+	//music gross hack
+	mazemap_set_music(atlas.maps[mazemap.current_id].music);
+	//boss special
+	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
+	{
+		gamestate = STATE_ENDING;
+	}
+	else
+	{
+		gamestate = STATE_EXPLORE;
+	}
     redraw = true;
     return;  	
   }
 }
 
 function combat_logic_defeat() {
+	mazemap_set_music("defeat");
   return;
 }
 
@@ -262,7 +286,7 @@ function combat_determine_reward() {
   var gold_max = enemy.stats[combat.enemy.type].gold_max;
   
   var gold_reward = Math.round(Math.random() * (gold_max - gold_min)) + gold_min;
-  combat.reward_result = "+" + gold_reward + " dollars!";
+  combat.reward_result = "+" + gold_reward + " gold!";
   
   avatar.gold += gold_reward;
   combat.gold_treasure = gold_reward;
@@ -354,7 +378,7 @@ function combat_render_defeat() {
   combat_render_offense_log();
   combat_render_defense_log();
   info_render_hpmp();
-  bitfont_render("You dead, bitch...", 158, 100, JUSTIFY_RIGHT);
+  bitfont_render("You lost!", 80, 60, JUSTIFY_CENTER);
   info_render_gold();
 }
 

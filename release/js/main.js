@@ -79,6 +79,7 @@ function init() {
   dialog_init();
   boss_init();
   title_init();
+  ending_init();
   sounds_init();
   treasure_init();
 

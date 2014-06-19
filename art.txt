@@ -1,0 +1,51 @@
+COMPLETE LISTING OF ALL ART ASSETS
+
+BACKGROUNDS
+bending		: mostly original, contains sprite from Heroine Dusk
+black		: it's a black rectangle, I don't think anyone can claim ownership (except maybe Apple)
+busted		: unused/blank
+gending		: mostly original, contains sprite from Heroine Dusk
+hades		: SKY3 from Freedoom
+interior	: Heroine Dusk (scaled and repaletted)
+intsky		: original (technically made for Heroin Dusk)
+nightsky	: Heroine Dusk (scaled and repaletted)
+tempest		: Heroine Dusk (scaled and repaletted)
+title		: original
+
+ENEMIES
+bone_shield	: Heroine Dusk (edited)
+death_speaker	: Heroine Dusk (edited)
+druid		: Heroine Dusk (edited)
+imp		: 10 Fantasy RPG enemies by CharlesGabriel (scaled/paletted)
+mimic		: Heroine Dusk (edited)
+shadow_soul	: Bat by thomaswp (scaled/paletted)
+shadow_tendrils	: Slime by titi_son (scaled/paletted)
+skeleton	: Heroine Dusk (edited)
+zombie		: Loyalty Lies Monsters - Chaos Monster 08 by Heather Lee Harvey (recoloured/scaled/paletted)
+
+INTERFACE
+UI elements	: Heroine Dusk (prescaled)
+heroine		: 420 -Pixel Art- Icons for RPG and Extra 98 Free RPG Icons by 7Soul1/Ails/Henrique Lazarini (edited/scaled/paletted)
+
+TILES
+Heroine Dusk (edited, recoloured, scaled, paletted)
+
+TREASURE
+gold		: Heroine Dusk (scaled/paletted)
+stick		: Heroine Dusk (scaled/paletted)
+book		: Heroine Dusk (scaled/paletted)
+potions		: 420 -Pixel Art- Icons for RPG by 7Soul1/Ails/Henrique Lazarini (edited/scaled/paletted)
+
+MUSIC
+911		: silence (made in Audacity, again, I don't think anyone can claim ownership)
+combat		: RPG - Final Battle by UltimaEpica
+defeat		: Hero Down by Kevin MacLeod
+elegy_dm	: silence
+haply		: Colossus by Kevin MacLeod
+kawarayu	: Dark Times by Kevin MacLeod
+m31		: Path Walk by HorrorPen
+title		: Prologue by Telaron
+victory		: The King's Crowning by Telaron
+
+SOUNDS
+Heroine Dusk (split to stereo)

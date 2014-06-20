@@ -81,7 +81,7 @@ function enemy_init() {
   enemy.stats[ENEMY_DRUID] = {name:"Cultist", hp:30, atk_min:10, atk_max:16, gold_min:16, gold_max:25, category:ENEMY_CATEGORY_DEMON};
   enemy.stats[ENEMY_DRUID].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_SCORCH];
 
-  enemy.stats[ENEMY_DEATH_SPEAKER] = {name:"Cult Leader", hp:84, atk_min:8, atk_max:15, gold_min:225, gold_max:275, category:ENEMY_CATEGORY_AUTOMATON};
+  enemy.stats[ENEMY_DEATH_SPEAKER] = {name:"Cult Leader", hp:84, atk_min:8, atk_max:15, gold_min:225, gold_max:275, category:ENEMY_CATEGORY_DEMON};
   enemy.stats[ENEMY_DEATH_SPEAKER].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_SCORCH, ENEMY_POWER_HPDRAIN, ENEMY_POWER_MPDRAIN];
   
 }

@@ -295,7 +295,7 @@ function combat_determine_reward() {
   var gold_max = enemy.stats[combat.enemy.type].gold_max;
   
   var gold_reward = Math.round(Math.random() * (gold_max - gold_min)) + gold_min;
-  combat.reward_result = "+" + gold_reward + " gold!";
+  combat.reward_result = "+" + gold_reward + " dollars!";
   
   avatar.gold += gold_reward;
   combat.gold_treasure = gold_reward;
@@ -387,7 +387,7 @@ function combat_render_defeat() {
   combat_render_offense_log();
   combat_render_defense_log();
   info_render_hpmp();
-  bitfont_render("You lost!", 80, 60, JUSTIFY_CENTER);
+  bitfont_render("You dead!", 80, 60, JUSTIFY_CENTER);
   info_render_gold();
 }
 

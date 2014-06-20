@@ -60,29 +60,29 @@ function enemy_init() {
 
   // set enemy stats
 
-  enemy.stats[ENEMY_SHADOW_TENDRILS] = {name:"Slime", hp:6, atk_min:2, atk_max:4, gold_min:1, gold_max:2, category:ENEMY_CATEGORY_SHADOW};
+  enemy.stats[ENEMY_SHADOW_TENDRILS] = {name:"Hobo", hp:6, atk_min:2, atk_max:5, gold_min:1, gold_max:2, category:ENEMY_CATEGORY_UNDEAD};
   enemy.stats[ENEMY_SHADOW_TENDRILS].powers = [ENEMY_POWER_ATTACK];
 
-  enemy.stats[ENEMY_IMP] = {name:"Giant Rat", hp:7, atk_min:2, atk_max:6, gold_min:1, gold_max:3, category:ENEMY_CATEGORY_SHADOW};
-  enemy.stats[ENEMY_IMP].powers = [ENEMY_POWER_ATTACK];
+  enemy.stats[ENEMY_IMP] = {name:"Junkie", hp:7, atk_min:2, atk_max:6, gold_min:1, gold_max:3, category:ENEMY_CATEGORY_UNDEAD};
+  enemy.stats[ENEMY_IMP].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_ATTACK, ENEMY_POWER_SCORCH];
 
-  enemy.stats[ENEMY_SHADOW_SOUL] = {name:"Cave Bat", hp:8, atk_min:3, atk_max:8, gold_min:2, gold_max:4, category:ENEMY_CATEGORY_SHADOW};
+  enemy.stats[ENEMY_SHADOW_SOUL] = {name:"Hooker", hp:8, atk_min:3, atk_max:8, gold_min:2, gold_max:4, category:ENEMY_CATEGORY_UNDEAD};
   enemy.stats[ENEMY_SHADOW_SOUL].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_ATTACK, ENEMY_POWER_MPDRAIN];
 
-  enemy.stats[ENEMY_ZOMBIE] = {name:"Highwayman", hp:16, atk_min:4, atk_max:10, gold_min:6, gold_max:20, category:ENEMY_CATEGORY_DEMON};
+  enemy.stats[ENEMY_ZOMBIE] = {name:"Gangsta", hp:12, atk_min:4, atk_max:10, gold_min:3, gold_max:6, category:ENEMY_CATEGORY_SHADOW};
   enemy.stats[ENEMY_ZOMBIE].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_ATTACK, ENEMY_POWER_HPDRAIN];
 
-  enemy.stats[ENEMY_SKELETON] = {name:"Creeper", hp:20, atk_min:2, atk_max:6, gold_min:5, gold_max:10, category:ENEMY_CATEGORY_UNDEAD};
+  enemy.stats[ENEMY_SKELETON] = {name:"Biker", hp:18, atk_min:6, atk_max:12, gold_min:5, gold_max:8, category:ENEMY_CATEGORY_SHADOW};
   enemy.stats[ENEMY_SKELETON].powers = [ENEMY_POWER_ATTACK];
-  
-  enemy.stats[ENEMY_MIMIC] = {name:"Berserker", hp:10, atk_min:7, atk_max:14, gold_min:5, gold_max:10, category:ENEMY_CATEGORY_UNDEAD};
-  enemy.stats[ENEMY_MIMIC].powers = [ENEMY_POWER_ATTACK]; 
-  
-  enemy.stats[ENEMY_DRUID] = {name:"Cultist", hp:30, atk_min:10, atk_max:16, gold_min:16, gold_max:25, category:ENEMY_CATEGORY_DEMON};
-  enemy.stats[ENEMY_DRUID].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_SCORCH];
 
-  enemy.stats[ENEMY_DEATH_SPEAKER] = {name:"Cult Leader", hp:84, atk_min:8, atk_max:15, gold_min:225, gold_max:275, category:ENEMY_CATEGORY_AUTOMATON};
-  enemy.stats[ENEMY_DEATH_SPEAKER].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_SCORCH, ENEMY_POWER_HPDRAIN, ENEMY_POWER_MPDRAIN];
+  enemy.stats[ENEMY_DRUID] = {name:"Dealer", hp:16, atk_min:7, atk_max:14, gold_min:7, gold_max:12, category:ENEMY_CATEGORY_SHADOW};
+  enemy.stats[ENEMY_DRUID].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_SCORCH, ENEMY_POWER_HPDRAIN, ENEMY_POWER_MPDRAIN];
+
+  enemy.stats[ENEMY_MIMIC] = {name:"Beat Cop", hp:30, atk_min:10, atk_max:16, gold_min:16, gold_max:25, category:ENEMY_CATEGORY_DEMON};
+  enemy.stats[ENEMY_MIMIC].powers = [ENEMY_POWER_ATTACK];
+
+  enemy.stats[ENEMY_DEATH_SPEAKER] = {name:"SWAT Officer", hp:84, atk_min:8, atk_max:15, gold_min:225, gold_max:275, category:ENEMY_CATEGORY_DEMON};
+  enemy.stats[ENEMY_DEATH_SPEAKER].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_SCORCH];
   
 }
 

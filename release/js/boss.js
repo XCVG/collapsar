@@ -35,7 +35,7 @@ function boss_alter_map() {
 
 function boss_boneshield_activate() {
   boss.boneshield_active = true;
-  combat.defense_action = "Bone Shield!";
+  combat.defense_action = "Riot Shield!";
   combat.defense_result = "+Def Up!";
   combat.hero_hurt = false;
   sounds_play(SFX_BONESHIELD);

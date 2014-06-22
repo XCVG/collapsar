@@ -53,11 +53,13 @@ function ending_render() {
 
   if(ending.id == ENDING_GOOD)
   {
+	bitfont_render("You got your heroin!", 80, 100, JUSTIFY_CENTER);
 	ctx.drawImage(ending.good_img, 0, 0, 160*SCALE, 120*SCALE);
 	mazemap_set_music("victory");
   }
   else
   {
+	bitfont_render("You got arrested!", 80, 100, JUSTIFY_CENTER);
 	ctx.drawImage(ending.bad_img, 0, 0, 160*SCALE, 120*SCALE);
 	mazemap_set_music("defeat");
   }

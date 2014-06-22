@@ -275,12 +275,12 @@ atlas.maps[10].tiles = [
   [ 2, 2, 5, 2, 2, 5,15, 5, 5, 5, 5, 5, 5, 5, 5, 2],
   [ 2, 7, 5, 7, 2, 5,15,15, 1,15,15, 1,15,15, 5, 2],
   [ 2, 2, 5, 2, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 2],
-  [ 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 ];
 atlas.maps[10].exits[0] = {exit_x:2, exit_y:0, dest_map:6, dest_x:8, dest_y:14};
 atlas.maps[10].enemies = [ENEMY_ZOMBIE, ENEMY_SKELETON, ENEMY_DRUID];
-atlas.maps[10].shops[0] = {exit_x:2, exit_y:15, shop_id:5, dest_x:2, dest_y:14};
-atlas.maps[10].shops[1] = {exit_x:11, exit_y:9, shop_id:6, dest_x:12, dest_y:9};
-atlas.maps[10].shops[2] = {exit_x:13, exit_y:7, shop_id:7, dest_x:13, dest_y:8};
+//atlas.maps[10].shops[0] = {exit_x:2, exit_y:15, shop_id:5, dest_x:2, dest_y:14};
+atlas.maps[10].shops[0] = {exit_x:11, exit_y:9, shop_id:6, dest_x:12, dest_y:9};
+atlas.maps[10].shops[1] = {exit_x:13, exit_y:7, shop_id:7, dest_x:13, dest_y:8};
 
 

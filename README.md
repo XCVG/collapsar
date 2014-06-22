@@ -74,4 +74,5 @@ You may use the name as long as you make it clear that your work is derived or i
 * Clint Bellanger for creating the original Heroine Dusk http://clintbellanger.net
 * Ashot Beatz TV for music https://www.youtube.com/user/ashotbeatz
 * Jace D. - Hard Rap Beats for music https://www.youtube.com/user/Jacekdupa
+* Kevin MacLeod for music http://incompetech.com/music/
 * Kopernikus for music https://www.youtube.com/user/MindOfKopernikus/videos

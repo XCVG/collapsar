@@ -5,7 +5,7 @@ bending		: mostly original, contains sprite from Heroine Dusk
 black		: it's a black rectangle, I don't think anyone can claim ownership (except maybe Apple)
 busted		: unused/blank
 gending		: mostly original, contains sprite from Heroine Dusk
-hades		: SKY3 from Freedoom
+hades		: Gloomy Skybox by Pieter ‘Spiney’ Verhoeven (scaled, recoloured, paletted)
 interior	: Heroine Dusk (scaled and repaletted)
 intsky		: original (technically made for Heroin Dusk)
 nightsky	: Heroine Dusk (scaled and repaletted)
@@ -38,7 +38,7 @@ potions		: 420 -Pixel Art- Icons for RPG by 7Soul1/Ails/Henrique Lazarini (edite
 
 MUSIC
 911		: silence (made in Audacity, again, I don't think anyone can claim ownership)
-combat		: RPG - Final Battle by UltimaEpica
+combat		: Sigil by Joseph Gilbert/Kistol
 defeat		: Hero Down by Kevin MacLeod
 elegy_dm	: silence
 haply		: Colossus by Kevin MacLeod

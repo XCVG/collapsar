@@ -209,7 +209,7 @@ atlas.maps[7].tiles = [
   [ 0,15,15,15,12,12,12,12,12,12,12,12,12,12,12]  
 ];
 atlas.maps[7].exits[0] = {exit_x:1, exit_y:5, dest_map:6, dest_x:13, dest_y:7};
-atlas.maps[7].exits[1] = {exit_x:10, exit_y:5, dest_map:8, dest_x:1, dest_y:7};
+atlas.maps[7].exits[1] = {exit_x:10, exit_y:5, dest_map:8, dest_x:1, dest_y:5};
 atlas.maps[7].enemies = [ENEMY_MIMIC, ENEMY_SKELETON, ENEMY_DRUID, ENEMY_MIMIC, ENEMY_SKELETON];
 
 atlas.maps[8].name = "Abandoned Temple";

@@ -5,16 +5,21 @@ Collapsar is the internal name for the "engine" that powers a few XCVG Systems g
 
 * Heroin Dusk
 * Ascension: Adventure
+* Ascension Adventure II
 
 Collapsar is better defined as common chunks of code than an actual engine.
 Collapsar is based on Heroine Dusk by Clint Ballanger http://clintbellanger.net
+
+# Dubnium
+
+Ascension Adventure II TBD
 
 ## Technology
 
 Collapsar is written in Javascript using HTML5 canvas.
 
 * Truecolor (Heroine Dusk's art is 16-color but the code doesn't care)
-* 160x120 native resolution (this can be changed)
+* 160x120 native resolution (this can be changed) [now 640x480?]
 * Keyboard controls: WASD or Arrows for movement, Space or Enter for interaction
 * Mouse controls: click to move or turn, or click buttons to interact.
 * Touch controls: as mouse controls, supported on some modern device browsers.

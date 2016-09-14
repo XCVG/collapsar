@@ -66,6 +66,9 @@ function init() {
     OPTIONS = JSON.parse(json_save);
   }
 
+  // execute preload
+  x_preload_init();
+  
   // initialize all game units
   bitfont_init();
   tileset_init();

@@ -67,7 +67,7 @@ function init() {
   }
 
   // execute preload
-  x_preload_init();
+  x_init_preload();
   
   // initialize all game units
   bitfont_init();
@@ -86,6 +86,9 @@ function init() {
   sounds_init();
   treasure_init();
   x_audio_init();
+  
+  // execute postload
+  x_init_postload();
 
   init_complete = true;
 }

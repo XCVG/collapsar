@@ -47,6 +47,6 @@ images.render = function(img_id, src_x, src_y, src_w, src_h, dest_x, dest_y) {
       dest_x * SCALE,
       dest_y * SCALE,
       src_w * SCALE,
-      src_h * SCALE,
+      src_h * SCALE
     );
 }

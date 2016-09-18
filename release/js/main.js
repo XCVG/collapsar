@@ -85,6 +85,7 @@ function init() {
   ending_init();
   sounds_init();
   treasure_init();
+  x_audio_init();
 
   init_complete = true;
 }

@@ -61,6 +61,7 @@ function init() {
   }
   
   // load some user preferences
+  //TODO change this to not a cookie
   var json_save = getCookie("options");
   if (json_save != null) {
     OPTIONS = JSON.parse(json_save);

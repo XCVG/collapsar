@@ -19,7 +19,27 @@
 		return;
 	}
 	
-	//abort if it matches
+	console.log(music);
+	
+	//check against current song and abort on match
+	
+	var song_path = "music/" + music + ".ogg";
+	//console.log(song_path);
+	
+	_x_audio_music = new Audio(song_path);
+	console.log(_x_audio_music);
+	_x_audio_music.loop = true;
+	_x_audio_music.load();
+	/*
+	_x_audio_music.oncanplay =
+	function(){
+		console.log("wtf");
+		_x_audio_music.play();
+	};
+	*/
+	_x_audio_music.play();
+	console.log(_x_audio_music.src);
+	console.log(_x_audio_music.readyState);
 	
 	 
  }

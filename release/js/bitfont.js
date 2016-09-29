@@ -25,7 +25,7 @@ bitfont.loaded = false;
 bitfont.loadedred = false;
 bitfont.color = FONT_WHITE;
 
-bitfont.kerning = -1;
+bitfont.kerning = 1;
 bitfont.height = 8;
 bitfont.cursor_x = 0;
 bitfont.space = 3;
@@ -188,6 +188,9 @@ function bitfont_calcwidth(text) {
  * Internal function
  * Render glyph at cursor_x, y
  */
+//TODO extending the font set to do upper/lower is too much work, but...
+//-maybe we can repurpose the second "red" font as lowercase or
+//maybe we can scale it down for small caps
 function bitfont_renderglyph(character, y) {
 
   var font_color;

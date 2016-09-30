@@ -19,15 +19,19 @@
 		return;
 	}
 	
-	console.log(music);
-	
-	//check against current song and abort on match
+	//console.log(music);
 	
 	var song_path = "music/" + music + ".ogg";
+	
+	//check against current song and abort on match
+	//var current_music = _x_audio_music.src.substr(_x_audio_music.src.length - song_path.length);
+	if(_x_audio_music && _x_audio_music.src.substr(_x_audio_music.src.length - song_path.length) == song_path)
+		return;
+	
 	//console.log(song_path);
 	
 	_x_audio_music = new Audio(song_path);
-	console.log(_x_audio_music);
+	//console.log(_x_audio_music);
 	_x_audio_music.loop = true;
 	_x_audio_music.load();
 	/*
@@ -38,8 +42,11 @@
 	};
 	*/
 	_x_audio_music.play();
-	console.log(_x_audio_music.src);
-	console.log(_x_audio_music.readyState);
+	//console.log(_x_audio_music.src);
+	//console.log(_x_audio_music.readyState);
+	
+	//console.log(_x_audio_music.src.substr(_x_audio_music.src.length - song_path.length));
+	//console.log(song_path);
 	
 	 
  }

@@ -77,6 +77,7 @@ function title_logic() {
   else if (pressing.up && !input_lock.up) {
     input_lock.up = true;
     if (title.menu_selector > 0) {
+		sounds_playSoundEx("click");
       title.menu_selector--;
       redraw = true;
     }
@@ -84,12 +85,15 @@ function title_logic() {
   else if (pressing.down && !input_lock.down) {
     input_lock.down = true;
     if (title.menu_selector < title.menu.length-1) {
+		sounds_playSoundEx("click");
       title.menu_selector++;
       redraw = true;
     }
   }
 
   if (title.menu_confirm == true) {
+	  sounds_playSoundEx("click");
+	  
     if (title.menu_id == TITLE_MENU_MAIN) {
       if (title.menu_selector == 0) {
         if (avatar_continue) title_continue();

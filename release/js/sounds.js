@@ -60,6 +60,7 @@ function sounds_play(sfx_id) {
 //play a sound based on filename rather than 
 //may introduce delays because these do not get loaded
 //perhaps caching or preload could be implemented, but... time
+//be aware that THIS IS CAYCE SENSITIVE!
 function sounds_playSoundEx(soundName)
 {
 	if (OPTIONS.sfx == false)

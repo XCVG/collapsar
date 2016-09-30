@@ -1,5 +1,6 @@
 /**
  Sound effects
+ Some (most?) functionality will eventually be moved to x_audio.
  */
  
 var SFX_COUNT = 14;
@@ -50,6 +51,29 @@ function sounds_play(sfx_id) {
   catch(err) {
     // it's okay if sounds can't play.
 	// TODO: change to "don't play if sound is not loaded yet" like images
+	console.log("cound not play sound #" + sfx_id);
+	console.log(err);
   };
  
+}
+
+//play a sound based on filename rather than 
+//may introduce delays because these do not get loaded
+//perhaps caching or preload could be implemented, but... time
+function sounds_playSoundEx(soundName)
+{
+	if (OPTIONS.sfx == false)
+		return;
+	
+	try
+	{
+		var soundPath = "sounds/" + soundName + ".wav";
+		var sound = new Audio(soundPath);
+		sound.play();
+	}
+	catch (err)
+	{
+		console.log("cound not play sound #" + sfx_id);
+		console.log(err);
+	}
 }

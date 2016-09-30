@@ -30,6 +30,10 @@
 	
 	//console.log(song_path);
 	
+	//if current music exists, stop it!
+	if(_x_audio_music)
+		_x_audio_music.pause();
+	
 	_x_audio_music = new Audio(song_path);
 	//console.log(_x_audio_music);
 	_x_audio_music.loop = true;

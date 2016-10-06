@@ -95,6 +95,7 @@
 	 var audio;
 	 //try WAV, then OGG, then MP3
 	 audio = new Audio(soundPath + ".wav");
+	 audio.load();
 	 console.log(audio.error);
 	 if(!audio)
 		 audio = new Audio(soundPath + ".ogg");

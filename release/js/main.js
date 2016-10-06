@@ -84,6 +84,7 @@ function init() {
   boss_init();
   title_init();
   ending_init();
+  intro_init();
   sounds_init();
   treasure_init();
   x_audio_init();

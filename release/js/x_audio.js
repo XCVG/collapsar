@@ -4,6 +4,7 @@
  */
  
  var _x_audio_music = null;
+ var _x_audio_looping = true;
  
  var _x_audio_sounds = new Object();
  var _x_audio_aliases = new Object();
@@ -83,11 +84,9 @@
 	
 	_x_audio_music = new Audio(song_path);
 	//_x_audio_music = x_audio_loadAudio(music);
-	_x_audio_music.loop = true;
+	_x_audio_music.loop = _x_audio_looping;
 	_x_audio_music.load();
 	_x_audio_music.play();
-
-	
 	 
  }
  
@@ -100,38 +99,85 @@
     }
  }
  
- function x_audio_playSound()
+ function x_audio_setLooping(looping)
  {
-    if (OPTIONS.sfx == false) return;
-
-     try {
-       sounds.fx[sfx_id].currentTime = 0;
-           sounds.fx[sfx_id].play();
-     }
-     catch(err) {
-       // it's okay if sounds can't play.
-           // TODO: change to "don't play if sound is not loaded yet" like images
-           console.log("cound not play sound #" + sfx_id);
-           console.log(err);
-     };
+     _x_audio_looping = looping;
  }
  
- function x_audio_playSoundEx()
+ function x_audio_playSound(sfx_id)
  {
+    if (OPTIONS.sfx == false) return;
+    
+    //check alias first
+    var sfx_alias = _x_audio_aliases[sfx_id];    
+    if(sfx_alias)
+        sfx_id = sfx_alias;
+    
+    //perform lookup
+    var sound = _x_audio_sounds[sfx_id];
+    
+    if(!sound)
+    {
+        console.log("Sound " + sfx_id + " not found!");
+        return;
+    }
+
+     try {
+       sound.currentTime = 0;
+           sound.play();
+     }
+     catch(err)
+     {
+           console.log("cound not play sound #" + sfx_id);
+           console.log(err);
+     }
+ }
+ 
+ function x_audio_playSoundEx(soundName)
+ {
+     console.log("playSoundEx is deprecated!");
+     
     if (OPTIONS.sfx == false)
             return;
-
-    try
+        
+     //check alias first
+    var sfx_alias = _x_audio_aliases[soundName];    
+    if(sfx_alias)
+        soundName = sfx_alias;
+    
+    //perform lookup
+    var sound = _x_audio_sounds[soundName];
+    
+    if(!sound)
     {
+        //fallback to fixed path+name
+        try
+        {
             var soundPath = "sounds/" + soundName + ".wav";
             var sound = new Audio(soundPath);
             sound.play();
-    }
-    catch (err)
-    {
-            console.log("cound not play sound #" + sfx_id);
+        }
+        catch (err)
+        {
+            console.log("cound not play sound #" + soundName);
             console.log(err);
+        }
     }
+    else
+    {
+        //otherwise play normally
+        try
+        {
+            sound.currentTime = 0;
+            sound.play();
+        }
+        catch(err)
+        {
+            console.log("cound not play sound #" + soundName);
+            console.log(err);
+        }
+    }
+
  }
 
 

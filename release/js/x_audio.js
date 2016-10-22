@@ -65,8 +65,14 @@
 		return;
 	}
 
-	var song_path = "music/" + music + ".ogg";
-	
+        //try lookup, fallback if not found
+        var song_path = _x_audio_musics[music];
+
+        if(!song_path)
+            song_path = "music/" + music + ".ogg";
+        
+        console.log(song_path);
+
 	//check against current song and abort on match
 	if(_x_audio_music && _x_audio_music.src.substr(_x_audio_music.src.length - song_path.length) == song_path)
 		return;

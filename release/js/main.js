@@ -73,6 +73,7 @@ function init() {
   // initialize all game units
   bitfont_init();
   tileset_init();
+  x_audio_init();
   mazemap_init();
   info_init();
   minimap_init();
@@ -87,7 +88,6 @@ function init() {
   intro_init();
   sounds_init();
   treasure_init();
-  x_audio_init();
   
   // execute postload
   x_init_postload();

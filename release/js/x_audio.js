@@ -24,21 +24,18 @@
      { 
          //we now have a key/value pair (index/attr)
         var value = soundlist[key];
-        //console.log(key + ":" + value);
-        //console.log(value.src);
-        //console.log(value.alias);
-        
+
         if(value.src)
         {
             //load sound, add to list
-            console.log("added sound: " + key);
+            //console.log("added sound: " + key);
             var newsound = new Audio(value.src);
             newsound.load();
             _x_audio_sounds[key] = newsound;
         }
         else if(value.alias)
         {
-            console.log("added alias: " + key);
+            //console.log("added alias: " + key);
             _x_audio_aliases[key] = value.alias;
         }
      }
@@ -51,7 +48,7 @@
      {
          var value = musiclist[key];
          
-         console.log("added music: " + key);
+         //console.log("added music: " + key);
          
          _x_audio_musics[key] = value.src;
      }
@@ -72,7 +69,7 @@
         if(!song_path)
             song_path = "music/" + music + ".ogg";
         
-        console.log(song_path);
+        //console.log(song_path);
 
 	//check against current song and abort on match
 	if(_x_audio_music && _x_audio_music.src.substr(_x_audio_music.src.length - song_path.length) == song_path)

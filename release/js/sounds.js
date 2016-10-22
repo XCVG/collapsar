@@ -41,20 +41,9 @@ function sounds_init() {
   
 }
 
-function sounds_play(sfx_id) {
-  if (OPTIONS.sfx == false) return;
- 
-  try {
-    sounds.fx[sfx_id].currentTime = 0;
-	sounds.fx[sfx_id].play();
-  }
-  catch(err) {
-    // it's okay if sounds can't play.
-	// TODO: change to "don't play if sound is not loaded yet" like images
-	console.log("cound not play sound #" + sfx_id);
-	console.log(err);
-  };
- 
+function sounds_play(sfx_id)
+{
+    x_audio_playSound(sfx_id);
 }
 
 //play a sound based on filename rather than 
@@ -63,18 +52,5 @@ function sounds_play(sfx_id) {
 //be aware that THIS IS CAYCE SENSITIVE!
 function sounds_playSoundEx(soundName)
 {
-	if (OPTIONS.sfx == false)
-		return;
-	
-	try
-	{
-		var soundPath = "sounds/" + soundName + ".wav";
-		var sound = new Audio(soundPath);
-		sound.play();
-	}
-	catch (err)
-	{
-		console.log("cound not play sound #" + sfx_id);
-		console.log(err);
-	}
+    x_audio_playSoundEx(soundName);
 }

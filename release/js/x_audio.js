@@ -93,11 +93,45 @@
  
  function x_audio_stopMusic()
  {
-	if(_x_audio_music != null)
-	{
-		_x_audio_music.pause();
-		_x_audio_music = null;
-	}
+    if(_x_audio_music != null)
+    {
+            _x_audio_music.pause();
+            _x_audio_music = null;
+    }
+ }
+ 
+ function x_audio_playSound()
+ {
+    if (OPTIONS.sfx == false) return;
+
+     try {
+       sounds.fx[sfx_id].currentTime = 0;
+           sounds.fx[sfx_id].play();
+     }
+     catch(err) {
+       // it's okay if sounds can't play.
+           // TODO: change to "don't play if sound is not loaded yet" like images
+           console.log("cound not play sound #" + sfx_id);
+           console.log(err);
+     };
+ }
+ 
+ function x_audio_playSoundEx()
+ {
+    if (OPTIONS.sfx == false)
+            return;
+
+    try
+    {
+            var soundPath = "sounds/" + soundName + ".wav";
+            var sound = new Audio(soundPath);
+            sound.play();
+    }
+    catch (err)
+    {
+            console.log("cound not play sound #" + sfx_id);
+            console.log(err);
+    }
  }
 
 

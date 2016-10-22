@@ -5,9 +5,55 @@
  
  var _x_audio_music = null;
  
+ var _x_audio_sounds = new Object();
+ var _x_audio_aliases = new Object();
+ var _x_audio_musics = new Object();
+ 
  function x_audio_init()
  {
-	 
+     _x_audio_loadSounds();
+     _x_audio_loadMusics();
+ }
+ 
+ function _x_audio_loadSounds()
+ {
+     var soundlist = data_soundinfo.sounds;
+     //console.log(soundlist);
+     for(var key in soundlist)
+     { 
+         //we now have a key/value pair (index/attr)
+        var value = soundlist[key];
+        //console.log(key + ":" + value);
+        //console.log(value.src);
+        //console.log(value.alias);
+        
+        if(value.src)
+        {
+            //load sound, add to list
+            console.log("added sound: " + key);
+            var newsound = new Audio(value.src);
+            newsound.load();
+            _x_audio_sounds[key] = newsound;
+        }
+        else if(value.alias)
+        {
+            console.log("added alias: " + key);
+            _x_audio_aliases[key] = value.alias;
+        }
+     }
+ }
+ 
+ function _x_audio_loadMusics()
+ {
+     var musiclist = data_soundinfo.music;
+     for(var key in musiclist)
+     {
+         var value = musiclist[key];
+         
+         console.log("added music: " + key);
+         
+         _x_audio_musics[key] = value.src;
+     }
  }
  
  function x_audio_playMusic(music)

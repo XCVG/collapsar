@@ -19,6 +19,9 @@ var FONT_RED = 1;
 
 var _bitfont_fontsize = 10;
 var _bitfont_heightToWidth = 0.7;
+var _bitfont_strokeWidth = 0.5;
+var _bitfont_strokeStyle = "#323c39";
+var _bitfont_textColor = "#CBDBFC";
 
 var bitfont = new Object();
 
@@ -151,6 +154,7 @@ function _bitfont_renderttf(text, x, y, justify)
     ctx.save();
     
     ctx.font = (fontsize + 'px' + ' Cousine');
+    ctx.fontWeight = "bolder";
     switch(justify)
     {
         case JUSTIFY_LEFT:
@@ -163,8 +167,12 @@ function _bitfont_renderttf(text, x, y, justify)
             ctx.textAlign = "center";
             break;
     }
+    ctx.fillStyle = _bitfont_textColor;
+    ctx.strokeStyle = _bitfont_strokeStyle;
+    ctx.lineWidth = _bitfont_strokeWidth * SCALE;
     
     ctx.fillText(text, x * SCALE, y * SCALE + fontsize * _bitfont_heightToWidth);
+    ctx.strokeText(text, x * SCALE, y * SCALE + fontsize * _bitfont_heightToWidth);
     
     ctx.restore();
 }

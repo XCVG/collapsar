@@ -17,6 +17,8 @@ var JUSTIFY_CENTER = 2;
 var FONT_WHITE = 0;
 var FONT_RED = 1;
 
+var _bitfont_fontsize = 12;
+
 var bitfont = new Object();
 
 bitfont.img = new Image();
@@ -124,14 +126,43 @@ function bitfont_onloadred() {
 function bitfont_render(text, x, y, justify) {
 
   if (!bitfont.loaded) return;
+  
+  _bitfont_renderttf(text, x, y, justify);
 
+/*
   var uptext = text.toUpperCase();
   bitfont_setposition(uptext, x, justify);
 
   for (var i=0; i < uptext.length; i++) {
     bitfont_renderglyph(uptext.charAt(i), y);
   }
+*/
 
+}
+
+function _bitfont_renderttf(text, x, y, justify)
+{
+    var fontsize = _bitfont_fontsize * SCALE;
+    
+    ctx.save();
+    
+    ctx.font = (fontsize + 'px' + ' Cousine');
+    switch(justify)
+    {
+        case JUSTIFY_LEFT:
+            ctx.justify = "left";
+            break;
+        case JUSTIFY_RIGHT:
+            ctx.justify = "right";
+            break;
+        case JUSTIFY_CENTER:
+            ctx.justify = "center";
+            break;
+    }
+    
+    ctx.fillText(text, x * SCALE, y * SCALE);
+    
+    ctx.restore();
 }
 
 /**

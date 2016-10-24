@@ -150,13 +150,13 @@ function _bitfont_renderttf(text, x, y, justify)
     switch(justify)
     {
         case JUSTIFY_LEFT:
-            ctx.justify = "left";
+            ctx.textAlign = "left";
             break;
         case JUSTIFY_RIGHT:
-            ctx.justify = "right";
+            ctx.textAlign = "right";
             break;
         case JUSTIFY_CENTER:
-            ctx.justify = "center";
+            ctx.textAlign = "center";
             break;
     }
     

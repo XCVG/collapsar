@@ -17,7 +17,8 @@ var JUSTIFY_CENTER = 2;
 var FONT_WHITE = 0;
 var FONT_RED = 1;
 
-var _bitfont_fontsize = 12;
+var _bitfont_fontsize = 10;
+var _bitfont_heightToWidth = 0.7;
 
 var bitfont = new Object();
 
@@ -128,16 +129,19 @@ function bitfont_render(text, x, y, justify) {
   if (!bitfont.loaded) return;
   
   _bitfont_renderttf(text, x, y, justify);
+  
+  //_bitfont_render(text, x, y, justify);
 
-/*
+}
+
+function _bitfont_render(text, x, y, justify)
+{
   var uptext = text.toUpperCase();
   bitfont_setposition(uptext, x, justify);
 
   for (var i=0; i < uptext.length; i++) {
     bitfont_renderglyph(uptext.charAt(i), y);
-  }
-*/
-
+  }    
 }
 
 function _bitfont_renderttf(text, x, y, justify)
@@ -160,7 +164,7 @@ function _bitfont_renderttf(text, x, y, justify)
             break;
     }
     
-    ctx.fillText(text, x * SCALE, y * SCALE);
+    ctx.fillText(text, x * SCALE, y * SCALE + fontsize * _bitfont_heightToWidth);
     
     ctx.restore();
 }

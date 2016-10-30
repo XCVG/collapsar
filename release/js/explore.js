@@ -25,6 +25,7 @@ function explore_logic() {
   avatar_explore();
 	
   // check map exit
+  /*
   if (avatar.moved) {
     if (mazemap_check_exit()) {
 	
@@ -36,7 +37,8 @@ function explore_logic() {
 	  return;
 	}
   }  
-  
+  */
+ 
   // check shop
   if (avatar.moved) {
     if (mazemap_check_shop()) {

@@ -42,8 +42,58 @@ function mapscript_exec(map_id) {
     //script will just exec arg0, yes it's horrible, not I don't care
     //in here we will search that list for a script reference
     //if an appropriate one is found, execute the corresponding script
+    
+    //abort!
+    if (!init_complete) return false;
+    
+    //first execute unbound scripts
+    //(load scripts)
+    mapscript_bone_pile_load(map_id);
+    mapscript_locked_door_load(map_id);
+    mapscript_chest_load(map_id);
+    //TODO: enemy and/or generalized replace load
+    
+    
+    //then check location and execute script
+    var mapscripts = atlas.maps[map_id].scripts;
+    //console.log(mapscripts);
+    
+    var result = false;
+    var script;
+    
+    for(var key in mapscripts)
+    { 
+        //we now have a key/value pair (index/attr)
+       var value = mapscripts[key];
 
-  var result = false;
+       //search for a matching script
+       if(value.x == avatar.x && value.y == avatar.y)
+       {
+           script = value;
+           break;
+       }
+    }
+    
+    if(script)
+    {
+        //if we have a script, determine type and execute
+        console.log(script);
+        
+        switch(script.type)
+        {
+            case "bed":
+                result = _mapscript_bed();
+                break;
+            case "exit":
+                result = _mapscript_exit(script.dest_map, script.dest_x, script.dest_y);
+                break;
+            //TODO: implement other scripts
+        }
+    }
+    
+    return result;
+
+
   switch (map_id) {
 
     case 0: // Serf Quarters (Your Apartment)
@@ -215,6 +265,11 @@ function mapscript_chest(x, y, status, item_type, item_count) {
   return false;
 }
 
+function mapscript_chest_load(map_id)
+{
+    //TODO: load chest and replace tiles
+}
+
 /**
  Found items have permanent unique effects, handle those here
  */
@@ -350,9 +405,13 @@ function mapscript_enemy(x, y, enemy_id, status) {
 
 //exit, shop, chest, bed, enemy, script
 
-function _mapscript_exit()
+function _mapscript_exit(dest_map, dest_x, dest_y)
 {
-    
+    avatar.x = dest_x;
+    avatar.y = dest_y;
+    mazemap_set(dest_map);
+
+    return true;
 }
 
 function _mapscript_shop()
@@ -362,7 +421,14 @@ function _mapscript_shop()
 
 function _mapscript_bed()
 {
-    
+    // don't rest if just starting the game
+    if (!avatar.moved) return false;
+
+    explore.message = "You rest for awhile.";
+    avatar_sleep();
+        sounds_play(SFX_COIN);
+    return true;
+
 }
 
 function _mapscript_enemy()
@@ -372,6 +438,6 @@ function _mapscript_enemy()
 
 function _mapscript_script(script)
 {
-    exec(script); //this is fine
+    eval(script); //this is fine
 }
 

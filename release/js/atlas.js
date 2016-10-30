@@ -1,6 +1,7 @@
 /**
  Atlas.js
  Collection of maps and transition data
+ Will eventually be loaded from json
  */
  
  /**
@@ -37,6 +38,7 @@ for (var i=0; i<MAP_COUNT; i++) {
   atlas.maps[i].exits = new Array();
   atlas.maps[i].enemies = new Array();
   atlas.maps[i].shops = new Array();
+  atlas.maps[i].scripts = new Array();
 }
 
 atlas.maps[0].name = "Abandoned House";
@@ -51,6 +53,8 @@ atlas.maps[0].tiles = [
   [2,2,2]
 ];
 atlas.maps[0].exits[0] = {exit_x:0, exit_y:2, dest_map:1, dest_x:6, dest_y:6};
+atlas.maps[0].scripts[0] = {type:"exit", x:0, y:2, dest_map:1, dest_x:6, dest_y:6};
+atlas.maps[0].scripts[1] = {type:"bed", x:1, y:1};
 
 atlas.maps[1].name = "Karpos Koriis";
 atlas.maps[1].music = "kawarayu";
@@ -70,10 +74,17 @@ atlas.maps[1].tiles = [
   [2,10,6,4,1,4,6,13,2],
   [2,2,2,2,3,2,2,2,2]
 ];
+//legacy
 atlas.maps[1].exits[0] = {exit_x:7, exit_y:6, dest_map:0, dest_x:1, dest_y:2};
 atlas.maps[1].exits[1] = {exit_x:1, exit_y:6, dest_map:2, dest_x:1, dest_y:2};
 atlas.maps[1].exits[2] = {exit_x:4, exit_y:0, dest_map:3, dest_x:2, dest_y:4};
 atlas.maps[1].exits[3] = {exit_x:4, exit_y:10, dest_map:4, dest_x:6, dest_y:2};
+//new
+atlas.maps[1].scripts[0] = {type:"exit", x:7, y:6, dest_map:0, dest_x:1, dest_y:2};
+atlas.maps[1].scripts[1] = {type:"exit", x:1, y:6, dest_map:2, dest_x:1, dest_y:2};
+atlas.maps[1].scripts[2] = {type:"exit", x:4, y:0, dest_map:3, dest_x:2, dest_y:4};
+atlas.maps[1].scripts[3] = {type:"exit", x:4, y:10, dest_map:4, dest_x:6, dest_y:2};
+
 atlas.maps[1].enemies = [ENEMY_SHADOW_TENDRILS, ENEMY_IMP];
 
 atlas.maps[2].name = "Temple of Stepanos";
@@ -88,6 +99,8 @@ atlas.maps[2].tiles = [
   [2,2,2]
 ];
 atlas.maps[2].exits[0] = {exit_x:2, exit_y:2, dest_map:1, dest_x:2, dest_y:6};
+atlas.maps[2].scripts[0] = {type:"chest", x:1, y:1, status:"stick", item:"Stick", qty:1};
+atlas.maps[2].scripts[1] = {type:"exit", x:2, y:2, dest_map:1, dest_x:2, dest_y:6};
 
 atlas.maps[3].name = "Karpos Point";
 atlas.maps[3].music = "kawarayu";

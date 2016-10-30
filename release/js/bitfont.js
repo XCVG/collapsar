@@ -17,6 +17,12 @@ var JUSTIFY_CENTER = 2;
 var FONT_WHITE = 0;
 var FONT_RED = 1;
 
+var _bitfont_fontsize = 10;
+var _bitfont_heightToWidth = 0.7;
+var _bitfont_strokeWidth = 0.5;
+var _bitfont_strokeStyle = "#323c39";
+var _bitfont_textColor = "#CBDBFC";
+
 var bitfont = new Object();
 
 bitfont.img = new Image();
@@ -124,14 +130,51 @@ function bitfont_onloadred() {
 function bitfont_render(text, x, y, justify) {
 
   if (!bitfont.loaded) return;
+  
+  _bitfont_renderttf(text, x, y, justify);
+  
+  //_bitfont_render(text, x, y, justify);
 
+}
+
+function _bitfont_render(text, x, y, justify)
+{
   var uptext = text.toUpperCase();
   bitfont_setposition(uptext, x, justify);
 
   for (var i=0; i < uptext.length; i++) {
     bitfont_renderglyph(uptext.charAt(i), y);
-  }
+  }    
+}
 
+function _bitfont_renderttf(text, x, y, justify)
+{
+    var fontsize = _bitfont_fontsize * SCALE;
+    
+    ctx.save();
+    
+    ctx.font = (fontsize + 'px' + ' Cousine');
+    ctx.fontWeight = "bolder";
+    switch(justify)
+    {
+        case JUSTIFY_LEFT:
+            ctx.textAlign = "left";
+            break;
+        case JUSTIFY_RIGHT:
+            ctx.textAlign = "right";
+            break;
+        case JUSTIFY_CENTER:
+            ctx.textAlign = "center";
+            break;
+    }
+    ctx.fillStyle = _bitfont_textColor;
+    ctx.strokeStyle = _bitfont_strokeStyle;
+    ctx.lineWidth = _bitfont_strokeWidth * SCALE;
+    
+    ctx.fillText(text, x * SCALE, y * SCALE + fontsize * _bitfont_heightToWidth);
+    ctx.strokeText(text, x * SCALE, y * SCALE + fontsize * _bitfont_heightToWidth);
+    
+    ctx.restore();
 }
 
 /**

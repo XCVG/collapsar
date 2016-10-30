@@ -48,6 +48,7 @@ function explore_logic() {
   }
 
   // check special script;
+  //TODO: probably move exits and shops into generalized mapscript
   if (avatar.moved) {
     if (mapscript_exec(mazemap.current_id)) {
       avatar_save();

@@ -6,6 +6,10 @@
 var mapscript = new Object();
 
 //THESE ARE TRACKED HERE?!
+//do not store this here, instead store key/value in avatar and patch atlas on load
+//(must investigate how this is actually set, though)
+//maybe use an explicit "patch" structure: this tile here and here, replace object with other object or remove
+//goes for locked doors too
 mapscript.bone_piles = new Array();
 mapscript.bone_piles = [
   {map_id:8, x:4, y:5, status:"bone1"},
@@ -28,6 +32,16 @@ mapscript.locked_doors = [
 
 
 function mapscript_exec(map_id) {
+    
+    //TODO: rewrite the whole fucking thing, because, I mean, DAMN
+    //we know map ID and position...
+    //so we check what we need to execute here rather than in methods,
+    //and call the appropriate method
+    //so a map will have an array/list of scripts of a form like type="exit", x=2, y=3, args=[] etc
+    //exit, shop, chest, bed, enemy, script
+    //script will just exec arg0, yes it's horrible, not I don't care
+    //in here we will search that list for a script reference
+    //if an appropriate one is found, execute the corresponding script
 
   var result = false;
   switch (map_id) {
@@ -332,5 +346,32 @@ function mapscript_enemy(x, y, enemy_id, status) {
     return true;
   }
   return false;
+}
+
+//exit, shop, chest, bed, enemy, script
+
+function _mapscript_exit()
+{
+    
+}
+
+function _mapscript_shop()
+{
+    
+}
+
+function _mapscript_bed()
+{
+    
+}
+
+function _mapscript_enemy()
+{
+    
+}
+
+function _mapscript_script(script)
+{
+    exec(script); //this is fine
 }
 

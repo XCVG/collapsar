@@ -9,8 +9,8 @@ While Atlas is a static collection, MazeMap can be altered by events.
 */
 
 var mazemap = new Object();
-mazemap.current_id = 0;
-mazemap.current_song = "";
+mazemap.current_id = 0; //this is the map we're in
+mazemap.current_song = ""; //this is basically obselete since the new audio system was introduced
 
 //---- Public Functions ---------------------------------------------
 
@@ -178,6 +178,8 @@ function mazemap_set_music(song_filename) {
  * If the avatar is on an exit tile, move them to the new map
  */
 function mazemap_check_exit() {
+    //TODO: check map objects instead
+    
   for (var i=0; i<atlas.maps[mazemap.current_id].exits.length; i++) {
 
     if ((avatar.x == atlas.maps[mazemap.current_id].exits[i].exit_x) &&

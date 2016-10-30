@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Cousine;
+    src: url(cousine.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;

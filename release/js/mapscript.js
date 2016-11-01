@@ -5,32 +5,6 @@
 
 var mapscript = new Object();
 
-//THESE ARE TRACKED HERE?!
-//do not store this here, instead store key/value in avatar and patch atlas on load
-//(must investigate how this is actually set, though)
-//maybe use an explicit "patch" structure: this tile here and here, replace object with other object or remove
-//goes for locked doors too
-mapscript.bone_piles = new Array();
-mapscript.bone_piles = [
-  {map_id:8, x:4, y:5, status:"bone1"},
-  {map_id:8, x:4, y:2, status:"bone2"},
-  {map_id:8, x:13, y:5, status:"bone3"},
-  {map_id:8, x:11, y:3, status:"bone4"},
-  {map_id:9, x:5, y:5, status:"bone5"},
-  {map_id:9, x:8, y:2, status:"bone6"},
-  {map_id:10, x:2, y:4, status:"bone7"},
-  {map_id:10, x:4, y:2, status:"bone8"}
-];
-
-mapscript.locked_doors = new Array();
-mapscript.locked_doors = [
-  {map_id:8, x:4, y:8, status:"door1"},
-  {map_id:10, x:11, y:3, status:"door2"},
-  {map_id:10, x:13, y:3, status:"door3"},
-  {map_id:8, x:12, y:5, status:"door4"} //added for Ascension: Adventure
-];
-
-
 function mapscript_exec(map_id) {
     
     //TODO: rewrite the whole fucking thing, because, I mean, DAMN
@@ -45,12 +19,6 @@ function mapscript_exec(map_id) {
     
     //abort!
     if (!init_complete) return false;
-    
-    //first execute unbound scripts
-    //(load scripts)
-    //this runs every time but that hopefully won't slow things down too much
-    mapscript_bone_pile_load(map_id);
-    mapscript_locked_door_load(map_id);
     
     //TODO: enemy and/or generalized replace load
     
@@ -94,7 +62,9 @@ function mapscript_exec(map_id) {
             case "chest":
                 result = _mapscript_chest(script.status, script.item, script.qty);
                 break;
-            //TODO: implement other scripts
+            case "ending":
+                result = _mapscript_ending(script.ending_id);
+                break;
         }
     }
     
@@ -186,28 +156,6 @@ function mapscript_message(x, y, status, message) {
   return false;
 }
 
-//NOT IMPLEMENTED: DO NOT USE
-//this is supposed to display a fullscreen message with background, but it's not implemented
-function mapscript_fsmessage(x, y, status, message) {
-  if (avatar.x == x && avatar.y == y) {
-
-    // if the player has already read this message, skip it
-	if(status != 0)
-	{
-		if (avatar.campaign.indexOf(status) > -1) {
-		  return false;
-		}
-	}
-    explore.message = message;
-	if(status != 0)
-		avatar.campaign.push(status);
-		
-    return true;
-
-  }
-  return false;
-}
-
 // ending screen load
 function mapscript_ending(x, y, ending_id) {
 
@@ -227,48 +175,6 @@ function mapscript_ending(x, y, ending_id) {
 
     return true;
   }
-  return false;
-}
-
-function mapscript_haybale(x, y) {
-
-  // don't rest if just starting the game
-  if (!avatar.moved) return false;
-
-  if (avatar.x == x && avatar.y == y) { 
-    explore.message = "You rest for awhile.";
-    avatar_sleep();
-	sounds_play(SFX_COIN);
-    return true;
-  }
-  return false;
-}
-
-function mapscript_chest(x, y, status, item_type, item_count) {
-
-  // if the player has already opened this chest, hide the chest
-  if (avatar.campaign.indexOf(status) > -1) {
-
-    // interior chest
-    if (mazemap_get_tile(x,y) == 8) {
-      mazemap_set_tile(x, y, 5);
-    }
-    // exterior chest
-    else if (mazemap_get_tile(x,y) == 9) {
-      mazemap_set_tile(x, y, 1);
-    }
-
-  }
-
-  // if this is a new chest, open it and grant the reward.
-  else {
-    if (avatar.x == x && avatar.y == y) { 
-      avatar.campaign.push(status);
-      mapscript_grant_item(item_type, item_count);
-      return true;
-    }
-  }
-
   return false;
 }
 
@@ -321,58 +227,6 @@ function mapscript_grant_item(item, item_count) {
     explore.treasure_id = 15;
   }
   
-}
-
-function mapscript_bone_pile_save(x, y) {
-
-  // the player has just burned bones, lookup and save the status
-  for (var i=0; i < mapscript.bone_piles.length; i++) {
-    if (mazemap.current_id == mapscript.bone_piles[i].map_id &&
-        x == mapscript.bone_piles[i].x &&
-        y == mapscript.bone_piles[i].y) {
-
-      avatar.campaign.push(mapscript.bone_piles[i].status);
-    }
-  }
-}
-
-function mapscript_bone_pile_load(map_id) {
-
-  // check all bones previously burned
-  for (var i=0; i < mapscript.bone_piles.length; i++) {
-    if (mapscript.bone_piles[i].map_id == map_id) {
-    
-      if (avatar.campaign.indexOf(mapscript.bone_piles[i].status) > -1) {
-        mazemap_set_tile(mapscript.bone_piles[i].x, mapscript.bone_piles[i].y, 5);
-      }
-    }
-  }
-}
-
-function mapscript_locked_door_save(x, y) {
-
-  // the player has just unlocked a door, lookup and save the status
-  for (var i=0; i < mapscript.locked_doors.length; i++) {
-    if (mazemap.current_id == mapscript.locked_doors[i].map_id &&
-        x == mapscript.locked_doors[i].x &&
-        y == mapscript.locked_doors[i].y) {
-
-      avatar.campaign.push(mapscript.locked_doors[i].status);
-    }
-  }
-}
-
-function mapscript_locked_door_load(map_id) {
-
-  // check all doors previously unlocked
-  for (var i=0; i < mapscript.locked_doors.length; i++) {
-    if (mapscript.locked_doors[i].map_id == map_id) {
-    
-      if (avatar.campaign.indexOf(mapscript.locked_doors[i].status) > -1) {
-        mazemap_set_tile(mapscript.locked_doors[i].x, mapscript.locked_doors[i].y, 3);
-      }
-    }
-  }
 }
 
 // a specific enemy is on this tile
@@ -478,6 +332,24 @@ function _mapscript_chest_load(mapscripts)
 function _mapscript_enemy()
 {
     
+}
+
+//will probably totally reimplement
+function _mapscript_ending(ending_id)
+{
+    //ending.id = ENDING_GOOD;
+    //ending.id = ENDING_BAD;
+
+    // don't spawn the enemy if just loading
+    if (!init_complete) return false;
+
+    // switch to ending
+    gamestate = STATE_ENDING;
+
+    //nuke savegame (?)
+
+    return true;
+
 }
 
 function _mapscript_script(script)

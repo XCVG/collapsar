@@ -48,15 +48,19 @@ function mapscript_exec(map_id) {
     
     //first execute unbound scripts
     //(load scripts)
+    //this runs every time but that hopefully won't slow things down too much
     mapscript_bone_pile_load(map_id);
     mapscript_locked_door_load(map_id);
-    mapscript_chest_load(map_id);
+    
     //TODO: enemy and/or generalized replace load
     
     
     //then check location and execute script
     var mapscripts = atlas.maps[map_id].scripts;
     //console.log(mapscripts);
+    
+    //new idea about loading status
+    _mapscript_chest_load(mapscripts);
     
     var result = false;
     var script;
@@ -86,6 +90,9 @@ function mapscript_exec(map_id) {
                 break;
             case "exit":
                 result = _mapscript_exit(script.dest_map, script.dest_x, script.dest_y);
+                break;
+            case "chest":
+                result = _mapscript_chest(script.status, script.item, script.qty);
                 break;
             //TODO: implement other scripts
         }
@@ -265,11 +272,6 @@ function mapscript_chest(x, y, status, item_type, item_count) {
   return false;
 }
 
-function mapscript_chest_load(map_id)
-{
-    //TODO: load chest and replace tiles
-}
-
 /**
  Found items have permanent unique effects, handle those here
  */
@@ -429,6 +431,48 @@ function _mapscript_bed()
         sounds_play(SFX_COIN);
     return true;
 
+}
+
+function _mapscript_chest(status, item, qty)
+{
+    //we don't update the map tile here; that's what the load function is for
+    
+    if (!(avatar.campaign.indexOf(status) > -1))
+    {
+        //this is a new chest, so give the reward and push flag
+        avatar.campaign.push(status);
+        mapscript_grant_item(item, qty);
+        return true;
+    }
+    else return false;
+}
+
+function _mapscript_chest_load(mapscripts)
+{
+    
+    for(var key in mapscripts)
+    { 
+        //we now have a key/value pair (index/attr)
+       var value = mapscripts[key];
+
+       //search for a matching script
+       if(value.type == "chest")
+       {
+           if (avatar.campaign.indexOf(value.status) > -1)
+           {
+               // interior chest
+                if (mazemap_get_tile(value.x,value.y) == 8)
+                {
+                  mazemap_set_tile(value.x, value.y, 5);
+                }
+                // exterior chest
+                else if (mazemap_get_tile(value.x,value.y) == 9)
+                {
+                  mazemap_set_tile(value.x, value.y, 1);
+                }
+           }
+       }
+    }
 }
 
 function _mapscript_enemy()

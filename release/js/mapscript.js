@@ -7,15 +7,7 @@ var mapscript = new Object();
 
 function mapscript_exec(map_id) {
     
-    //TODO: rewrite the whole fucking thing, because, I mean, DAMN
-    //we know map ID and position...
-    //so we check what we need to execute here rather than in methods,
-    //and call the appropriate method
-    //so a map will have an array/list of scripts of a form like type="exit", x=2, y=3, args=[] etc
-    //exit, shop, chest, bed, enemy, script
-    //script will just exec arg0, yes it's horrible, not I don't care
-    //in here we will search that list for a script reference
-    //if an appropriate one is found, execute the corresponding script
+    //this has been completely rewritten from the original system
     
     //abort!
     if (!init_complete) return false;
@@ -65,72 +57,22 @@ function mapscript_exec(map_id) {
             case "ending":
                 result = _mapscript_ending(script.ending_id);
                 break;
+            case "enemy":
+                result = _mapscript_enemy(script.enemy_id, script.status);
+                break;
+            case "shop":
+                result = _mapscript_shop(script.shop_id, script.dest_x, script.dest_y);
+                break;
+            case "message":
+                result = _mapscript_message(script.status, script.message);
+                break;
+            case "script":
+                result = _mapscript_script(script.script);
+                break;
         }
     }
     
     return result;
-
-
-  switch (map_id) {
-
-    case 0: // Serf Quarters (Your Apartment)
-      result = mapscript_haybale(1,1);
-      // result = result || mapscript_message(1,2,"serfmsg","This place is no longer safe");
-      return result;
-
-    case 1: // Gar'ashi Monastery (Karpos Koriis)
-      return false;
-
-    case 2: // Monk Quarters (Somebody's Apartment)
-      return mapscript_chest(1,1,"stick", "Stick", 1);
-
-    case 3: // Meditation Point (Rooftop)
-      return mapscript_chest(2,1,"heal", "Spell: Heal", 1);
-
-    case 4: // Monastery Trail (Ouropolokis Fields I)
-      return mapscript_chest(2,2,"hp1", "Endurance Dust", 1);
-
-    case 5: // Cedar Village (Idarous Polis)
-      return mapscript_chest(7,10,"g1", "Gold", 10);
-
-    case 6: // Zuruth Plains (Ouropolokis Fields II)
-      return mapscript_chest(9,4,"mp1", "Stamina Dust", 1);
-
-    case 7: // Canal Boneyard (Ouropolokis Forest)
-      return mapscript_chest(13,5,"def1", "Toughness Dust", 1);
-
-    case 8: // Mausoleum (Abandoned Temple)
-      mapscript_bone_pile_load(8);
-      mapscript_locked_door_load(8);
-      result = mapscript_haybale(11,7);
-      result = result || mapscript_chest(3,2,"atk1", "Strength Dust", 1);
-      result = result || mapscript_chest(3,8,"mp2", "Stamina Dust", 1);
-      result = result || mapscript_chest(6,7, "g2", "Gold", 25);
-
-      return result;
-    
-    case 9: // Dead Walkways ("Hades Emerging")
-      mapscript_bone_pile_load(9);
-      boss_alter_map();
-      //result = mapscript_enemy(4,9, ENEMY_MIMIC, "");
-      //result = result || mapscript_enemy(11,5, ENEMY_DEATH_SPEAKER, "dspeak");
-	  result = mapscript_enemy(11,5, ENEMY_DEATH_SPEAKER, "dspeak");
-      return result;
-
-    case 10: // Trade Tunnel (Catacombs of Epikros)
-      mapscript_locked_door_load(10);
-      mapscript_bone_pile_load(10);
-      
-      result = mapscript_chest(11,2, "hp2", "Endurance Dust", 1);
-      result = result || mapscript_chest(13,2, "g3", "Gold", 100);
-      //result = result || mapscript_enemy(14,9, ENEMY_MIMIC, "");
-      //result = result || mapscript_enemy(6,4, ENEMY_MIMIC, "");
-	  //result = result || mapscript_message(2,14, 0, "LOL MESSAGE");
-	  result = result || mapscript_ending(2,14, 0);
-
-      return result;
-  }
-  return false;
 }
 
 // general script types
@@ -152,28 +94,6 @@ function mapscript_message(x, y, status, message) {
 		
     return true;
 
-  }
-  return false;
-}
-
-// ending screen load
-function mapscript_ending(x, y, ending_id) {
-
-	//ending.id = ENDING_GOOD;
-	//ending.id = ENDING_BAD;
-
-  // don't spawn the enemy if just loading
-  if (!init_complete) return false;
-  
-  // if heroine is at the enemy location
-  if (avatar.x == x && avatar.y == y) { 
-   
-    // switch to ending
-    gamestate = STATE_ENDING;
-	
-	//nuke savegame (?)
-
-    return true;
   }
   return false;
 }
@@ -229,36 +149,6 @@ function mapscript_grant_item(item, item_count) {
   
 }
 
-// a specific enemy is on this tile
-function mapscript_enemy(x, y, enemy_id, status) {
-
-  // don't spawn the enemy if just loading
-  if (!init_complete) return false;
-  
-  // if heroine is at the enemy location
-  if (avatar.x == x && avatar.y == y) { 
-
-    // if heroine has not already defeated this enemy
-    if (status != "") {
-      if (avatar.campaign.indexOf(status) > -1) {
-        return false;
-      }
-    }
-    
-    // prepare combat mode
-    explore.encounter_chance = 0.0;
-    gamestate = STATE_COMBAT;
-    action.select_pos = BUTTON_POS_ATTACK;
-    combat.timer = COMBAT_INTRO_DELAY;
-    combat.phase = COMBAT_PHASE_INTRO;
-    combat_set_enemy(enemy_id);
-    combat.victory_status = status;
-
-    return true;
-  }
-  return false;
-}
-
 //exit, shop, chest, bed, enemy, script
 
 function _mapscript_exit(dest_map, dest_x, dest_y)
@@ -270,9 +160,15 @@ function _mapscript_exit(dest_map, dest_x, dest_y)
     return true;
 }
 
-function _mapscript_shop()
+function _mapscript_shop(shop_id, dest_x, dest_y)
 {
-    
+    shop_set(shop_id);
+
+    // put avatar back outside for save purposes
+    avatar.x = dest_x;
+    avatar.y = dest_y;
+
+    return true;
 }
 
 function _mapscript_bed()
@@ -329,9 +225,28 @@ function _mapscript_chest_load(mapscripts)
     }
 }
 
-function _mapscript_enemy()
+function _mapscript_enemy(enemy_id, status)
 {
+    if (!init_complete) return false;
     
+    if (status != "")
+    {
+      if (avatar.campaign.indexOf(status) > -1)
+      {
+        return false;
+      }
+    }
+    
+    // prepare combat mode
+    explore.encounter_chance = 0.0;
+    gamestate = STATE_COMBAT;
+    action.select_pos = BUTTON_POS_ATTACK;
+    combat.timer = COMBAT_INTRO_DELAY;
+    combat.phase = COMBAT_PHASE_INTRO;
+    combat_set_enemy(enemy_id);
+    combat.victory_status = status;
+
+    return true;   
 }
 
 //will probably totally reimplement
@@ -352,8 +267,24 @@ function _mapscript_ending(ending_id)
 
 }
 
+function _mapscript_message(status, message)
+{
+    // if the player has already read this message, skip it
+    if(status != 0)
+    {
+            if (avatar.campaign.indexOf(status) > -1) {
+              return false;
+            }
+    }
+    explore.message = message;
+    if(status != 0)
+            avatar.campaign.push(status);
+
+    return true;
+}
+
 function _mapscript_script(script)
 {
-    eval(script); //this is fine
+    return eval(script); //this is fine
 }
 

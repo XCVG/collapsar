@@ -24,33 +24,8 @@ function explore_logic() {
 
   avatar_explore();
 	
-  // check map exit
-  /*
-  if (avatar.moved) {
-    if (mazemap_check_exit()) {
-	
-	  // display the name of the new map
-	  explore.message = atlas.maps[mazemap.current_id].name;
-	  
-	  // don't allow a random encounter when switching maps
-      avatar_save();
-	  return;
-	}
-  }  
-  */
- 
-  // check shop
-  if (avatar.moved) {
-    if (mazemap_check_shop()) {
-      gamestate = STATE_DIALOG;
-      redraw = true;
-      avatar_save();
-      return;
-    }
-  }
-
   // check special script;
-  //TODO: probably move exits and shops into generalized mapscript
+  //moved exits and shops into generalized mapscript
   if (avatar.moved) {
     if (mapscript_exec(mazemap.current_id)) {
       avatar_save();

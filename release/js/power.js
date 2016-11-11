@@ -36,6 +36,8 @@ powers[7] = {name: "Rend", type: POWER_TYPE_DARK, damage: 10};
 
 function power_special_use(power_id)
 {
+    //do we put power checking here?
+    
     //TODO: switch on input index and call appropriate function
     
     //if 0, call heal

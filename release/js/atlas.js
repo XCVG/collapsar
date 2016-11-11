@@ -85,7 +85,7 @@ atlas.maps[1].scripts[1] = {type:"exit", x:1, y:6, dest_map:2, dest_x:1, dest_y:
 atlas.maps[1].scripts[2] = {type:"exit", x:4, y:0, dest_map:3, dest_x:2, dest_y:4};
 atlas.maps[1].scripts[3] = {type:"exit", x:4, y:10, dest_map:4, dest_x:6, dest_y:2};
 
-atlas.maps[1].enemies = [ENEMY_SHADOW_TENDRILS, ENEMY_IMP];
+atlas.maps[1].enemies = [ENEMY_SHADOW_TENDRILS, ENEMY_IMP, ENEMY_SNAKE];
 
 atlas.maps[2].name = "Temple of Stepanos";
 atlas.maps[2].music = "kawarayu";

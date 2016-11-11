@@ -52,9 +52,12 @@ function avatar_reset() {
   avatar.mp = 4;
   avatar.max_mp = 4;
   avatar.gold = 0;
+  avatar.powers = new Array();
+  avatar.power_left = -1;
+  avatar.power_right = -1;
   avatar.bonus_atk = 0;
   avatar.bonus_def = 0;
-  avatar.spellbook = 0;
+  avatar.spellbook = 0; //will be unused in new combat system
   avatar.sleeploc = [0,1,1]; // map_id, x, y
   avatar.campaign = new Array();
 }

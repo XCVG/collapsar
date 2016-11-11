@@ -2,10 +2,46 @@
  * Resolve power use
  */
 
+var POWER_HEAL = 0;
+var POWER_SLAM = 1;
+var POWER_GUST = 2;
+var POWER_QUAKE = 3;
+var POWER_TORCH = 4;
+var POWER_WAVE = 5;
+var POWER_ZORCH = 6;
+var POWER_REND = 7;
+
+var POWER_TYPE_FORCE = 0;
+var POWER_TYPE_WIND = 1;
+var POWER_TYPE_EARTH = 2;
+var POWER_TYPE_FIRE = 3;
+var POWER_TYPE_ELECTRIC = 4;
+var POWER_TYPE_WATER = 5;
+var POWER_TYPE_DARK = 6;
+
 var ENEMY_POWER_ATTACK = 0;
 var ENEMY_POWER_SCORCH = 1;
 var ENEMY_POWER_HPDRAIN = 2;
 var ENEMY_POWER_MPDRAIN = 3;
+
+var powers = new Array();
+powers[0] = {name: "Heal"}; //implement with function
+powers[1] = {name: "Slam", type: POWER_TYPE_FORCE, damage: 10};
+powers[2] = {name: "Gust", type: POWER_TYPE_WIND, damage: 10};
+powers[3] = {name: "Quake", type: POWER_TYPE_EARTH, damage: 10};
+powers[4] = {name: "Torch", type: POWER_TYPE_FIRE, damage: 10};
+powers[5] = {name: "Wave", type: POWER_TYPE_WATER, damage: 10};
+powers[6] = {name: "Zorch", type: POWER_TYPE_ELECTRIC, damage: 10};
+powers[7] = {name: "Rend", type: POWER_TYPE_DARK, damage: 10};
+
+function power_special_use(power_id)
+{
+    //TODO: switch on input index and call appropriate function
+    
+    //if 0, call heal
+    
+    //if 1-7, call elemental attack
+}
 
 function power_hero_attack() {
 
@@ -369,3 +405,4 @@ function power_mpdrain() {
   combat.hero_hurt = true;
 }
 
+//TODO: new power functions

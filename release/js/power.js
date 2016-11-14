@@ -19,6 +19,9 @@ var POWER_TYPE_ELECTRIC = 4;
 var POWER_TYPE_WATER = 5;
 var POWER_TYPE_DARK = 6;
 
+var POWER_TYPE_MELEE = 11;
+var POWER_TYPE_RANGED = 12;
+
 var ENEMY_POWER_ATTACK = 0;
 var ENEMY_POWER_SCORCH = 1;
 var ENEMY_POWER_HPDRAIN = 2;
@@ -47,7 +50,7 @@ function power_special_use(power_id)
 
 function power_hero_attack() {
 
-  combat.offense_action = "Attack!";
+  combat.offense_action = "Hit!";
   
   // special: override hero action if the boss has bone shield up
   if (boss.boneshield_active) {
@@ -67,6 +70,52 @@ function power_hero_attack() {
   var atk_min = info.weapons[avatar.weapon].atk_min + avatar.bonus_atk;
   var atk_max = info.weapons[avatar.weapon].atk_max + avatar.bonus_atk;
   var attack_damage = Math.round(Math.random() * (atk_max - atk_min)) + atk_min;
+  
+  //TODO: melee and ranged damage
+  
+  // check crit
+  // hero crits add max damage
+  var crit_chance = Math.random();
+  if (crit_chance < 0.10) {
+    attack_damage += atk_max;
+    combat.offense_action = "Critical!";
+    sounds_play(SFX_CRITICAL);
+  }
+  else {
+    sounds_play(SFX_ATTACK);
+  }
+  
+  combat.enemy.hp -= attack_damage;
+  combat.offense_result = attack_damage + " damage";
+  
+  combat.enemy_hurt = true;
+  
+}
+
+function power_hero_rangedattack() {
+
+  combat.offense_action = "Shoot!";
+  
+  // special: override hero action if the boss has bone shield up
+  if (boss.boneshield_active) {
+    boss_boneshield_heroattack();
+    return;
+  }
+  
+  // check miss
+  var hit_chance = Math.random();
+  if (hit_chance < 0.20) {
+    combat.offense_result = "Miss!";
+    sounds_play(SFX_MISS);
+    return;
+  }
+  
+  // Hit: calculate damage
+  var atk_min = info.weapons[avatar.weapon].atk_min + avatar.bonus_atk;
+  var atk_max = info.weapons[avatar.weapon].atk_max + avatar.bonus_atk;
+  var attack_damage = Math.round(Math.random() * (atk_max - atk_min)) + atk_min;
+  
+  //TODO: melee and ranged damage
   
   // check crit
   // hero crits add max damage

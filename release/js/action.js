@@ -68,6 +68,24 @@ function action_checkuse(check_pos) {
   return false;
 }
 
+//check use by position or key
+function action_checkUseEx(check_pos, key)
+{
+    if (pressing.mouse && !input_lock.mouse && isWithin(mouse_pos, check_pos))
+    {
+	input_lock.mouse = true;
+        return true;
+    }
+    
+    if(pressing[key])
+    {
+        input_lock[key] = true;
+        return true;
+    }
+    
+    return false;
+}
+
 /**
  * Use the arrowkeys to move the selection cursor
  * The complexity here comes from two factors: 

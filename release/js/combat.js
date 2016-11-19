@@ -111,57 +111,34 @@ function combat_logic_input() {
   combat.run_success = false;
 
   var used_action = false;
-  
-  /*
-  if (action_checkuse(BUTTON_POS_ATTACK)) {
-    power_hero_attack();
-	used_action = true;
-  }
-  else if (action_checkuse(BUTTON_POS_HEAL) && avatar.mp > 0 && avatar.spellbook >= 1 && avatar.hp < avatar.max_hp) {
-    power_heal();
-	used_action = true;
-  }
-  else if (action_checkuse(BUTTON_POS_BURN) && avatar.mp > 0 && avatar.spellbook >= 2) {
-    power_burn();
-	used_action = true;
-  }
-  else if (action_checkuse(BUTTON_POS_UNLOCK) && avatar.mp > 0 && avatar.spellbook >= 3 && combat.enemy.category == ENEMY_CATEGORY_AUTOMATON) {
-    power_unlock();
-    used_action = true;
-  }
-  else if (action_checkuse(BUTTON_POS_RUN)) {
-    power_run();
-	used_action = true;
-  }
-    */
-   
-   //TODO keyboard input
-   if(action_checkuse(COMBAT_BUTTON_POS_ATTACK))
+     
+   //newinput
+   if(action_checkUseEx(COMBAT_BUTTON_POS_ATTACK,"up"))
    {
        power_hero_attack();
        used_action = true;
    }
-   else if (action_checkuse(COMBAT_BUTTON_POS_RANGED))
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_RANGED,"upright"))
    {
        power_hero_rangedattack();
        used_action = true;
    }
-   else if (action_checkuse(COMBAT_BUTTON_POS_DEFEND))
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_DEFEND,"upleft"))
    {
        power_hero_defend();
        used_action = true;
    }
-   else if (action_checkuse(COMBAT_BUTTON_POS_RUN))
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_RUN,"down"))
    {
        power_run();
        used_action = true;
    }
-   else if (action_checkuse(COMBAT_BUTTON_POS_POWER1))
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_POWER1,"left") && avatar.mp > 0 && avatar.power_left > 0)
    {
        power_special_use(avatar.power_left);
        used_action = true;
    }
-   else if (action_checkuse(COMBAT_BUTTON_POS_POWER2))
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_POWER2,"right") && avatar.mp > 0 && avatar.power_right > 0)
    {
        power_special_use(avatar.power_right);
        used_action = true;

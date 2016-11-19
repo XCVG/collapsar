@@ -349,7 +349,7 @@ function combat_render_intro() {
 function combat_render_input() {
   enemy_render(combat.enemy.type);
   bitfont_render(enemy.stats[combat.enemy.type].name, 80, 2, JUSTIFY_CENTER);
-  info_render_hpmp();
+  _combat_render_hpmp();
   action_render();
   combat_render_offense_log();
   combat_render_defense_log();
@@ -374,7 +374,7 @@ function combat_render_defense() {
 function combat_render_victory() {
   combat_render_offense_log();
   bitfont_render(enemy.stats[combat.enemy.type].name, 80, 2, JUSTIFY_CENTER); 
-  info_render_hpmp();
+  _combat_render_hpmp();
   bitfont_render("You win!", 80, 60, JUSTIFY_CENTER);
   bitfont_render(combat.reward_result, 80, 70, JUSTIFY_CENTER);
   treasure_render_gold(combat.gold_treasure);
@@ -386,7 +386,7 @@ function combat_render_defeat() {
   bitfont_render(enemy.stats[combat.enemy.type].name, 80, 2, JUSTIFY_CENTER);  
   combat_render_offense_log();
   combat_render_defense_log();
-  info_render_hpmp();
+  _combat_render_hpmp();
   bitfont_render("You lost!", 80, 60, JUSTIFY_CENTER);
   info_render_gold();
 }
@@ -407,3 +407,8 @@ function combat_render_defense_log() {
   }
 }
 
+function _combat_render_hpmp()
+{ 
+  bitfont_render("HP " + avatar.hp + "/" + avatar.max_hp, 156, 100, JUSTIFY_RIGHT);
+  bitfont_render("MP " + avatar.mp + "/" + avatar.max_mp, 156, 110, JUSTIFY_RIGHT); 
+}

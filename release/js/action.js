@@ -16,11 +16,12 @@ var BUTTON_POS_LIGHT = {x:140, y:60, w:20, h:20};
 var BUTTON_POS_FREEZE = {x:120, y:80, w:20, h:20};
 var BUTTON_POS_REFLECT = {x:140, y:80, w:20, h:20};
 
-
 var action = new Object();
 
 action.button_img = new Image();
 action.button_img_loaded = false;
+action.powers_img = new Image();
+action.powers_img_loaded = false;
 action.select_img = new Image();
 action.select_img_loaded = false;
 
@@ -33,11 +34,14 @@ function action_init() {
 
   action.button_img.src = "images/interface/action_buttons.png";
   action.button_img.onload = function() {action_button_onload();};
+  action.powers_img.src = "images/interface/action_powers.png";
+  action.powers_img.onload = function() {action_powers_onload();};
   action.select_img.src = "images/interface/select.png";
   action.select_img.onload = function() {action_select_onload();};
 }
 
 function action_button_onload() {action.button_img_loaded = true;}
+function action_powers_onload() {action.powers_img_loaded = true;}
 function action_select_onload() {action.select_img_loaded = true;}
 
 /**** Logic functions ***************/
@@ -304,6 +308,20 @@ function action_render() {
 function action_render_button(id, pos) {
   ctx.drawImage(
     action.button_img,
+    id * BUTTON_SIZE * PRESCALE,
+    0,
+    BUTTON_SIZE * PRESCALE,
+    BUTTON_SIZE * PRESCALE,	
+    (pos.x + BUTTON_OFFSET) * SCALE,
+    (pos.y + BUTTON_OFFSET) * SCALE,
+    BUTTON_SIZE * SCALE,
+    BUTTON_SIZE * SCALE
+  );
+}
+
+function action_render_power(id, pos) {
+  ctx.drawImage(
+    action.powers_img,
     id * BUTTON_SIZE * PRESCALE,
     0,
     BUTTON_SIZE * PRESCALE,

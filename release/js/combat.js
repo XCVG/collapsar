@@ -271,6 +271,8 @@ function combat_logic_victory() {
 
 function combat_logic_defeat() {
 	mazemap_set_music("defeat");
+        
+        //TODO fix this handling please
 	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
 	{
 		ending.id = ENDING_BAD;
@@ -350,7 +352,8 @@ function combat_render_input() {
   enemy_render(combat.enemy.type);
   bitfont_render(enemy.stats[combat.enemy.type].name, 80, 2, JUSTIFY_CENTER);
   _combat_render_hpmp();
-  action_render();
+  //action_render();
+  _combat_render_buttons();
   combat_render_offense_log();
   combat_render_defense_log();
 }
@@ -411,4 +414,31 @@ function _combat_render_hpmp()
 { 
   bitfont_render("HP " + avatar.hp + "/" + avatar.max_hp, 156, 100, JUSTIFY_RIGHT);
   bitfont_render("MP " + avatar.mp + "/" + avatar.max_mp, 156, 110, JUSTIFY_RIGHT); 
+}
+
+//TODO: should probably put these at the top
+var COMBAT_BUTTON_POS_ATTACK = {x:25, y:80, w:20, h:20};
+var COMBAT_BUTTON_POS_DEFEND = {x:5, y:80, w:20, h:20};
+var COMBAT_BUTTON_POS_RANGED = {x:45, y:80, w:20, h:20};
+var COMBAT_BUTTON_POS_RUN = {x:25, y:100, w:20, h:20};
+var COMBAT_BUTTON_POS_POWER1 = {x:5, y:100, w:20, h:20};
+var COMBAT_BUTTON_POS_POWER2 = {x:45, y:100, w:20, h:20};
+
+function _combat_render_buttons()
+{
+    //render fixed attack icons
+    action_render_button(0, COMBAT_BUTTON_POS_ATTACK);
+    action_render_button(1, COMBAT_BUTTON_POS_RUN);
+    action_render_button(3, COMBAT_BUTTON_POS_DEFEND);
+    action_render_button(4, COMBAT_BUTTON_POS_RANGED);
+    
+    //when rendering power icons, it's power_id - 1 because I'm a dolt
+    if(avatar.power_left > 0)
+    {
+        action_render_power(avatar.power_left+1, COMBAT_BUTTON_POS_POWER1);
+    }
+    if(avatar.power_right > 0)
+    {
+        action_render_power(avatar.power_right+1, COMBAT_BUTTON_POS_POWER2);
+    }
 }

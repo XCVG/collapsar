@@ -136,6 +136,11 @@ function power_hero_rangedattack() {
   
 }
 
+function power_hero_defend()
+{
+    //TODO implement defend function
+}
+
 
 /**
  * Choose a random power from the enemy's available powers

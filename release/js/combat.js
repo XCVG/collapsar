@@ -12,6 +12,13 @@ var COMBAT_PHASE_DEFEAT = 5;
 
 var COMBAT_INTRO_DELAY = 15;
 
+var COMBAT_BUTTON_POS_ATTACK = {x:25, y:80, w:20, h:20};
+var COMBAT_BUTTON_POS_DEFEND = {x:5, y:80, w:20, h:20};
+var COMBAT_BUTTON_POS_RANGED = {x:45, y:80, w:20, h:20};
+var COMBAT_BUTTON_POS_RUN = {x:25, y:100, w:20, h:20};
+var COMBAT_BUTTON_POS_POWER1 = {x:5, y:100, w:20, h:20};
+var COMBAT_BUTTON_POS_POWER2 = {x:45, y:100, w:20, h:20};
+
 // object setup
 var combat = new Object();
 
@@ -105,6 +112,7 @@ function combat_logic_input() {
 
   var used_action = false;
   
+  /*
   if (action_checkuse(BUTTON_POS_ATTACK)) {
     power_hero_attack();
 	used_action = true;
@@ -125,6 +133,39 @@ function combat_logic_input() {
     power_run();
 	used_action = true;
   }
+    */
+   
+   //TODO keyboard input
+   if(action_checkuse(COMBAT_BUTTON_POS_ATTACK))
+   {
+       power_hero_attack();
+       used_action = true;
+   }
+   else if (action_checkuse(COMBAT_BUTTON_POS_RANGED))
+   {
+       power_hero_rangedattack();
+       used_action = true;
+   }
+   else if (action_checkuse(COMBAT_BUTTON_POS_DEFEND))
+   {
+       power_hero_defend();
+       used_action = true;
+   }
+   else if (action_checkuse(COMBAT_BUTTON_POS_RUN))
+   {
+       power_run();
+       used_action = true;
+   }
+   else if (action_checkuse(COMBAT_BUTTON_POS_POWER1))
+   {
+       power_special_use(avatar.power_left);
+       used_action = true;
+   }
+   else if (action_checkuse(COMBAT_BUTTON_POS_POWER2))
+   {
+       power_special_use(avatar.power_right);
+       used_action = true;
+   }
 
   if (used_action) {
     combat.phase = COMBAT_PHASE_OFFENSE;
@@ -416,13 +457,7 @@ function _combat_render_hpmp()
   bitfont_render("MP " + avatar.mp + "/" + avatar.max_mp, 156, 110, JUSTIFY_RIGHT); 
 }
 
-//TODO: should probably put these at the top
-var COMBAT_BUTTON_POS_ATTACK = {x:25, y:80, w:20, h:20};
-var COMBAT_BUTTON_POS_DEFEND = {x:5, y:80, w:20, h:20};
-var COMBAT_BUTTON_POS_RANGED = {x:45, y:80, w:20, h:20};
-var COMBAT_BUTTON_POS_RUN = {x:25, y:100, w:20, h:20};
-var COMBAT_BUTTON_POS_POWER1 = {x:5, y:100, w:20, h:20};
-var COMBAT_BUTTON_POS_POWER2 = {x:45, y:100, w:20, h:20};
+//new/button stuff
 
 function _combat_render_buttons()
 {
@@ -432,13 +467,12 @@ function _combat_render_buttons()
     action_render_button(3, COMBAT_BUTTON_POS_DEFEND);
     action_render_button(4, COMBAT_BUTTON_POS_RANGED);
     
-    //when rendering power icons, it's power_id - 1 because I'm a dolt
     if(avatar.power_left > 0)
     {
-        action_render_power(avatar.power_left+1, COMBAT_BUTTON_POS_POWER1);
+        action_render_power(avatar.power_left, COMBAT_BUTTON_POS_POWER1);
     }
     if(avatar.power_right > 0)
     {
-        action_render_power(avatar.power_right+1, COMBAT_BUTTON_POS_POWER2);
+        action_render_power(avatar.power_right, COMBAT_BUTTON_POS_POWER2);
     }
 }

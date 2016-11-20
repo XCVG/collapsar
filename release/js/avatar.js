@@ -46,6 +46,7 @@ function avatar_reset() {
   avatar.moved = false;
   avatar.map_id = 0;
   avatar.weapon = 0;
+  avatar.gun = 0;
   avatar.armor = 1;
   avatar.hp = 25;
   avatar.max_hp = 25;

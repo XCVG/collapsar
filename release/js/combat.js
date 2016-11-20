@@ -35,6 +35,7 @@ combat.reward_result = "";
 combat.gold_treasure = 0;
 
 combat.victory_status = "";
+combat.hero_defending = false;
 combat.enemy_hurt = false;
 combat.hero_hurt = false;
 combat.run_success = false;
@@ -48,11 +49,21 @@ function combat_init() {
  * Set the variable info for this enemy
  * Anything that changes during combat goes here (e.g. hp)
  * Otherwise we read values from the enemy list
+ * TODO switch things to use combat.enemy because dynamic
  */
 function combat_set_enemy(enemy_id) {
   combat.enemy.type = enemy_id;
-  combat.enemy.hp = enemy.stats[enemy_id].hp;
-  combat.enemy.category = enemy.stats[enemy_id].category;
+  //combat.enemy.hp = enemy.stats[enemy_id].hp;
+  //combat.enemy.category = enemy.stats[enemy_id].category;
+  Object.assign(combat.enemy, enemy.stats[enemy_id]); //sorry, ie users
+  //semi-deep copy
+  combat.enemy.powers = enemy.stats[enemy_id].powers.slice();
+  combat.enemy.weaknesses = enemy.stats[enemy_id].weaknesses.slice();
+  combat.enemy.strengths = enemy.stats[enemy_id].strengths.slice();
+  
+  //for debug
+  //console.log(combat.enemy);
+  
   boss_reset();
   combat.victory_status = "";
   sounds_play(SFX_MISS);
@@ -109,6 +120,7 @@ function combat_logic_input() {
   combat.enemy_hurt = false;
   combat.hero_hurt = false;
   combat.run_success = false;
+  combat.hero_defending = false;
 
   var used_action = false;
      

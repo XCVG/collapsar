@@ -12,6 +12,13 @@ var COMBAT_PHASE_DEFEAT = 5;
 
 var COMBAT_INTRO_DELAY = 15;
 
+var COMBAT_BUTTON_POS_ATTACK = {x:25, y:80, w:20, h:20};
+var COMBAT_BUTTON_POS_DEFEND = {x:5, y:80, w:20, h:20};
+var COMBAT_BUTTON_POS_RANGED = {x:45, y:80, w:20, h:20};
+var COMBAT_BUTTON_POS_RUN = {x:25, y:100, w:20, h:20};
+var COMBAT_BUTTON_POS_POWER1 = {x:5, y:100, w:20, h:20};
+var COMBAT_BUTTON_POS_POWER2 = {x:45, y:100, w:20, h:20};
+
 // object setup
 var combat = new Object();
 
@@ -28,6 +35,7 @@ combat.reward_result = "";
 combat.gold_treasure = 0;
 
 combat.victory_status = "";
+combat.hero_defending = false;
 combat.enemy_hurt = false;
 combat.hero_hurt = false;
 combat.run_success = false;
@@ -41,11 +49,21 @@ function combat_init() {
  * Set the variable info for this enemy
  * Anything that changes during combat goes here (e.g. hp)
  * Otherwise we read values from the enemy list
+ * TODO switch things to use combat.enemy because dynamic
  */
 function combat_set_enemy(enemy_id) {
   combat.enemy.type = enemy_id;
-  combat.enemy.hp = enemy.stats[enemy_id].hp;
-  combat.enemy.category = enemy.stats[enemy_id].category;
+  //combat.enemy.hp = enemy.stats[enemy_id].hp;
+  //combat.enemy.category = enemy.stats[enemy_id].category;
+  Object.assign(combat.enemy, enemy.stats[enemy_id]); //sorry, ie users
+  //semi-deep copy
+  combat.enemy.powers = enemy.stats[enemy_id].powers.slice();
+  combat.enemy.weaknesses = enemy.stats[enemy_id].weaknesses.slice();
+  combat.enemy.strengths = enemy.stats[enemy_id].strengths.slice();
+  
+  //for debug
+  //console.log(combat.enemy);
+  
   boss_reset();
   combat.victory_status = "";
   sounds_play(SFX_MISS);
@@ -102,29 +120,41 @@ function combat_logic_input() {
   combat.enemy_hurt = false;
   combat.hero_hurt = false;
   combat.run_success = false;
+  combat.hero_defending = false;
 
   var used_action = false;
-  
-  if (action_checkuse(BUTTON_POS_ATTACK)) {
-    power_hero_attack();
-	used_action = true;
-  }
-  else if (action_checkuse(BUTTON_POS_HEAL) && avatar.mp > 0 && avatar.spellbook >= 1 && avatar.hp < avatar.max_hp) {
-    power_heal();
-	used_action = true;
-  }
-  else if (action_checkuse(BUTTON_POS_BURN) && avatar.mp > 0 && avatar.spellbook >= 2) {
-    power_burn();
-	used_action = true;
-  }
-  else if (action_checkuse(BUTTON_POS_UNLOCK) && avatar.mp > 0 && avatar.spellbook >= 3 && combat.enemy.category == ENEMY_CATEGORY_AUTOMATON) {
-    power_unlock();
-    used_action = true;
-  }
-  else if (action_checkuse(BUTTON_POS_RUN)) {
-    power_run();
-	used_action = true;
-  }
+     
+   //newinput
+   if(action_checkUseEx(COMBAT_BUTTON_POS_ATTACK,"up"))
+   {
+       power_hero_attack();
+       used_action = true;
+   }
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_RANGED,"action"))
+   {
+       power_hero_rangedattack();
+       used_action = true;
+   }
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_DEFEND,"query"))
+   {
+       power_hero_defend();
+       used_action = true;
+   }
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_RUN,"down"))
+   {
+       power_run();
+       used_action = true;
+   }
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_POWER1,"left") && avatar.mp > 0 && avatar.power_left > 0)
+   {
+       power_special_use(avatar.power_left);
+       used_action = true;
+   }
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_POWER2,"right") && avatar.mp > 0 && avatar.power_right > 0)
+   {
+       power_special_use(avatar.power_right);
+       used_action = true;
+   }
 
   if (used_action) {
     combat.phase = COMBAT_PHASE_OFFENSE;
@@ -271,6 +301,8 @@ function combat_logic_victory() {
 
 function combat_logic_defeat() {
 	mazemap_set_music("defeat");
+        
+        //TODO fix this handling please
 	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
 	{
 		ending.id = ENDING_BAD;
@@ -349,8 +381,9 @@ function combat_render_intro() {
 function combat_render_input() {
   enemy_render(combat.enemy.type);
   bitfont_render(enemy.stats[combat.enemy.type].name, 80, 2, JUSTIFY_CENTER);
-  info_render_hpmp();
-  action_render();
+  _combat_render_hpmp();
+  //action_render();
+  _combat_render_buttons();
   combat_render_offense_log();
   combat_render_defense_log();
 }
@@ -374,11 +407,11 @@ function combat_render_defense() {
 function combat_render_victory() {
   combat_render_offense_log();
   bitfont_render(enemy.stats[combat.enemy.type].name, 80, 2, JUSTIFY_CENTER); 
-  info_render_hpmp();
+  _combat_render_hpmp();
   bitfont_render("You win!", 80, 60, JUSTIFY_CENTER);
   bitfont_render(combat.reward_result, 80, 70, JUSTIFY_CENTER);
   treasure_render_gold(combat.gold_treasure);
-  info_render_gold();
+  //info_render_gold();
 }
 
 function combat_render_defeat() {
@@ -386,9 +419,9 @@ function combat_render_defeat() {
   bitfont_render(enemy.stats[combat.enemy.type].name, 80, 2, JUSTIFY_CENTER);  
   combat_render_offense_log();
   combat_render_defense_log();
-  info_render_hpmp();
+  _combat_render_hpmp();
   bitfont_render("You lost!", 80, 60, JUSTIFY_CENTER);
-  info_render_gold();
+  //info_render_gold();
 }
 
 function combat_render_offense_log() {
@@ -401,9 +434,34 @@ function combat_render_offense_log() {
 
 function combat_render_defense_log() {
   if (combat.defense_action != "") {
-    bitfont_render("Enemy:", 2, 60, JUSTIFY_LEFT);
-	bitfont_render(combat.defense_action, 2, 70, JUSTIFY_LEFT);
-	bitfont_render(combat.defense_result, 2, 80, JUSTIFY_LEFT);	
+    bitfont_render("Enemy:", 158, 20, JUSTIFY_RIGHT);
+	bitfont_render(combat.defense_action, 158, 30, JUSTIFY_RIGHT);
+	bitfont_render(combat.defense_result, 158, 40, JUSTIFY_RIGHT);	
   }
 }
 
+function _combat_render_hpmp()
+{ 
+  bitfont_render("HP " + avatar.hp + "/" + avatar.max_hp, 156, 100, JUSTIFY_RIGHT);
+  bitfont_render("MP " + avatar.mp + "/" + avatar.max_mp, 156, 110, JUSTIFY_RIGHT); 
+}
+
+//new/button stuff
+
+function _combat_render_buttons()
+{
+    //render fixed attack icons
+    action_render_button(0, COMBAT_BUTTON_POS_ATTACK);
+    action_render_button(1, COMBAT_BUTTON_POS_RUN);
+    action_render_button(3, COMBAT_BUTTON_POS_DEFEND);
+    action_render_button(4, COMBAT_BUTTON_POS_RANGED);
+    
+    if(avatar.power_left > 0)
+    {
+        action_render_power(avatar.power_left, COMBAT_BUTTON_POS_POWER1);
+    }
+    if(avatar.power_right > 0)
+    {
+        action_render_power(avatar.power_right, COMBAT_BUTTON_POS_POWER2);
+    }
+}

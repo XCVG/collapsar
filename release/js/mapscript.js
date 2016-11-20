@@ -149,6 +149,12 @@ function mapscript_grant_item(item, item_count) {
   
 }
 
+function mapscript_grant_power(power_id) {
+    //TODO: message?
+    
+    avatar.powers.push(power_id);
+}
+
 //exit, shop, chest, bed, enemy, script
 
 function _mapscript_exit(dest_map, dest_x, dest_y)
@@ -191,7 +197,15 @@ function _mapscript_chest(status, item, qty)
     {
         //this is a new chest, so give the reward and push flag
         avatar.campaign.push(status);
-        mapscript_grant_item(item, qty);
+        if(item === "!POWER")
+        {
+            mapscript_grant_power(qty); //yes it's a hack
+        }
+        else
+        {
+            mapscript_grant_item(item, qty);
+        }        
+
         return true;
     }
     else return false;

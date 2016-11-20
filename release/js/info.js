@@ -3,6 +3,8 @@
  Display information about the heroine
  */
 
+//TODO: redo a lot lol
+
 // consts
 var AVATAR_SPRITE_W = 80;
 var AVATAR_SPRITE_H = 100;
@@ -26,6 +28,7 @@ info.button_img = new Image();
 info.button_img_loaded = false;
 
 info.weapons = new Array();
+info.guns = new Array();
 info.armors = new Array();
 info.spells = new Array();
 
@@ -48,6 +51,15 @@ function info_init() {
   info.weapons[5] = {name:"Dwarven",  atk_min:6,  atk_max:14, gold:500};
   info.weapons[6] = {name:"Force",  atk_min:7,  atk_max:16, gold:1000};
   info.weapons[7] = {name:"MM Spike", atk_min:8,  atk_max:18, gold:5000};
+  
+  info.guns[0] = {name:"Fists",  atk_min:1,  atk_max:4,  gold:0};
+  info.guns[1] = {name:"Stick",  atk_min:2,  atk_max:6,  gold:0};
+  info.guns[2] = {name:"Knife",  atk_min:3,  atk_max:8,  gold:10};
+  info.guns[3] = {name:"Sword", atk_min:4,  atk_max:10, gold:50};
+  info.guns[4] = {name:"Claymore", atk_min:5,  atk_max:12, gold:100};
+  info.guns[5] = {name:"Dwarven",  atk_min:6,  atk_max:14, gold:500};
+  info.guns[6] = {name:"Force",  atk_min:7,  atk_max:16, gold:1000};
+  info.guns[7] = {name:"MM Spike", atk_min:8,  atk_max:18, gold:5000};
   
   info.armors[0] = {name:"",      def:0,  gold:0};
   info.armors[1] = {name:"Tunic",     def:2,  gold:0};

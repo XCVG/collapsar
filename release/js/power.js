@@ -204,8 +204,8 @@ function power_hero_rangedattack() {
   }
   
   // Hit: calculate damage
-  var atk_min = info.weapons[avatar.gun].atk_min + avatar.bonus_atk;
-  var atk_max = info.weapons[avatar.gun].atk_max + avatar.bonus_atk;
+  var atk_min = info.guns[avatar.gun].atk_min + avatar.bonus_atk;
+  var atk_max = info.guns[avatar.gun].atk_max + avatar.bonus_atk;
   var attack_damage = Math.round(Math.random() * (atk_max - atk_min)) + atk_min;
   
   // check crit
@@ -242,6 +242,7 @@ function power_hero_rangedattack() {
 function power_hero_defend()
 {
     combat.offense_action = "Block!";
+    combat.offense_result = "";
     combat.hero_defending = true;
     combat.enemy_hurt = false;
 }
@@ -312,9 +313,11 @@ function power_enemy_attack() {
   if(combat.hero_defending)
       attack_damage *= 0.75;
   
+  //round and clamp attack damage
+  attack_damage = Math.round(attack_damage);
   if (attack_damage <= 0) attack_damage = 1;
   
-  avatar.hp -= Math.round(attack_damage);
+  avatar.hp -= attack_damage;
   combat.defense_result = attack_damage + " damage";
   
   combat.hero_hurt = true;

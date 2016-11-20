@@ -130,12 +130,12 @@ function combat_logic_input() {
        power_hero_attack();
        used_action = true;
    }
-   else if (action_checkUseEx(COMBAT_BUTTON_POS_RANGED,"upright"))
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_RANGED,"action"))
    {
        power_hero_rangedattack();
        used_action = true;
    }
-   else if (action_checkUseEx(COMBAT_BUTTON_POS_DEFEND,"upleft"))
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_DEFEND,"query"))
    {
        power_hero_defend();
        used_action = true;
@@ -411,7 +411,7 @@ function combat_render_victory() {
   bitfont_render("You win!", 80, 60, JUSTIFY_CENTER);
   bitfont_render(combat.reward_result, 80, 70, JUSTIFY_CENTER);
   treasure_render_gold(combat.gold_treasure);
-  info_render_gold();
+  //info_render_gold();
 }
 
 function combat_render_defeat() {
@@ -421,7 +421,7 @@ function combat_render_defeat() {
   combat_render_defense_log();
   _combat_render_hpmp();
   bitfont_render("You lost!", 80, 60, JUSTIFY_CENTER);
-  info_render_gold();
+  //info_render_gold();
 }
 
 function combat_render_offense_log() {
@@ -434,9 +434,9 @@ function combat_render_offense_log() {
 
 function combat_render_defense_log() {
   if (combat.defense_action != "") {
-    bitfont_render("Enemy:", 2, 60, JUSTIFY_LEFT);
-	bitfont_render(combat.defense_action, 2, 70, JUSTIFY_LEFT);
-	bitfont_render(combat.defense_result, 2, 80, JUSTIFY_LEFT);	
+    bitfont_render("Enemy:", 158, 20, JUSTIFY_RIGHT);
+	bitfont_render(combat.defense_action, 158, 30, JUSTIFY_RIGHT);
+	bitfont_render(combat.defense_result, 158, 40, JUSTIFY_RIGHT);	
   }
 }
 

@@ -16,8 +16,7 @@ pressing.left = false;
 pressing.right = false;
 pressing.action = false;
 pressing.mouse = false;
-pressing.upleft = false;
-pressing.upright = false;
+pressing.query = false;
 
 var input_lock = new Object();
 input_lock.up = false;
@@ -26,8 +25,7 @@ input_lock.left = false;
 input_lock.right = false;
 input_lock.action = false;
 input_lock.mouse = false;
-input_lock.upleft = false;
-input_lock.upright = false;
+input_lock.query = false;
 
 var mouse_pos = {x:0, y:0};
 
@@ -38,17 +36,17 @@ var KEYCODE_DOWN   = 40; // arrow down
 var KEYCODE_LEFT   = 37; // arrow left
 var KEYCODE_RIGHT  = 39; // arrow right
 var KEYCODE_ACTION = 32; // space
-var KEYCODE_UPLEFT = 81; //Q
-var KEYCODE_UPRIGHT = 69; //E
+var KEYCODE_QUERY = 0; //none
+
 
 // secondary
 var ALTCODE_UP     = 87; // w
 var ALTCODE_DOWN   = 83; // s
 var ALTCODE_LEFT   = 65; // a
 var ALTCODE_RIGHT  = 68; // d
-var ALTCODE_ACTION = 69; // enter
-var ALTCODE_UPLEFT = 0; //Q
-var ALTCODE_UPRIGHT = 0; //E
+var ALTCODE_ACTION = 69; // e
+var ALTCODE_QUERY = 81; //q
+
 
 //---- Input Functions ----------------------------------------------
 
@@ -71,11 +69,8 @@ function handleKeyDown(evt) {
   else if (evt.keyCode == KEYCODE_ACTION || evt.keyCode == ALTCODE_ACTION) {
     pressing.action = true;
   }
-  else if (evt.keyCode == KEYCODE_UPLEFT || evt.keyCode == ALTCODE_UPLEFT) {
-    pressing.upleft = true;
-  }
-  else if (evt.keyCode == KEYCODE_UPRIGHT || evt.keyCode == ALTCODE_UPRIGHT) {
-    pressing.upright = true;
+  else if (evt.keyCode == KEYCODE_QUERY || evt.keyCode == ALTCODE_QUERY) {
+    pressing.query = true;
   }
   
 }
@@ -102,13 +97,9 @@ function handleKeyUp(evt) {
     pressing.action = false;
 	input_lock.action = false;  
   }
-  else if (evt.keyCode == KEYCODE_UPLEFT || evt.keyCode == ALTCODE_UPRIGHT) {
-    pressing.upleft = false;
-	input_lock.upleft = false;  
-  }
-  else if (evt.keyCode == KEYCODE_UPRIGHT || evt.keyCode == ALTCODE_UPRIGHT) {
-    pressing.upright = false;
-	input_lock.upright = false;  
+  else if (evt.keyCode == KEYCODE_QUERY || evt.keyCode == ALTCODE_QUERY) {
+    pressing.query = false;
+	input_lock.query = false;  
   }
 
 }

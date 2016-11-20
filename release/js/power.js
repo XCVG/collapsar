@@ -98,11 +98,23 @@ function power_hero_elemental(my_power)
         var attack_bonus = ((Math.random() * 2) - 1) * my_power.damage_random;
         attack_damage = Math.round(attack_damage + attack_bonus);
     }
-     
     
     //if damage would be 0 or negative, make it 1
     if(attack_damage < 1)
         attack_damage = 1;
+        
+    //calculate type advantage/disadvantage
+    var attack_type = my_power.type;
+    if(combat.enemy.weaknesses.indexOf(attack_type) != -1)
+    {
+        //is weak to this
+        attack_damage *= 2;
+    }
+    else if(combat.enemy.strengths.indexOf(attack_type) != -1)
+    {
+        //is strong against this
+        attack_damage *= 0.5;
+    }    
         
     //play sound (and animation?) (TODO add to spell) (default: lookup name)
     //TODO allow crits?
@@ -229,9 +241,9 @@ function power_hero_rangedattack() {
 
 function power_hero_defend()
 {
-    //TODO message and clear/set flags
+    combat.offense_action = "Block!";
     combat.hero_defending = true;
-    //TODO handle this
+    combat.enemy_hurt = false;
 }
 
 
@@ -295,9 +307,14 @@ function power_enemy_attack() {
   
   // armor absorb
   attack_damage -= info.armors[avatar.armor].def;
+  
+  // defend factor
+  if(combat.hero_defending)
+      attack_damage *= 0.75;
+  
   if (attack_damage <= 0) attack_damage = 1;
   
-  avatar.hp -= attack_damage;
+  avatar.hp -= Math.round(attack_damage);
   combat.defense_result = attack_damage + " damage";
   
   combat.hero_hurt = true;

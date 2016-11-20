@@ -46,7 +46,7 @@ var ALTCODE_UP     = 87; // w
 var ALTCODE_DOWN   = 83; // s
 var ALTCODE_LEFT   = 65; // a
 var ALTCODE_RIGHT  = 68; // d
-var ALTCODE_ACTION = 13; // enter
+var ALTCODE_ACTION = 69; // enter
 var ALTCODE_UPLEFT = 0; //Q
 var ALTCODE_UPRIGHT = 0; //E
 

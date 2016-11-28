@@ -5,7 +5,7 @@ TileSet class.
 */
 
 var TILE_COUNT = 19;
-var BACKGROUND_COUNT = 7;
+var BACKGROUND_COUNT = 8;
 
 var tileset = new Object();
 tileset.tile_img = new Array();
@@ -74,6 +74,9 @@ function tileset_init() {
   
   tileset.background_img[6].src = "images/backgrounds/hades.png";
   tileset.background_img[6].onload = function() {tileset_onload();};
+  
+  tileset.background_img[7].src = "images/backgrounds/invback.png";
+  tileset.background_img[7].onload = function() {tileset_onload();};
 
   tileset.walkable[0] = false;
   

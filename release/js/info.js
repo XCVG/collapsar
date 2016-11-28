@@ -6,8 +6,8 @@
 //TODO: redo a lot lol
 
 // consts
-var AVATAR_SPRITE_W = 80;
-var AVATAR_SPRITE_H = 100;
+var AVATAR_SPRITE_W = 32;
+var AVATAR_SPRITE_H = 32;
 var AVATAR_DRAW_X = 40;
 var AVATAR_DRAW_Y = 20;
 var ARMOR_DRAW_X = 30;
@@ -90,7 +90,8 @@ function info_button_onload() {info.button_img_loaded = true;}
 function info_logic() {
 
   // check key to info screen
-  if (pressing.action && !input_lock.action && action.select_pos == BUTTON_POS_INFO) {
+  if (pressing.action && !input_lock.action)
+  {
     gamestate = STATE_EXPLORE;
 	input_lock.action = true;	
 	redraw = true;
@@ -98,7 +99,8 @@ function info_logic() {
   }
 
   // check click to close info screen
-  if (pressing.mouse && !input_lock.mouse && isWithin(mouse_pos, BUTTON_POS_INFO)) {
+  if (pressing.mouse && !input_lock.mouse && isWithin(mouse_pos, BUTTON_POS_INFO))
+  {
     gamestate = STATE_EXPLORE;
 	input_lock.mouse = true;
 	redraw = true;  
@@ -109,6 +111,8 @@ function info_logic() {
   action_logic();
   
   // check power usage
+  //(no longer used in dubnium)
+  //TODO: power selection here
   
   if (action_checkuse(BUTTON_POS_HEAL) && avatar.mp > 0 && avatar.spellbook >= 1) {
     power_heal();
@@ -138,20 +142,18 @@ function info_clear_messages() {
 function info_render() {
 
   tileset_background();
-  mazemap_render(avatar.x, avatar.y, avatar.facing);
+  //mazemap_render(avatar.x, avatar.y, avatar.facing);
  
-  bitfont_render("INFO", 80, 2, JUSTIFY_CENTER);
-  
-  if (avatar.spellbook > 0) {
-    bitfont_render("Abilities", 158, 30, JUSTIFY_RIGHT);
-  }
+  bitfont_render("Info", 80, 2, JUSTIFY_CENTER);
 
+  //TODO: render overlay
+  
   info_render_equipment();
   info_render_button();
-  info_render_itemlist();
+  //info_render_itemlist();
   info_render_hpmp();
   info_render_gold();
-  action_render();
+  //action_render();
   
   if (!info_render_messages()) {
   
@@ -164,14 +166,38 @@ function info_render() {
 function info_render_equipment() {
   if (!info.avatar_img_loaded) return;
   
+  tileset_background_render(7); //the inventory background shall always be 7, not 6, not 8, certainly not 9, 10 is right out
+  
+  //TODO: repurpose to render new style equipment
+  
+  _info_render_playerbase();
+  _info_render_playerequip();
+  _info_render_playerspells();
+  
   // always draw the base 
-  info_render_equiplayer(0, TYPE_ARMOR);
+  //info_render_equiplayer(0, TYPE_ARMOR);
 
   // render worn equipment  
-  info_render_equiplayer(avatar.armor, TYPE_ARMOR);
-  info_render_equiplayer(avatar.weapon, TYPE_WEAPON);
+  //info_render_equiplayer(avatar.armor, TYPE_ARMOR);
+  //info_render_equiplayer(avatar.weapon, TYPE_WEAPON);
   
 }
+
+function _info_render_playerbase()
+{
+    //TODO: draw the player base sprite
+}
+
+function _info_render_playerequip()
+{
+    //TODO: draw the player's equipment sprites
+}
+
+function _info_render_playerspells()
+{
+    //TODO: draw the player's current spells
+}
+
 //oddly, drawing weapons and armor differently was partially implemented
 function info_render_equiplayer(itemtier, itemtype) {
 

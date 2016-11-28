@@ -6,10 +6,12 @@
 //TODO: redo a lot lol
 
 // consts
-var AVATAR_SPRITE_W = 32;
-var AVATAR_SPRITE_H = 32;
-var AVATAR_DRAW_X = 40;
-var AVATAR_DRAW_Y = 20;
+var AVATAR_SPRITE_W = 20;
+var AVATAR_SPRITE_H = 64;
+var AVATAR_DRAW_X = 100;
+var AVATAR_DRAW_Y = 30;
+var INVICON_SPRITE_W = 16;
+var INVICON_SPRITE_H = 16;
 var ARMOR_DRAW_X = 30;
 var ARMOR_DRAW_Y = 20;
 var WEAPON_DRAW_X = 40;
@@ -26,6 +28,8 @@ info.avatar_img = new Image();
 info.avatar_img_loaded = false;
 info.button_img = new Image();
 info.button_img_loaded = false;
+info.doll_img = new Image();
+info.doll_img_loaded = false;
 
 info.weapons = new Array();
 info.guns = new Array();
@@ -42,6 +46,8 @@ function info_init() {
   info.avatar_img.onload = function() {info_avatar_onload();};
   info.button_img.src = "images/interface/info_button.png";
   info.button_img.onload = function() {info_button_onload();};
+  info.doll_img.src = "images/interface/doll.png";
+  info.doll_img.onload = function() {info_doll_onload();};
   
   info.weapons[0] = {name:"Fists",  atk_min:1,  atk_max:4,  gold:0};
   info.weapons[1] = {name:"Stick",  atk_min:2,  atk_max:6,  gold:0};
@@ -84,6 +90,7 @@ function info_init() {
 /*** Image loading Helpers **********************/
 function info_avatar_onload() {info.avatar_img_loaded = true;}
 function info_button_onload() {info.button_img_loaded = true;}
+function info_doll_onload() {info.doll_img_loaded = true;}
 
 
 /*** Logic Functions **********************/
@@ -141,7 +148,7 @@ function info_clear_messages() {
 /*** Render Functions **********************/
 function info_render() {
 
-  tileset_background();
+  tileset_background_render(7); //the inventory background shall always be 7, not 6, not 8, certainly not 9, 10 is right out
   //mazemap_render(avatar.x, avatar.y, avatar.facing);
  
   bitfont_render("Info", 80, 2, JUSTIFY_CENTER);
@@ -166,8 +173,6 @@ function info_render() {
 function info_render_equipment() {
   if (!info.avatar_img_loaded) return;
   
-  tileset_background_render(7); //the inventory background shall always be 7, not 6, not 8, certainly not 9, 10 is right out
-  
   //TODO: repurpose to render new style equipment
   
   _info_render_playerbase();
@@ -186,6 +191,17 @@ function info_render_equipment() {
 function _info_render_playerbase()
 {
     //TODO: draw the player base sprite
+    ctx.drawImage(
+		info.doll_img,
+		0,
+		0,
+		AVATAR_SPRITE_W * PRESCALE,
+		AVATAR_SPRITE_H * PRESCALE,	
+		AVATAR_DRAW_X * SCALE,
+		AVATAR_DRAW_Y * SCALE,
+		AVATAR_SPRITE_W * SCALE,
+		AVATAR_SPRITE_H * SCALE
+	  );
 }
 
 function _info_render_playerequip()

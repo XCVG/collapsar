@@ -16,9 +16,15 @@ var ARMOR_DRAW_X = 30;
 var ARMOR_DRAW_Y = 20;
 var WEAPON_DRAW_X = 40;
 var WEAPON_DRAW_Y = 20;
+var ARMOR_DRAW = {x:100, y:55, w:20, h:20};
+var WEAPON_DRAW = {x:80, y:45, w:20, h:20};
+var GUN_DRAW = {x:120, y:45, w:20, h:20};
+var SPELL1_DRAW = {x:80, y:65, w:20, h:20};
+var SPELL2_DRAW = {x:120, y:65, w:20, h:20};
+
 var TYPE_ARMOR = 0;
 var TYPE_WEAPON = 1;
-
+var TYPE_GUN = 2;
 
 // class info
 var info = new Object();
@@ -206,12 +212,32 @@ function _info_render_playerbase()
 
 function _info_render_playerequip()
 {
-    //TODO: draw the player's equipment sprites
+    //draw the player's equipment sprites
+
+    _info_render_equipicon(avatar.armor, TYPE_ARMOR, ARMOR_DRAW);
+    _info_render_equipicon(avatar.weapon, TYPE_WEAPON, WEAPON_DRAW);
+    _info_render_equipicon(avatar.gun, TYPE_GUN, GUN_DRAW);
+
 }
 
 function _info_render_playerspells()
 {
     //TODO: draw the player's current spells
+}
+
+function _info_render_equipicon(itemtier, itemtype, pos)
+{
+    ctx.drawImage(
+    info.avatar_img,
+    itemtier * BUTTON_SIZE * PRESCALE,
+    itemtype * BUTTON_SIZE * PRESCALE,
+    BUTTON_SIZE * PRESCALE,
+    BUTTON_SIZE * PRESCALE,	
+    (pos.x + BUTTON_OFFSET) * SCALE,
+    (pos.y + BUTTON_OFFSET) * SCALE,
+    BUTTON_SIZE * SCALE,
+    BUTTON_SIZE * SCALE
+  );
 }
 
 //oddly, drawing weapons and armor differently was partially implemented

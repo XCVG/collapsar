@@ -120,29 +120,17 @@ function info_logic() {
 	sounds_play(SFX_CLICK);
   }
 
-  // check select movement for spell actions
-  action_logic();
-  
-  // check power usage
-  //(no longer used in dubnium)
-  //TODO: power selection here
-  
-  if (action_checkuse(BUTTON_POS_HEAL) && avatar.mp > 0 && avatar.spellbook >= 1) {
-    power_heal();
-	redraw = true;
-  }
-
-  if (action_checkuse(BUTTON_POS_BURN) && avatar.mp > 0 && avatar.spellbook >= 2) {
-    power_map_burn();
-    redraw = true;
-  }
-  
-  if (action_checkuse(BUTTON_POS_UNLOCK) && avatar.mp > 0 && avatar.spellbook >= 3) {
-    power_map_unlock();
-    redraw = true;
-  }
-  
-  //TODO: code other powers!
+    if(action_checkUseEx(SPELL1_DRAW,"left"))
+    {
+        _info_cycleSpellLeft();
+        redraw = true;
+    }
+    
+    if(action_checkUseEx(SPELL2_DRAW,"right"))
+    {
+        _info_cycleSpellRight();
+        redraw = true;
+    }
 
 }
 
@@ -176,21 +164,15 @@ function info_render() {
 
 }
 
-function info_render_equipment() {
+function info_render_equipment()
+{
   if (!info.avatar_img_loaded) return;
   
-  //TODO: repurpose to render new style equipment
+  //render new style equipment
   
   _info_render_playerbase();
   _info_render_playerequip();
   _info_render_playerspells();
-  
-  // always draw the base 
-  //info_render_equiplayer(0, TYPE_ARMOR);
-
-  // render worn equipment  
-  //info_render_equiplayer(avatar.armor, TYPE_ARMOR);
-  //info_render_equiplayer(avatar.weapon, TYPE_WEAPON);
   
 }
 
@@ -222,7 +204,13 @@ function _info_render_playerequip()
 
 function _info_render_playerspells()
 {
-    //TODO: draw the player's current spells
+    //draw the player's current spells
+    
+    if(avatar.power_left >= 0)
+        action_render_power(avatar.power_left, SPELL1_DRAW);
+    
+    if(avatar.power_right >= 0)
+        action_render_power(avatar.power_right, SPELL2_DRAW);
 }
 
 function _info_render_equipicon(itemtier, itemtype, pos)
@@ -358,4 +346,77 @@ function info_render_messages() {
 	message_displayed = true;
   }
   return message_displayed;
+}
+
+function _info_cycleSpellLeft()
+{
+    //console.log(avatar.powers.length);
+    
+    //TODO: cycle left (1) spell
+    
+    if(avatar.powers.length < 1) //we have no spells!
+        return;
+    
+    //find next available spell
+    
+    //try advancing
+    var pointer = avatar.power_left;
+    var found = false;
+    pointer++;
+    while(!found)
+    {
+        if(pointer >= avatar.powers.length)
+        {
+            //oops, went past the end! loop back!
+            pointer = 0;
+        }
+        else if(pointer == avatar.power_right)
+        {
+            //it's the same as the other power! advance again
+            pointer++;
+        }
+        else
+        {
+            //it's safe
+            found = true;
+        }
+        //console.log(pointer);
+    }
+    
+    avatar.power_left = pointer;
+    
+}
+
+function _info_cycleSpellRight()
+{
+    //TODO: cycle right (2) spell
+    if(avatar.powers.length < 2) //we have one spell that's already assigned to power_left or will be
+        return;
+    
+    //try advancing
+    var pointer = avatar.power_right;
+    var found = false;
+    pointer++;
+    while(!found)
+    {
+        if(pointer >= avatar.powers.length)
+        {
+            //oops, went past the end! loop back!
+            pointer = 0;
+        }
+        else if(pointer == avatar.power_left)
+        {
+            //it's the same as the other power! advance again
+            pointer++;
+        }
+        else
+        {
+            //it's safe
+            found = true;
+        }
+        //console.log(pointer);
+    }
+    
+    avatar.power_right = pointer;
+    
 }

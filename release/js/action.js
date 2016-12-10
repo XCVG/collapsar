@@ -77,7 +77,7 @@ function action_checkUseEx(check_pos, key)
         return true;
     }
     
-    if(pressing[key])
+    if(pressing[key] && !input_lock[key])
     {
         input_lock[key] = true;
         return true;

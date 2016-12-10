@@ -6,17 +6,25 @@
 //TODO: redo a lot lol
 
 // consts
-var AVATAR_SPRITE_W = 80;
-var AVATAR_SPRITE_H = 100;
-var AVATAR_DRAW_X = 40;
-var AVATAR_DRAW_Y = 20;
+var AVATAR_SPRITE_W = 20;
+var AVATAR_SPRITE_H = 64;
+var AVATAR_DRAW_X = 100;
+var AVATAR_DRAW_Y = 30;
+var INVICON_SPRITE_W = 16;
+var INVICON_SPRITE_H = 16;
 var ARMOR_DRAW_X = 30;
 var ARMOR_DRAW_Y = 20;
 var WEAPON_DRAW_X = 40;
 var WEAPON_DRAW_Y = 20;
+var ARMOR_DRAW = {x:100, y:55, w:20, h:20};
+var WEAPON_DRAW = {x:80, y:45, w:20, h:20};
+var GUN_DRAW = {x:120, y:45, w:20, h:20};
+var SPELL1_DRAW = {x:80, y:65, w:20, h:20};
+var SPELL2_DRAW = {x:120, y:65, w:20, h:20};
+
 var TYPE_ARMOR = 0;
 var TYPE_WEAPON = 1;
-
+var TYPE_GUN = 2;
 
 // class info
 var info = new Object();
@@ -26,6 +34,8 @@ info.avatar_img = new Image();
 info.avatar_img_loaded = false;
 info.button_img = new Image();
 info.button_img_loaded = false;
+info.doll_img = new Image();
+info.doll_img_loaded = false;
 
 info.weapons = new Array();
 info.guns = new Array();
@@ -42,6 +52,8 @@ function info_init() {
   info.avatar_img.onload = function() {info_avatar_onload();};
   info.button_img.src = "images/interface/info_button.png";
   info.button_img.onload = function() {info_button_onload();};
+  info.doll_img.src = "images/interface/doll.png";
+  info.doll_img.onload = function() {info_doll_onload();};
   
   info.weapons[0] = {name:"Fists",  atk_min:1,  atk_max:4,  gold:0};
   info.weapons[1] = {name:"Stick",  atk_min:2,  atk_max:6,  gold:0};
@@ -84,13 +96,15 @@ function info_init() {
 /*** Image loading Helpers **********************/
 function info_avatar_onload() {info.avatar_img_loaded = true;}
 function info_button_onload() {info.button_img_loaded = true;}
+function info_doll_onload() {info.doll_img_loaded = true;}
 
 
 /*** Logic Functions **********************/
 function info_logic() {
 
   // check key to info screen
-  if (pressing.action && !input_lock.action && action.select_pos == BUTTON_POS_INFO) {
+  if (pressing.action && !input_lock.action)
+  {
     gamestate = STATE_EXPLORE;
 	input_lock.action = true;	
 	redraw = true;
@@ -98,34 +112,25 @@ function info_logic() {
   }
 
   // check click to close info screen
-  if (pressing.mouse && !input_lock.mouse && isWithin(mouse_pos, BUTTON_POS_INFO)) {
+  if (pressing.mouse && !input_lock.mouse && isWithin(mouse_pos, BUTTON_POS_INFO))
+  {
     gamestate = STATE_EXPLORE;
 	input_lock.mouse = true;
 	redraw = true;  
 	sounds_play(SFX_CLICK);
   }
 
-  // check select movement for spell actions
-  action_logic();
-  
-  // check power usage
-  
-  if (action_checkuse(BUTTON_POS_HEAL) && avatar.mp > 0 && avatar.spellbook >= 1) {
-    power_heal();
-	redraw = true;
-  }
-
-  if (action_checkuse(BUTTON_POS_BURN) && avatar.mp > 0 && avatar.spellbook >= 2) {
-    power_map_burn();
-    redraw = true;
-  }
-  
-  if (action_checkuse(BUTTON_POS_UNLOCK) && avatar.mp > 0 && avatar.spellbook >= 3) {
-    power_map_unlock();
-    redraw = true;
-  }
-  
-  //TODO: code other powers!
+    if(action_checkUseEx(SPELL1_DRAW,"left"))
+    {
+        _info_cycleSpellLeft();
+        redraw = true;
+    }
+    
+    if(action_checkUseEx(SPELL2_DRAW,"right"))
+    {
+        _info_cycleSpellRight();
+        redraw = true;
+    }
 
 }
 
@@ -137,21 +142,19 @@ function info_clear_messages() {
 /*** Render Functions **********************/
 function info_render() {
 
-  tileset_background();
-  mazemap_render(avatar.x, avatar.y, avatar.facing);
+  tileset_background_render(7); //the inventory background shall always be 7, not 6, not 8, certainly not 9, 10 is right out
+  //mazemap_render(avatar.x, avatar.y, avatar.facing);
  
-  bitfont_render("INFO", 80, 2, JUSTIFY_CENTER);
-  
-  if (avatar.spellbook > 0) {
-    bitfont_render("Abilities", 158, 30, JUSTIFY_RIGHT);
-  }
+  bitfont_render("Info", 80, 2, JUSTIFY_CENTER);
 
+  //TODO: render overlay
+  
   info_render_equipment();
   info_render_button();
-  info_render_itemlist();
+  //info_render_itemlist();
   info_render_hpmp();
   info_render_gold();
-  action_render();
+  //action_render();
   
   if (!info_render_messages()) {
   
@@ -161,17 +164,70 @@ function info_render() {
 
 }
 
-function info_render_equipment() {
+function info_render_equipment()
+{
   if (!info.avatar_img_loaded) return;
   
-  // always draw the base 
-  info_render_equiplayer(0, TYPE_ARMOR);
-
-  // render worn equipment  
-  info_render_equiplayer(avatar.armor, TYPE_ARMOR);
-  info_render_equiplayer(avatar.weapon, TYPE_WEAPON);
+  //render new style equipment
+  
+  _info_render_playerbase();
+  _info_render_playerequip();
+  _info_render_playerspells();
   
 }
+
+function _info_render_playerbase()
+{
+    //TODO: draw the player base sprite
+    ctx.drawImage(
+		info.doll_img,
+		0,
+		0,
+		AVATAR_SPRITE_W * PRESCALE,
+		AVATAR_SPRITE_H * PRESCALE,	
+		AVATAR_DRAW_X * SCALE,
+		AVATAR_DRAW_Y * SCALE,
+		AVATAR_SPRITE_W * SCALE,
+		AVATAR_SPRITE_H * SCALE
+	  );
+}
+
+function _info_render_playerequip()
+{
+    //draw the player's equipment sprites
+
+    _info_render_equipicon(avatar.armor, TYPE_ARMOR, ARMOR_DRAW);
+    _info_render_equipicon(avatar.weapon, TYPE_WEAPON, WEAPON_DRAW);
+    _info_render_equipicon(avatar.gun, TYPE_GUN, GUN_DRAW);
+
+}
+
+function _info_render_playerspells()
+{
+    //draw the player's current spells
+    
+    if(avatar.power_left >= 0)
+        action_render_power(avatar.power_left, SPELL1_DRAW);
+    
+    if(avatar.power_right >= 0)
+        action_render_power(avatar.power_right, SPELL2_DRAW);
+}
+
+function _info_render_equipicon(itemtier, itemtype, pos)
+{
+    ctx.drawImage(
+    info.avatar_img,
+    itemtier * BUTTON_SIZE * PRESCALE,
+    itemtype * BUTTON_SIZE * PRESCALE,
+    BUTTON_SIZE * PRESCALE,
+    BUTTON_SIZE * PRESCALE,	
+    (pos.x + BUTTON_OFFSET) * SCALE,
+    (pos.y + BUTTON_OFFSET) * SCALE,
+    BUTTON_SIZE * SCALE,
+    BUTTON_SIZE * SCALE
+  );
+}
+
 //oddly, drawing weapons and armor differently was partially implemented
 function info_render_equiplayer(itemtier, itemtype) {
 
@@ -290,4 +346,77 @@ function info_render_messages() {
 	message_displayed = true;
   }
   return message_displayed;
+}
+
+function _info_cycleSpellLeft()
+{
+    //console.log(avatar.powers.length);
+    
+    //TODO: cycle left (1) spell
+    
+    if(avatar.powers.length < 1) //we have no spells!
+        return;
+    
+    //find next available spell
+    
+    //try advancing
+    var pointer = avatar.power_left;
+    var found = false;
+    pointer++;
+    while(!found)
+    {
+        if(pointer >= avatar.powers.length)
+        {
+            //oops, went past the end! loop back!
+            pointer = 0;
+        }
+        else if(pointer == avatar.power_right)
+        {
+            //it's the same as the other power! advance again
+            pointer++;
+        }
+        else
+        {
+            //it's safe
+            found = true;
+        }
+        //console.log(pointer);
+    }
+    
+    avatar.power_left = pointer;
+    
+}
+
+function _info_cycleSpellRight()
+{
+    //TODO: cycle right (2) spell
+    if(avatar.powers.length < 2) //we have one spell that's already assigned to power_left or will be
+        return;
+    
+    //try advancing
+    var pointer = avatar.power_right;
+    var found = false;
+    pointer++;
+    while(!found)
+    {
+        if(pointer >= avatar.powers.length)
+        {
+            //oops, went past the end! loop back!
+            pointer = 0;
+        }
+        else if(pointer == avatar.power_left)
+        {
+            //it's the same as the other power! advance again
+            pointer++;
+        }
+        else
+        {
+            //it's safe
+            found = true;
+        }
+        //console.log(pointer);
+    }
+    
+    avatar.power_right = pointer;
+    
 }

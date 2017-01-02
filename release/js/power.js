@@ -2,6 +2,8 @@
  * Resolve power use
  */
 
+//HEAL DOESN'T SHOW UP!
+
 var POWER_HEAL = 0;
 var POWER_SLAM = 1;
 var POWER_GUST = 2;

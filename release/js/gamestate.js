@@ -8,7 +8,8 @@ var STATE_COMBAT = 1;
 var STATE_INFO = 2;
 var STATE_DIALOG = 3;
 var STATE_TITLE = 4;
-var STATE_ENDING = 5; 
+var STATE_ENDING = 5;
+var STATE_INTRO = 6;
  
 var gamestate = STATE_TITLE;
 
@@ -33,6 +34,9 @@ function gamestate_logic() {
 	case STATE_ENDING:
 	  ending_logic();
 	  break;
+      case STATE_INTRO:
+          intro_logic();
+          break;
   } 
 }
 
@@ -59,6 +63,9 @@ function gamestate_render() {
 	case STATE_ENDING:
 	  ending_render();
 	  break;
+      case STATE_INTRO:
+          intro_render();
+          break;
   }
 }
 

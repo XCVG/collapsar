@@ -89,8 +89,11 @@ var data_soundinfo =
 },
   "music": {
       "title": {
-    "src": "music/d_dm2ttl.ogg"
-   }      
+    "src": "music/title.ogg"
+   },
+      "intro": {
+       "src": "music/intro.ogg"
+   }
   }
 }
 ;

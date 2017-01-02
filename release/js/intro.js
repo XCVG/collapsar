@@ -1,38 +1,44 @@
 /**
  * Intro screen
+ * 2016 Clint Bellanger, Chris Leclair
  */
 
-//new for Corgi Dungeon Crawler
+//reworked into slideshow for AA2
+
+var _INTRO_SLIDES_NAMES = ["intro_silhouette1.png", "intro_worldchanging.png", "intro_map.png", "intro_forge.png", "intro_boat.png", "intro_silhouette2.png", "intro_notover.png"]; //get ALL them
 
 var intro = new Object();
 
 //lolwut
-intro.bg = new Image();
-intro.bg_loaded = false;
-intro.fg = new Image();
-intro.fg_loaded = false;
+intro.slides = new Array();
+intro.loadedSlides = 0;
+intro.loaded = false;
+
 intro.pos = 0;
-intro.posEnd = 480; //remember, screen coords are 160x120
+
+intro.slideDelay = 300;
 intro.delayCounter = 0;
-intro.scrollDelay = 0;
-intro.scrollSpeed = 0.25;
 
 function intro_init()
 {
-  intro.bg.src = "images/backgrounds/intro_bg.png";
-  intro.bg.onload = function() {intro_bg_onload();};
-  intro.fg.src = "images/backgrounds/intro_fg.png";
-  intro.fg.onload = function() {intro_fg_onload();};
+    //load ALL  the things
+    for(var i = 0; i < _INTRO_SLIDES_NAMES.length; i++)
+    {
+        intro.slides[i] = new Image();
+        intro.slides[i].src = "images/intro/" + _INTRO_SLIDES_NAMES[i];
+        intro.slides[i].onload = function() {intro_slide_onload();};
+        //console.log(intro.slides[i]);
+    }
+    
   redraw = true;
 }
 
-//function ending_onload() {
-//  ending.img_loaded = true;
-//}
-/*** Image loading Helpers **********************/
-
-function intro_bg_onload() {intro.bg_loaded = true;}
-function intro_fg_onload() {intro.fg_loaded = true;}
+function intro_slide_onload() {
+    intro.loadedSlides++;
+    //console.log("loaded " + intro.loadedSlides + "/" + intro.slides.length);
+    if(intro.loadedSlides == intro.slides.length)
+        intro.loaded = true;
+    }
 
 
 function intro_logic()
@@ -46,12 +52,12 @@ function intro_logic()
 		intro_startGame();
 	}
 	
-	if(intro.pos < intro.posEnd)
+	if(intro.pos < intro.slides.length)
 	{
-		if(intro.delayCounter >= intro.scrollDelay)
+		if(intro.delayCounter >= intro.slideDelay)
 		{
 			intro.delayCounter = 0;
-			intro.pos += intro.scrollSpeed;
+			intro.pos++;
 			redraw = true;
 		}
 		else
@@ -71,16 +77,14 @@ function intro_render()
 {
   //console.log(intro.pos);
   
-  if (!bitfont.loaded || !intro.bg_loaded || !intro.fg_loaded) {
+  if (!bitfont.loaded || !intro.loaded) {
     redraw = true;
     return;
   }
   
   x_audio_playMusic("intro");
   
-  ctx.drawImage(intro.bg, 0, 0, 160*SCALE, 120*SCALE);
-  ctx.drawImage(intro.fg, 0, -intro.pos*SCALE, 160*SCALE, 120*SCALE*4);
-
+  ctx.drawImage(intro.slides[intro.pos], 0, 0, 160*SCALE, 120*SCALE);
 
 }
 

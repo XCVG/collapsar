@@ -456,11 +456,11 @@ function _combat_render_buttons()
     action_render_button(3, COMBAT_BUTTON_POS_DEFEND);
     action_render_button(4, COMBAT_BUTTON_POS_RANGED);
     
-    if(avatar.power_left > 0)
+    if(avatar.power_left >= 0)
     {
         action_render_power(avatar.power_left, COMBAT_BUTTON_POS_POWER1);
     }
-    if(avatar.power_right > 0)
+    if(avatar.power_right >= 0)
     {
         action_render_power(avatar.power_right, COMBAT_BUTTON_POS_POWER2);
     }

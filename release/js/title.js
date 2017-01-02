@@ -154,9 +154,10 @@ function title_render() {
 }
 
 function title_start() {
-  gamestate = STATE_DIALOG;
-  shop_set(8);
-  dialog.option[2].msg1 = "Get moving";
+  //gamestate = STATE_DIALOG;
+  //shop_set(8);
+  //dialog.option[2].msg1 = "Get moving";
+  gamestate = STATE_INTRO;
   mazemap_set_music(atlas.maps[mazemap.current_id].music);
   redraw = true;
 }

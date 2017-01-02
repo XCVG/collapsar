@@ -2,10 +2,9 @@
  * Intro screen
  */
 
-//new for Corgi Dungeon Crawler
-//TODO: rework into the "slideshow" for AA2
+//reworked into slideshow for AA2
 
-var _INTRO_SLIDES_NAMES = ["intro1.png"]; //get ALL them
+var _INTRO_SLIDES_NAMES = ["intro_silhouette1.png", "intro_worldchanging.png", "intro_map.png", "intro_forge.png", "intro_boat.png", "intro_silhouette2.png", "intro_notover.png"]; //get ALL them
 
 var intro = new Object();
 
@@ -16,22 +15,26 @@ intro.loaded = false;
 
 intro.pos = 0;
 
+intro.slideDelay = 300;
+intro.delayCounter = 0;
+
 function intro_init()
 {
-    //TODO write loading function
-    
-    //TODO load loop
+    //load ALL  the things
+    for(var i = 0; i < _INTRO_SLIDES_NAMES.length; i++)
+    {
+        intro.slides[i] = new Image();
+        intro.slides[i].src = "images/intro/" + _INTRO_SLIDES_NAMES[i];
+        intro.slides[i].onload = function() {intro_slide_onload();};
+        //console.log(intro.slides[i]);
+    }
     
   redraw = true;
 }
 
-//function ending_onload() {
-//  ending.img_loaded = true;
-//}
-/*** Image loading Helpers **********************/
-
 function intro_slide_onload() {
-    intro.loadedSlides--;
+    intro.loadedSlides++;
+    //console.log("loaded " + intro.loadedSlides + "/" + intro.slides.length);
     if(intro.loadedSlides == intro.slides.length)
         intro.loaded = true;
     }
@@ -48,12 +51,12 @@ function intro_logic()
 		intro_startGame();
 	}
 	
-	if(intro.pos < intro.posEnd)
+	if(intro.pos < intro.slides.length)
 	{
-		if(intro.delayCounter >= intro.scrollDelay)
+		if(intro.delayCounter >= intro.slideDelay)
 		{
 			intro.delayCounter = 0;
-			intro.pos += intro.scrollSpeed;
+			intro.pos++;
 			redraw = true;
 		}
 		else

@@ -1,5 +1,6 @@
 /**
  * Intro screen
+ * 2016 Clint Bellanger, Chris Leclair
  */
 
 //reworked into slideshow for AA2

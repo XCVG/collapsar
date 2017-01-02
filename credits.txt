@@ -15,5 +15,7 @@ UI/Icons
 Enemies
 
 Music
+	Zander Noriega - Article 220 Section 1 (CC-BY 3.0) (https://soundcloud.com/zander-noriega)
+	Matthew Pablo - The Fall of Arcana (CC-BY 3.0) (http://www.matthewpablo.com) [specific credits required ref http://www.matthewpablo.com/services]
 
 Sound Effects

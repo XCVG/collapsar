@@ -3,26 +3,25 @@
  */
 
 //new for Corgi Dungeon Crawler
+//TODO: rework into the "slideshow" for AA2
+
+var _INTRO_SLIDES_NAMES = ["intro1.png"]; //get ALL them
 
 var intro = new Object();
 
 //lolwut
-intro.bg = new Image();
-intro.bg_loaded = false;
-intro.fg = new Image();
-intro.fg_loaded = false;
+intro.slides = new Array();
+intro.loadedSlides = 0;
+intro.loaded = false;
+
 intro.pos = 0;
-intro.posEnd = 480; //remember, screen coords are 160x120
-intro.delayCounter = 0;
-intro.scrollDelay = 0;
-intro.scrollSpeed = 0.25;
 
 function intro_init()
 {
-  intro.bg.src = "images/backgrounds/intro_bg.png";
-  intro.bg.onload = function() {intro_bg_onload();};
-  intro.fg.src = "images/backgrounds/intro_fg.png";
-  intro.fg.onload = function() {intro_fg_onload();};
+    //TODO write loading function
+    
+    //TODO load loop
+    
   redraw = true;
 }
 
@@ -31,8 +30,11 @@ function intro_init()
 //}
 /*** Image loading Helpers **********************/
 
-function intro_bg_onload() {intro.bg_loaded = true;}
-function intro_fg_onload() {intro.fg_loaded = true;}
+function intro_slide_onload() {
+    intro.loadedSlides--;
+    if(intro.loadedSlides == intro.slides.length)
+        intro.loaded = true;
+    }
 
 
 function intro_logic()
@@ -71,16 +73,14 @@ function intro_render()
 {
   //console.log(intro.pos);
   
-  if (!bitfont.loaded || !intro.bg_loaded || !intro.fg_loaded) {
+  if (!bitfont.loaded || !intro.loaded) {
     redraw = true;
     return;
   }
   
   x_audio_playMusic("intro");
   
-  ctx.drawImage(intro.bg, 0, 0, 160*SCALE, 120*SCALE);
-  ctx.drawImage(intro.fg, 0, -intro.pos*SCALE, 160*SCALE, 120*SCALE*4);
-
+  ctx.drawImage(intro.slides[intro.pos], 0, 0, 160*SCALE, 120*SCALE);
 
 }
 

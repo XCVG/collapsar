@@ -10,7 +10,7 @@ var title = new Object();
 title.img = new Image();
 title.img_loaded = false;
 title.menu_id = -1;
-title.text_h = 11;
+title.text_h = 16;
 
 function title_set_menu(id) {
   if (title.menu_id != id) title.menu_selector = 0;
@@ -18,11 +18,21 @@ function title_set_menu(id) {
 
   title.menu = new Array();
   
-  if (id == TITLE_MENU_MAIN) {
-    if (avatar_continue) title.menu[0] = "Continue";
-    else title.menu[0] = "Start";
+  if (id == TITLE_MENU_MAIN)
+  {
+    if (avatar_continue)
+    {
+        title.menu[0] = "Continue";
+        title.menu[1] = "Start New";
+        title.menu[2] = "Options";
+    }
+    else
+    {
+        title.menu[0] = "Start New";
+        title.menu[1] = "Options";        
+    }
 
-    title.menu[1] = "Options";
+    
   }
   else if (id == TITLE_MENU_OPTIONS) {
     if (OPTIONS.animation) title.menu[0] = "Animations are on";
@@ -94,14 +104,36 @@ function title_logic() {
   if (title.menu_confirm == true) {
 	  sounds_playSoundEx("click");
 	  
-    if (title.menu_id == TITLE_MENU_MAIN) {
-      if (title.menu_selector == 0) {
-        if (avatar_continue) title_continue();
-        else title_start();
-      }
-      else if (title.menu_selector == 1) {
-        title_set_menu(TITLE_MENU_OPTIONS);
-      }
+    if (title.menu_id == TITLE_MENU_MAIN)
+    {
+        if(avatar_continue)
+        {
+            switch(title.menu_selector)
+            {
+                case 0:
+                    title_continue();
+                    break;
+                case 1:
+                    title_start();
+                    break
+                case 2:
+                    title_set_menu(TITLE_MENU_OPTIONS);
+                    break;
+            }
+        }
+        else
+        {
+            switch(title.menu_selector)
+            {
+                case 0:
+                    title_start();
+                    break
+                case 1:
+                    title_set_menu(TITLE_MENU_OPTIONS);
+                    break;
+            }
+        }
+
     }
     else if (title.menu_id == TITLE_MENU_OPTIONS) {
       if (title.menu_selector == 0) {
@@ -140,10 +172,10 @@ function title_render() {
   
   for (var i=0; i<title.menu.length; i++) {
     if (title.menu_selector == i) {
-      bitfont_render("[ "+title.menu[i]+" ]", 80, 50+(i*title.text_h), JUSTIFY_CENTER);
+      bitfont_render("[ "+title.menu[i]+" ]", 80, 30+(i*title.text_h), JUSTIFY_CENTER);
     }
     else {
-      bitfont_render(title.menu[i], 80, 50+(i*title.text_h), JUSTIFY_CENTER);
+      bitfont_render(title.menu[i], 80, 30+(i*title.text_h), JUSTIFY_CENTER);
     }
   }
   
@@ -157,6 +189,10 @@ function title_start() {
   //gamestate = STATE_DIALOG;
   //shop_set(8);
   //dialog.option[2].msg1 = "Get moving";
+  avatar_reset();
+  avatar_save();
+  mazemap_set(avatar.map_id);  
+  
   gamestate = STATE_INTRO;
   mazemap_set_music(atlas.maps[mazemap.current_id].music);
   redraw = true;

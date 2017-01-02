@@ -35,8 +35,8 @@ var KEYCODE_UP     = 38; // arrow up
 var KEYCODE_DOWN   = 40; // arrow down
 var KEYCODE_LEFT   = 37; // arrow left
 var KEYCODE_RIGHT  = 39; // arrow right
-var KEYCODE_ACTION = 32; // space
-var KEYCODE_QUERY = 0; //none
+var KEYCODE_ACTION = 13; // enter
+var KEYCODE_QUERY = 191; //?
 
 
 // secondary

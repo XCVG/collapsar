@@ -13,6 +13,11 @@ Intro
 UI/Icons
 
 Enemies
+	
+	yd - Platformer sprites (CC0) (http://opengameart.org/content/platformer-sprites)
+	CharlesGabriel - 10 Fantasy RPG enemies (CC-BY 3.0) (http://opengameart.org/content/10-fantasy-rpg-enemies)
+	Clint Bellanger and Stephen "Redshrike" Challener - First Person Dungeon Crawl Enemies Remixed (CC-BY-SA 3.0) (http://opengameart.org/content/first-person-dungeon-crawl-enemies-remixed)
+	Atmostatic - Mobile Turret (CC-BY 3.0) (http://atmostatic.blogspot.com)
 
 Music
 	Zander Noriega - Article 220 Section 1 (CC-BY 3.0) (https://soundcloud.com/zander-noriega)

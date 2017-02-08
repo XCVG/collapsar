@@ -13,9 +13,20 @@ Intro
 UI/Icons
 
 Enemies
-
+	
+	yd - Platformer sprites (CC0) (http://opengameart.org/content/platformer-sprites)
+	CharlesGabriel - 10 Fantasy RPG enemies (CC-BY 3.0) (http://opengameart.org/content/10-fantasy-rpg-enemies)
+	Clint Bellanger and Stephen "Redshrike" Challener - First Person Dungeon Crawl Enemies Remixed (CC-BY-SA 3.0) (http://opengameart.org/content/first-person-dungeon-crawl-enemies-remixed)
+	Atmostatic - Mobile Turret (CC-BY 3.0) (http://atmostatic.blogspot.com)
+	Heather Lee Harvey - Loyalty Lies Monsters - Chaos Monster 08 (CC-BY 3.0) (EmeraldActivities.com)
+	
 Music
 	Zander Noriega - Article 220 Section 1 (CC-BY 3.0) (https://soundcloud.com/zander-noriega)
 	Matthew Pablo - The Fall of Arcana (CC-BY 3.0) (http://www.matthewpablo.com) [specific credits required ref http://www.matthewpablo.com/services]
+
+Tileset
+	Clint Bellanger - First Person Dungeon Crawl Art Pack (CC-BY-SA 3.0) (http://heroinedusk.com)
+	Tiny Speck - Glitch Sprite Assets (CC0) (glitchthegame.com)
+	rubberduck/ideasman42 - seamless industrial textures (CC-BY 3.0) (http://opengameart.org/content/seamless-industrial-textures)
 
 Sound Effects

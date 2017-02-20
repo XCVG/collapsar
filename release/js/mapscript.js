@@ -234,6 +234,7 @@ function _mapscript_chest_load(mapscripts)
                 {
                   mazemap_set_tile(value.x, value.y, 1);
                 }
+                //TODO: tech chests
            }
        }
     }

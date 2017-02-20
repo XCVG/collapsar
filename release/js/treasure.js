@@ -22,6 +22,7 @@ function treasure_init() {
   
   // icon positions on sprite sheet and on ground in 3D view
   // see art_src/treasure/gold_pos.xcf for destinations reference
+  //we won't need this
   treasure.gold_pos[0] = {dest_x: 65, dest_y: 93};
   treasure.gold_pos[1] = {dest_x: 56, dest_y: 96};
   treasure.gold_pos[2] = {dest_x: 74, dest_y: 95};
@@ -44,6 +45,9 @@ function treasure_img_onload() {treasure.img_loaded = true;}
  */
  //replaced with a lazy version by XCVG
 function treasure_render_gold(total_value) {
+    
+    //TODO: rewrite this to stepped render like Heroin Dusk did
+    //green crystal, green cluster, blue crystal, blue cluster, purple crystal, purple cluster
 
   // arranged in treasure pile draw order (Heroine Dusk behavior)
 

@@ -41,20 +41,15 @@ for (var i=0; i<MAP_COUNT; i++) {
   atlas.maps[i].scripts = new Array();
 }
 
-atlas.maps[0].name = "Abandoned House";
+atlas.maps[0].name = "Pier";
 atlas.maps[0].music = "kawarayu";
-atlas.maps[0].width = 3;
-atlas.maps[0].height = 4;
-atlas.maps[0].background = 5;
-atlas.maps[0].tiles = [
-  [2,2,2],
-  [2,17,2],
-  [3,5,2],
-  [2,2,2]
-];
-atlas.maps[0].exits[0] = {exit_x:0, exit_y:2, dest_map:1, dest_x:6, dest_y:6};
-atlas.maps[0].scripts[0] = {type:"exit", x:0, y:2, dest_map:1, dest_x:6, dest_y:6};
-atlas.maps[0].scripts[1] = {type:"bed", x:1, y:1};
+atlas.maps[0].width = 12;
+atlas.maps[0].height = 14;
+atlas.maps[0].background = 1;
+atlas.maps[0].tiles = [["2","12","12","12","12","12","12","12","12","15","15","15"],["2","12","12","12","12","12","12","12","12","15","15","15"],["2","6","6","6","6","6","6","6","6","15","15","15"],["2","6","6","6","6","6","6","6","6","15","15","15"],["3","1","1","1","6","6","6","6","6","15","15","15"],["2","6","6","1","6","6","6","6","6","15","15","15"],["2","6","6","1","1","1","6","6","6","9","15","15"],["2","6","6","6","6","1","1","6","6","1","15","15"],["2","6","6","6","6","6","1","1","1","1","15","15"],["2","6","6","6","6","6","6","6","6","1","15","15"],["2","6","6","6","6","6","6","6","6","1","15","15"],["15","15","15","15","15","15","15","15","15","1","15","15"],["15","15","15","15","15","15","15","15","15","15","15","15"],["15","15","15","15","15","15","15","15","15","15","15","15"]];
+atlas.maps[0].scripts[0] = {type:"exit", x:0, y:4, dest_map:1, dest_x:6, dest_y:6};
+atlas.maps[0].scripts[1] = {type:"chest", x:9, y:6, status:"item_pier", item:"!POWER", qty:0};
+atlas.maps[0].enemies = [ENEMY_RAT, ENEMY_CRIMINAL];
 
 atlas.maps[1].name = "Karpos Koriis";
 atlas.maps[1].music = "kawarayu";

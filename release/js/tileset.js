@@ -4,7 +4,7 @@ TileSet class.
 2013 Clint Bellanger
 */
 
-var TILE_COUNT = 19;
+var TILE_COUNT = 27;
 var BACKGROUND_COUNT = 8;
 
 var tileset = new Object();
@@ -77,6 +77,8 @@ function tileset_init() {
   
   tileset.background_img[7].src = "images/backgrounds/invback.png";
   tileset.background_img[7].onload = function() {tileset_onload();};
+
+  //TODO: new BG
 
   tileset.walkable[0] = false;
   
@@ -156,6 +158,39 @@ function tileset_init() {
   tileset.tile_img[19].src = "images/tiles/death_speaker.png";
   tileset.tile_img[19].onload = function() {tileset_onload();};
   tileset.walkable[19] = true;
+  
+  //TODO: new tiles
+  tileset.tile_img[20].src = "images/tiles/metal_floor.png";
+  tileset.tile_img[20].onload = function() {tileset_onload();};
+  tileset.walkable[20] = true;
+  
+  tileset.tile_img[21].src = "images/tiles/metal_wall.png";
+  tileset.tile_img[21].onload = function() {tileset_onload();};
+  tileset.walkable[21] = false;
+  
+  tileset.tile_img[22].src = "images/tiles/metal_door.png";
+  tileset.tile_img[22].onload = function() {tileset_onload();};
+  tileset.walkable[22] = true;
+  
+  tileset.tile_img[23].src = "images/tiles/metal_pillar.png";
+  tileset.tile_img[23].onload = function() {tileset_onload();};
+  tileset.walkable[23] = false;
+  
+  tileset.tile_img[24].src = "images/tiles/metal_machine.png";
+  tileset.tile_img[24].onload = function() {tileset_onload();};
+  tileset.walkable[24] = false;
+  
+  tileset.tile_img[25].src = "images/tiles/metal_ceiling.png";
+  tileset.tile_img[25].onload = function() {tileset_onload();};
+  tileset.walkable[25] = true;
+  
+  tileset.tile_img[26].src = "images/tiles/techchest_interior.png";
+  tileset.tile_img[26].onload = function() {tileset_onload();};
+  tileset.walkable[26] = true;
+  
+  tileset.tile_img[27].src = "images/tiles/techchest_exterior.png";
+  tileset.tile_img[27].onload = function() {tileset_onload();};
+  tileset.walkable[27] = true;
   
 }
 

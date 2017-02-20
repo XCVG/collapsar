@@ -40,9 +40,9 @@ function avatar_save() {
 }
 
 function avatar_reset() {
-  avatar.x = 1;
-  avatar.y = 1;
-  avatar.facing = "south";
+  avatar.x = 9;
+  avatar.y = 9;
+  avatar.facing = "north";
   avatar.moved = false;
   avatar.map_id = 0;
   avatar.weapon = 0;

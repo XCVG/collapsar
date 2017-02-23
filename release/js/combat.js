@@ -145,15 +145,15 @@ function combat_logic_input() {
        power_run();
        used_action = true;
    }
-   else if (action_checkUseEx(COMBAT_BUTTON_POS_POWER1,"left") && avatar.mp > 0 && avatar.power_left > 0)
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_POWER1,"left") && avatar.mp > 0 && avatar.power_left >= 0)
    {
-       power_special_use(avatar.power_left);
-       used_action = true;
+       
+       used_action = power_special_use(avatar.power_left);
    }
-   else if (action_checkUseEx(COMBAT_BUTTON_POS_POWER2,"right") && avatar.mp > 0 && avatar.power_right > 0)
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_POWER2,"right") && avatar.mp > 0 && avatar.power_right >= 0)
    {
-       power_special_use(avatar.power_right);
-       used_action = true;
+       
+       used_action = power_special_use(avatar.power_right);
    }
 
   if (used_action) {

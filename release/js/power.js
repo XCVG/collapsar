@@ -49,13 +49,14 @@ function power_special_use(power_id)
     //if 0, call heal
     if(power_id == 0)
     {
-        power_heal();
+        return power_heal();
     }
     
     //if 1-7, call elemental attack
     if(power_id > 0 && power_id <=7)
     {
         power_hero_elemental(powers[power_id]);
+        return true;
     }
 }
 
@@ -327,8 +328,8 @@ function power_enemy_attack() {
  
 function power_heal() {
 
-  if (avatar.mp == 0) return;
-  if (avatar.hp == avatar.max_hp) return;
+  if (avatar.mp == 0) return false;
+  if (avatar.hp == avatar.max_hp) return false;
 
   var heal_amount = Math.floor(avatar.max_hp/2) + Math.floor(Math.random() * avatar.max_hp/2);
   avatar.hp = avatar.hp + heal_amount;
@@ -346,6 +347,8 @@ function power_heal() {
     info.power_result = "+" + heal_amount + " HP";
 	avatar_save();
   }
+  
+  return true;
 }
 
 function power_burn() {

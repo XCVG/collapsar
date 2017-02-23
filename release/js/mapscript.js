@@ -151,8 +151,17 @@ function mapscript_grant_item(item, item_count) {
 
 function mapscript_grant_power(power_id) {
     //TODO: message?
+    sounds_play(SFX_COIN);
+    explore.message = "Found power: " + powers[power_id].name + "!";
+    explore.treasure_id = 11;
     
     avatar.powers.push(power_id);
+    
+    //gross hack for "first power"
+    if(power_id == 0)
+    {
+        avatar.power_left = 0; 
+    }
 }
 
 //exit, shop, chest, bed, enemy, script

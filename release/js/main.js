@@ -44,10 +44,7 @@ function init() {
 
   resizeCanvas();
 	
-  ctx.imageSmoothingEnabled = false;
-  ctx.webkitImageSmoothingEnabled = false;
-  ctx.mozImageSmoothingEnabled = false;
-  ctx.oImageSmoothingEnabled = false;  
+  //setNearestNeighbor();
   
   if (window.addEventListener) {
     window.addEventListener('keydown', handleKeyDown, true);

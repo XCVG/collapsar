@@ -23,3 +23,4 @@ var OPTIONS = new Object();
 OPTIONS.animation = true;
 OPTIONS.music = true;
 OPTIONS.sfx = true;
+OPTIONS.filtering = false;

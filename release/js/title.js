@@ -10,7 +10,7 @@ var title = new Object();
 title.img = new Image();
 title.img_loaded = false;
 title.menu_id = -1;
-title.text_h = 16;
+title.text_h = 12;
 
 function title_set_menu(id) {
   if (title.menu_id != id) title.menu_selector = 0;
@@ -47,7 +47,10 @@ function title_set_menu(id) {
     if (OPTIONS.minimap) title.menu[3] = "Minimap is on";
     else title.menu[3] = "Minimap is off";
     
-    title.menu[4] = "Back";
+    if (OPTIONS.filtering) title.menu[4] = "Filtering is on";
+    else title.menu[4] = "Filtering is off";
+    
+    title.menu[5] = "Back";
   }
 
   redraw = true;
@@ -153,6 +156,10 @@ function title_logic() {
          title_set_menu(TITLE_MENU_OPTIONS);
       }
       else if (title.menu_selector == 4) {
+        OPTIONS.filtering = !OPTIONS.filtering;
+         title_set_menu(TITLE_MENU_OPTIONS);
+      }
+      else if (title.menu_selector == 5) {
         title_set_menu(TITLE_MENU_MAIN);
       }
       var json_save = JSON.stringify(OPTIONS);
@@ -169,6 +176,9 @@ function title_render() {
   }
 
   x_audio_playMusic("title");
+  
+  //probably a hack
+  setNearestNeighborEx(OPTIONS.filtering);
 
   ctx.drawImage(title.img, 0, 0, 160*SCALE, 120*SCALE);
   

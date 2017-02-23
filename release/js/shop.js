@@ -10,6 +10,7 @@ var SHOP_SPELL = 2;
 var SHOP_ROOM = 3;
 var SHOP_MESSAGE = 4;
 var SHOP_ENDING = 5; //old ending script for Heroin Dusk
+var SHOP_RANGED = 6;
 
 var shop = new Array();
 for (var i=0; i<SHOP_COUNT; i++) {
@@ -136,8 +137,11 @@ function shop_set(shop_id) {
       else if (shop[shop_id].item[i].type == SHOP_MESSAGE) {
         shop_set_message(i, shop[shop_id].item[i].msg1, shop[shop_id].item[i].msg2);
       }
-	  else if (shop[shop_id].item[i].type == SHOP_ENDING) {
+      else if (shop[shop_id].item[i].type == SHOP_ENDING) {
         shop_set_msgend(i, shop[shop_id].item[i].msg1, shop[shop_id].item[i].msg2);
+      }
+      else if (shop[shop_id].item[i].type == SHOP_RANGED) {
+        shop_set_ranged(i, shop[shop_id].item[i].value);
       }
     }
     else {
@@ -155,6 +159,14 @@ function shop_set_weapon(slot, weapon_id) {
   shop_set_buy(slot, info.weapons[weapon_id].name, info.weapons[weapon_id].gold, disable_reason);
 }
 
+function shop_set_ranged(slot, weapon_id) {
+  var disable_reason = "";
+  if (weapon_id == avatar.gun) disable_reason = "(You own this)";
+  else if (weapon_id < avatar.gun) disable_reason = "(Yours is better)";
+
+  shop_set_buy(slot, info.guns[weapon_id].name, info.guns[weapon_id].gold, disable_reason);
+}
+
 function shop_set_armor(slot, armor_id) {
   var disable_reason = "";
   if (armor_id == avatar.armor) disable_reason = "(You own this)";
@@ -166,7 +178,7 @@ function shop_set_armor(slot, armor_id) {
 function shop_set_spell(slot, spell_id) {
   var disable_reason = "";
   if (spell_id <= avatar.spellbook) disable_reason = "(You know this)";
-  else if (spell_id > avatar.spellbook +1) disable_reason = "(Too advanced)";
+  //else if (spell_id > avatar.spellbook +1) disable_reason = "(Too advanced)"; //this was always stupid
   
   shop_set_buy(slot, "Ability: " + info.spells[spell_id].name, info.spells[spell_id].gold, disable_reason); 
 }
@@ -242,6 +254,11 @@ function shop_act(shop_id, slot_id) {
     shop_buy_weapon(shop[shop_id].item[slot_id].value);
     return;
   }
+  
+  if (shop[shop_id].item[slot_id].type == SHOP_RANGED) {
+    shop_buy_ranged(shop[shop_id].item[slot_id].value);
+    return;
+  }
 
   if (shop[shop_id].item[slot_id].type == SHOP_ARMOR) {
     shop_buy_armor(shop[shop_id].item[slot_id].value);
@@ -260,6 +277,7 @@ function shop_act(shop_id, slot_id) {
 }
 
 function shop_buy_weapon(weapon_id) {
+    //this is fine; TODO add one for ranged weapons
   var cost = info.weapons[weapon_id].gold;
   if (avatar.gold < cost) return;
 
@@ -272,7 +290,22 @@ function shop_buy_weapon(weapon_id) {
 
 }
 
+function shop_buy_ranged(weapon_id) {
+    
+  var cost = info.guns[weapon_id].gold;
+  if (avatar.gold < cost) return;
+
+  avatar.gold -= cost;
+  sounds_play(SFX_COIN);
+  avatar.gun = weapon_id;
+  dialog.message = "Bought " + info.guns[weapon_id].name;
+  shop_set(dialog.shop_id);
+  redraw = true;
+
+}
+
 function shop_buy_armor(armor_id) {
+    //this is also fine
   var cost = info.armors[armor_id].gold;
   if (avatar.gold < cost) return;
 
@@ -290,7 +323,8 @@ function shop_buy_spell(spell_id) {
   
   avatar.gold -= cost;
   sounds_play(SFX_COIN);
-  avatar.spellbook = spell_id;
+  //avatar.spellbook = spell_id; 
+  avatar.powers.push(spell_id);
   dialog.message = "Learned " + info.spells[spell_id].name;
   shop_set(dialog.shop_id);
   redraw = true;

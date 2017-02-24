@@ -105,7 +105,7 @@ function title_logic() {
   }
 
   if (title.menu_confirm == true) {
-	  sounds_playSoundEx("click");
+	  sounds_playSoundEx("yes");
 	  
     if (title.menu_id == TITLE_MENU_MAIN)
     {

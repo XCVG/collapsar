@@ -164,6 +164,7 @@ function power_hero_attack() {
   if (crit_chance < 0.10) {
     attack_damage += atk_max;
     combat.offense_action = "Critical!";
+    sounds_play(SFX_ATTACK);
     sounds_play(SFX_CRITICAL);
   }
   else {
@@ -217,6 +218,7 @@ function power_hero_rangedattack() {
   if (crit_chance < 0.10) {
     attack_damage += atk_max;
     combat.offense_action = "Critical!";
+    sounds_play(SFX_ATTACK);
     sounds_play(SFX_CRITICAL);
   }
   else {
@@ -303,6 +305,7 @@ function power_enemy_attack() {
   if (crit_chance < 0.05) {
     attack_damage += atk_min;
     combat.defense_action = "Critical!";
+    sounds_play(SFX_ATTACK);
     sounds_play(SFX_CRITICAL);
   }
   else {

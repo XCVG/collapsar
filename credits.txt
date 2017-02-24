@@ -30,3 +30,8 @@ Tileset
 	rubberduck/ideasman42 - seamless industrial textures (CC-BY 3.0) (http://opengameart.org/content/seamless-industrial-textures)
 
 Sound Effects
+	Clint Bellanger - Heroine Dusk (CC-BY-SA 3.0) (https://github.com/clintbellanger/heroine-dusk)
+	yd - War On Water (CC0) (?)
+	LokiF - GUI Sound Effects (http://opengameart.org/content/gui-sound-effects)
+	Independent.nu - 37 Hits/Punches (CC0)
+	Ogrebane - Ghost (CC0) (http://opengameart.org/content/ghost)

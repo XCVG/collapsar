@@ -66,7 +66,7 @@ function combat_set_enemy(enemy_id) {
   
   boss_reset();
   combat.victory_status = "";
-  sounds_play(SFX_MISS);
+  sounds_play("emerge");
 }
 
 /**** Logic **************************/

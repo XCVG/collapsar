@@ -12,7 +12,7 @@ var data_soundinfo =
     "src": "sounds/critical.wav"
   },
   "heal": {
-    "src": "sounds/heal.wav"
+    "src": "sounds/spell01.wav"
   },
   "fire": {
     "src": "sounds/fire.wav"
@@ -21,10 +21,13 @@ var data_soundinfo =
     "src": "sounds/coin.wav"
   },
   "hpdrain": {
-    "src": "sounds/hpdrain.wav"
+    "src": "sounds/spell01.wav"
   },
   "mpdrain": {
-    "src": "sounds/mpdrain.wav"
+    "src": "sounds/spell01.wav"
+  },
+  "emerge": {
+    "src": "sounds/ghost.ogg"
   },
   "run": {
     "src": "sounds/run.wav"
@@ -43,6 +46,21 @@ var data_soundinfo =
   },
   "unlock": {
     "src": "sounds/unlock.wav"
+  },
+  "explosion": {
+    "src": "sounds/explosion.wav"
+  },
+  "laser": {
+    "src": "sounds/laser.wav"
+  },
+  "gun": {
+    "src": "sounds/gun.wav"
+  },
+  "yes": {
+    "src": "sounds/ui_pos.wav"
+  },
+  "no": {
+    "src": "sounds/ui_neg.wav"
   },
   "0": {
     "alias": "attack"

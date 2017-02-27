@@ -42,45 +42,34 @@ for (var i=0; i<MAP_COUNT; i++) {
 }
 
 atlas.maps[0].name = "Pier";
-atlas.maps[0].music = "kawarayu";
+atlas.maps[0].music = "odyssey";
 atlas.maps[0].width = 12;
 atlas.maps[0].height = 14;
 atlas.maps[0].background = 1;
 atlas.maps[0].tiles = [["2","12","12","12","12","12","12","12","12","15","15","15"],["2","12","12","12","12","12","12","12","12","15","15","15"],["2","6","6","6","6","6","6","6","6","15","15","15"],["2","6","6","6","6","6","6","6","6","15","15","15"],["3","1","1","1","6","6","6","6","6","15","15","15"],["2","6","6","1","6","6","6","6","6","15","15","15"],["2","6","6","1","1","1","6","6","6","9","15","15"],["2","6","6","6","6","1","1","6","6","1","15","15"],["2","6","6","6","6","6","1","1","1","1","15","15"],["2","6","6","6","6","6","6","6","6","1","15","15"],["2","6","6","6","6","6","6","6","6","1","15","15"],["15","15","15","15","15","15","15","15","15","1","15","15"],["15","15","15","15","15","15","15","15","15","15","15","15"],["15","15","15","15","15","15","15","15","15","15","15","15"]];
-atlas.maps[0].scripts[0] = {type:"exit", x:0, y:4, dest_map:1, dest_x:6, dest_y:6};
+atlas.maps[0].scripts[0] = {type:"exit", x:0, y:4, dest_map:1, dest_x:10, dest_y:15};
 atlas.maps[0].scripts[1] = {type:"chest", x:9, y:6, status:"item_pier", item:"!POWER", qty:0};
 atlas.maps[0].enemies = [ENEMY_RAT, ENEMY_CRIMINAL];
 
-atlas.maps[1].name = "Karpos Koriis";
-atlas.maps[1].music = "kawarayu";
-atlas.maps[1].width = 9;
-atlas.maps[1].height = 11;
+atlas.maps[1].name = "Village";
+atlas.maps[1].music = "odyssey";
+atlas.maps[1].width = 12;
+atlas.maps[1].height = 20;
 atlas.maps[1].background = 1;
-atlas.maps[1].tiles = [
-  [0,0,2,2,3,2,2,0,0],
-  [0,0,2,10,1,13,2,0,0],
-  [2,2,2,13,1,10,2,2,2],
-  [2,10,6,4,1,4,6,13,2],
-  [2,10,6,1,1,1,6,10,2],
-  [2,2,6,4,1,4,6,2,2],
-  [2,3,1,1,1,1,1,3,2],
-  [2,2,6,4,1,4,6,2,2],
-  [2,13,6,1,1,1,6,10,2],
-  [2,10,6,4,1,4,6,13,2],
-  [2,2,2,2,3,2,2,2,2]
-];
-//legacy
-atlas.maps[1].exits[0] = {exit_x:7, exit_y:6, dest_map:0, dest_x:1, dest_y:2};
-atlas.maps[1].exits[1] = {exit_x:1, exit_y:6, dest_map:2, dest_x:1, dest_y:2};
-atlas.maps[1].exits[2] = {exit_x:4, exit_y:0, dest_map:3, dest_x:2, dest_y:4};
-atlas.maps[1].exits[3] = {exit_x:4, exit_y:10, dest_map:4, dest_x:6, dest_y:2};
+atlas.maps[1].tiles = [["2","2","2","2","2","2","2","2","2","2","2","2"],["2","1","1","1","1","1","6","2","3","2","6","2"],["2","1","2","2","7","1","6","6","1","6","6","2"],["2","1","2","3","5","1","1","1","1","12","12","2"],["2","1","2","2","7","1","12","6","1","6","2","2"],["2","1","1","1","1","1","6","12","1","1","1","3"],["2","6","12","12","6","6","6","12","1","6","2","2"],["2","12","6","6","6","12","6","6","1","6","6","2"],["2","2","6","2","2","2","2","2","2","2","2","2"],["2","6","6","6","6","10","10","10","1","11","10","2"],["2","10","10","10","6","10","11","10","1","10","10","2"],["2","10","11","10","6","12","1","12","1","10","11","2"],["2","6","1","1","1","1","1","1","1","1","1","2"],["2","10","10","6","1","10","10","10","1","12","12","2"],["2","10","11","1","1","10","10","10","1","6","2","2"],["2","10","10","6","1","10","10","10","1","1","1","3"],["2","10","11","1","1","10","10","10","1","6","2","2"],["2","10","10","6","1","1","1","1","1","6","6","2"],["2","9","6","6","12","12","6","10","11","10","10","2"],["2","2","2","2","2","2","2","2","2","2","2","2"]];
 //new
-atlas.maps[1].scripts[0] = {type:"exit", x:7, y:6, dest_map:0, dest_x:1, dest_y:2};
-atlas.maps[1].scripts[1] = {type:"exit", x:1, y:6, dest_map:2, dest_x:1, dest_y:2};
-atlas.maps[1].scripts[2] = {type:"exit", x:4, y:0, dest_map:3, dest_x:2, dest_y:4};
-atlas.maps[1].scripts[3] = {type:"exit", x:4, y:10, dest_map:4, dest_x:6, dest_y:2};
+atlas.maps[1].scripts[0] = {type:"exit", x:11, y:15, dest_map:0, dest_x:1, dest_y:4};
+atlas.maps[1].scripts[1] = {type:"shop", x:9, y:9, shop_id:4, dest_x:8, dest_y:9}; //tavern message
+atlas.maps[1].scripts[2] = {type:"shop", x:10, y:11, shop_id:2, dest_x:10, dest_y:12}; //inn, I think
+atlas.maps[1].scripts[3] = {type:"chest", x:1, y:18, status:"item_village0", item:"Gold", qty:16};
+atlas.maps[1].scripts[4] = {type:"shop", x:11, y:5, shop_id:5, dest_x:10, dest_y:5}; //locked gate
+atlas.maps[1].scripts[5] = {type:"shop", x:2, y:16, shop_id:0, dest_x:3, dest_y:16}; //weapons shop
+atlas.maps[1].scripts[6] = {type:"shop", x:2, y:14, shop_id:1, dest_x:3, dest_y:14}; //armor shop
+atlas.maps[1].scripts[7] = {type:"shop", x:2, y:11, shop_id:7, dest_x:2, dest_y:12}; //arms dealer
+//atlas.maps[1].scripts[2] = {type:"exit", x:4, y:0, dest_map:3, dest_x:2, dest_y:4};
+//atlas.maps[1].scripts[3] = {type:"exit", x:4, y:10, dest_map:4, dest_x:6, dest_y:2};
 
-atlas.maps[1].enemies = [ENEMY_SHADOW_TENDRILS, ENEMY_IMP, ENEMY_SNAKE];
+//atlas.maps[1].enemies = [ENEMY_SHADOW_TENDRILS, ENEMY_IMP, ENEMY_SNAKE];
 
 atlas.maps[2].name = "Temple of Stepanos";
 atlas.maps[2].music = "kawarayu";

@@ -137,7 +137,7 @@ function tileset_init() {
   tileset.tile_img[10].src = "images/tiles/medieval_house.png";
   tileset.tile_img[10].onload = function() {tileset_onload();};
   tileset.walkable[10] = false;
-  tileset.mapicon[10] = 6;
+  tileset.mapicon[10] = 9;
   
   tileset.tile_img[11].src = "images/tiles/medieval_door.png";
   tileset.tile_img[11].onload = function() {tileset_onload();};

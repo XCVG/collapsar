@@ -21,7 +21,7 @@ for (var i=0; i<SHOP_COUNT; i++) {
 // Cedar Village Shops
 shop[0].name = "Weapon Shop";
 shop[0].item[0] = {type:SHOP_WEAPON, value:2};
-shop[0].item[1] = {type:SHOP_WEAPON, value:3};
+shop[0].item[1] = {type:SHOP_RANGED, value:2};
 shop[0].background = 3;
 
 shop[1].name = "Armor Shop";
@@ -30,7 +30,7 @@ shop[1].item[1] = {type:SHOP_ARMOR, value:3};
 shop[1].background = 3;
 
 shop[2].name = "Inn";
-shop[2].item[0] = {type:SHOP_MESSAGE, msg1:"I heard of dark things", msg2:"at the ruined temple."};
+shop[2].item[0] = {type:SHOP_MESSAGE, msg1:"Be careful, stranger.", msg2:""};
 shop[2].item[1] = {type:SHOP_ROOM, value:10};
 shop[2].background = 3;
 
@@ -40,25 +40,25 @@ shop[3].item[1] = {type:SHOP_SPELL, value:2};
 shop[3].background = 3;
 
 //Lone hosue
-shop[4].name = "Ilisia";
-shop[4].item[0] = {type:SHOP_MESSAGE, msg1:"They came from shadows", msg2:"Rose from the night"};
-shop[4].item[1] = {type:SHOP_MESSAGE, msg1:"The ones evil touched", msg2:"were changed to things"};
+shop[4].name = "Tavern";
+shop[4].item[0] = {type:SHOP_MESSAGE, msg1:"We walled off the", msg2:"tunnels years ago."};
+shop[4].item[1] = {type:SHOP_MESSAGE, msg1:"There is a back way", msg2:"for brave souls."};
 shop[4].background = 3;
 
-//Mall shops
-shop[5].name = "Busted!";
-shop[5].item[0] = {type:SHOP_ENDING, msg1:"Aw, fuck! I have rights!", msg2:""};
-shop[5].item[1] = {type:SHOP_ENDING, msg1:"You got arrested", msg2:"by the police!"};
-shop[5].background = 4;
+//gate
+shop[5].name = "Gate";
+shop[5].item[0] = {type:SHOP_MESSAGE, msg1:"The gate has", msg2:"been sealed"};
+shop[5].item[1] = {type:SHOP_MESSAGE, msg1:"", msg2:""};
+shop[5].background = 3;
 
 shop[6].name = "Shifty Individual";
 shop[6].item[0] = {type:SHOP_MESSAGE, msg1:"I can show you how to", msg2:"open any locked door."};
 shop[6].item[1] = {type:SHOP_SPELL, value:3};
 shop[6].background = 3;
 
-shop[7].name = "Shady Dealer";
+shop[7].name = "Arms Dealer";
 shop[7].item[0] = {type:SHOP_WEAPON, value:4};
-shop[7].item[1] = {type:SHOP_ARMOR, value:4};
+shop[7].item[1] = {type:SHOP_RANGED, value:4};
 shop[7].background = 3;
 
 //begin message

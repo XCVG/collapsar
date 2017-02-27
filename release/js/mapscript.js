@@ -182,6 +182,8 @@ function _mapscript_shop(shop_id, dest_x, dest_y)
     // put avatar back outside for save purposes
     avatar.x = dest_x;
     avatar.y = dest_y;
+    
+    gamestate = STATE_DIALOG;
 
     return true;
 }

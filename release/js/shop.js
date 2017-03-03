@@ -44,6 +44,7 @@ shop[4].name = "Tavern";
 shop[4].item[0] = {type:SHOP_MESSAGE, msg1:"We walled off the", msg2:"tunnels years ago."};
 shop[4].item[1] = {type:SHOP_MESSAGE, msg1:"There is a back way", msg2:"for brave souls."};
 shop[4].background = 3;
+shop[4].picture = 1;
 
 //gate
 shop[5].name = "Gate";
@@ -113,6 +114,7 @@ function shop_set(shop_id) {
   dialog.title = shop[shop_id].name;
   dialog.select_pos = BUTTON_POS_OPT2;
   dialog.items_for_sale = false;
+  //dialog.picture = shop[shop_id].picture;
 
   // most shops should use the exit button as the third option
   dialog.option[2].button = DIALOG_BUTTON_EXIT;

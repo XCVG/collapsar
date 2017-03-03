@@ -72,13 +72,13 @@ function tileset_init() {
   tileset.background_img[3].src = "images/backgrounds/interior.png";
   tileset.background_img[3].onload = function() {tileset_onload();};
   
-  tileset.background_img[4].src = "images/backgrounds/busted.png";
+  tileset.background_img[4].src = "images/backgrounds/deepsky.png";
   tileset.background_img[4].onload = function() {tileset_onload();};
   
   tileset.background_img[5].src = "images/backgrounds/intsky.png";
   tileset.background_img[5].onload = function() {tileset_onload();};
   
-  tileset.background_img[6].src = "images/backgrounds/hades.png";
+  tileset.background_img[6].src = "images/backgrounds/nightsky3.png";
   tileset.background_img[6].onload = function() {tileset_onload();};
   
   tileset.background_img[7].src = "images/backgrounds/invback.png";
@@ -246,8 +246,8 @@ function tileset_background() {
 /**
  * Render a specific background
  */
-function tileset_background_render(background_id) {
-  ctx.drawImage(tileset.background_img[background_id],0,0, 160*SCALE, 120*SCALE);  
+function tileset_background_render(background_id, direction) {
+    ctx.drawImage(tileset.background_img[background_id],0,0, 160*SCALE, 120*SCALE);        
 }
 
 function tileset_render(tile_id, position) {

@@ -84,7 +84,8 @@ function explore_logic() {
 
 function explore_render() {
 
-  tileset_background();
+  //tileset_background();
+  mazemap_render_background(avatar.facing);
   mazemap_render(avatar.x, avatar.y, avatar.facing);
 
   // HUD elements

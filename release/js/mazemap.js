@@ -8,6 +8,13 @@ While Atlas is a static collection, MazeMap can be altered by events.
 2013 Clint Bellanger
 */
 
+//a gross hack
+var _mazemap_facing = new Object();
+_mazemap_facing.north = 1;
+_mazemap_facing.east = 2;
+_mazemap_facing.south = 3;
+_mazemap_facing.west = 4;
+
 var mazemap = new Object();
 mazemap.current_id = 0; //this is the map we're in
 mazemap.current_song = ""; //this is basically obselete since the new audio system was introduced
@@ -39,7 +46,7 @@ Drawing is done in this order (a=10, b=11, c=12)
 */ 
 function mazemap_render(x, y, facing) {
 
-  if (facing == "north") {
+  if (facing == "north") { //a string comparison? you have got to be fucking kidding me
     // back row
     mazemap_render_tile(x-2,y-2,0);
     mazemap_render_tile(x+2,y-2,1);
@@ -114,6 +121,22 @@ function mazemap_render(x, y, facing) {
   
 }
 
+function mazemap_render_background(facing)
+{
+    var background_id = atlas.maps[mazemap.current_id].background;
+    
+    if(facing && tileset.background_img[background_id].naturalWidth > 160 * PRESCALE)
+    {
+        //draw a specific background
+        var facing_num = _mazemap_facing[facing];
+        ctx.drawImage(tileset.background_img[background_id],160*PRESCALE*facing_num,0,160*PRESCALE,120*PRESCALE,0,0,160*SCALE,120*SCALE);
+    }
+    else
+    {
+        ctx.drawImage(tileset.background_img[background_id],0,0, 160*SCALE, 120*SCALE);
+    }
+}
+
 function mazemap_bounds_check(pos_x, pos_y) {
   if (pos_x >= 0 && pos_y >= 0 && pos_x < mazemap.width && pos_y < mazemap.height) {
     return true;  
@@ -177,6 +200,7 @@ function mazemap_set_music(song_filename) {
  * Each map in the atlas has a list of exits
  * If the avatar is on an exit tile, move them to the new map
  */
+//IIRC neither of these are used anymore
 function mazemap_check_exit() {
     //TODO: check map objects instead
     

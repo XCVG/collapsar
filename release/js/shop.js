@@ -44,7 +44,7 @@ shop[4].name = "Tavern";
 shop[4].item[0] = {type:SHOP_MESSAGE, msg1:"We walled off the", msg2:"tunnels years ago."};
 shop[4].item[1] = {type:SHOP_MESSAGE, msg1:"There is a back way", msg2:"for brave souls."};
 shop[4].background = 3;
-shop[4].picture = 1;
+//shop[4].picture = 1; //no art :(
 
 //gate
 shop[5].name = "Gate";

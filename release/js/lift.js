@@ -33,6 +33,60 @@ function lift_button_onload()
 function lift_logic()
 {
     //TODO moving up/down and checking keys
+    if (pressing.up && !input_lock.up)
+    {
+        //attempt to move up
+        do
+        {
+            if(lift.currentFloor <= 1) //<=?
+            {
+               //reset!
+               lift.currentFloor = lift.floors.length-1;
+            }
+            else lift.currentFloor--;
+                
+            var found = false;
+            
+            if(avatar.campaign.indexOf(lift.floors[lift.currentFloor].key) >= 0)
+            {
+                found = true;
+            }
+       
+        }while(!found);
+        
+        x_audio_playSound("click");
+        
+        input_lock.up = true;
+        redraw = true;
+        return;
+    }
+    if (pressing.down && !input_lock.down)
+    {
+        //attempt to move down
+        do
+        {
+            if(lift.currentFloor >= lift.floors.length-1) //<=?
+            {
+               //reset!
+               lift.currentFloor = 1;
+            }
+            else lift.currentFloor++;
+                
+            var found = false;
+            
+            if(avatar.campaign.indexOf(lift.floors[lift.currentFloor].key) >= 0)
+            {
+                found = true;
+            }
+       
+        }while(!found);
+        
+        x_audio_playSound("click");
+        
+        input_lock.down = true;
+        redraw = true;
+        return;     
+    }
     
     //exit button (stolen from info.js)
     if (pressing.action && !input_lock.action)
@@ -124,6 +178,12 @@ function lift_render_button() {
 function lift_exit() {
     explore.message = "";
   sounds_play(SFX_CLICK);
+  
+  var data = lift.floors[lift.currentFloor];
+    avatar.x = data.dest_x;
+    avatar.y = data.dest_y;
+    mazemap_set(data.dest_map);
+  
   gamestate = STATE_EXPLORE;
   avatar_save();
   redraw = true; 

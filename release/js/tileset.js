@@ -4,6 +4,9 @@ TileSet class.
 2013 Clint Bellanger
 */
 
+//this is not a class. JS doesn't have classes (yet), nor is this written like a JS-fake-class
+//I might redo this thing in TypeScript some day
+
 var TILE_COUNT = 27;
 var BACKGROUND_COUNT = 8;
 

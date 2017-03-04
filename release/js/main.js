@@ -80,9 +80,10 @@ function init() {
   combat_init();
   dialog_init();
   boss_init();
-  title_init();
+  lift_init();
   ending_init();
   intro_init();
+  title_init();
   sounds_init();
   treasure_init();
   

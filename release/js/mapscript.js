@@ -63,6 +63,8 @@ function mapscript_exec(map_id) {
             case "shop":
                 result = _mapscript_shop(script.shop_id, script.dest_x, script.dest_y);
                 break;
+            case "lift":
+                result = _mapscript_lift(script.floor, script.dest_x, script.dest_y); //dest x/y are gross hacks which will likely be removed
             case "message":
                 result = _mapscript_message(script.status, script.message);
                 break;
@@ -184,6 +186,21 @@ function _mapscript_shop(shop_id, dest_x, dest_y)
     avatar.y = dest_y;
     
     gamestate = STATE_DIALOG;
+
+    return true;
+}
+
+function _mapscript_lift(floor, dest_x, dest_y)
+{
+    lift.currentFloor = floor;
+    avatar_save();
+
+    // put avatar back outside for save purposes
+    avatar.x = dest_x;
+    avatar.y = dest_y;
+    
+    gamestate = STATE_LIFT;
+    //redraw = true;
 
     return true;
 }

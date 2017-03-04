@@ -66,7 +66,7 @@ atlas.maps[1].scripts[4] = {type:"shop", x:11, y:5, shop_id:5, dest_x:10, dest_y
 atlas.maps[1].scripts[5] = {type:"shop", x:2, y:16, shop_id:0, dest_x:3, dest_y:16}; //weapons shop
 atlas.maps[1].scripts[6] = {type:"shop", x:2, y:14, shop_id:1, dest_x:3, dest_y:14}; //armor shop
 atlas.maps[1].scripts[7] = {type:"shop", x:2, y:11, shop_id:7, dest_x:2, dest_y:12}; //arms dealer
-atlas.maps[1].scripts[8] = {type:"lift", x:8, y:1, floor:0, dest_x:8, dest_y:2}; //elevator
+atlas.maps[1].scripts[8] = {type:"lift", x:8, y:1, floor:1, dest_x:8, dest_y:2}; //elevator
 //atlas.maps[1].scripts[2] = {type:"exit", x:4, y:0, dest_map:3, dest_x:2, dest_y:4};
 //atlas.maps[1].scripts[3] = {type:"exit", x:4, y:10, dest_map:4, dest_x:6, dest_y:2};
 

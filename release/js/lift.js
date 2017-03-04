@@ -5,11 +5,11 @@
 
 var lift = new Object();
 
-lift.cursorPos = 0; //should follow current level
+//lift.cursorPos = 0; //should follow current level
 lift.currentFloor = -1;
 //TODO: add array with level maps/locations/keys
 lift.floors = new Array();
-lift.floors[1] = {name:"Village",key:null};
+lift.floors[1] = {name:"Village",key:null,dest_x:8, dest_y:2,dest_map:1,msg1:"A village built",msg2:"above the Forge."};
 lift.floors[2] = {name:"Catacombs",key:"key_l2"};
 lift.floors[3] = {name:"Maintenance",key:"key_l3"};
 lift.floors[4] = {name:"Facilities",key:"key_l4"};
@@ -59,6 +59,7 @@ function lift_render()
     if(!lift.button_img_loaded)
         return;
     
+    //draw buttons
     for(var i = 1; i < lift.floors.length; i++)
     {
         var button_prepos = 8;
@@ -75,7 +76,27 @@ function lift_render()
         
         
         ctx.drawImage(lift.button_img, (i-1)*BUTTON_SIZE*PRESCALE, button_drawoffset*PRESCALE, BUTTON_SIZE * PRESCALE, BUTTON_SIZE * PRESCALE, 12 * SCALE, (i-1)*button_pos*SCALE+button_prepos * SCALE,BUTTON_SIZE * SCALE, BUTTON_SIZE * SCALE);
+        
+        //a stupid place to do it but meh
+        if(lift.currentFloor == i)
+        {
+            ctx.drawImage(
+            action.select_img,
+            0,
+            0,
+            SELECT_SIZE * PRESCALE,
+            SELECT_SIZE * PRESCALE,	
+            10 * SCALE,
+            ((i-1)*button_pos*SCALE+button_prepos*SCALE)-2*SCALE,
+            SELECT_SIZE * SCALE,
+            SELECT_SIZE * SCALE
+          );
+        }
     }
+    
+    //draw picture (TODO) and description
+    bitfont_render(lift.floors[lift.currentFloor].msg1, 36, 85, JUSTIFY_LEFT);
+    bitfont_render(lift.floors[lift.currentFloor].msg2, 36, 95, JUSTIFY_LEFT);
     
     
 }

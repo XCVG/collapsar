@@ -327,7 +327,7 @@ function combat_determine_reward() {
   var gold_max = enemy.stats[combat.enemy.type].gold_max;
   
   var gold_reward = Math.round(Math.random() * (gold_max - gold_min)) + gold_min;
-  combat.reward_result = "+" + gold_reward + " gold!";
+  combat.reward_result = "Crystal +" + gold_reward;
   
   avatar.gold += gold_reward;
   combat.gold_treasure = gold_reward;

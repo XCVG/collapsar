@@ -133,7 +133,7 @@ function mazemap_render_background(facing)
     }
     else
     {
-        ctx.drawImage(tileset.background_img[background_id],0,0, 160*SCALE, 120*SCALE);
+        ctx.drawImage(tileset.background_img[background_id],0,0,160*PRESCALE,120*PRESCALE,0,0,160*SCALE,120*SCALE);
     }
 }
 

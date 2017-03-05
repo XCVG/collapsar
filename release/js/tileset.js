@@ -247,10 +247,10 @@ function tileset_background() {
 }
 
 /**
- * Render a specific background
+ * Render a specific background (I think a different method is used for actual directional drawing)
  */
-function tileset_background_render(background_id, direction) {
-    ctx.drawImage(tileset.background_img[background_id],0,0, 160*SCALE, 120*SCALE);        
+function tileset_background_render(background_id) {
+    ctx.drawImage(tileset.background_img[background_id],0,0,160*PRESCALE,120*PRESCALE,0,0,160*SCALE,120*SCALE);       
 }
 
 function tileset_render(tile_id, position) {

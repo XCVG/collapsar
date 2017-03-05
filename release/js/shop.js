@@ -218,7 +218,7 @@ function shop_set_buy(slot, name, cost, disable_reason) {
     dialog.option[slot].msg2 = disable_reason;
   }
   else {
-    dialog.option[slot].msg2 = "for " + cost + " gold";
+    dialog.option[slot].msg2 = "for " + cost + " Crystal";
   }
 
   // display the dialog button if the item can be purchased

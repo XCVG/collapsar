@@ -307,7 +307,7 @@ function info_render_hpmp() {
 }
 
 function info_render_gold() {
-  bitfont_render("$ " + avatar.gold, 158, 110, JUSTIFY_RIGHT);
+  bitfont_render("Cry " + avatar.gold, 158, 110, JUSTIFY_RIGHT);
 }
 
 function info_render_button() {

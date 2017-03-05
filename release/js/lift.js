@@ -9,12 +9,12 @@ var lift = new Object();
 lift.currentFloor = -1;
 //TODO: add array with level maps/locations/keys
 lift.floors = new Array();
-lift.floors[1] = {name:"Village",key:null,dest_x:8, dest_y:2,dest_map:1,msg1:"A village built",msg2:"above the Forge."};
-lift.floors[2] = {name:"Catacombs",key:"key_l2"};
-lift.floors[3] = {name:"Maintenance",key:"key_l3"};
-lift.floors[4] = {name:"Facilities",key:"key_l4"};
-lift.floors[5] = {name:"Production",key:"key_l5"};
-lift.floors[6] = {name:"The Core",key:"key_l6"};
+lift.floors[1] = {name:"Village",key:null,dest_x:8, dest_y:2,dest_map:1,msg1:"A village built",msg2:"above the Forge"};
+lift.floors[2] = {name:"Catacombs",key:"key_l2",dest_x:1, dest_y:1,dest_map:2,msg1:"Trecherous tunnels",msg2:"winding below ground"};
+lift.floors[3] = {name:"Maintenance",key:"key_l3",dest_x:1, dest_y:1,dest_map:3,msg1:"A strange facility",msg2:"lined with treasures"};
+lift.floors[4] = {name:"Facilities",key:"key_l4",dest_x:1, dest_y:1,dest_map:4,msg1:"A city of the dead",msg2:"deep underground"};
+lift.floors[5] = {name:"Production",key:"key_l5",dest_x:1, dest_y:1,dest_map:5,msg1:"A dangerous factory",msg2:"alive but dead"};
+lift.floors[6] = {name:"The Core",key:"key_l6",dest_x:1, dest_y:1,dest_map:6,msg1:"The mysterious",msg2:"heart of the Forge"};
 lift.button_img = new Image();
 lift.button_img_loaded = false;
 

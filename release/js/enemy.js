@@ -84,14 +84,14 @@ function enemy_init() {
 
   // set enemy stats
 
-  enemy.stats[ENEMY_CRIMINAL] = {name:"Criminal", hp:6, atk_min:2, atk_max:4, gold_min:1, gold_max:2, category:ENEMY_CATEGORY_SHADOW};
+  enemy.stats[ENEMY_CRIMINAL] = {name:"Criminal", hp:12, atk_min:2, atk_max:4, gold_min:2, gold_max:4, category:ENEMY_CATEGORY_SHADOW};
   enemy.stats[ENEMY_CRIMINAL].powers = [ENEMY_POWER_ATTACK];
-  enemy.stats[ENEMY_CRIMINAL].weaknesses = [POWER_TYPE_DARK];
-  enemy.stats[ENEMY_CRIMINAL].strengths = [POWER_TYPE_WATER];
+  enemy.stats[ENEMY_CRIMINAL].weaknesses = [POWER_TYPE_DARK,POWER_TYPE_ELECTRIC];
+  enemy.stats[ENEMY_CRIMINAL].strengths = [POWER_TYPE_WATER,POWER_TYPE_EARTH];
 
-  enemy.stats[ENEMY_RAT] = {name:"Giant Rat", hp:7, atk_min:2, atk_max:6, gold_min:1, gold_max:3, category:ENEMY_CATEGORY_SHADOW};
+  enemy.stats[ENEMY_RAT] = {name:"Giant Rat", hp:7, atk_min:1, atk_max:6, gold_min:1, gold_max:2, category:ENEMY_CATEGORY_SHADOW};
   enemy.stats[ENEMY_RAT].powers = [ENEMY_POWER_ATTACK];
-  enemy.stats[ENEMY_RAT].weaknesses = [POWER_TYPE_DARK];
+  enemy.stats[ENEMY_RAT].weaknesses = [POWER_TYPE_DARK,POWER_TYPE_RANGED];
   enemy.stats[ENEMY_RAT].strengths = [POWER_TYPE_WATER];
 
   enemy.stats[ENEMY_RAIDER] = {name:"Raider", hp:8, atk_min:3, atk_max:8, gold_min:2, gold_max:4, category:ENEMY_CATEGORY_SHADOW};

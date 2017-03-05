@@ -84,7 +84,7 @@ function power_hero_elemental(my_power)
     //do hit change (TODO add to spell) (default: perfect accuracy)
     var hit_chance = Math.random();
     var miss_chance = 0.0;
-    if('miss_change' in my_power)
+    if('miss_chance' in my_power)
         miss_chance = my_power.miss_chance;
     
     if (hit_chance < miss_chance)
@@ -155,8 +155,6 @@ function power_hero_attack() {
   var atk_min = info.weapons[avatar.weapon].atk_min + avatar.bonus_atk;
   var atk_max = info.weapons[avatar.weapon].atk_max + avatar.bonus_atk;
   var attack_damage = Math.round(Math.random() * (atk_max - atk_min)) + atk_min;
-  
-  //TODO: check strength/weakness
   
   // check crit
   // hero crits add max damage

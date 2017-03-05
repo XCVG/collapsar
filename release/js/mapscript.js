@@ -115,7 +115,7 @@ function mapscript_grant_item(item, item_count) {
     explore.message = "Found " + item_count + " " + item;
   }
 
-  if (item == "Gold") {
+  if (item == "Gold" || item == "Crystal") {
     avatar.gold += item_count;
 
     // flag gold treasure for display while exploring    

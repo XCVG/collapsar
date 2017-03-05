@@ -32,7 +32,7 @@ function lift_button_onload()
 
 function lift_logic()
 {
-    //TODO moving up/down and checking keys
+    //moving up/down and checking keys
     if (pressing.up && !input_lock.up)
     {
         //attempt to move up
@@ -86,6 +86,24 @@ function lift_logic()
         input_lock.down = true;
         redraw = true;
         return;     
+    }
+    //using the mouse
+    if (pressing.mouse && !input_lock.mouse)
+    {        
+        if(mouse_pos.x > 12 && mouse_pos.x < 28)
+        {
+            var pos = Math.ceil((mouse_pos.y-8)/18);
+            //console.log(pos);
+            
+            if(avatar.campaign.indexOf(lift.floors[pos].key) >= 0)
+            {
+                lift.currentFloor = pos;
+            }
+            
+            input_lock.mouse = true;
+            redraw=true;
+            return;
+        }
     }
     
     //exit button (stolen from info.js)

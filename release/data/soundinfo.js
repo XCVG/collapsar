@@ -111,6 +111,9 @@ var data_soundinfo =
    },
       "intro": {
        "src": "music/intro.ogg"
+   },
+      "combat": {
+       "src": "music/battle.ogg"
    }
   }
 }

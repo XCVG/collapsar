@@ -56,13 +56,6 @@ function init() {
     window.addEventListener('resize', resizeCanvas, false);
     window.addEventListener('orientationchange', resizeCanvas, false);
   }
-  
-  // load some user preferences
-  //TODO change this to not a cookie
-  var json_save = getCookie("options");
-  if (json_save != null) {
-    OPTIONS = JSON.parse(json_save);
-  }
 
   // execute preload
   x_init_preload();

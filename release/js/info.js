@@ -74,13 +74,13 @@ function info_init() {
   info.guns[7] = {name:"Railgun", atk_min:8,  atk_max:18, gold:5000};
   
   info.armors[0] = {name:"Birthday Suit",      def:0,  gold:0};
-  info.armors[1] = {name:"Tunic",     def:2,  gold:0};
-  info.armors[2] = {name:"Linen",  def:4,  gold:10};
-  info.armors[3] = {name:"Leather",  def:6,  gold:50};
-  info.armors[4] = {name:"Plate", def:8,  gold:100};
-  info.armors[5] = {name:"Ballistic",  def:10, gold:500};
-  info.armors[6] = {name:"Combat",   def:12, gold:1000};
-  info.armors[7] = {name:"Powered",  def:14, gold:5000};
+  info.armors[1] = {name:"Linen Tunic",     def:2,  gold:0};
+  info.armors[2] = {name:"Leather Coat",  def:4,  gold:10};
+  info.armors[3] = {name:"Chain Maille",  def:6,  gold:50};
+  info.armors[4] = {name:"Plate Maille", def:8,  gold:100};
+  info.armors[5] = {name:"Ballistic Vest",  def:10, gold:500};
+  info.armors[6] = {name:"Combat Suit",   def:12, gold:1000};
+  info.armors[7] = {name:"Powered Armor",  def:14, gold:5000};
   
   //I don't think this will actually be used anymore
   info.spells[0] = {name:"No Spell", gold:0};

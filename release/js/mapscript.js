@@ -37,6 +37,8 @@ function _mapscript_executeAllScripts(map_id, x, y)
     
     //then check location and execute script
     var mapscripts = atlas.maps[map_id].scripts;
+    _mapscript_chest_load(mapscripts);
+
     //console.log(mapscripts);
 
     var result = false;
@@ -259,7 +261,7 @@ function _mapscript_chest(status, item, qty)
         {
             mapscript_grant_item(item, qty);
         }        
-
+        
         return true;
     }
     else return false;

@@ -23,7 +23,7 @@ function explore_logic() {
   explore.message = "";
 
   avatar_explore();
-	
+  
   // check special script;
   //moved exits and shops into generalized mapscript
   if (avatar.moved) {

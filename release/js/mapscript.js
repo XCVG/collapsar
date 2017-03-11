@@ -7,23 +7,40 @@ var mapscript = new Object();
 
 function mapscript_exec(map_id) {
     
-    //this has been completely rewritten from the original system
-    
+    //refactored into methods
+        
     //abort!
     if (!init_complete) return false;
     
-    //TODO: enemy and/or generalized replace load
+    var result = _mapscript_executeAllScripts(map_id, avatar.x, avatar.y);
+    return result;
+}
+
+function mapscript_execAutorun(map_id)
+{
+    //this runs in a few special places:
+    //-when player returns from combat
+    //-when the game loads
+    //-when the player enters a new level
+    //may also add returning from shops and chests
     
+    //new idea about loading status
+    var mapscripts = atlas.maps[map_id].scripts;
+    _mapscript_chest_load(mapscripts);
+    
+    _mapscript_executeAllScripts(map_id,-1,-1);
+}
+
+function _mapscript_executeAllScripts(map_id, x, y)
+{
+    //this has been completely rewritten from the original system
     
     //then check location and execute script
     var mapscripts = atlas.maps[map_id].scripts;
     //console.log(mapscripts);
-    
-    //new idea about loading status
-    _mapscript_chest_load(mapscripts);
-    
+
     var result = false;
-    var script;
+    //var script;
     
     for(var key in mapscripts)
     { 
@@ -31,18 +48,26 @@ function mapscript_exec(map_id) {
        var value = mapscripts[key];
 
        //search for a matching script
-       if(value.x == avatar.x && value.y == avatar.y)
+       if(value.x == x && value.y == y)
        {
-           script = value;
-           break;
+           if(_mapscript_executeScript(value))
+               result = true;
+           //break;
        }
     }
     
+    return result;    
+}
+
+function _mapscript_executeScript(script)
+{
+    var result;
+     
     if(script)
     {
         //if we have a script, determine type and execute
         console.log(script);
-        
+
         switch(script.type)
         {
             case "bed":
@@ -173,6 +198,7 @@ function _mapscript_exit(dest_map, dest_x, dest_y)
     avatar.x = dest_x;
     avatar.y = dest_y;
     mazemap_set(dest_map);
+    mapscript_execAutorun(dest_map);
 
     return true;
 }

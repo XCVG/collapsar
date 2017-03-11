@@ -90,7 +90,8 @@ function intro_render()
 
 function intro_startGame()
 {
-  gamestate = STATE_EXPLORE;
   mazemap_set_music(atlas.maps[mazemap.current_id].music);
+  gamestate = STATE_EXPLORE;
+  mapscript_execAutorun(mazemap.current_id);  
   redraw = true;
 }

@@ -293,6 +293,7 @@ function combat_logic_victory() {
 	else
 	{
 		gamestate = STATE_EXPLORE;
+                mapscript_execAutorun(mazemap.current_id);
 	}
     redraw = true;
     return;  	

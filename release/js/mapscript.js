@@ -157,18 +157,31 @@ function mapscript_grant_item(item, item_count) {
     if (avatar.weapon == 0) avatar.weapon = 1;
     explore.treasure_id = 10;
   }
+  else if (item == "Sling")
+  {
+      if (avatar.gun == 0)
+      {
+          avatar.gun = 1;
+          explore.treasure_id = 10;
+      }
+      else
+      {
+          explore.gold_value = 4;
+          explore.message = "Found " + explore.gold_value + " gold!";
+      }
+  }
   else if (item == "Spell: Heal") {
     if (avatar.spellbook == 0) avatar.spellbook = 1;
     explore.treasure_id = 11;
   }
   else if (item == "Stamina Dust") {
-    avatar.mp += 4;
-    avatar.max_mp += 4;
+    avatar.mp += 2;
+    avatar.max_mp += 2;
     explore.treasure_id = 12;
   }
   else if (item == "Endurance Dust") {
-    avatar.hp += 10;
-    avatar.max_hp += 10;
+    avatar.hp += 5;
+    avatar.max_hp += 5;
     explore.treasure_id = 13;
   }
   else if (item == "Strength Dust") {

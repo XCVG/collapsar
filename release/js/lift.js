@@ -47,7 +47,7 @@ function lift_logic()
                 
             var found = false;
             
-            if(avatar.campaign.indexOf(lift.floors[lift.currentFloor].key) >= 0 || lift.currentFloor == 0)
+            if(avatar.campaign.indexOf(lift.floors[lift.currentFloor].key) >= 0 || lift.currentFloor == 1)
             {
                 found = true;
             }
@@ -74,7 +74,7 @@ function lift_logic()
                 
             var found = false;
             
-            if(avatar.campaign.indexOf(lift.floors[lift.currentFloor].key) >= 0 || lift.currentFloor == 0)
+            if(avatar.campaign.indexOf(lift.floors[lift.currentFloor].key) >= 0 || lift.currentFloor == 1)
             {
                 found = true;
             }

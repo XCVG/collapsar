@@ -92,8 +92,12 @@ function _mapscript_executeScript(script)
                 break;
             case "lift":
                 result = _mapscript_lift(script.floor, script.dest_x, script.dest_y); //dest x/y are gross hacks which will likely be removed
+                break;
             case "message":
                 result = _mapscript_message(script.status, script.message);
+                break;
+            case "mod":
+                result = _mapscript_mod(script.flag, script.dest_x, script.dest_y, script.tile);
                 break;
             case "script":
                 result = _mapscript_script(script.script);
@@ -352,6 +356,21 @@ function _mapscript_message(status, message)
             avatar.campaign.push(status);
 
     return true;
+}
+
+function _mapscript_mod(flag, x, y, tile)
+{
+    //console.log("Mod:" + "(" + x + "," + y + ")");
+    
+    if (avatar.campaign.indexOf(flag) > -1)
+    {
+       // console.log("flag " + flag + " found, modding tile to " + tile);
+        
+        mazemap_set_tile(x, y, tile);
+        
+        return true;
+    }
+
 }
 
 function _mapscript_script(script)

@@ -85,7 +85,7 @@ function _mapscript_executeScript(script)
                 result = _mapscript_ending(script.ending_id);
                 break;
             case "enemy":
-                result = _mapscript_enemy(script.enemy_id, script.status);
+                result = _mapscript_enemy(script.enemy_id, script.status, script.dest_x, script.dest_y);
                 break;
             case "shop":
                 result = _mapscript_shop(script.shop_id, script.dest_x, script.dest_y);
@@ -178,6 +178,31 @@ function mapscript_grant_item(item, item_count) {
   else if (item == "Toughness Dust") {
     avatar.bonus_def += 2;
     explore.treasure_id = 15;
+  }
+  else if (item == "Red Key")
+  {
+      avatar.campaign.push("key_l2");
+      explore.treasure_id = 16;
+  }
+  else if (item == "Yellow Key")
+  {
+      avatar.campaign.push("key_l3");
+      explore.treasure_id = 17;
+  }
+  else if (item == "Green Key")
+  {
+      avatar.campaign.push("key_l4");
+      explore.treasure_id = 17;
+  }
+  else if (item == "Blue Key")
+  {
+      avatar.campaign.push("key_l5");
+      explore.treasure_id = 18;
+  }
+  else if (item == "Black Key")
+  {
+      avatar.campaign.push("key_l6");
+      explore.treasure_id = 19;
   }
   
 }
@@ -300,7 +325,7 @@ function _mapscript_chest_load(mapscripts)
     }
 }
 
-function _mapscript_enemy(enemy_id, status)
+function _mapscript_enemy(enemy_id, status, dest_x, dest_y)
 {
     if (!init_complete) return false;
     
@@ -320,6 +345,15 @@ function _mapscript_enemy(enemy_id, status)
     combat.phase = COMBAT_PHASE_INTRO;
     combat_set_enemy(enemy_id);
     combat.victory_status = status;
+    
+    if(dest_x)
+    {
+        combat.override_x = avatar.x;
+        combat.override_y = avatar.y;
+        
+        avatar.x = dest_x;
+        avatar.y = dest_y;
+    }
 
     return true;   
 }

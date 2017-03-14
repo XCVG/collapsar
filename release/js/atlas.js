@@ -68,25 +68,30 @@ atlas.maps[1].scripts[5] = {type:"shop", x:2, y:16, shop_id:0, dest_x:3, dest_y:
 atlas.maps[1].scripts[6] = {type:"shop", x:2, y:14, shop_id:1, dest_x:3, dest_y:14}; //armor shop
 atlas.maps[1].scripts[7] = {type:"shop", x:2, y:11, shop_id:7, dest_x:2, dest_y:12}; //arms dealer
 atlas.maps[1].scripts[8] = {type:"lift", x:8, y:1, floor:1, dest_x:8, dest_y:2}; //elevator
-//atlas.maps[1].scripts[2] = {type:"exit", x:4, y:0, dest_map:3, dest_x:2, dest_y:4};
+atlas.maps[1].scripts[9] = {type:"exit", x:3, y:3, dest_map:2, dest_x:18, dest_y:3}; //mext
 //atlas.maps[1].scripts[3] = {type:"exit", x:4, y:10, dest_map:4, dest_x:6, dest_y:2};
 
 //atlas.maps[1].enemies = [ENEMY_SHADOW_TENDRILS, ENEMY_IMP, ENEMY_SNAKE];
 
-atlas.maps[2].name = "Temple of Stepanos";
-atlas.maps[2].music = "kawarayu";
-atlas.maps[2].width = 3;
-atlas.maps[2].height = 4;
+atlas.maps[2].name = "Catacombs";
+atlas.maps[2].music = "tunnels";
+atlas.maps[2].width = 24;
+atlas.maps[2].height = 24;
 atlas.maps[2].background = 5;
-atlas.maps[2].tiles = [
-  [2,2,2],
-  [2,8,2],
-  [2,5,3],
-  [2,2,2]
-];
-atlas.maps[2].exits[0] = {exit_x:2, exit_y:2, dest_map:1, dest_x:2, dest_y:6};
-atlas.maps[2].scripts[0] = {type:"chest", x:1, y:1, status:"stick", item:"Stick", qty:1};
-atlas.maps[2].scripts[1] = {type:"exit", x:2, y:2, dest_map:1, dest_x:2, dest_y:6};
+atlas.maps[2].tiles = [["0","0","0","0","0","0","0","0","0","0","0","0","2","2","2","2","2","2","2","2","2","2","2","0"],["0","0","0","0","0","0","0","0","0","0","0","0","2","8","5","5","5","28","5","2","3","2","2","0"],["0","0","0","0","0","0","0","0","0","0","0","0","3","5","5","7","5","28","5","7","5","30","2","0"],["0","0","0","0","0","0","0","0","0","0","0","0","2","5","5","5","5","28","1","5","5","5","2","0"],["0","0","0","0","0","0","0","0","0","0","0","0","2","5","29","7","5","28","5","7","5","5","2","0"],["2","2","2","2","2","2","2","2","2","2","2","2","2","2","5","2","2","28","2","2","5","2","2","2"],["2","5","5","5","5","5","5","5","5","5","5","5","5","5","5","5","2","28","5","7","5","7","5","2"],["2","5","7","5","7","7","5","5","7","7","2","2","2","2","2","2","2","28","5","5","5","5","5","2"],["2","5","7","5","5","5","5","5","5","5","5","5","5","5","5","5","5","28","5","7","7","7","5","2"],["2","5","5","5","5","5","5","5","5","5","5","5","5","5","5","5","5","28","5","5","5","5","5","2"],["2","2","2","2","2","2","2","2","2","2","2","5","2","2","2","2","2","28","5","7","5","7","5","2"],["0","0","0","0","0","0","0","2","5","5","5","5","5","5","5","5","5","28","5","7","5","7","5","2"],["0","0","0","0","0","0","0","2","5","5","5","5","5","5","5","5","5","28","5","7","5","7","5","2"],["0","0","0","0","0","0","0","2","2","5","2","2","2","2","2","5","2","28","5","5","5","5","5","2"],["0","0","0","0","0","0","0","0","2","5","5","5","5","5","7","7","7","28","5","7","7","7","5","2"],["0","0","0","0","0","0","0","0","2","5","5","5","5","5","5","5","5","28","5","5","5","5","5","2"],["0","0","0","0","0","0","0","0","2","2","2","2","5","5","7","5","8","28","5","2","5","2","2","2"],["0","0","0","0","0","0","0","0","0","0","0","2","5","5","5","5","5","28","5","2","5","2","0","0"],["0","0","0","0","0","0","0","0","0","0","0","2","7","5","7","7","7","28","5","2","5","2","0","0"],["0","0","0","0","0","0","0","0","0","0","0","2","5","5","7","5","5","5","5","2","5","2","0","0"],["0","0","0","0","0","0","0","0","0","0","0","2","5","5","7","5","5","28","5","2","5","2","0","0"],["0","0","0","0","0","0","0","0","0","0","0","2","5","5","5","5","5","28","5","2","8","2","0","0"],["0","0","0","0","0","0","0","0","0","0","0","2","2","2","2","2","2","2","2","2","2","2","0","0"],["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"]];
+atlas.maps[2].scripts[0] = {type:"lift", x:20, y:1, floor:2, dest_x:20, dest_y:2};
+atlas.maps[2].scripts[1] = {type:"mod", x:-1, y:-1, dest_x:17, dest_y:3, flag:"l1_boss", tile:5};
+atlas.maps[2].scripts[2] = {type:"exit", x:12, y:2, dest_map:3, dest_x:1, dest_y:4}; //TODO find the right spot
+atlas.maps[2].scripts[3] = {type:"mod", x:-1, y:-1, dest_x:17, dest_y:9, flag:"l1_boss", tile:5};
+atlas.maps[2].scripts[4] = {type:"mod", x:-1, y:-1, dest_x:17, dest_y:12, flag:"l1_boss", tile:5};
+atlas.maps[2].scripts[5] = {type:"mod", x:-1, y:-1, dest_x:17, dest_y:15, flag:"l1_boss", tile:5};
+atlas.maps[2].scripts[6] = {type:"mod", x:-1, y:-1, dest_x:14, dest_y:4, flag:"l1_boss", tile:5}; //delete the enemy tile
+atlas.maps[2].scripts[7] = {type:"enemy", x:14, y:4, dest_x:14, dest_y:5, enemy_id:ENEMY_RAIDER, status:"l1_boss"}; //actual enemy
+atlas.maps[2].scripts[8] = {type:"chest", x:13, y:1, status:"item_l2i1", item:"Red Key", qty:1};
+atlas.maps[2].scripts[9] = {type:"chest", x:20, y:21, status:"item_l2i2", item:"Sling", qty:1};
+atlas.maps[2].scripts[10] = {type:"chest", x:16, y:16, status:"item_l2i3", item:"Stamina Dust", qty:1};
+atlas.maps[2].scripts[11] = {type:"shop", x:21, y:2, shop_id:11, dest_x:21, dest_y:3};
+atlas.maps[2].enemies = [ENEMY_RAT, ENEMY_RAT, ENEMY_RAT, ENEMY_SNAKE, ENEMY_SNAKE, ENEMY_SNAKE, ENEMY_CRIMINAL, ENEMY_CRIMINAL, ENEMY_ZOMBIE];
 
 atlas.maps[3].name = "Karpos Point";
 atlas.maps[3].music = "kawarayu";

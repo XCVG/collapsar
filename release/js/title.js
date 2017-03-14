@@ -74,7 +74,7 @@ function title_logic() {
   // move past title screen by clicking or pressing the action button
   if (pressing.mouse && !input_lock.mouse) {  
     for (var i=0; i<title.menu.length; i++) {
-      var pos = {x:0, y:50+(i*title.text_h), w:160, h:title.text_h};
+      var pos = {x:0, y:30+(i*title.text_h), w:160, h:title.text_h};
       if (isWithin(mouse_pos, pos)) {
         title.menu_selector = i;
         input_lock.mouse = true;

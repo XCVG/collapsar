@@ -23,16 +23,19 @@ shop[0].name = "Weapon Shop";
 shop[0].item[0] = {type:SHOP_WEAPON, value:2};
 shop[0].item[1] = {type:SHOP_RANGED, value:2};
 shop[0].background = 3;
+shop[0].picture = 4;
 
 shop[1].name = "Armor Shop";
 shop[1].item[0] = {type:SHOP_ARMOR, value:2};
 shop[1].item[1] = {type:SHOP_ARMOR, value:3};
 shop[1].background = 3;
+shop[1].picture = 5;
 
 shop[2].name = "Inn";
 shop[2].item[0] = {type:SHOP_MESSAGE, msg1:"Be careful, stranger.", msg2:""};
 shop[2].item[1] = {type:SHOP_ROOM, value:10};
 shop[2].background = 3;
+shop[2].picture = 3;
 
 shop[3].name = "Apothecary";
 shop[3].item[0] = {type:SHOP_MESSAGE, msg1:"Fire magic can also", msg2:"burn some obstacles."};
@@ -44,7 +47,7 @@ shop[4].name = "Tavern";
 shop[4].item[0] = {type:SHOP_MESSAGE, msg1:"We walled off the", msg2:"tunnels years ago."};
 shop[4].item[1] = {type:SHOP_MESSAGE, msg1:"There is a back way", msg2:"for brave souls."};
 shop[4].background = 3;
-//shop[4].picture = 1; //no art :(
+shop[4].picture = 1;
 
 //gate
 shop[5].name = "Gate";
@@ -61,6 +64,7 @@ shop[7].name = "Arms Dealer";
 shop[7].item[0] = {type:SHOP_WEAPON, value:4};
 shop[7].item[1] = {type:SHOP_RANGED, value:4};
 shop[7].background = 3;
+shop[7].picture = 6;
 
 //begin message
 shop[8].name = "Midnight";
@@ -80,30 +84,30 @@ shop[10].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smac
 shop[10].background = 2;
 
 //additional messages
-shop[11].name = "msg01";
-shop[11].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
-shop[11].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
-shop[11].background = 2;
+shop[11].name = "Illisia";
+shop[11].item[0] = {type:SHOP_MESSAGE, msg1:"There are strange", msg2:"keys hidden here"};
+shop[11].item[1] = {type:SHOP_MESSAGE, msg1:"These make the", msg2:"lift thing work"};
+shop[11].background = 3;
 
 shop[12].name = "msg02";
 shop[12].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
 shop[12].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
-shop[12].background = 2;
+shop[12].background = 3;
 
 shop[13].name = "msg03";
 shop[13].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
 shop[13].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
-shop[13].background = 2;
+shop[13].background = 3;
 
 shop[14].name = "msg04";
 shop[14].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
 shop[14].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
-shop[14].background = 2;
+shop[14].background = 3;
 
 shop[15].name = "msg05";
 shop[15].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
 shop[15].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
-shop[15].background = 2;
+shop[15].background = 3;
 
 //---- Set choice options for shops --------
 

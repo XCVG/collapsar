@@ -85,15 +85,19 @@ function _mapscript_executeScript(script)
                 result = _mapscript_ending(script.ending_id);
                 break;
             case "enemy":
-                result = _mapscript_enemy(script.enemy_id, script.status);
+                result = _mapscript_enemy(script.enemy_id, script.status, script.dest_x, script.dest_y);
                 break;
             case "shop":
                 result = _mapscript_shop(script.shop_id, script.dest_x, script.dest_y);
                 break;
             case "lift":
                 result = _mapscript_lift(script.floor, script.dest_x, script.dest_y); //dest x/y are gross hacks which will likely be removed
+                break;
             case "message":
                 result = _mapscript_message(script.status, script.message);
+                break;
+            case "mod":
+                result = _mapscript_mod(script.flag, script.dest_x, script.dest_y, script.tile);
                 break;
             case "script":
                 result = _mapscript_script(script.script);
@@ -153,18 +157,31 @@ function mapscript_grant_item(item, item_count) {
     if (avatar.weapon == 0) avatar.weapon = 1;
     explore.treasure_id = 10;
   }
+  else if (item == "Sling")
+  {
+      if (avatar.gun == 0)
+      {
+          avatar.gun = 1;
+          explore.treasure_id = 10;
+      }
+      else
+      {
+          explore.gold_value = 4;
+          explore.message = "Found " + explore.gold_value + " gold!";
+      }
+  }
   else if (item == "Spell: Heal") {
     if (avatar.spellbook == 0) avatar.spellbook = 1;
     explore.treasure_id = 11;
   }
   else if (item == "Stamina Dust") {
-    avatar.mp += 4;
-    avatar.max_mp += 4;
+    avatar.mp += 2;
+    avatar.max_mp += 2;
     explore.treasure_id = 12;
   }
   else if (item == "Endurance Dust") {
-    avatar.hp += 10;
-    avatar.max_hp += 10;
+    avatar.hp += 5;
+    avatar.max_hp += 5;
     explore.treasure_id = 13;
   }
   else if (item == "Strength Dust") {
@@ -174,6 +191,31 @@ function mapscript_grant_item(item, item_count) {
   else if (item == "Toughness Dust") {
     avatar.bonus_def += 2;
     explore.treasure_id = 15;
+  }
+  else if (item == "Red Key")
+  {
+      avatar.campaign.push("key_l2");
+      explore.treasure_id = 16;
+  }
+  else if (item == "Yellow Key")
+  {
+      avatar.campaign.push("key_l3");
+      explore.treasure_id = 17;
+  }
+  else if (item == "Green Key")
+  {
+      avatar.campaign.push("key_l4");
+      explore.treasure_id = 17;
+  }
+  else if (item == "Blue Key")
+  {
+      avatar.campaign.push("key_l5");
+      explore.treasure_id = 18;
+  }
+  else if (item == "Black Key")
+  {
+      avatar.campaign.push("key_l6");
+      explore.treasure_id = 19;
   }
   
 }
@@ -296,7 +338,7 @@ function _mapscript_chest_load(mapscripts)
     }
 }
 
-function _mapscript_enemy(enemy_id, status)
+function _mapscript_enemy(enemy_id, status, dest_x, dest_y)
 {
     if (!init_complete) return false;
     
@@ -316,6 +358,15 @@ function _mapscript_enemy(enemy_id, status)
     combat.phase = COMBAT_PHASE_INTRO;
     combat_set_enemy(enemy_id);
     combat.victory_status = status;
+    
+    if(dest_x)
+    {
+        combat.override_x = avatar.x;
+        combat.override_y = avatar.y;
+        
+        avatar.x = dest_x;
+        avatar.y = dest_y;
+    }
 
     return true;   
 }
@@ -352,6 +403,21 @@ function _mapscript_message(status, message)
             avatar.campaign.push(status);
 
     return true;
+}
+
+function _mapscript_mod(flag, x, y, tile)
+{
+    //console.log("Mod:" + "(" + x + "," + y + ")");
+    
+    if (avatar.campaign.indexOf(flag) > -1)
+    {
+       // console.log("flag " + flag + " found, modding tile to " + tile);
+        
+        mazemap_set_tile(x, y, tile);
+        
+        return true;
+    }
+
 }
 
 function _mapscript_script(script)

@@ -84,35 +84,35 @@ function enemy_init() {
 
   // set enemy stats
 
-  enemy.stats[ENEMY_CRIMINAL] = {name:"Criminal", hp:12, atk_min:2, atk_max:4, gold_min:2, gold_max:4, category:ENEMY_CATEGORY_SHADOW};
+  enemy.stats[ENEMY_CRIMINAL] = {name:"Criminal", hp:14, atk_min:3, atk_max:6, gold_min:2, gold_max:8, category:ENEMY_CATEGORY_SHADOW};
   enemy.stats[ENEMY_CRIMINAL].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_CRIMINAL].weaknesses = [POWER_TYPE_DARK,POWER_TYPE_ELECTRIC];
   enemy.stats[ENEMY_CRIMINAL].strengths = [POWER_TYPE_WATER,POWER_TYPE_EARTH];
 
-  enemy.stats[ENEMY_RAT] = {name:"Giant Rat", hp:7, atk_min:1, atk_max:6, gold_min:1, gold_max:2, category:ENEMY_CATEGORY_SHADOW};
+  enemy.stats[ENEMY_RAT] = {name:"Giant Rat", hp:8, atk_min:1, atk_max:6, gold_min:1, gold_max:2, category:ENEMY_CATEGORY_SHADOW};
   enemy.stats[ENEMY_RAT].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_RAT].weaknesses = [POWER_TYPE_DARK,POWER_TYPE_RANGED];
   enemy.stats[ENEMY_RAT].strengths = [POWER_TYPE_WATER];
 
-  enemy.stats[ENEMY_RAIDER] = {name:"Raider", hp:8, atk_min:3, atk_max:8, gold_min:2, gold_max:4, category:ENEMY_CATEGORY_SHADOW};
-  enemy.stats[ENEMY_RAIDER].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_ATTACK, ENEMY_POWER_MPDRAIN];
+  enemy.stats[ENEMY_RAIDER] = {name:"Raider", hp:24, atk_min:3, atk_max:8, gold_min:5, gold_max:8, category:ENEMY_CATEGORY_SHADOW};
+  enemy.stats[ENEMY_RAIDER].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_RAIDER].weaknesses = [POWER_TYPE_DARK];
   enemy.stats[ENEMY_RAIDER].strengths = [POWER_TYPE_WATER];
 
-  enemy.stats[ENEMY_SNAKE] = {name:"Tunnel Snake", hp:16, atk_min:4, atk_max:10, gold_min:6, gold_max:20, category:ENEMY_CATEGORY_DEMON};
+  enemy.stats[ENEMY_SNAKE] = {name:"Tunnel Snake", hp:12, atk_min:2, atk_max:8, gold_min:1, gold_max:3, category:ENEMY_CATEGORY_DEMON};
   enemy.stats[ENEMY_SNAKE].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_ATTACK, ENEMY_POWER_HPDRAIN];
-  enemy.stats[ENEMY_SNAKE].weaknesses = [POWER_TYPE_DARK];
-  enemy.stats[ENEMY_SNAKE].strengths = [POWER_TYPE_WATER];
+  enemy.stats[ENEMY_SNAKE].weaknesses = [POWER_TYPE_FIRE, POWER_TYPE_ELECTRIC];
+  enemy.stats[ENEMY_SNAKE].strengths = [POWER_TYPE_FORCE, POWER_TYPE_WIND];
 
   enemy.stats[ENEMY_GESTA] = {name:"Exploiter", hp:20, atk_min:2, atk_max:6, gold_min:5, gold_max:10, category:ENEMY_CATEGORY_UNDEAD};
   enemy.stats[ENEMY_GESTA].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_GESTA].weaknesses = [POWER_TYPE_DARK];
   enemy.stats[ENEMY_GESTA].strengths = [POWER_TYPE_WATER];
   
-  enemy.stats[ENEMY_ZOMBIE] = {name:"Corrupted Human", hp:10, atk_min:7, atk_max:14, gold_min:5, gold_max:10, category:ENEMY_CATEGORY_UNDEAD};
+  enemy.stats[ENEMY_ZOMBIE] = {name:"Corrupted Human", hp:10, atk_min:5, atk_max:10, gold_min:2, gold_max:5, category:ENEMY_CATEGORY_UNDEAD};
   enemy.stats[ENEMY_ZOMBIE].powers = [ENEMY_POWER_ATTACK];
-  enemy.stats[ENEMY_ZOMBIE].weaknesses = [POWER_TYPE_DARK];
-  enemy.stats[ENEMY_ZOMBIE].strengths = [POWER_TYPE_WATER];
+  enemy.stats[ENEMY_ZOMBIE].weaknesses = [POWER_TYPE_FIRE,POWER_TYPE_FORCE];
+  enemy.stats[ENEMY_ZOMBIE].strengths = [POWER_TYPE_WATER, POWER_TYPE_ELECTRIC];
   
   enemy.stats[ENEMY_CYBORG] = {name:"Decimated Human", hp:30, atk_min:10, atk_max:16, gold_min:16, gold_max:25, category:ENEMY_CATEGORY_DEMON};
   enemy.stats[ENEMY_CYBORG].powers = [ENEMY_POWER_ATTACK, ENEMY_POWER_SCORCH];

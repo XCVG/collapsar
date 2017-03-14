@@ -2,7 +2,7 @@
  Conversation and shop handling
  */
 
-var DIALOG_PICTURE_COUNT = 3;
+var DIALOG_PICTURE_COUNT = 7;
 
 var DIALOG_BUTTON_NONE = 0;
 var DIALOG_BUTTON_BUY = 1;
@@ -46,6 +46,18 @@ function dialog_init() {
   
   dialog.picture_img[2].src = "images/pictures/smith.png";
   dialog.picture_img[2].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[3].src = "images/pictures/inn.png";
+  dialog.picture_img[3].onload = function() {dialog_picture_onload();};
+
+  dialog.picture_img[4].src = "images/pictures/weapons.png";
+  dialog.picture_img[4].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[5].src = "images/pictures/armor.png";
+  dialog.picture_img[5].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[6].src = "images/pictures/blackmarket.png";
+  dialog.picture_img[6].onload = function() {dialog_picture_onload();};
 
   shop_set(0);
 

@@ -52,6 +52,11 @@ function combat_init() {
  * TODO switch things to use combat.enemy because dynamic
  */
 function combat_set_enemy(enemy_id) {
+    
+    //reset override x/y if exists
+    combat.override_x = -1;
+    combat.override_y = -1;
+    
   combat.enemy.type = enemy_id;
   //combat.enemy.hp = enemy.stats[enemy_id].hp;
   //combat.enemy.category = enemy.stats[enemy_id].category;
@@ -262,9 +267,10 @@ function combat_logic_victory() {
   // end combat by clicking or pressing the action button  
   if (pressing.mouse && !input_lock.mouse) {  
     input_lock.mouse = true;
+    _combat_set_overrides();
     combat_clear_messages();
 	//music gross hack
-	mazemap_set_music(atlas.maps[mazemap.current_id].music);
+	mazemap_set_music(atlas.maps[mazemap.current_id].music);        
 	//boss special
 	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
 	{
@@ -281,6 +287,7 @@ function combat_logic_victory() {
   
   if (pressing.action && !input_lock.action) {
     input_lock.action = true;
+    _combat_set_overrides();
     combat_clear_messages();
 	//music gross hack
 	mazemap_set_music(atlas.maps[mazemap.current_id].music);
@@ -298,6 +305,15 @@ function combat_logic_victory() {
     redraw = true;
     return;  	
   }
+}
+
+function _combat_set_overrides()
+{
+    if(combat.override_x >= 0)
+    {
+        avatar.x = combat.override_x;
+        avatar.y = combat.override_y;
+    }
 }
 
 function combat_logic_defeat() {
@@ -348,7 +364,15 @@ function combat_render() {
 
   // visuals common to all combat phases
   tileset_background();
-  mazemap_render(avatar.x, avatar.y, avatar.facing);
+  if(combat.override_x >= 0)
+  {
+      mazemap_render(combat.override_x, combat.override_y, avatar.facing); //disgusting hack
+  }
+  else
+  {
+      mazemap_render(avatar.x, avatar.y, avatar.facing);
+  }
+  
 
   switch (combat.phase) {
     case COMBAT_PHASE_INTRO:

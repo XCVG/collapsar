@@ -114,6 +114,9 @@ var data_soundinfo =
    },
       "combat": {
        "src": "music/battle.ogg"
+   },
+      "tunnels": {
+       "src": "music/mole.ogg"
    }
   }
 }

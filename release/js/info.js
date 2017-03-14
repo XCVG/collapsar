@@ -142,7 +142,7 @@ function info_clear_messages() {
 /*** Render Functions **********************/
 function info_render() {
 
-  tileset_background_render(7); //the inventory background shall always be 7, not 6, not 8, certainly not 9, 10 is right out
+  tileset_background_render(8); //the inventory background shall always be 7, not 6, not 8, certainly not 9, 10 is right out (changed to 8)
   //mazemap_render(avatar.x, avatar.y, avatar.facing);
  
   bitfont_render(atlas.maps[avatar.map_id].name, 80, 2, JUSTIFY_CENTER);

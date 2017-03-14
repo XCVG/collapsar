@@ -8,7 +8,7 @@ TileSet class.
 //I might redo this thing in TypeScript some day
 
 var TILE_COUNT = 30;
-var BACKGROUND_COUNT = 8;
+var BACKGROUND_COUNT = 9;
 
 var tileset = new Object();
 tileset.tile_img = new Array();
@@ -84,8 +84,11 @@ function tileset_init() {
   tileset.background_img[6].src = "images/backgrounds/nightsky3.png";
   tileset.background_img[6].onload = function() {tileset_onload();};
   
-  tileset.background_img[7].src = "images/backgrounds/invback.png";
+  tileset.background_img[7].src = "images/backgrounds/interior.png";
   tileset.background_img[7].onload = function() {tileset_onload();};
+  
+  tileset.background_img[8].src = "images/backgrounds/invback2.png";
+  tileset.background_img[8].onload = function() {tileset_onload();};
 
   //TODO: new BG
 

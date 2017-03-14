@@ -23,16 +23,19 @@ shop[0].name = "Weapon Shop";
 shop[0].item[0] = {type:SHOP_WEAPON, value:2};
 shop[0].item[1] = {type:SHOP_RANGED, value:2};
 shop[0].background = 3;
+shop[0].picture = 4;
 
 shop[1].name = "Armor Shop";
 shop[1].item[0] = {type:SHOP_ARMOR, value:2};
 shop[1].item[1] = {type:SHOP_ARMOR, value:3};
 shop[1].background = 3;
+shop[1].picture = 5;
 
 shop[2].name = "Inn";
 shop[2].item[0] = {type:SHOP_MESSAGE, msg1:"Be careful, stranger.", msg2:""};
 shop[2].item[1] = {type:SHOP_ROOM, value:10};
 shop[2].background = 3;
+shop[2].picture = 3;
 
 shop[3].name = "Apothecary";
 shop[3].item[0] = {type:SHOP_MESSAGE, msg1:"Fire magic can also", msg2:"burn some obstacles."};
@@ -44,7 +47,7 @@ shop[4].name = "Tavern";
 shop[4].item[0] = {type:SHOP_MESSAGE, msg1:"We walled off the", msg2:"tunnels years ago."};
 shop[4].item[1] = {type:SHOP_MESSAGE, msg1:"There is a back way", msg2:"for brave souls."};
 shop[4].background = 3;
-//shop[4].picture = 1; //no art :(
+shop[4].picture = 1;
 
 //gate
 shop[5].name = "Gate";
@@ -61,6 +64,7 @@ shop[7].name = "Arms Dealer";
 shop[7].item[0] = {type:SHOP_WEAPON, value:4};
 shop[7].item[1] = {type:SHOP_RANGED, value:4};
 shop[7].background = 3;
+shop[7].picture = 6;
 
 //begin message
 shop[8].name = "Midnight";

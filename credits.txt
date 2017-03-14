@@ -30,6 +30,7 @@ Music
 	Matthew Pablo - The Fall of Arcana (CC-BY 3.0) (http://www.matthewpablo.com) [specific credits required ref http://www.matthewpablo.com/services]
 	HitCtrl - The Odyssey (CC-BY 3.0) (https://soundcloud.com/hitctrl)
 	Gundatsch - Durchriss (OGA-BY 3.0/CC-BY 3.0) (https://soundcloud.com/gundatsch/durchriss)
+	Gundatsch - Mole Town (OGA-BY 3.0/CC-BY 3.0) (https://soundcloud.com/gundatsch/mole-town)
 	
 Tileset
 	Clint Bellanger - First Person Dungeon Crawl Art Pack (CC-BY-SA 3.0) (http://heroinedusk.com)

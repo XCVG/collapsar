@@ -25,11 +25,13 @@ function title_set_menu(id) {
         title.menu[0] = "Continue";
         title.menu[1] = "Start New";
         title.menu[2] = "Options";
+        title.menu[3] = "About";
     }
     else
     {
         title.menu[0] = "Start New";
-        title.menu[1] = "Options";        
+        title.menu[1] = "Options";
+        title.menu[2] = "About";
     }
 
     
@@ -122,6 +124,10 @@ function title_logic() {
                 case 2:
                     title_set_menu(TITLE_MENU_OPTIONS);
                     break;
+                case 3:
+                    title_about();
+                    break;
+                    
             }
         }
         else
@@ -133,6 +139,9 @@ function title_logic() {
                     break
                 case 1:
                     title_set_menu(TITLE_MENU_OPTIONS);
+                    break;
+                case 2:
+                    title_about();
                     break;
             }
         }
@@ -215,4 +224,9 @@ function title_continue() {
   gamestate = STATE_EXPLORE;
   mapscript_execAutorun(mazemap.current_id);
   redraw = true;
+}
+
+function title_about()
+{
+    window.location.href = "about.html";
 }

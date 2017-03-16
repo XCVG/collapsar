@@ -95,7 +95,7 @@ function lift_logic()
             var pos = Math.ceil((mouse_pos.y-8)/18);
             //console.log(pos);
             
-            if(avatar.campaign.indexOf(lift.floors[pos].key) >= 0)
+            if(avatar.campaign.indexOf(lift.floors[pos].key) >= 0 || pos == 1)
             {
                 lift.currentFloor = pos;
             }

@@ -68,7 +68,7 @@ function _mapscript_executeScript(script)
     if(script)
     {
         //if we have a script, determine type and execute
-        console.log(script);
+        //console.log(script);
 
         switch(script.type)
         {

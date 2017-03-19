@@ -11,6 +11,7 @@ Intro
 	Alovel & AVALANCHE Game Studio - cruise ship (CC-BY 3.0) (http://opengameart.org/content/cruise-ship)
 	
 UI/Icons
+	Henrique Lazarini (7Soul1) - 496 pixel art icons for medieval/fantasy RPG (CC0) (http://opengameart.org/content/496-pixel-art-icons-for-medievalfantasy-rpg)
 
 Enemies/NPCs
 	
@@ -37,6 +38,11 @@ Tileset
 	Tiny Speck - Glitch Sprite Assets (CC0) (glitchthegame.com)
 	rubberduck/ideasman42 - seamless industrial textures (CC-BY 3.0) (http://opengameart.org/content/seamless-industrial-textures)
 
+Backdrops
+	Henrique Lazarini (7Soul1) - 496 pixel art icons for medieval/fantasy RPG (CC0) (http://opengameart.org/content/496-pixel-art-icons-for-medievalfantasy-rpg)
+	Jordan Trudgett - Backdrops for story and level [for Ardentryst by Jordan Trudgett] (CC-BY 3.0) (http://jordan.trudgett.com/)
+	JosephSeraph - JS FPRPG Texture Pack 01 (CC-BY 3.0) (http://opengameart.org/content/js-fprpg-texture-pack-01)
+	
 Sound Effects
 	Clint Bellanger - Heroine Dusk (CC-BY-SA 3.0) (https://github.com/clintbellanger/heroine-dusk)
 	yd - War On Water (CC0) (?)

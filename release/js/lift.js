@@ -124,6 +124,7 @@ function lift_render()
 {
     //draw background, buttons, current and exit button
     tileset_background_render(7);
+    dialog_render_picture(lift.currentFloor+10); //hardcoded because derp
     lift_render_button();
     bitfont_render(lift.floors[lift.currentFloor].name, 80, 2, JUSTIFY_CENTER);
     

@@ -59,7 +59,7 @@ function dialog_init() {
   dialog.picture_img[6].src = "images/pictures/blackmarket.png";
   dialog.picture_img[6].onload = function() {dialog_picture_onload();};
   
-  dialog.picture_img[7].src = "images/pictures/null.png";
+  dialog.picture_img[7].src = "images/pictures/portrait1.png";
   dialog.picture_img[7].onload = function() {dialog_picture_onload();};
   
   dialog.picture_img[8].src = "images/pictures/null.png";

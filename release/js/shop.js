@@ -88,6 +88,7 @@ shop[11].name = "Illisia";
 shop[11].item[0] = {type:SHOP_MESSAGE, msg1:"There are strange", msg2:"keys hidden here"};
 shop[11].item[1] = {type:SHOP_MESSAGE, msg1:"These make the", msg2:"lift thing work"};
 shop[11].background = 3;
+shop[11].picture = 7;
 
 shop[12].name = "msg02";
 shop[12].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};

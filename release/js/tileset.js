@@ -7,7 +7,7 @@ TileSet class.
 //this is not a class. JS doesn't have classes (yet), nor is this written like a JS-fake-class
 //I might redo this thing in TypeScript some day
 
-var TILE_COUNT = 30;
+var TILE_COUNT = 31;
 var BACKGROUND_COUNT = 9;
 
 var tileset = new Object();
@@ -237,12 +237,17 @@ function tileset_init() {
   tileset.tile_img[29].src = "images/tiles/boss_level1.png";
   tileset.tile_img[29].onload = function() {tileset_onload();};
   tileset.walkable[29] = true;
-  tileset.mapicon[29] = 3;
+  tileset.mapicon[29] = 7;
   
   tileset.tile_img[30].src = "images/tiles/info_level1.png";
   tileset.tile_img[30].onload = function() {tileset_onload();};
   tileset.walkable[30] = true;
   tileset.mapicon[30] = 3;
+  
+  tileset.tile_img[31].src = "images/tiles/dungeon2_ceiling.png";
+  tileset.tile_img[31].onload = function() {tileset_onload();};
+  tileset.walkable[31] = true;
+  tileset.mapicon[31] = 7;  
   
 }
 

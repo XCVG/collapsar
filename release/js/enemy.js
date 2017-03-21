@@ -104,17 +104,17 @@ function enemy_init() {
   enemy.stats[ENEMY_SNAKE].weaknesses = [POWER_TYPE_FIRE, POWER_TYPE_ELECTRIC];
   enemy.stats[ENEMY_SNAKE].strengths = [POWER_TYPE_FORCE, POWER_TYPE_WIND];
 
-  enemy.stats[ENEMY_GESTA] = {name:"Exploiter", hp:40, atk_min:5, atk_max:10, gold_min:10, gold_max:20, category:ENEMY_CATEGORY_UNDEAD};
+  enemy.stats[ENEMY_GESTA] = {name:"Exploiter", hp:50, atk_min:5, atk_max:20, gold_min:10, gold_max:20, category:ENEMY_CATEGORY_UNDEAD};
   enemy.stats[ENEMY_GESTA].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_GESTA].weaknesses = [POWER_TYPE_DARK];
   enemy.stats[ENEMY_GESTA].strengths = [POWER_TYPE_WATER];
   
-  enemy.stats[ENEMY_ZOMBIE] = {name:"Corrupted Human", hp:20, atk_min:3, atk_max:8, gold_min:2, gold_max:5, category:ENEMY_CATEGORY_UNDEAD};
+  enemy.stats[ENEMY_ZOMBIE] = {name:"Corrupted Human", hp:30, atk_min:6, atk_max:12, gold_min:2, gold_max:5, category:ENEMY_CATEGORY_UNDEAD};
   enemy.stats[ENEMY_ZOMBIE].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_ZOMBIE].weaknesses = [POWER_TYPE_FIRE,POWER_TYPE_FORCE];
   enemy.stats[ENEMY_ZOMBIE].strengths = [POWER_TYPE_DARK];
   
-  enemy.stats[ENEMY_CYBORG] = {name:"Decimated Human", hp:50, atk_min:8, atk_max:16, gold_min:5, gold_max:10, category:ENEMY_CATEGORY_DEMON};
+  enemy.stats[ENEMY_CYBORG] = {name:"Decimated Human", hp:60, atk_min:10, atk_max:16, gold_min:5, gold_max:10, category:ENEMY_CATEGORY_DEMON};
   enemy.stats[ENEMY_CYBORG].powers = [ENEMY_POWER_ATTACK]; //TODO better powers?
   enemy.stats[ENEMY_CYBORG].weaknesses = [POWER_TYPE_FIRE,POWER_TYPE_FORCE];
   enemy.stats[ENEMY_CYBORG].strengths = [POWER_TYPE_DARK];

@@ -205,17 +205,17 @@ function mapscript_grant_item(item, item_count) {
   else if (item == "Green Key")
   {
       avatar.campaign.push("key_l4");
-      explore.treasure_id = 17;
+      explore.treasure_id = 18;
   }
   else if (item == "Blue Key")
   {
       avatar.campaign.push("key_l5");
-      explore.treasure_id = 18;
+      explore.treasure_id = 19;
   }
   else if (item == "Black Key")
   {
       avatar.campaign.push("key_l6");
-      explore.treasure_id = 19;
+      explore.treasure_id = 20;
   }
   
 }

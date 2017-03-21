@@ -69,6 +69,7 @@ atlas.maps[1].scripts[6] = {type:"shop", x:2, y:14, shop_id:1, dest_x:3, dest_y:
 atlas.maps[1].scripts[7] = {type:"shop", x:2, y:11, shop_id:7, dest_x:2, dest_y:12}; //arms dealer
 atlas.maps[1].scripts[8] = {type:"lift", x:8, y:1, floor:1, dest_x:8, dest_y:2}; //elevator
 atlas.maps[1].scripts[9] = {type:"exit", x:3, y:3, dest_map:2, dest_x:18, dest_y:3}; //mext
+atlas.maps[1].scripts[10] = {type:"shop", x:8, y:18, shop_id:3, dest_x:8, dest_y:17}; //spell shop
 //atlas.maps[1].scripts[3] = {type:"exit", x:4, y:10, dest_map:4, dest_x:6, dest_y:2};
 
 //atlas.maps[1].enemies = [ENEMY_SHADOW_TENDRILS, ENEMY_IMP, ENEMY_SNAKE];
@@ -104,6 +105,7 @@ atlas.maps[3].scripts[1] = {type:"lift", x:7, y:21, floor:3, dest_x:6, dest_y:21
 atlas.maps[3].scripts[2] = {type:"chest", x:2, y:14, status:"item_l3i1", item:"Yellow Key", qty:1};
 atlas.maps[3].scripts[3] = {type:"chest", x:15, y:5, status:"item_l3i2", item:"Green Key", qty:1};
 atlas.maps[3].scripts[4] = {type:"enemy", x:15, y:4, dest_x:15, dest_y:3, enemy_id:ENEMY_CYBORG, status:"l3_boss"}; 
+atlas.maps[3].enemies = [ENEMY_SNAKE, ENEMY_CRIMINAL, ENEMY_ZOMBIE, ENEMY_ZOMBIE, ENEMY_RAIDER];
 
 atlas.maps[4].name = "Ouropolokis Fields";
 atlas.maps[4].music = "m31";

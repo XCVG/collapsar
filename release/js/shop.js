@@ -37,8 +37,8 @@ shop[2].item[1] = {type:SHOP_ROOM, value:10};
 shop[2].background = 3;
 shop[2].picture = 3;
 
-shop[3].name = "Apothecary";
-shop[3].item[0] = {type:SHOP_MESSAGE, msg1:"Fire magic can also", msg2:"burn some obstacles."};
+shop[3].name = "Spellmaster";
+shop[3].item[0] = {type:SHOP_SPELL, value:1};
 shop[3].item[1] = {type:SHOP_SPELL, value:2};
 shop[3].background = 3;
 
@@ -184,10 +184,10 @@ function shop_set_armor(slot, armor_id) {
 
 function shop_set_spell(slot, spell_id) {
   var disable_reason = "";
-  if (spell_id <= avatar.spellbook) disable_reason = "(You know this)";
+  if (avatar.powers.indexOf(spell_id) >= 0 ) disable_reason = "(You know this)";
   //else if (spell_id > avatar.spellbook +1) disable_reason = "(Too advanced)"; //this was always stupid
   
-  shop_set_buy(slot, "Ability: " + info.spells[spell_id].name, info.spells[spell_id].gold, disable_reason); 
+  shop_set_buy(slot, "Ability: " + powers[spell_id].name, powers[spell_id].gold, disable_reason); 
 }
 
 function shop_set_room(slot, room_cost) {
@@ -332,7 +332,7 @@ function shop_buy_spell(spell_id) {
   sounds_play(SFX_COIN);
   //avatar.spellbook = spell_id; 
   avatar.powers.push(spell_id);
-  dialog.message = "Learned " + info.spells[spell_id].name;
+  dialog.message = "Learned " + powers[spell_id].name;
   shop_set(dialog.shop_id);
   redraw = true;
 }

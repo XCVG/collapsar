@@ -333,6 +333,14 @@ function _mapscript_chest_load(mapscripts)
                   mazemap_set_tile(value.x, value.y, 1);
                 }
                 //TODO: tech chests
+                else if (mazemap_get_tile(value.x,value.y) == 26)
+                {
+                  mazemap_set_tile(value.x, value.y, 25);
+                }
+                else if (mazemap_get_tile(value.x,value.y) == 27)
+                {
+                  mazemap_set_tile(value.x, value.y, 20);
+                }
            }
        }
     }

@@ -95,7 +95,7 @@ atlas.maps[2].scripts[11] = {type:"shop", x:21, y:2, shop_id:11, dest_x:21, dest
 atlas.maps[2].enemies = [ENEMY_RAT, ENEMY_RAT, ENEMY_RAT, ENEMY_SNAKE, ENEMY_SNAKE, ENEMY_SNAKE, ENEMY_CRIMINAL, ENEMY_CRIMINAL, ENEMY_ZOMBIE];
 
 atlas.maps[3].name = "Maintenance";
-atlas.maps[3].music = "kawarayu";
+atlas.maps[3].music = "level3";
 atlas.maps[3].width = 18;
 atlas.maps[3].height = 24;
 atlas.maps[3].background = 5;

@@ -32,6 +32,9 @@ Music
 	HitCtrl - The Odyssey (CC-BY 3.0) (https://soundcloud.com/hitctrl)
 	Gundatsch - Durchriss (OGA-BY 3.0/CC-BY 3.0) (https://soundcloud.com/gundatsch/durchriss)
 	Gundatsch - Mole Town (OGA-BY 3.0/CC-BY 3.0) (https://soundcloud.com/gundatsch/mole-town)
+	Alexandr Zhelanov - Audience (CC-BY 3.0) (https://soundcloud.com/alexandr-zhelanov)
+	HitCtrl - CyberPunk_Chronicles (CC-BY 3.0) (https://soundcloud.com/hitctrl)
+	URAssets - Naature's Cry (CC-BY 3.0) (http://opengameart.org/content/natures-cry)
 	
 Tileset
 	Clint Bellanger - First Person Dungeon Crawl Art Pack (CC-BY-SA 3.0) (http://heroinedusk.com)

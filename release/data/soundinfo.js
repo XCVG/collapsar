@@ -116,7 +116,22 @@ var data_soundinfo =
        "src": "music/battle.ogg"
    },
       "tunnels": {
+       "src": "music/nature.ogg"
+   },
+      "level3": {
        "src": "music/mole.ogg"
+   },
+      "level4": {
+       "src": "music/audience.ogg"
+   },
+      "level5": {
+       "src": "music/cyber.ogg"
+   },
+      "boss": {
+       "src": "music/title.ogg"
+   },
+      "end": {
+       "src": "music/intro.ogg"
    }
   }
 }

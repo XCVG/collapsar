@@ -34,7 +34,7 @@ powers[0] = {name: "Heal"}; //implement with function
 //TODO: add SFX, balance money
 powers[1] = {name: "Slam", type: POWER_TYPE_FORCE, damage: 10, gold: 100};
 powers[2] = {name: "Gust", type: POWER_TYPE_WIND, damage: 10, miss_chance: 0.3, gold: 100};
-powers[3] = {name: "Quake", type: POWER_TYPE_EARTH, damage: 10, damage_random: 5, gold: 100};
+powers[3] = {name: "Quake", type: POWER_TYPE_EARTH, damage: 10, damage_random: 5, gold: 150};
 powers[4] = {name: "Torch", type: POWER_TYPE_FIRE, damage: 10, damage_random: 5, miss_chance: 0.3, gold: 100};
 powers[5] = {name: "Wave", type: POWER_TYPE_WATER, damage: 10, damage_random: 5, miss_chance: 0.3, gold: 100};
 powers[6] = {name: "Zorch", type: POWER_TYPE_ELECTRIC, damage: 10, damage_random: 5, miss_chance: 0.3, gold: 100};

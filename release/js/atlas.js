@@ -189,7 +189,7 @@ atlas.maps[6].exits[1] = {exit_x:14, exit_y:7, dest_map:7, dest_x:2, dest_y:5};
 atlas.maps[6].exits[2] = {exit_x:8, exit_y:15, dest_map:10, dest_x:2, dest_y:1};
 atlas.maps[6].enemies = [ENEMY_IMP, ENEMY_ZOMBIE, ENEMY_IMP, ENEMY_SHADOW_TENDRILS, ENEMY_ZOMBIE, ENEMY_SKELETON, ENEMY_DRUID];
 
-atlas.maps[7].name = "Ouropolokis Forest";
+atlas.maps[7].name = "Forest";
 atlas.maps[7].music = "m31";
 atlas.maps[7].width = 15;
 atlas.maps[7].height = 15;
@@ -215,7 +215,7 @@ atlas.maps[7].exits[0] = {exit_x:1, exit_y:5, dest_map:6, dest_x:13, dest_y:7};
 atlas.maps[7].exits[1] = {exit_x:10, exit_y:5, dest_map:8, dest_x:1, dest_y:7};
 atlas.maps[7].enemies = [ENEMY_MIMIC, ENEMY_SKELETON, ENEMY_DRUID, ENEMY_MIMIC, ENEMY_SKELETON];
 
-atlas.maps[8].name = "Abandoned Temple";
+atlas.maps[8].name = "Rec Room";
 atlas.maps[8].music = "kawarayu";
 atlas.maps[8].width = 16;
 atlas.maps[8].height = 11;

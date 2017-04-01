@@ -107,36 +107,19 @@ atlas.maps[3].scripts[3] = {type:"chest", x:15, y:5, status:"item_l3i2", item:"G
 atlas.maps[3].scripts[4] = {type:"enemy", x:15, y:4, dest_x:15, dest_y:3, enemy_id:ENEMY_CYBORG, status:"l3_boss"}; 
 atlas.maps[3].enemies = [ENEMY_SNAKE, ENEMY_CRIMINAL, ENEMY_ZOMBIE, ENEMY_ZOMBIE, ENEMY_RAIDER];
 
-atlas.maps[4].name = "Ouropolokis Fields";
-atlas.maps[4].music = "m31";
+atlas.maps[4].name = "Facilities";
+atlas.maps[4].music = "level4";
 atlas.maps[4].width = 14;
-atlas.maps[4].height = 16;
-atlas.maps[4].background = 1;
-atlas.maps[4].tiles = [
-  [12,12,12, 2, 2, 2, 2, 2, 2, 2,12,12,12,12],
-  [12,12,12, 2, 2, 2, 3, 2, 2, 2,12,12,12,12],
-  [12,12, 9, 6,12, 6, 1, 6, 6,12, 6, 1,12,12],
-  [12,12,12, 6,12, 6, 6, 6, 6,12, 6,12,12,12],
-  [12,12, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,12,12],
-  [12,12, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,12,12],
-  [12,12, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,12,12],
-  [12,12, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,12,12],
-  [12,12, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,12,12],
-  [12,12, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,12,12],
-  [12,12, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,12,12],
-  [12,12,12,12, 6, 6, 6, 6, 6, 6,12,12,12,12],
-  [12,12,12, 6, 6, 6, 6, 6, 6, 6, 6, 6,12,12],
-  [12,12,12,12,10,11,10,12,12,12, 1, 6,12,12],
-  [12,12,12,12,12,12,12,12,12, 6, 1, 6,12,12],
-  [12,12,12,12,12,12, 2, 2, 2, 2, 3, 2, 2, 2]
-];
-atlas.maps[4].exits[0] = {exit_x:6, exit_y:1, dest_map:1, dest_x:4, dest_y:9};
-atlas.maps[4].exits[1] = {exit_x:10, exit_y:15, dest_map:5, dest_x:3, dest_y:1};
-atlas.maps[4].enemies = [ENEMY_SHADOW_TENDRILS, ENEMY_IMP, ENEMY_SHADOW_TENDRILS, ENEMY_IMP, ENEMY_SKELETON];
-atlas.maps[4].shops[0] = {exit_x:5, exit_y:13, shop_id:4, dest_x:5, dest_y:12};
+atlas.maps[4].height = 20;
+atlas.maps[4].background = 4;
+atlas.maps[4].tiles = [["0","0","0","0","0","0","0","0","0","0","0","0","0","0"],["0","0","0","0","0","0","0","0","0","0","0","0","0","0"],["0","0","0","0","0","0","0","0","0","0","0","0","0","0"],["0","0","0","0","0","0","0","0","0","0","0","0","0","0"],["0","0","0","0","0","0","0","0","0","0","0","0","0","0"],["0","0","0","0","0","0","0","0","0","0","0","0","0","0"],["0","0","0","0","0","0","0","0","0","0","0","0","0","0"],["0","0","0","0","0","0","0","0","0","0","0","0","0","0"],["0","0","0","0","0","0","0","0","0","0","0","0","0","0"],["0","0","0","0","21","25","21","0","0","0","0","0","0","0"],["0","0","0","0","21","20","21","0","0","0","0","0","0","0"],["0","0","0","0","0","0","21","0","0","0","0","0","0","0"],["0","0","0","0","21","20","21","0","0","0","0","0","0","0"],["0","0","0","0","21","25","21","0","0","0","0","0","0","0"],["21","21","21","21","21","25","21","21","21","21","21","21","21","0"],["21","22","25","25","25","25","25","25","25","25","25","25","21","0"],["21","21","21","22","21","21","22","21","21","21","21","25","21","21"],["21","25","25","25","25","21","25","25","21","21","25","25","25","21"],["21","25","25","25","25","21","25","25","21","22","25","25","25","21"],["21","21","21","21","21","21","21","21","21","21","21","21","21","21"]];
+atlas.maps[4].scripts[0] = {type:"lift", x:9, y:18, floor:4, dest_x:10, dest_y:18};
+//atlas.maps[4].enemies = [ENEMY_SHADOW_TENDRILS, ENEMY_IMP, ENEMY_SHADOW_TENDRILS, ENEMY_IMP, ENEMY_SKELETON];
 
-atlas.maps[5].name = "Idarous Poulis";
-atlas.maps[5].music = "haply";
+
+//will actually be the production outer path
+atlas.maps[5].name = "Production";
+atlas.maps[5].music = "level5";
 atlas.maps[5].width = 12;
 atlas.maps[5].height = 12;
 atlas.maps[5].background = 1;
@@ -161,8 +144,8 @@ atlas.maps[5].shops[1] = {exit_x:6, exit_y:8, shop_id:1, dest_x:6, dest_y:7};
 atlas.maps[5].shops[2] = {exit_x:9, exit_y:1, shop_id:2, dest_x:9, dest_y:2};
 atlas.maps[5].shops[3] = {exit_x:1, exit_y:8, shop_id:3, dest_x:2, dest_y:8};
 
-atlas.maps[6].name = "Ouropolokis Fields";
-atlas.maps[6].music = "m31";
+atlas.maps[6].name = "The Core";
+atlas.maps[6].music = "boss";
 atlas.maps[6].width = 16;
 atlas.maps[6].height = 16;
 atlas.maps[6].background = 1;
@@ -216,10 +199,10 @@ atlas.maps[7].exits[1] = {exit_x:10, exit_y:5, dest_map:8, dest_x:1, dest_y:7};
 atlas.maps[7].enemies = [ENEMY_MIMIC, ENEMY_SKELETON, ENEMY_DRUID, ENEMY_MIMIC, ENEMY_SKELETON];
 
 atlas.maps[8].name = "Rec Room";
-atlas.maps[8].music = "kawarayu";
+atlas.maps[8].music = "level4";
 atlas.maps[8].width = 16;
 atlas.maps[8].height = 11;
-atlas.maps[8].background = 5;
+atlas.maps[8].background = 4;
 atlas.maps[8].tiles = [
   [ 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
   [ 0, 0, 2, 2, 2, 7, 5, 5, 5, 5, 5, 5, 2,15,15, 2],
@@ -237,11 +220,12 @@ atlas.maps[8].exits[0] = {exit_x:0, exit_y:5, dest_map:7, dest_x:9, dest_y:5};
 atlas.maps[8].exits[1] = {exit_x:15, exit_y:5, dest_map:9, dest_x:1, dest_y:5};
 atlas.maps[8].enemies = [ENEMY_MIMIC, ENEMY_SKELETON, ENEMY_DRUID];
 
-atlas.maps[9].name = "Hades Emerging";
-atlas.maps[9].music = "kawarayu";
-atlas.maps[9].width = 13;
+//actual inner production area
+atlas.maps[9].name = "Production";
+atlas.maps[9].music = "level5";
+atlas.maps[9].width = 13; //will be 16x16
 atlas.maps[9].height = 10;
-atlas.maps[9].background = 6;
+atlas.maps[9].background = 4;
 atlas.maps[9].tiles = [
   [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0],
   [ 0, 0, 0, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0],

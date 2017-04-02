@@ -339,6 +339,8 @@ function combat_clear_messages() {
 
 function combat_determine_reward() {
 
+    //TODO deal with level5 boss keydrop special
+
   // for now, just gold rewards
   var gold_min = enemy.stats[combat.enemy.type].gold_min;
   var gold_max = enemy.stats[combat.enemy.type].gold_max;

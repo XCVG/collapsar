@@ -159,9 +159,11 @@ function tileset_init() {
   tileset.tile_img[13].onload = function() {tileset_onload();};
   tileset.walkable[13] = false;
 
-  tileset.tile_img[14].src = "images/tiles/grave_stone.png";
+//reuse gravestone for Defender Drone
+  tileset.tile_img[14].src = "images/tiles/boss_level5.png";
   tileset.tile_img[14].onload = function() {tileset_onload();};
-  tileset.walkable[14] = false;
+  tileset.walkable[14] = true;
+  tileset.mapicon[14] = 7;
 
   tileset.tile_img[15].src = "images/tiles/water.png";
   tileset.tile_img[15].onload = function() {tileset_onload();};

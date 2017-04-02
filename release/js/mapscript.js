@@ -235,10 +235,17 @@ function mapscript_grant_item(item, item_count) {
     avatar.max_mp += 4;
     avatar.hp += 20;
     avatar.max_hp += 20;
-    explore.treasure_id = 12;
+    explore.treasure_id = 13;
   }
   else if (item == "Strength Dust") {
     avatar.bonus_atk += 2;
+    explore.treasure_id = 14;
+  }
+  else if (item == "Ultra Dust") {
+    avatar.mp += 4;
+    avatar.max_mp += 4;
+    avatar.hp += 40;
+    avatar.max_hp += 40;
     explore.treasure_id = 14;
   }
   else if (item == "Toughness Dust") {

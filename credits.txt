@@ -46,6 +46,8 @@ Pictures
 	Jordan Trudgett - Backdrops for story and level [for Ardentryst by Jordan Trudgett] (CC-BY 3.0) (http://jordan.trudgett.com/)
 	JosephSeraph - JS FPRPG Texture Pack 01 (CC-BY 3.0) (http://opengameart.org/content/js-fprpg-texture-pack-01)
 	Justin Nichol/The FLARE Project - Flare Portrait Pack (Female Edition) (CC-BY 3.0) (http://opengameart.org/content/flare-portrait-pack-female-edition)
+	PublicDomainPictures - Steam, Machine, Industrial, Vintage (CC0) (https://pixabay.com/en/steam-machine-industrial-vintage-220000/)
+	sgvent - Free illustration: Project, Design, Interiors (CC0) (https://pixabay.com/en/project-design-interiors-2154306/)
 	
 Sound Effects
 	Clint Bellanger - Heroine Dusk (CC-BY-SA 3.0) (https://github.com/clintbellanger/heroine-dusk)

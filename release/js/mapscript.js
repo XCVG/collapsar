@@ -157,6 +157,32 @@ function mapscript_grant_item(item, item_count) {
     if (avatar.weapon == 0) avatar.weapon = 1;
     explore.treasure_id = 10;
   }
+  else if (item == "Adventurer")
+  {
+      if(avatar.gun < 3)
+      {
+          explore.message = "Found Crossbow!";
+          explore.treasure_id = 21;
+          avatar.gun = 3;
+      }
+      else if(avatar.weapon < 3)
+      {
+          explore.message = "Found Longsword!";
+          explore.treasure_id = 22;
+          avatar.weapon = 3;
+      }
+      else if(avatar.armor < 4)
+      {
+          explore.message = "Found Plate Maille!";
+          explore.treasure_id = 23;
+          avatar.armor = 4;
+      }
+      else
+      {
+          explore.gold_value = 100;
+          explore.message = "Found " + explore.gold_value + " gold!";
+      }
+  }
   else if (item == "Rifle") {
     //console.log("TODO give rifle"); //TODO setup rifle give and make graphic
     if (avatar.gun < 6)

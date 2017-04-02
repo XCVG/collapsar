@@ -41,6 +41,7 @@ shop[3].name = "Spellmaster";
 shop[3].item[0] = {type:SHOP_SPELL, value:1};
 shop[3].item[1] = {type:SHOP_SPELL, value:2};
 shop[3].background = 3;
+shop[3].picture = 8;
 
 //Lone hosue
 shop[4].name = "Tavern";
@@ -77,11 +78,13 @@ shop[9].name = "Automatic Doctor";
 shop[9].item[0] = {type:SHOP_MESSAGE, msg1:"The machine can", msg2:"repair your body"};
 shop[9].item[1] = {type:SHOP_ROOM, value:25};
 shop[9].background = 3;
+shop[9].picture = 9;
 
 shop[10].name = "AA ENDING";
 shop[10].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
 shop[10].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
 shop[10].background = 2;
+shop[10].picture = 9;
 
 //additional messages
 shop[11].name = "Illisia";

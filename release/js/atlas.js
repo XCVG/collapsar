@@ -90,7 +90,7 @@ atlas.maps[2].scripts[6] = {type:"mod", x:-1, y:-1, dest_x:14, dest_y:4, flag:"l
 atlas.maps[2].scripts[7] = {type:"enemy", x:14, y:4, dest_x:14, dest_y:5, enemy_id:ENEMY_RAIDER, status:"l1_boss"}; //actual enemy
 atlas.maps[2].scripts[8] = {type:"chest", x:13, y:1, status:"item_l2i1", item:"Red Key", qty:1};
 atlas.maps[2].scripts[9] = {type:"chest", x:20, y:21, status:"item_l2i2", item:"Sling", qty:1};
-atlas.maps[2].scripts[10] = {type:"chest", x:16, y:16, status:"item_l2i3", item:"Stamina Dust", qty:1};
+atlas.maps[2].scripts[10] = {type:"chest", x:16, y:16, status:"item_l2i3", item:"Magic Dust", qty:1};
 atlas.maps[2].scripts[11] = {type:"shop", x:21, y:2, shop_id:11, dest_x:21, dest_y:3};
 atlas.maps[2].enemies = [ENEMY_RAT, ENEMY_RAT, ENEMY_RAT, ENEMY_SNAKE, ENEMY_SNAKE, ENEMY_SNAKE, ENEMY_CRIMINAL, ENEMY_CRIMINAL, ENEMY_ZOMBIE];
 

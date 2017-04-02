@@ -158,7 +158,17 @@ function mapscript_grant_item(item, item_count) {
     explore.treasure_id = 10;
   }
   else if (item == "Rifle") {
-    console.log("TODO give rifle"); //TODO setup rifle give and make graphic
+    //console.log("TODO give rifle"); //TODO setup rifle give and make graphic
+    if (avatar.gun < 6)
+      {
+          avatar.gun = 6;
+          explore.treasure_id = 9;
+      }
+      else
+      {
+          explore.gold_value = 1000;
+          explore.message = "Found " + explore.gold_value + " gold!";
+      }
   }
   else if (item == "Sling")
   {
@@ -182,10 +192,24 @@ function mapscript_grant_item(item, item_count) {
     avatar.max_mp += 2;
     explore.treasure_id = 12;
   }
+  else if (item == "Magic Dust") {
+    avatar.mp += 2;
+    avatar.max_mp += 2;
+    avatar.hp += 10;
+    avatar.max_hp += 10;
+    explore.treasure_id = 12;
+  }
   else if (item == "Endurance Dust") {
     avatar.hp += 5;
     avatar.max_hp += 5;
     explore.treasure_id = 13;
+  }
+  else if (item == "Boosted Dust") {
+    avatar.mp += 4;
+    avatar.max_mp += 4;
+    avatar.hp += 20;
+    avatar.max_hp += 20;
+    explore.treasure_id = 12;
   }
   else if (item == "Strength Dust") {
     avatar.bonus_atk += 2;

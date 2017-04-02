@@ -157,6 +157,9 @@ function mapscript_grant_item(item, item_count) {
     if (avatar.weapon == 0) avatar.weapon = 1;
     explore.treasure_id = 10;
   }
+  else if (item == "Rifle") {
+    console.log("TODO give rifle"); //TODO setup rifle give and make graphic
+  }
   else if (item == "Sling")
   {
       if (avatar.gun == 0)

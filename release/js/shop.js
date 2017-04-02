@@ -73,10 +73,10 @@ shop[8].item[1] = {type:SHOP_MESSAGE, msg1:"The village is", msg2:"already destr
 shop[8].background = 2;
 
 //additional shops
-shop[9].name = "empty09";
-shop[9].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
-shop[9].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
-shop[9].background = 2;
+shop[9].name = "Automatic Doctor";
+shop[9].item[0] = {type:SHOP_MESSAGE, msg1:"The machine can", msg2:"repair your body"};
+shop[9].item[1] = {type:SHOP_ROOM, value:25};
+shop[9].background = 3;
 
 shop[10].name = "AA ENDING";
 shop[10].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
@@ -90,9 +90,9 @@ shop[11].item[1] = {type:SHOP_MESSAGE, msg1:"These make the", msg2:"lift thing w
 shop[11].background = 3;
 shop[11].picture = 7;
 
-shop[12].name = "msg02";
-shop[12].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
-shop[12].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[12].name = "Vending Machine";
+shop[12].item[0] = {type:SHOP_ARMOR, value:6};
+shop[12].item[1] = {type:SHOP_RANGED, value:6};
 shop[12].background = 3;
 
 shop[13].name = "msg03";
@@ -193,7 +193,7 @@ function shop_set_spell(slot, spell_id) {
 function shop_set_room(slot, room_cost) {
   var disable_reason = "";
   if (avatar.hp == avatar.max_hp && avatar.mp == avatar.max_mp) disable_reason = "(You are well rested)";
-  shop_set_buy(slot, "Room for the night", room_cost, disable_reason);
+  shop_set_buy(slot, "!ROOM", room_cost, disable_reason);
 }
 
 function shop_set_message(slot, msg1, msg2) {
@@ -217,6 +217,11 @@ function shop_set_msgend(slot, msg1, msg2) {
 function shop_set_buy(slot, name, cost, disable_reason) {
 
   dialog.option[slot].msg1 = "Buy " + name;
+  
+  if(name == "!ROOM")
+  {
+      dialog.option[slot].msg1 = "Rest here ";
+  }
 
   // show the gold cost or the reason you can't
   if (disable_reason != "") {

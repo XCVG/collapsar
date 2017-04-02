@@ -59,14 +59,14 @@ function info_init() {
   info.weapons[1] = {name:"Stick",  atk_min:2,  atk_max:4,  gold:0};
   info.weapons[2] = {name:"Knife",  atk_min:3,  atk_max:8,  gold:10};
   info.weapons[3] = {name:"Longsword", atk_min:5,  atk_max:12, gold:50};
-  info.weapons[4] = {name:"Dwarven", atk_min:10,  atk_max:16, gold:200};
+  info.weapons[4] = {name:"Dwarvedge", atk_min:10,  atk_max:16, gold:200};
   info.weapons[5] = {name:"Edge",  atk_min:14,  atk_max:20, gold:600};
   info.weapons[6] = {name:"Slicer",  atk_min:18,  atk_max:30, gold:2000};
   info.weapons[7] = {name:"Spike", atk_min:25,  atk_max:50, gold:5000};
   
   info.guns[0] = {name:"Rock",  atk_min:1,  atk_max:3,  gold:0};
   info.guns[1] = {name:"Sling",  atk_min:2,  atk_max:4,  gold:0};
-  info.guns[2] = {name:"Bow",  atk_min:3,  atk_max:8,  gold:10};
+  info.guns[2] = {name:"Longbow",  atk_min:3,  atk_max:8,  gold:10};
   info.guns[3] = {name:"Crossbow", atk_min:6,  atk_max:10, gold:80};
   info.guns[4] = {name:"Arquebus", atk_min:8,  atk_max:20, gold:200};
   info.guns[5] = {name:"Handgun",  atk_min:14,  atk_max:22, gold:600};

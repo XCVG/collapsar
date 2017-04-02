@@ -117,9 +117,9 @@ atlas.maps[4].scripts[0] = {type:"lift", x:9, y:18, floor:4, dest_x:10, dest_y:1
 atlas.maps[4].scripts[1] = {type:"shop", x:6, y:16, shop_id:9, dest_x:6, dest_y:15};
 atlas.maps[4].scripts[2] = {type:"shop", x:3, y:16, shop_id:12, dest_x:3, dest_y:15};
 atlas.maps[4].scripts[3] = {type:"chest", x:8, y:4, status:"item_l4i1", item:"Rifle", qty:1};
-atlas.maps[4].scripts[4] = {type:"exit", x:1, y:15, dest_map:8, dest_x:0, dest_y:0}; //TODO destination
-atlas.maps[4].scripts[5] = {type:"exit", x:1, y:7, dest_map:8, dest_x:0, dest_y:0}; //TODO destination
-//atlas.maps[4].enemies = [ENEMY_SHADOW_TENDRILS, ENEMY_IMP, ENEMY_SHADOW_TENDRILS, ENEMY_IMP, ENEMY_SKELETON];
+atlas.maps[4].scripts[4] = {type:"exit", x:1, y:15, dest_map:8, dest_x:6, dest_y:8}; //TODO destination
+atlas.maps[4].scripts[5] = {type:"exit", x:1, y:7, dest_map:8, dest_x:6, dest_y:1}; //TODO destination
+//atlas.maps[4].enemies = [ENEMY_ZOMBIE, ENEMY_ZOMBIE, ENEMY_CYBORG, ENEMY_CYBORG, ENEMY_DRONE];
 
 
 //will actually be the production outer path
@@ -178,7 +178,7 @@ atlas.maps[6].exits[2] = {exit_x:8, exit_y:15, dest_map:10, dest_x:2, dest_y:1};
 atlas.maps[6].enemies = [ENEMY_IMP, ENEMY_ZOMBIE, ENEMY_IMP, ENEMY_SHADOW_TENDRILS, ENEMY_ZOMBIE, ENEMY_SKELETON, ENEMY_DRUID];
 
 atlas.maps[7].name = "Forest";
-atlas.maps[7].music = "m31";
+atlas.maps[7].music = "odyssey";
 atlas.maps[7].width = 15;
 atlas.maps[7].height = 15;
 atlas.maps[7].background = 1;
@@ -203,27 +203,16 @@ atlas.maps[7].exits[0] = {exit_x:1, exit_y:5, dest_map:6, dest_x:13, dest_y:7};
 atlas.maps[7].exits[1] = {exit_x:10, exit_y:5, dest_map:8, dest_x:1, dest_y:7};
 atlas.maps[7].enemies = [ENEMY_MIMIC, ENEMY_SKELETON, ENEMY_DRUID, ENEMY_MIMIC, ENEMY_SKELETON];
 
-atlas.maps[8].name = "Rec Room";
+atlas.maps[8].name = "Facilities";
 atlas.maps[8].music = "level4";
-atlas.maps[8].width = 16;
-atlas.maps[8].height = 11;
-atlas.maps[8].background = 4;
-atlas.maps[8].tiles = [
-  [ 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-  [ 0, 0, 2, 2, 2, 7, 5, 5, 5, 5, 5, 5, 2,15,15, 2],
-  [ 0, 0, 2, 8,16, 5, 1,15,15,15,15, 1, 1, 1,15, 2],
-  [ 2, 2, 2, 2, 2, 2, 5, 5, 5, 5, 5,16, 2, 5, 2, 2],
-  [ 2, 5, 7, 5, 2, 2, 5, 1, 1, 1, 1, 5, 2, 7, 7, 2],
-  [ 3, 5, 5, 5,16, 5, 5, 1, 1, 1, 1, 5,18,16, 5, 3],
-  [ 2, 5, 7, 5, 2, 2, 5, 1, 1, 1, 1, 5, 2, 7, 7, 2],
-  [ 2, 2, 2, 2, 2, 2, 8, 5, 5, 5, 5,17, 2, 5, 2, 2],
-  [ 0, 0, 2, 8,18, 5, 1,15,15,15,15, 1, 1, 1,15, 2],
-  [ 0, 0, 2, 2, 2, 7, 5, 5, 5, 5, 5, 5, 2,15,15, 2],
-  [ 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
-];
-atlas.maps[8].exits[0] = {exit_x:0, exit_y:5, dest_map:7, dest_x:9, dest_y:5};
-atlas.maps[8].exits[1] = {exit_x:15, exit_y:5, dest_map:9, dest_x:1, dest_y:5};
-atlas.maps[8].enemies = [ENEMY_MIMIC, ENEMY_SKELETON, ENEMY_DRUID];
+atlas.maps[8].width = 8;
+atlas.maps[8].height = 10;
+atlas.maps[8].background = 1;
+atlas.maps[8].tiles = [["21","21","21","21","21","21","21","21"],["20","20","25","25","25","25","25","22"],["0","20","23","25","25","23","25","21"],["0","0","20","20","25","25","25","21"],["0","0","0","0","20","20","20","21"],["0","0","20","20","0","0","25","21"],["0","20","25","25","20","25","25","21"],["0","0","20","25","25","23","25","21"],["0","0","20","25","25","25","25","22"],["0","21","21","21","21","21","21","21"]];
+atlas.maps[8].scripts[0] = {type:"exit", x:7, y:1, dest_map:4, dest_x:2, dest_y:7};
+atlas.maps[8].scripts[1] = {type:"exit", x:7, y:8, dest_map:4, dest_x:2, dest_y:15};
+atlas.maps[8].scripts[2] = {type:"enemy", x:6, y:5, dest_x:6, dest_y:6, enemy_id:ENEMY_KILLBOT, status:"l4_boss"}; 
+//atlas.maps[8].enemies = [ENEMY_MIMIC, ENEMY_SKELETON, ENEMY_DRUID];
 
 //actual inner production area
 atlas.maps[9].name = "Production";

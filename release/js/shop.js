@@ -95,7 +95,7 @@ shop[11].picture = 7;
 
 shop[12].name = "Vending Machine";
 shop[12].item[0] = {type:SHOP_ARMOR, value:6};
-shop[12].item[1] = {type:SHOP_RANGED, value:6};
+shop[12].item[1] = {type:SHOP_WEAPON, value:6};
 shop[12].background = 3;
 
 shop[13].name = "msg03";

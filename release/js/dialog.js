@@ -83,7 +83,7 @@ function dialog_init() {
   dialog.picture_img[14].src = "images/pictures/level4.png";
   dialog.picture_img[14].onload = function() {dialog_picture_onload();};
   
-  dialog.picture_img[15].src = "images/pictures/levelnull.png";
+  dialog.picture_img[15].src = "images/pictures/level5.png";
   dialog.picture_img[15].onload = function() {dialog_picture_onload();};
   
   dialog.picture_img[16].src = "images/pictures/level6.png";

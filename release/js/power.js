@@ -257,7 +257,7 @@ function power_hero_defend()
 function power_enemy(enemy_id) {
 
   // override for boss action
-  if (enemy_id == ENEMY_DEATH_SPEAKER) {
+  if (enemy_id == ENEMY_CORE) {
     boss_power();
     return;
   }

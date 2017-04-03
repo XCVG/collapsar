@@ -33,6 +33,7 @@ combat.defense_action = "";
 combat.defense_result = "";
 combat.reward_result = "";
 combat.gold_treasure = 0;
+combat.reward_special = null;
 
 combat.victory_status = "";
 combat.hero_defending = false;
@@ -339,17 +340,23 @@ function combat_clear_messages() {
 
 function combat_determine_reward() {
 
-    //TODO deal with level5 boss keydrop special
-
   // for now, just gold rewards
-  var gold_min = enemy.stats[combat.enemy.type].gold_min;
-  var gold_max = enemy.stats[combat.enemy.type].gold_max;
+    var gold_min = enemy.stats[combat.enemy.type].gold_min;
+    var gold_max = enemy.stats[combat.enemy.type].gold_max;
+
+    var gold_reward = Math.round(Math.random() * (gold_max - gold_min)) + gold_min;
+    combat.reward_result = "Crystal +" + gold_reward;
+
+    avatar.gold += gold_reward;
+    combat.gold_treasure = gold_reward;
   
-  var gold_reward = Math.round(Math.random() * (gold_max - gold_min)) + gold_min;
-  combat.reward_result = "Crystal +" + gold_reward;
-  
-  avatar.gold += gold_reward;
-  combat.gold_treasure = gold_reward;
+  //level5 boss keydrop special
+  if(combat.victory_status == "l5_boss")
+  {
+      combat.reward_result = "Cry+" + gold_reward + " & Black Key";
+      avatar.campaign.push("key_l6");
+      combat.reward_special = 20;
+  }
   
   // if killed a named creature, remember
   if (combat.victory_status != "") {
@@ -438,6 +445,10 @@ function combat_render_victory() {
   bitfont_render("You win!", 80, 60, JUSTIFY_CENTER);
   bitfont_render(combat.reward_result, 80, 70, JUSTIFY_CENTER);
   treasure_render_gold(combat.gold_treasure);
+  if(combat.reward_special)
+  {
+      treasure_render_item(combat.reward_special);
+  }
   //info_render_gold();
 }
 

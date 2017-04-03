@@ -220,7 +220,8 @@ atlas.maps[9].scripts[5] = {type:"shop", x:2, y:12, shop_id:16, dest_x:3, dest_y
 atlas.maps[9].scripts[6] = {type:"shop", x:2, y:14, shop_id:17, dest_x:3, dest_y:14};
 atlas.maps[9].scripts[7] = {type:"enemy", x:10, y:4, dest_x:10, dest_y:3, enemy_id:ENEMY_SENTINEL, status:"l5_boss"}; 
 atlas.maps[9].scripts[8] = {type:"chest", x:3, y:16, status:"item_l9i2", item:"Blue Key", qty:1};
-//atlas.maps[9].enemies = [ENEMY_DRONE, ENEMY_DRONE, ENEMY_DRONE, ENEMY_KILLBOT];
+atlas.maps[9].scripts[9] = {type:"mod", x:-1, y:-1, dest_x:10, dest_y:4, flag:"l5_boss", tile:25};
+atlas.maps[9].enemies = [ENEMY_DRONE, ENEMY_DRONE, ENEMY_DRONE, ENEMY_KILLBOT];
 
 atlas.maps[10].name = "Catacombs of Epikros";
 atlas.maps[10].music = "haply";

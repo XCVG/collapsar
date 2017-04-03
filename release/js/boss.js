@@ -35,7 +35,7 @@ function boss_alter_map() {
 
 function boss_boneshield_activate() {
   boss.boneshield_active = true;
-  combat.defense_action = "Bone Shield!";
+  combat.defense_action = "Shield!";
   combat.defense_result = "+Def Up!";
   combat.hero_hurt = false;
   sounds_play(SFX_BONESHIELD);
@@ -43,6 +43,7 @@ function boss_boneshield_activate() {
 
 // if the boss' bone shield is up, override the regular hero attack
 function boss_boneshield_heroattack() {
+    //TODO rewrite to take damage and break
   combat.offense_result = "Absorbed!";
   sounds_play(SFX_BLOCKED);
   combat.enemy_hurt = false;

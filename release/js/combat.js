@@ -272,7 +272,7 @@ function combat_logic_victory() {
 	//music gross hack
 	mazemap_set_music(atlas.maps[mazemap.current_id].music);        
 	//boss special
-	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
+	if(combat.enemy.type == ENEMY_CORE)
 	{
 		ending.id = ENDING_GOOD;
 		gamestate = STATE_ENDING;
@@ -292,7 +292,7 @@ function combat_logic_victory() {
 	//music gross hack
 	mazemap_set_music(atlas.maps[mazemap.current_id].music);
 	//boss special
-	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
+	if(combat.enemy.type == ENEMY_CORE)
 	{
 		ending.id = ENDING_GOOD;
 		gamestate = STATE_ENDING;
@@ -319,8 +319,8 @@ function _combat_set_overrides()
 function combat_logic_defeat() {
 	mazemap_set_music("defeat");
         
-        //TODO fix this handling please
-	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
+        //BECAUSE THIS WILL NEVER CAUSE PROBLEMS EVER RIGHT
+	if(combat.enemy.type == ENEMY_CORE)
 	{
 		ending.id = ENDING_BAD;
 		gamestate = STATE_ENDING;

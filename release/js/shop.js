@@ -103,25 +103,29 @@ shop[13].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
 shop[13].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
 shop[13].background = 3;
 
-shop[14].name = "prod01";
-shop[14].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
-shop[14].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[14].name = "Education Chamber";
+shop[14].item[0] = {type:SHOP_SPELL, value:6};
+shop[14].item[1] = {type:SHOP_SPELL, value:7};
 shop[14].background = 3;
+shop[14].picture = 9;
 
-shop[15].name = "prod02";
-shop[15].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
-shop[15].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[15].name = "Vending Machine";
+shop[15].item[0] = {type:SHOP_WEAPON, value:7};
+shop[15].item[1] = {type:SHOP_RANGED, value:7};
 shop[15].background = 3;
+shop[15].picture = 9;
 
-shop[16].name = "prod03";
-shop[16].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
-shop[16].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[16].name = "Vending Machine";
+shop[16].item[0] = {type:SHOP_MESSAGE, msg1:"", msg2:""};
+shop[16].item[1] = {type:SHOP_ARMOR, value:7};
 shop[16].background = 3;
+shop[16].picture = 9;
 
-shop[17].name = "prod04";
-shop[17].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
-shop[17].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[17].name = "Automatic Doctor";
+shop[17].item[0] = {type:SHOP_MESSAGE, msg1:"The machine can", msg2:"repair your body"};
+shop[17].item[1] = {type:SHOP_ROOM, value:25};
 shop[17].background = 3;
+shop[17].picture = 9;
 
 //---- Set choice options for shops --------
 

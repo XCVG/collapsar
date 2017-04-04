@@ -94,7 +94,7 @@ function enemy_init() {
   enemy.stats[ENEMY_RAT].weaknesses = [POWER_TYPE_DARK,POWER_TYPE_RANGED];
   enemy.stats[ENEMY_RAT].strengths = [POWER_TYPE_WATER];
 
-  enemy.stats[ENEMY_RAIDER] = {name:"Raider", hp:24, atk_min:3, atk_max:8, gold_min:5, gold_max:8, category:ENEMY_CATEGORY_SHADOW};
+  enemy.stats[ENEMY_RAIDER] = {name:"Raider", hp:24, atk_min:3, atk_max:8, gold_min:10, gold_max:20, category:ENEMY_CATEGORY_SHADOW};
   enemy.stats[ENEMY_RAIDER].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_RAIDER].weaknesses = [POWER_TYPE_DARK];
   enemy.stats[ENEMY_RAIDER].strengths = [POWER_TYPE_WATER];
@@ -104,32 +104,32 @@ function enemy_init() {
   enemy.stats[ENEMY_SNAKE].weaknesses = [POWER_TYPE_FIRE, POWER_TYPE_ELECTRIC];
   enemy.stats[ENEMY_SNAKE].strengths = [POWER_TYPE_FORCE, POWER_TYPE_WIND];
 
-  enemy.stats[ENEMY_GESTA] = {name:"Exploiter", hp:50, atk_min:5, atk_max:20, gold_min:10, gold_max:20, category:ENEMY_CATEGORY_UNDEAD};
+  enemy.stats[ENEMY_GESTA] = {name:"Exploiter", hp:50, atk_min:5, atk_max:20, gold_min:20, gold_max:40, category:ENEMY_CATEGORY_UNDEAD};
   enemy.stats[ENEMY_GESTA].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_GESTA].weaknesses = [POWER_TYPE_DARK];
   enemy.stats[ENEMY_GESTA].strengths = [POWER_TYPE_WATER];
   
-  enemy.stats[ENEMY_ZOMBIE] = {name:"Corrupted Human", hp:30, atk_min:6, atk_max:12, gold_min:10, gold_max:30, category:ENEMY_CATEGORY_UNDEAD};
+  enemy.stats[ENEMY_ZOMBIE] = {name:"Corrupted Human", hp:30, atk_min:6, atk_max:12, gold_min:20, gold_max:50, category:ENEMY_CATEGORY_UNDEAD};
   enemy.stats[ENEMY_ZOMBIE].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_ZOMBIE].weaknesses = [POWER_TYPE_FIRE,POWER_TYPE_FORCE];
   enemy.stats[ENEMY_ZOMBIE].strengths = [POWER_TYPE_DARK];
   
-  enemy.stats[ENEMY_CYBORG] = {name:"Decimated Human", hp:60, atk_min:10, atk_max:16, gold_min:40, gold_max:60, category:ENEMY_CATEGORY_DEMON};
+  enemy.stats[ENEMY_CYBORG] = {name:"Decimated Human", hp:60, atk_min:10, atk_max:16, gold_min:50, gold_max:100, category:ENEMY_CATEGORY_DEMON};
   enemy.stats[ENEMY_CYBORG].powers = [ENEMY_POWER_ATTACK]; //TODO better powers?
   enemy.stats[ENEMY_CYBORG].weaknesses = [POWER_TYPE_FIRE,POWER_TYPE_FORCE];
   enemy.stats[ENEMY_CYBORG].strengths = [POWER_TYPE_DARK];
 
-  enemy.stats[ENEMY_DRONE] = {name:"Maintenance Drone", hp:50, atk_min:8, atk_max:15, gold_min:40, gold_max:80, category:ENEMY_CATEGORY_AUTOMATON};
+  enemy.stats[ENEMY_DRONE] = {name:"Maintenance Drone", hp:50, atk_min:12, atk_max:20, gold_min:80, gold_max:120, category:ENEMY_CATEGORY_AUTOMATON};
   enemy.stats[ENEMY_DRONE].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_DRONE].weaknesses = [POWER_TYPE_ELECTRIC,POWER_TYPE_WATER];
   enemy.stats[ENEMY_DRONE].strengths = [POWER_TYPE_DARK,POWER_TYPE_FIRE];
   
-  enemy.stats[ENEMY_KILLBOT] = {name:"Defender Drone", hp:200, atk_min:20, atk_max:40, gold_min:120, gold_max:300, category:ENEMY_CATEGORY_AUTOMATON};
+  enemy.stats[ENEMY_KILLBOT] = {name:"Defender Drone", hp:200, atk_min:22, atk_max:44, gold_min:200, gold_max:500, category:ENEMY_CATEGORY_AUTOMATON};
   enemy.stats[ENEMY_KILLBOT].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_KILLBOT].weaknesses = [POWER_TYPE_ELECTRIC,POWER_TYPE_WATER];
   enemy.stats[ENEMY_KILLBOT].strengths = [POWER_TYPE_DARK,POWER_TYPE_FORCE];
   
-  enemy.stats[ENEMY_SENTINEL] = {name:"Destroyer Drone", hp:500, atk_min:30, atk_max:80, gold_min:400, gold_max:800, category:ENEMY_CATEGORY_AUTOMATON};
+  enemy.stats[ENEMY_SENTINEL] = {name:"Destroyer Drone", hp:500, atk_min:30, atk_max:90, gold_min:500, gold_max:1000, category:ENEMY_CATEGORY_AUTOMATON};
   enemy.stats[ENEMY_SENTINEL].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_SENTINEL].weaknesses = [POWER_TYPE_ELECTRIC,POWER_TYPE_WATER];
   enemy.stats[ENEMY_SENTINEL].strengths = [POWER_TYPE_DARK,POWER_TYPE_MELEE];

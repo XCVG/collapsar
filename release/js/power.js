@@ -33,12 +33,12 @@ var powers = new Array();
 powers[0] = {name: "Heal"}; //implement with function
 //TODO: add SFX, balance money
 powers[1] = {name: "Slam", type: POWER_TYPE_FORCE, damage: 10, gold: 100};
-powers[2] = {name: "Gust", type: POWER_TYPE_WIND, damage: 10, miss_chance: 0.3, gold: 100};
-powers[3] = {name: "Quake", type: POWER_TYPE_EARTH, damage: 10, damage_random: 5, gold: 150};
-powers[4] = {name: "Torch", type: POWER_TYPE_FIRE, damage: 10, damage_random: 5, miss_chance: 0.3, gold: 100};
-powers[5] = {name: "Wave", type: POWER_TYPE_WATER, damage: 10, damage_random: 5, miss_chance: 0.3, gold: 100};
-powers[6] = {name: "Zorch", type: POWER_TYPE_ELECTRIC, damage: 10, damage_random: 5, miss_chance: 0.3, gold: 100};
-powers[7] = {name: "Rend", type: POWER_TYPE_DARK, damage: 10, damage_random: 5, miss_chance: 0.3, gold: 100};
+powers[2] = {name: "Gust", type: POWER_TYPE_WIND, damage: 15, miss_chance: 0.3, gold: 100};
+powers[3] = {name: "Quake", type: POWER_TYPE_EARTH, damage: 10, damage_random: 15, gold: 200};
+powers[4] = {name: "Torch", type: POWER_TYPE_FIRE, damage: 20, damage_random: 5, miss_chance: 0.3, gold: 400};
+powers[5] = {name: "Wave", type: POWER_TYPE_WATER, damage: 10, damage_random: 10, miss_chance: 0.3, gold: 500};
+powers[6] = {name: "Zorch", type: POWER_TYPE_ELECTRIC, damage: 30, damage_random: 15, miss_chance: 0.3, gold: 1000};
+powers[7] = {name: "Rend", type: POWER_TYPE_DARK, damage: 50, damage_random: 30, miss_chance: 0.3, gold: 1000};
 
 function power_special_use(power_id)
 {

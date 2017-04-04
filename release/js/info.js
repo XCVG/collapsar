@@ -383,7 +383,7 @@ function _info_cycleSpellLeft()
         //console.log(pointer);
     }
     
-    avatar.power_left = pointer;
+    avatar.power_left = avatar.powers[pointer];
     
 }
 
@@ -417,6 +417,6 @@ function _info_cycleSpellRight()
         //console.log(pointer);
     }
     
-    avatar.power_right = pointer;
+    avatar.power_right = avatar.powers[pointer];
     
 }

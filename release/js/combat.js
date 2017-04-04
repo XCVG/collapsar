@@ -265,6 +265,8 @@ function combat_logic_defense() {
 
 function combat_logic_victory() {
   
+  //TODO boss die and dramatic fadeout
+  
   // end combat by clicking or pressing the action button  
   if (pressing.mouse && !input_lock.mouse) {  
     input_lock.mouse = true;
@@ -273,6 +275,7 @@ function combat_logic_victory() {
 	//music gross hack
 	mazemap_set_music(atlas.maps[mazemap.current_id].music);        
 	//boss special
+        
 	if(combat.enemy.type == ENEMY_CORE)
 	{
 		ending.id = ENDING_GOOD;

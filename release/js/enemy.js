@@ -129,7 +129,7 @@ function enemy_init() {
   enemy.stats[ENEMY_KILLBOT].weaknesses = [POWER_TYPE_ELECTRIC,POWER_TYPE_WATER];
   enemy.stats[ENEMY_KILLBOT].strengths = [POWER_TYPE_DARK,POWER_TYPE_FORCE];
   
-  enemy.stats[ENEMY_SENTINEL] = {name:"Destroyer Drone", hp:500, atk_min:30, atk_max:90, gold_min:500, gold_max:1000, category:ENEMY_CATEGORY_AUTOMATON};
+  enemy.stats[ENEMY_SENTINEL] = {name:"Destroyer Drone", hp:500, atk_min:40, atk_max:70, gold_min:500, gold_max:1200, category:ENEMY_CATEGORY_AUTOMATON};
   enemy.stats[ENEMY_SENTINEL].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_SENTINEL].weaknesses = [POWER_TYPE_ELECTRIC,POWER_TYPE_WATER];
   enemy.stats[ENEMY_SENTINEL].strengths = [POWER_TYPE_DARK,POWER_TYPE_MELEE];

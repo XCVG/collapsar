@@ -152,7 +152,14 @@ atlas.maps[6].scripts[4] = {type:"mod", x:-1, y:-1, dest_x:4, dest_y:12, flag:"f
 atlas.maps[6].scripts[5] = {type:"mod", x:-1, y:-1, dest_x:6, dest_y:10, flag:"final_boss", tile:25};
 atlas.maps[6].scripts[6] = {type:"mod", x:-1, y:-1, dest_x:6, dest_y:11, flag:"final_boss", tile:25};
 atlas.maps[6].scripts[7] = {type:"mod", x:-1, y:-1, dest_x:6, dest_y:12, flag:"final_boss", tile:25};
-//atlas.maps[6].enemies = [ ENEMY_DRONE, ENEMY_KILLBOT, ENEMY_SENTINEL];
+atlas.maps[6].scripts[8] = {type:"chest", x:5, y:20, status:"item_l6pre1", item:"Ultra Dust", qty:1};
+atlas.maps[6].scripts[9] = {type:"chest", x:1, y:10, status:"item_l6c1", item:"Crystal", qty:1776};
+atlas.maps[6].scripts[10] = {type:"chest", x:1, y:11, status:"item_l6c2", item:"Magic Dust", qty:1};
+atlas.maps[6].scripts[11] = {type:"chest", x:1, y:12, status:"item_l6c3", item:"Crystal", qty:1792};
+atlas.maps[6].scripts[12] = {type:"chest", x:9, y:10, status:"item_l6c4", item:"Crystal", qty:1917};
+atlas.maps[6].scripts[13] = {type:"chest", x:9, y:11, status:"item_l6c5", item:"!POWERKEY", qty:1};
+atlas.maps[6].scripts[14] = {type:"chest", x:9, y:12, status:"item_l6c6", item:"Crystal", qty:2160};
+atlas.maps[6].enemies = [ ENEMY_DRONE, ENEMY_KILLBOT, ENEMY_SENTINEL];
 
 atlas.maps[7].name = "Forest";
 atlas.maps[7].music = "odyssey";

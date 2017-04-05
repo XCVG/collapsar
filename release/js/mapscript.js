@@ -277,6 +277,10 @@ function mapscript_grant_item(item, item_count) {
       avatar.campaign.push("key_l6");
       explore.treasure_id = 20;
   }
+  else
+  {
+      console.log("Unknown item: " + item);
+  }
   
 }
 

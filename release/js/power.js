@@ -29,16 +29,18 @@ var ENEMY_POWER_SCORCH = 1;
 var ENEMY_POWER_HPDRAIN = 2;
 var ENEMY_POWER_MPDRAIN = 3;
 
+var POWER_LEVELFACTOR = 0.5;
+
 var powers = new Array();
 powers[0] = {name: "Heal"}; //implement with function
 //TODO: add SFX, balance money
 powers[1] = {name: "Slam", type: POWER_TYPE_FORCE, damage: 10, gold: 100};
-powers[2] = {name: "Gust", type: POWER_TYPE_WIND, damage: 15, miss_chance: 0.3, gold: 100};
+powers[2] = {name: "Gust", type: POWER_TYPE_WIND, damage: 15, miss_chance: 0.2, gold: 100};
 powers[3] = {name: "Quake", type: POWER_TYPE_EARTH, damage: 10, damage_random: 15, gold: 200};
-powers[4] = {name: "Torch", type: POWER_TYPE_FIRE, damage: 20, damage_random: 5, miss_chance: 0.3, gold: 400};
-powers[5] = {name: "Wave", type: POWER_TYPE_WATER, damage: 10, damage_random: 10, miss_chance: 0.3, gold: 500};
-powers[6] = {name: "Zorch", type: POWER_TYPE_ELECTRIC, damage: 30, damage_random: 15, miss_chance: 0.3, gold: 1000};
-powers[7] = {name: "Rend", type: POWER_TYPE_DARK, damage: 50, damage_random: 30, miss_chance: 0.3, gold: 1000};
+powers[4] = {name: "Torch", type: POWER_TYPE_FIRE, damage: 20, damage_random: 5, miss_chance: 0.2, gold: 400};
+powers[5] = {name: "Wave", type: POWER_TYPE_WATER, damage: 10, damage_random: 10, miss_chance: 0.2, gold: 500};
+powers[6] = {name: "Zorch", type: POWER_TYPE_ELECTRIC, damage: 30, damage_random: 15, miss_chance: 0.2, gold: 1000};
+powers[7] = {name: "Rend", type: POWER_TYPE_DARK, damage: 50, damage_random: 30, miss_chance: 0.2, gold: 1000};
 
 function power_special_use(power_id)
 {
@@ -95,7 +97,8 @@ function power_hero_elemental(my_power)
     }
     
     //calculate damage (from base and bonus) (default norandom)
-    var attack_damage = my_power.damage + avatar.bonus_atk;
+    var attack_levelbonus = (avatar.armor + avatar.weapon + avatar.gun) / 3;      
+    var attack_damage = my_power.damage + avatar.bonus_atk + (attack_levelbonus * POWER_LEVELFACTOR);
     if('damage_random' in my_power)
     {
         var attack_bonus = ((Math.random() * 2) - 1) * my_power.damage_random;
@@ -117,10 +120,12 @@ function power_hero_elemental(my_power)
     {
         //is strong against this
         attack_damage *= 0.5;
-    }    
-        
-    //play sound (and animation?) (TODO add to spell) (default: lookup name)
-    //TODO allow crits?
+    }
+    
+    //round it!
+    attack_damage = Math.ceil(attack_damage);
+    
+    //play sound (and animation?) (default: lookup name)
     if('sound' in my_power)
         sounds_play(my_power.sound);
     else
@@ -257,10 +262,12 @@ function power_hero_defend()
 function power_enemy(enemy_id) {
 
   // override for boss action
+  /*
   if (enemy_id == ENEMY_CORE) {
     boss_power();
     return;
   }
+*/
 
   var power_options = enemy.stats[enemy_id].powers.length;
   var power_roll = Math.floor(Math.random() * power_options);

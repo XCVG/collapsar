@@ -141,6 +141,7 @@ function combat_logic_intro() {
 
 function combat_logic_input() {
 
+  combat.hit_shield = false;
   combat.enemy_hurt = false;
   combat.hero_hurt = false;
   combat.run_success = false;
@@ -202,10 +203,16 @@ function combat_logic_offense() {
   // assist text delay
   if (combat.timer == 25) redraw = true;
   
-  if (combat.timer > 15 && combat.enemy_hurt) {
+  if (combat.timer > 15 && combat.enemy_hurt && !combat.hit_shield) {
     enemy.render_offset.x = Math.round(Math.random() * 4) - 2;
     enemy.render_offset.y = Math.round(Math.random() * 4) - 2;
 	redraw = true;
+  }
+  else if(combat.timer > 15 && combat.enemy_hurt && combat.hit_shield)
+  {
+    boss.boneshield_offset.x = Math.round(Math.random() * 4) - 2;
+    boss.boneshield_offset.y = Math.round(Math.random() * 4) - 2;
+	redraw = true;  
   }
   else if (combat.timer == 15) {
     enemy.render_offset = {x:0, y:0};

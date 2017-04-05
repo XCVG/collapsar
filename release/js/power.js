@@ -144,7 +144,7 @@ function power_hero_attack() {
   
   // special: override hero action if the boss has bone shield up
   if (boss.boneshield_active) {
-    boss_boneshield_heroattack();
+    boss_boneshield_heroattack(POWER_TYPE_MELEE);
     return;
   }
   
@@ -196,12 +196,6 @@ function power_hero_rangedattack() {
 
   combat.offense_action = "Shoot!";
   
-  // special: override hero action if the boss has bone shield up
-  if (boss.boneshield_active) {
-    boss_boneshield_heroattack();
-    return;
-  }
-  
   // check miss
   var hit_chance = Math.random();
   if (hit_chance < 0.30) {
@@ -240,6 +234,12 @@ function power_hero_rangedattack() {
       attack_damage *= 0.5;
   }
   
+  // special: override hero action if the boss has bone shield up
+  if (boss.boneshield_active) {
+    boss_boneshield_heroattack(POWER_TYPE_RANGED,attack_damage);
+    return;
+  }
+  
   combat.enemy.hp -= attack_damage;
   combat.offense_result = attack_damage + " damage";
   
@@ -262,12 +262,12 @@ function power_hero_defend()
 function power_enemy(enemy_id) {
 
   // override for boss action
-  /*
+  
   if (enemy_id == ENEMY_CORE) {
-    boss_power();
-    return;
+      if(boss_power())    
+        return;
   }
-*/
+
 
   var power_options = enemy.stats[enemy_id].powers.length;
   var power_roll = Math.floor(Math.random() * power_options);

@@ -160,7 +160,7 @@ function mapscript_grant_item(item, item_count) {
   else if(item == "!POWERKEY")
   {
       explore.message = "Found ???";
-      explore.treasure_id = 21;
+      explore.treasure_id = 24;
       avatar.campaign.push("flag_powerkey");
   }
   else if (item == "Adventurer")

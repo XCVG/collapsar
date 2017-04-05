@@ -514,7 +514,7 @@ function power_scorch() {
     return;
   }
   
-  sounds_play(SFX_FIRE);
+  sounds_play("enemy_fire");
 
   var atk_min = enemy.stats[combat.enemy.type].atk_min;
   var atk_max = enemy.stats[combat.enemy.type].atk_max;
@@ -536,7 +536,7 @@ function power_scorch() {
 
 function power_hpdrain() {
 
-  combat.defense_action = "HP Drain!";
+  combat.defense_action = "Leech!";
   
   // check miss
   var hit_chance = Math.random();
@@ -564,7 +564,7 @@ function power_hpdrain() {
 }
 
 function power_mpdrain() {
-  combat.defense_action = "MP Drain!";
+  combat.defense_action = "Drain!";
   
   // check miss
   var hit_chance = Math.random();

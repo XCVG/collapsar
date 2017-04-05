@@ -61,7 +61,7 @@ function combat_set_enemy(enemy_id) {
   combat.enemy.type = enemy_id;
   //combat.enemy.hp = enemy.stats[enemy_id].hp;
   //combat.enemy.category = enemy.stats[enemy_id].category;
-  Object.assign(combat.enemy, enemy.stats[enemy_id]); //sorry, ie users
+  Object.assign(combat.enemy, enemy.stats[enemy_id]); //sorry, ie users (but Android gets a polyfill)
   //semi-deep copy
   combat.enemy.powers = enemy.stats[enemy_id].powers.slice();
   combat.enemy.weaknesses = enemy.stats[enemy_id].weaknesses.slice();

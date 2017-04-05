@@ -33,7 +33,7 @@ function gamestate_logic() {
 	  title_logic();
 	  break;
 	case STATE_ENDING:
-	  ending_logic();
+	  ending2_logic();
 	  break;
       case STATE_INTRO:
           intro_logic();
@@ -65,7 +65,7 @@ function gamestate_render() {
 	  title_render();
 	  break;
 	case STATE_ENDING:
-	  ending_render();
+	  ending2_render();
 	  break;
       case STATE_INTRO:
           intro_render();

@@ -75,6 +75,7 @@ function init() {
   boss_init();
   lift_init();
   ending_init();
+  ending2_init();
   intro_init();
   title_init();
   sounds_init();

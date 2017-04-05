@@ -40,4 +40,6 @@ function x_init_preload()
 function x_init_postload()
 {
 	console.log("...done!");
+        
+        document.title = "Ascension Adventure 2";
 }

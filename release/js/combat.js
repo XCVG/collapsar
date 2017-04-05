@@ -72,7 +72,17 @@ function combat_set_enemy(enemy_id) {
   
   boss_reset();
   combat.victory_status = "";
-  sounds_play("emerge");
+  if(enemy_id == ENEMY_CORE)
+  {
+      sounds_play("emerge_core");
+      avatar.hp = avatar.max_hp;
+      avatar.mp = avatar.max_mp;
+  }
+  else
+  {
+      sounds_play("emerge");
+  }
+  
 }
 
 /**** Logic **************************/
@@ -104,8 +114,16 @@ function combat_logic() {
 function combat_logic_intro() {
 	mazemap_set_music("combat");
 
-    if (OPTIONS.animation == true) {
+    if (OPTIONS.animation == true && combat.enemy.type == ENEMY_CORE) {
       combat.timer--;
+      
+      // animated sliding in from the top
+      enemy.render_offset.y = 0 - combat.timer * 10;
+      redraw = true;
+    }
+    else if(OPTIONS.animation == true)
+    {
+        combat.timer--;
       
       // animated sliding in from the left
       enemy.render_offset.x = 0 - combat.timer * 10;
@@ -199,7 +217,12 @@ function combat_logic_offense() {
     // check for defeated enemy
     if (combat.enemy.hp <= 0) {
 	  combat.phase = COMBAT_PHASE_VICTORY;
-	  sounds_play(SFX_COIN);
+          if(combat.enemy.type == ENEMY_CORE)
+          {
+              sounds_play("destroy_core");
+          }
+          else
+            sounds_play(SFX_COIN);
 	  redraw = true;
 	  combat_determine_reward();
 	  return;
@@ -324,13 +347,15 @@ function combat_logic_defeat() {
 	mazemap_set_music("defeat");
         
         //BECAUSE THIS WILL NEVER CAUSE PROBLEMS EVER RIGHT
+        /*
 	if(combat.enemy.type == ENEMY_CORE)
 	{
 		ending.id = ENDING_BAD;
 		gamestate = STATE_ENDING;
 		redraw = true;
 	}	
-	
+	*/
+       
   return;
 }
 

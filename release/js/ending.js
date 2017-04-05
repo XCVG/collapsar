@@ -3,6 +3,7 @@
  */
 
 //new for Collapsar
+//TODO may replace with the ending from CDC
 
 var ENDING_BAD = 0;
 var ENDING_GOOD = 1;

@@ -134,7 +134,7 @@ function enemy_init() {
   enemy.stats[ENEMY_SENTINEL].weaknesses = [POWER_TYPE_ELECTRIC,POWER_TYPE_WATER];
   enemy.stats[ENEMY_SENTINEL].strengths = [POWER_TYPE_DARK,POWER_TYPE_MELEE];
   
-  enemy.stats[ENEMY_CORE] = {name:"The Core", hp:800, atk_min:10, atk_max:100, gold_min:0, gold_max:0, category:ENEMY_CATEGORY_AUTOMATON};
+  enemy.stats[ENEMY_CORE] = {name:"The Core", hp:800, atk_min:10, atk_max:120, gold_min:0, gold_max:0, category:ENEMY_CATEGORY_AUTOMATON};
   enemy.stats[ENEMY_CORE].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_CORE].weaknesses = [POWER_TYPE_MELEE];
   enemy.stats[ENEMY_CORE].strengths = [POWER_TYPE_DARK];

@@ -68,7 +68,7 @@ function _mapscript_executeScript(script)
     if(script)
     {
         //if we have a script, determine type and execute
-        console.log(script);
+        //console.log(script);
 
         switch(script.type)
         {
@@ -157,6 +157,45 @@ function mapscript_grant_item(item, item_count) {
     if (avatar.weapon == 0) avatar.weapon = 1;
     explore.treasure_id = 10;
   }
+  else if (item == "Adventurer")
+  {
+      if(avatar.gun < 3)
+      {
+          explore.message = "Found Crossbow!";
+          explore.treasure_id = 21;
+          avatar.gun = 3;
+      }
+      else if(avatar.weapon < 3)
+      {
+          explore.message = "Found Longsword!";
+          explore.treasure_id = 22;
+          avatar.weapon = 3;
+      }
+      else if(avatar.armor < 4)
+      {
+          explore.message = "Found Plate Maille!";
+          explore.treasure_id = 23;
+          avatar.armor = 4;
+      }
+      else
+      {
+          explore.gold_value = 100;
+          explore.message = "Found " + explore.gold_value + " gold!";
+      }
+  }
+  else if (item == "Rifle") {
+    //console.log("TODO give rifle"); //TODO setup rifle give and make graphic
+    if (avatar.gun < 6)
+      {
+          avatar.gun = 6;
+          explore.treasure_id = 9;
+      }
+      else
+      {
+          explore.gold_value = 1000;
+          explore.message = "Found " + explore.gold_value + " gold!";
+      }
+  }
   else if (item == "Sling")
   {
       if (avatar.gun == 0)
@@ -179,13 +218,34 @@ function mapscript_grant_item(item, item_count) {
     avatar.max_mp += 2;
     explore.treasure_id = 12;
   }
+  else if (item == "Magic Dust") {
+    avatar.mp += 2;
+    avatar.max_mp += 2;
+    avatar.hp += 10;
+    avatar.max_hp += 10;
+    explore.treasure_id = 12;
+  }
   else if (item == "Endurance Dust") {
     avatar.hp += 5;
     avatar.max_hp += 5;
     explore.treasure_id = 13;
   }
+  else if (item == "Boosted Dust") {
+    avatar.mp += 4;
+    avatar.max_mp += 4;
+    avatar.hp += 20;
+    avatar.max_hp += 20;
+    explore.treasure_id = 13;
+  }
   else if (item == "Strength Dust") {
     avatar.bonus_atk += 2;
+    explore.treasure_id = 14;
+  }
+  else if (item == "Ultra Dust") {
+    avatar.mp += 4;
+    avatar.max_mp += 4;
+    avatar.hp += 40;
+    avatar.max_hp += 40;
     explore.treasure_id = 14;
   }
   else if (item == "Toughness Dust") {
@@ -205,17 +265,21 @@ function mapscript_grant_item(item, item_count) {
   else if (item == "Green Key")
   {
       avatar.campaign.push("key_l4");
-      explore.treasure_id = 17;
+      explore.treasure_id = 18;
   }
   else if (item == "Blue Key")
   {
       avatar.campaign.push("key_l5");
-      explore.treasure_id = 18;
+      explore.treasure_id = 19;
   }
   else if (item == "Black Key")
   {
       avatar.campaign.push("key_l6");
-      explore.treasure_id = 19;
+      explore.treasure_id = 20;
+  }
+  else
+  {
+      console.log("Unknown item: " + item);
   }
   
 }
@@ -333,6 +397,14 @@ function _mapscript_chest_load(mapscripts)
                   mazemap_set_tile(value.x, value.y, 1);
                 }
                 //TODO: tech chests
+                else if (mazemap_get_tile(value.x,value.y) == 26)
+                {
+                  mazemap_set_tile(value.x, value.y, 25);
+                }
+                else if (mazemap_get_tile(value.x,value.y) == 27)
+                {
+                  mazemap_set_tile(value.x, value.y, 20);
+                }
            }
        }
     }

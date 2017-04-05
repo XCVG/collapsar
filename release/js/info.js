@@ -59,14 +59,14 @@ function info_init() {
   info.weapons[1] = {name:"Stick",  atk_min:2,  atk_max:4,  gold:0};
   info.weapons[2] = {name:"Knife",  atk_min:3,  atk_max:8,  gold:10};
   info.weapons[3] = {name:"Longsword", atk_min:5,  atk_max:12, gold:50};
-  info.weapons[4] = {name:"Dwarven", atk_min:10,  atk_max:16, gold:200};
+  info.weapons[4] = {name:"Dwarvedge", atk_min:10,  atk_max:16, gold:200};
   info.weapons[5] = {name:"Edge",  atk_min:14,  atk_max:20, gold:600};
   info.weapons[6] = {name:"Slicer",  atk_min:18,  atk_max:30, gold:2000};
-  info.weapons[7] = {name:"Spike", atk_min:25,  atk_max:50, gold:5000};
+  info.weapons[7] = {name:"Spike", atk_min:25,  atk_max:60, gold:5000};
   
   info.guns[0] = {name:"Rock",  atk_min:1,  atk_max:3,  gold:0};
   info.guns[1] = {name:"Sling",  atk_min:2,  atk_max:4,  gold:0};
-  info.guns[2] = {name:"Bow",  atk_min:3,  atk_max:8,  gold:10};
+  info.guns[2] = {name:"Longbow",  atk_min:3,  atk_max:8,  gold:10};
   info.guns[3] = {name:"Crossbow", atk_min:6,  atk_max:10, gold:80};
   info.guns[4] = {name:"Arquebus", atk_min:8,  atk_max:20, gold:200};
   info.guns[5] = {name:"Handgun",  atk_min:14,  atk_max:22, gold:600};
@@ -79,8 +79,8 @@ function info_init() {
   info.armors[3] = {name:"Chain Maille",  def:8,  gold:60};
   info.armors[4] = {name:"Plate Maille", def:12,  gold:180};
   info.armors[5] = {name:"Ballistic Vest",  def:18, gold:700};
-  info.armors[6] = {name:"Combat Suit",   def:30, gold:2500};
-  info.armors[7] = {name:"Powered Armor",  def:50, gold:5000};
+  info.armors[6] = {name:"Combat Suit",   def:35, gold:2500};
+  info.armors[7] = {name:"Powered Armor",  def:55, gold:5000};
   
   //I don't think this will actually be used anymore
   info.spells[0] = {name:"No Spell", gold:0};
@@ -370,7 +370,7 @@ function _info_cycleSpellLeft()
             //oops, went past the end! loop back!
             pointer = 0;
         }
-        else if(pointer == avatar.power_right)
+        else if(avatar.powers[pointer] == avatar.power_right)
         {
             //it's the same as the other power! advance again
             pointer++;
@@ -383,7 +383,7 @@ function _info_cycleSpellLeft()
         //console.log(pointer);
     }
     
-    avatar.power_left = pointer;
+    avatar.power_left = avatar.powers[pointer];
     
 }
 
@@ -404,7 +404,7 @@ function _info_cycleSpellRight()
             //oops, went past the end! loop back!
             pointer = 0;
         }
-        else if(pointer == avatar.power_left)
+        else if(avatar.powers[pointer] == avatar.power_left)
         {
             //it's the same as the other power! advance again
             pointer++;
@@ -417,6 +417,6 @@ function _info_cycleSpellRight()
         //console.log(pointer);
     }
     
-    avatar.power_right = pointer;
+    avatar.power_right = avatar.powers[pointer];
     
 }

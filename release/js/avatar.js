@@ -59,7 +59,7 @@ function avatar_reset() {
   avatar.bonus_atk = 0;
   avatar.bonus_def = 0;
   avatar.spellbook = 0; //will be unused in new combat system
-  avatar.sleeploc = [0,1,1]; // map_id, x, y
+  avatar.sleeploc = [0,8,8]; // map_id, x, y
   avatar.campaign = new Array();
 }
 

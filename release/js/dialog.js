@@ -2,7 +2,7 @@
  Conversation and shop handling
  */
 
-var DIALOG_PICTURE_COUNT = 7;
+var DIALOG_PICTURE_COUNT = 18;
 
 var DIALOG_BUTTON_NONE = 0;
 var DIALOG_BUTTON_BUY = 1;
@@ -58,6 +58,39 @@ function dialog_init() {
   
   dialog.picture_img[6].src = "images/pictures/blackmarket.png";
   dialog.picture_img[6].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[7].src = "images/pictures/portrait1.png";
+  dialog.picture_img[7].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[8].src = "images/pictures/spellmaster.png";
+  dialog.picture_img[8].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[9].src = "images/pictures/techpicture.png";
+  dialog.picture_img[9].onload = function() {dialog_picture_onload();};
+
+  dialog.picture_img[10].src = "images/pictures/null.png";
+  dialog.picture_img[10].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[11].src = "images/pictures/level1.png";
+  dialog.picture_img[11].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[12].src = "images/pictures/level2.png";
+  dialog.picture_img[12].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[13].src = "images/pictures/level3.png";
+  dialog.picture_img[13].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[14].src = "images/pictures/level4.png";
+  dialog.picture_img[14].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[15].src = "images/pictures/level5.png";
+  dialog.picture_img[15].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[16].src = "images/pictures/level6.png";
+  dialog.picture_img[16].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[17].src = "images/pictures/null.png";
+  dialog.picture_img[17].onload = function() {dialog_picture_onload();};
 
   shop_set(0);
 

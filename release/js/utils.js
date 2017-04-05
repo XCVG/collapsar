@@ -41,7 +41,7 @@ function resizeCanvas() {
 	SCALE = can.width / 160;
   }
   redraw = true;
-  setNearestNeighbor();
+  setNearestNeighborEx(OPTIONS.filtering);
 }
 
 function setNearestNeighbor() {

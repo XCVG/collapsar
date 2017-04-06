@@ -48,7 +48,7 @@ function boss_heal()
     var heal_hp = Math.floor((Math.random() * 100) + 1);;
     sounds_play("boss_heal");
     combat.defense_action = "Heal!";
-    combat.defense_result = "+" + heal_hp + "HP!";
+    combat.defense_result = "+" + heal_hp + " HP!";
     combat.enemy.hp += heal_hp;
     combat.hero_hurt = false;
 }

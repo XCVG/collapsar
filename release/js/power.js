@@ -310,11 +310,15 @@ function power_enemy_attack() {
   if (crit_chance < 0.05) {
     attack_damage += atk_min;
     combat.defense_action = "Critical!";
-    sounds_play(SFX_ATTACK);
-    sounds_play(SFX_CRITICAL);
+    if(!combat.hero_defending)
+    {
+        sounds_play(SFX_ATTACK);
+        sounds_play(SFX_CRITICAL);
+    }
   }
   else {
-    sounds_play(SFX_ATTACK);
+      if(!combat.hero_defending)
+            sounds_play(SFX_ATTACK);
   }
   
   // armor absorb
@@ -322,7 +326,11 @@ function power_enemy_attack() {
   
   // defend factor
   if(combat.hero_defending)
+  {
       attack_damage *= 0.75;
+      sounds_play(SFX_BLOCKED);
+  }
+      
   
   //round and clamp attack damage
   attack_damage = Math.round(attack_damage);

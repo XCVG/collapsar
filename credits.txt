@@ -21,6 +21,7 @@ Enemies/NPCs
 	Atmostatic - Mobile Turret (CC-BY 3.0) (http://atmostatic.blogspot.com)
 	Heather Lee Harvey - Loyalty Lies Monsters - Chaos Monster 08 (CC-BY 3.0) (EmeraldActivities.com)
 	Heather Lee Harvey - Loyalty Lies Heros - Heroine 02 (CC-BY 3.0) (EmeraldActivities.com)
+	sholev - Shield Aura Effect (CC-BY 3.0) (https://opengameart.org/content/shield-aura-effect)
 	
 Treasure
 	

@@ -347,7 +347,7 @@ function shop_buy_armor(armor_id) {
 }
 
 function shop_buy_spell(spell_id) {
-  var cost = info.spells[spell_id].gold;
+  var cost = powers[spell_id].gold;
   if (avatar.gold < cost) return;
   
   avatar.gold -= cost;

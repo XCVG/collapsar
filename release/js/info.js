@@ -360,11 +360,13 @@ function _info_cycleSpellLeft()
     //find next available spell
     
     //try advancing
-    var pointer = avatar.power_left;
+    var pointer = avatar.powers.indexOf(avatar.power_left);
     var found = false;
     pointer++;
     while(!found)
     {
+        console.log(pointer);
+        
         if(pointer >= avatar.powers.length)
         {
             //oops, went past the end! loop back!
@@ -394,7 +396,7 @@ function _info_cycleSpellRight()
         return;
     
     //try advancing
-    var pointer = avatar.power_right;
+    var pointer = avatar.powers.indexOf(avatar.power_right);
     var found = false;
     pointer++;
     while(!found)

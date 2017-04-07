@@ -68,7 +68,7 @@ function dialog_init() {
   dialog.picture_img[9].src = "images/pictures/techpicture.png";
   dialog.picture_img[9].onload = function() {dialog_picture_onload();};
 
-  dialog.picture_img[10].src = "images/pictures/null.png";
+  dialog.picture_img[10].src = "images/pictures/hall.png";
   dialog.picture_img[10].onload = function() {dialog_picture_onload();};
   
   dialog.picture_img[11].src = "images/pictures/level1.png";
@@ -238,7 +238,7 @@ function dialog_render() {
   action_render_select(dialog.select_pos);
 
   if (dialog.message != "") {
-    bitfont_render(dialog.message, 80, 40, JUSTIFY_CENTER);
+    bitfont_render(dialog.message, 80, 30, JUSTIFY_CENTER);
     dialog.message = "";
   }
 }

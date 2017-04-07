@@ -98,10 +98,11 @@ shop[12].item[0] = {type:SHOP_ARMOR, value:6};
 shop[12].item[1] = {type:SHOP_WEAPON, value:6};
 shop[12].background = 3;
 
-shop[13].name = "msg03";
-shop[13].item[0] = {type:SHOP_MESSAGE, msg1:"Aw, fuck, man!", msg2:""};
-shop[13].item[1] = {type:SHOP_MESSAGE, msg1:"I ain't got no", msg2:"fucking smack!"};
+shop[13].name = "Council House";
+shop[13].item[0] = {type:SHOP_MESSAGE, msg1:"The Forge below", msg2:"kills adventurers."};
+shop[13].item[1] = {type:SHOP_MESSAGE, msg1:"Leave this island", msg2:"and do not return."};
 shop[13].background = 3;
+shop[13].picture = 10;
 
 shop[14].name = "Education Chamber";
 shop[14].item[0] = {type:SHOP_SPELL, value:6};

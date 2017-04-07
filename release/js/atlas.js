@@ -70,6 +70,7 @@ atlas.maps[1].scripts[7] = {type:"shop", x:2, y:11, shop_id:7, dest_x:2, dest_y:
 atlas.maps[1].scripts[8] = {type:"lift", x:8, y:1, floor:1, dest_x:8, dest_y:2}; //elevator
 atlas.maps[1].scripts[9] = {type:"exit", x:3, y:3, dest_map:2, dest_x:18, dest_y:3}; //mext
 atlas.maps[1].scripts[10] = {type:"shop", x:8, y:18, shop_id:3, dest_x:8, dest_y:17}; //spell shop
+atlas.maps[1].scripts[11] = {type:"shop", x:6, y:10, shop_id:13, dest_x:6, dest_y:11};
 //atlas.maps[1].scripts[3] = {type:"exit", x:4, y:10, dest_map:4, dest_x:6, dest_y:2};
 
 //atlas.maps[1].enemies = [ENEMY_SHADOW_TENDRILS, ENEMY_IMP, ENEMY_SNAKE];

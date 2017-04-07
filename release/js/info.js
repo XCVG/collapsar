@@ -364,9 +364,7 @@ function _info_cycleSpellLeft()
     var found = false;
     pointer++;
     while(!found)
-    {
-        console.log(pointer);
-        
+    {        
         if(pointer >= avatar.powers.length)
         {
             //oops, went past the end! loop back!

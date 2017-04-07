@@ -145,7 +145,7 @@ function avatar_move(dx,dy) {
     avatar_save();
   }
   else {
-    sounds_play(SFX_BLOCKED);  
+    sounds_play(SFX_CLICK);  
   }
 }
 

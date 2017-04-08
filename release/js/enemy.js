@@ -84,7 +84,7 @@ function enemy_init() {
 
   // set enemy stats
 
-  enemy.stats[ENEMY_CRIMINAL] = {name:"Criminal", hp:14, atk_min:3, atk_max:6, gold_min:2, gold_max:8, category:ENEMY_CATEGORY_SHADOW};
+  enemy.stats[ENEMY_CRIMINAL] = {name:"Criminal", hp:16, atk_min:3, atk_max:6, gold_min:2, gold_max:8, category:ENEMY_CATEGORY_SHADOW};
   enemy.stats[ENEMY_CRIMINAL].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_CRIMINAL].weaknesses = [POWER_TYPE_DARK,POWER_TYPE_ELECTRIC];
   enemy.stats[ENEMY_CRIMINAL].strengths = [POWER_TYPE_WATER,POWER_TYPE_EARTH];
@@ -94,7 +94,7 @@ function enemy_init() {
   enemy.stats[ENEMY_RAT].weaknesses = [POWER_TYPE_DARK,POWER_TYPE_RANGED];
   enemy.stats[ENEMY_RAT].strengths = [POWER_TYPE_WATER];
 
-  enemy.stats[ENEMY_RAIDER] = {name:"Raider", hp:24, atk_min:3, atk_max:8, gold_min:10, gold_max:20, category:ENEMY_CATEGORY_SHADOW};
+  enemy.stats[ENEMY_RAIDER] = {name:"Raider", hp:30, atk_min:4, atk_max:9, gold_min:10, gold_max:24, category:ENEMY_CATEGORY_SHADOW};
   enemy.stats[ENEMY_RAIDER].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_RAIDER].weaknesses = [POWER_TYPE_DARK];
   enemy.stats[ENEMY_RAIDER].strengths = [POWER_TYPE_WATER];
@@ -109,7 +109,7 @@ function enemy_init() {
   enemy.stats[ENEMY_GESTA].weaknesses = [POWER_TYPE_DARK];
   enemy.stats[ENEMY_GESTA].strengths = [POWER_TYPE_WATER];
   
-  enemy.stats[ENEMY_ZOMBIE] = {name:"Corrupted Human", hp:30, atk_min:6, atk_max:12, gold_min:20, gold_max:50, category:ENEMY_CATEGORY_UNDEAD};
+  enemy.stats[ENEMY_ZOMBIE] = {name:"Corrupted Human", hp:30, atk_min:6, atk_max:12, gold_min:20, gold_max:30, category:ENEMY_CATEGORY_UNDEAD};
   enemy.stats[ENEMY_ZOMBIE].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_ZOMBIE].weaknesses = [POWER_TYPE_FIRE,POWER_TYPE_FORCE];
   enemy.stats[ENEMY_ZOMBIE].strengths = [POWER_TYPE_DARK];

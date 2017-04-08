@@ -199,7 +199,7 @@ function mapscript_grant_item(item, item_count) {
       else
       {
           explore.gold_value = 1000;
-          explore.message = "Found " + explore.gold_value + " gold!";
+          explore.message = "Found " + explore.gold_value + " Crystal!";
       }
   }
   else if (item == "Sling")
@@ -212,7 +212,7 @@ function mapscript_grant_item(item, item_count) {
       else
       {
           explore.gold_value = 4;
-          explore.message = "Found " + explore.gold_value + " gold!";
+          explore.message = "Found " + explore.gold_value + " Crystal!";
       }
   }
   else if (item == "Spell: Heal") {

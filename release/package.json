@@ -1,0 +1,48 @@
+{
+    "main": "index.html",
+    "webkit": {
+        "double_tap_to_zoom_enabled": false,
+        "plugin": false
+    },
+    "app_name": "dubnium",
+    "window": {
+        "icon": "favicon-32x32.png",
+        "width": 640,
+        "height": 480,
+        "show_in_taskbar": true,
+        "id": "release",
+        "show": true,
+        "as_desktop": false,
+        "visible": true,
+        "resizable": true,
+        "frame": true,
+        "fullscreen": false,
+        "title": "release",
+        "transparent": false,
+        "kiosk_emulation": false,
+        "always_on_top": false,
+        "visible_on_all_workspaces": false,
+        "kiosk": false
+    },
+    "nodejs": true,
+    "additional_trust_anchors": [],
+    "version": "1.0.0",
+    "node-remote": [],
+    "name": "dubnium",
+    "webexe_settings": {
+        "nw_compression_level": 0,
+        "windows-x32": true,
+        "mac-x64": false,
+        "output_pattern": "",
+        "download_dir": "C:/Users/Chris/AppData/Local/Web2Executable/Web2Executable/files/downloads",
+        "nw_version": "0.21.5",
+        "export_dir": "output",
+        "linux-x64": false,
+        "windows-x64": false,
+        "linux-x32": false,
+        "force_download": false,
+        "sdk_build": false,
+        "uncompressed_folder": true,
+        "custom_script": ""
+    }
+}

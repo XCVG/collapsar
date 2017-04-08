@@ -56,10 +56,11 @@ shop[5].item[0] = {type:SHOP_MESSAGE, msg1:"The gate has", msg2:"been sealed"};
 shop[5].item[1] = {type:SHOP_MESSAGE, msg1:"", msg2:""};
 shop[5].background = 3;
 
-shop[6].name = "Shifty Individual";
-shop[6].item[0] = {type:SHOP_MESSAGE, msg1:"I can show you how to", msg2:"open any locked door."};
-shop[6].item[1] = {type:SHOP_SPELL, value:3};
+shop[6].name = "Vending Machine";
+shop[6].item[0] = {type:SHOP_WEAPON, value:5};
+shop[6].item[1] = {type:SHOP_RANGED, value:5};
 shop[6].background = 3;
+shop[6].picture = 9;
 
 shop[7].name = "Arms Dealer";
 shop[7].item[0] = {type:SHOP_WEAPON, value:4};
@@ -95,8 +96,9 @@ shop[11].picture = 7;
 
 shop[12].name = "Vending Machine";
 shop[12].item[0] = {type:SHOP_ARMOR, value:6};
-shop[12].item[1] = {type:SHOP_WEAPON, value:6};
+shop[12].item[1] = {type:SHOP_ARMOR, value:5};
 shop[12].background = 3;
+shop[12].picture = 9;
 
 shop[13].name = "Council House";
 shop[13].item[0] = {type:SHOP_MESSAGE, msg1:"The Forge below", msg2:"kills adventurers."};

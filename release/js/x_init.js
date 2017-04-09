@@ -6,7 +6,7 @@
  
 function x_init_preload()
 {
-	console.log("Starting Collapsar pre2.0...");
+	console.log("Starting Collapsar 2.0W...");
         
         // load some user preferences
         //TODO change this to not a cookie

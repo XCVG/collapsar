@@ -78,6 +78,7 @@ function ending2_logic()
 	}
         else
         {
+            gamestate = STATE_TITLE;
             window.location.reload(); //broken
         }
 

@@ -116,7 +116,7 @@ var data_soundinfo =
     "emerge_core": {
       "src": "sounds/fx18.ogg"
     },
-    "boss_destroy": {
+    "destroy_core": {
       "src": "sounds/bigexplosion.ogg"
     },
     "run": {

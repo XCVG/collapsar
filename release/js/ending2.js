@@ -15,7 +15,7 @@ ending2.fg2 = new Image();
 ending2.fg2_loaded = false;
 ending2.pos = -60; //a hack
 ending2.posEnd = 440; //remember, screen coords are 160x120
-ending2.posKill = 800;
+ending2.posKill = 1000;
 ending2.delayCounter = 0;
 ending2.scrollDelay = 0;
 ending2.scrollSpeed = 0.1;
@@ -78,7 +78,7 @@ function ending2_logic()
 	}
         else
         {
-            window.location.reload();
+            window.location.reload(); //broken
         }
 
 }

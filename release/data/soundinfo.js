@@ -108,7 +108,7 @@ var data_soundinfo =
       "src": "sounds/drain.wav"
     },
     "mpdrain": {
-      "alias": "hpdrain"
+      "src": "sounds/drain.wav"
     },
     "emerge": {
       "src": "sounds/ghost.ogg"

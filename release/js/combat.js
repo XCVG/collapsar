@@ -72,6 +72,7 @@ function combat_set_enemy(enemy_id) {
   
   boss_reset();
   combat.victory_status = "";
+  combat.reward_special = null;
   if(enemy_id == ENEMY_CORE)
   {
       sounds_play("emerge_core");

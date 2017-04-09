@@ -80,7 +80,7 @@ function info_init() {
   info.armors[4] = {name:"Plate Maille", def:12,  gold:180};
   info.armors[5] = {name:"Ballistic Vest",  def:18, gold:700};
   info.armors[6] = {name:"Combat Suit",   def:35, gold:2500};
-  info.armors[7] = {name:"Powered Armor",  def:55, gold:5000};
+  info.armors[7] = {name:"Powered Armor",  def:50, gold:5000};
   
   //I don't think this will actually be used anymore
   info.spells[0] = {name:"No Spell", gold:0};

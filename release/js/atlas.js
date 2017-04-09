@@ -106,7 +106,7 @@ atlas.maps[3].scripts[1] = {type:"lift", x:7, y:21, floor:3, dest_x:6, dest_y:21
 atlas.maps[3].scripts[2] = {type:"chest", x:2, y:14, status:"item_l3i1", item:"Yellow Key", qty:1};
 atlas.maps[3].scripts[3] = {type:"chest", x:15, y:5, status:"item_l3i2", item:"Green Key", qty:1};
 atlas.maps[3].scripts[4] = {type:"enemy", x:15, y:4, dest_x:15, dest_y:3, enemy_id:ENEMY_CYBORG, status:"l3_boss"}; 
-atlas.maps[3].scripts[5] = {type:"chest", x:2, y:11, status:"item_l3i3", item:"Magic Dust", qty:1};
+atlas.maps[3].scripts[5] = {type:"chest", x:2, y:11, status:"item_l3i3", item:"Boosted Dust", qty:1};
 atlas.maps[3].scripts[6] = {type:"chest", x:2, y:16, status:"item_l3i4", item:"Adventurer", qty:1};
 atlas.maps[3].enemies = [ENEMY_SNAKE, ENEMY_CRIMINAL, ENEMY_ZOMBIE, ENEMY_RAIDER, ENEMY_RAIDER];
 
@@ -161,7 +161,7 @@ atlas.maps[6].scripts[11] = {type:"chest", x:1, y:12, status:"item_l6c3", item:"
 atlas.maps[6].scripts[12] = {type:"chest", x:9, y:10, status:"item_l6c4", item:"Crystal", qty:1917};
 atlas.maps[6].scripts[13] = {type:"chest", x:9, y:11, status:"item_l6c5", item:"!POWERKEY", qty:1};
 atlas.maps[6].scripts[14] = {type:"chest", x:9, y:12, status:"item_l6c6", item:"Crystal", qty:2160};
-atlas.maps[6].enemies = [ ENEMY_DRONE, ENEMY_KILLBOT, ENEMY_SENTINEL];
+atlas.maps[6].enemies = [ ENEMY_DRONE, ENEMY_KILLBOT, ENEMY_SENTINEL, ENEMY_KILLBOT, ENEMY_SENTINEL];
 
 atlas.maps[7].name = "Forest";
 atlas.maps[7].music = "odyssey";
@@ -198,7 +198,7 @@ atlas.maps[8].tiles = [["21","21","21","21","21","21","21","21"],["20","20","25"
 atlas.maps[8].scripts[0] = {type:"exit", x:7, y:1, dest_map:4, dest_x:2, dest_y:7};
 atlas.maps[8].scripts[1] = {type:"exit", x:7, y:8, dest_map:4, dest_x:2, dest_y:15};
 atlas.maps[8].scripts[2] = {type:"enemy", x:6, y:5, dest_x:6, dest_y:6, enemy_id:ENEMY_KILLBOT, status:"l4_boss"}; 
-atlas.maps[8].enemies = [ENEMY_ZOMBIE, ENEMY_ZOMBIE, ENEMY_CYBORG, ENEMY_CYBORG, ENEMY_DRONE];
+atlas.maps[8].enemies = [ENEMY_ZOMBIE, ENEMY_CYBORG, ENEMY_DRONE];
 
 //actual inner production area
 atlas.maps[9].name = "Production";
@@ -217,7 +217,7 @@ atlas.maps[9].scripts[6] = {type:"shop", x:2, y:14, shop_id:17, dest_x:3, dest_y
 atlas.maps[9].scripts[7] = {type:"enemy", x:10, y:4, dest_x:10, dest_y:3, enemy_id:ENEMY_SENTINEL, status:"l5_boss"}; 
 atlas.maps[9].scripts[8] = {type:"chest", x:3, y:16, status:"item_l9i2", item:"Blue Key", qty:1};
 atlas.maps[9].scripts[9] = {type:"mod", x:-1, y:-1, dest_x:10, dest_y:4, flag:"l5_boss", tile:25};
-atlas.maps[9].enemies = [ENEMY_DRONE, ENEMY_DRONE, ENEMY_DRONE, ENEMY_KILLBOT];
+atlas.maps[9].enemies = [ENEMY_DRONE, ENEMY_DRONE, ENEMY_KILLBOT];
 
 atlas.maps[10].name = "Catacombs of Epikros";
 atlas.maps[10].music = "haply";

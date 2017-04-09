@@ -115,7 +115,7 @@ function enemy_init() {
   enemy.stats[ENEMY_ZOMBIE].strengths = [POWER_TYPE_DARK];
   
   enemy.stats[ENEMY_CYBORG] = {name:"Decimated Human", hp:60, atk_min:10, atk_max:16, gold_min:50, gold_max:100, category:ENEMY_CATEGORY_DEMON};
-  enemy.stats[ENEMY_CYBORG].powers = [ENEMY_POWER_ATTACK,ENEMY_POWER_ATTACK,ENEMY_POWER_MPDRAIN];
+  enemy.stats[ENEMY_CYBORG].powers = [ENEMY_POWER_ATTACK,ENEMY_POWER_ATTACK,ENEMY_POWER_ATTACK,ENEMY_POWER_MPDRAIN];
   enemy.stats[ENEMY_CYBORG].weaknesses = [POWER_TYPE_FIRE,POWER_TYPE_FORCE];
   enemy.stats[ENEMY_CYBORG].strengths = [POWER_TYPE_DARK];
 
@@ -129,7 +129,7 @@ function enemy_init() {
   enemy.stats[ENEMY_KILLBOT].weaknesses = [POWER_TYPE_ELECTRIC,POWER_TYPE_WATER];
   enemy.stats[ENEMY_KILLBOT].strengths = [POWER_TYPE_DARK,POWER_TYPE_FORCE];
   
-  enemy.stats[ENEMY_SENTINEL] = {name:"Destroyer Drone", hp:500, atk_min:40, atk_max:70, gold_min:500, gold_max:1200, category:ENEMY_CATEGORY_AUTOMATON};
+  enemy.stats[ENEMY_SENTINEL] = {name:"Destroyer Drone", hp:500, atk_min:40, atk_max:70, gold_min:500, gold_max:1500, category:ENEMY_CATEGORY_AUTOMATON};
   enemy.stats[ENEMY_SENTINEL].powers = [ENEMY_POWER_ATTACK];
   enemy.stats[ENEMY_SENTINEL].weaknesses = [POWER_TYPE_ELECTRIC,POWER_TYPE_WATER];
   enemy.stats[ENEMY_SENTINEL].strengths = [POWER_TYPE_DARK,POWER_TYPE_MELEE];

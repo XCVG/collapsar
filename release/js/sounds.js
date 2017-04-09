@@ -24,20 +24,7 @@ var sounds = new Object();
 sounds.fx = new Array();
 
 function sounds_init() {
-  sounds.fx[SFX_ATTACK] = new Audio("sounds/attack.wav");
-  sounds.fx[SFX_MISS] = new Audio("sounds/miss.wav");
-  sounds.fx[SFX_CRITICAL] = new Audio("sounds/critical.wav");
-  sounds.fx[SFX_HEAL] = new Audio("sounds/heal.wav");
-  sounds.fx[SFX_FIRE] = new Audio("sounds/fire.wav");
-  sounds.fx[SFX_COIN] = new Audio("sounds/coin.wav");
-  sounds.fx[SFX_HPDRAIN] = new Audio("sounds/hpdrain.wav");
-  sounds.fx[SFX_MPDRAIN] = new Audio("sounds/mpdrain.wav");
-  sounds.fx[SFX_RUN] = new Audio("sounds/run.wav");
-  sounds.fx[SFX_BLOCKED] = new Audio("sounds/blocked.wav");
-  sounds.fx[SFX_DEFEAT] = new Audio("sounds/defeat.wav");
-  sounds.fx[SFX_BONESHIELD] = new Audio("sounds/boneshield.wav");
-  sounds.fx[SFX_CLICK] = new Audio("sounds/click.wav");
-  sounds.fx[SFX_UNLOCK] = new Audio("sounds/unlock.wav");
+
   
 }
 

@@ -29,16 +29,18 @@ var ENEMY_POWER_SCORCH = 1;
 var ENEMY_POWER_HPDRAIN = 2;
 var ENEMY_POWER_MPDRAIN = 3;
 
+var POWER_LEVELFACTOR = 0.5;
+
 var powers = new Array();
 powers[0] = {name: "Heal"}; //implement with function
-//TODO: add SFX
-powers[1] = {name: "Slam", type: POWER_TYPE_FORCE, damage: 10};
-powers[2] = {name: "Gust", type: POWER_TYPE_WIND, damage: 10, miss_chance: 0.3};
-powers[3] = {name: "Quake", type: POWER_TYPE_EARTH, damage: 10, damage_random: 5};
-powers[4] = {name: "Torch", type: POWER_TYPE_FIRE, damage: 10, damage_random: 5, miss_chance: 0.3};
-powers[5] = {name: "Wave", type: POWER_TYPE_WATER, damage: 10, damage_random: 5, miss_chance: 0.3};
-powers[6] = {name: "Zorch", type: POWER_TYPE_ELECTRIC, damage: 10, damage_random: 5, miss_chance: 0.3};
-powers[7] = {name: "Rend", type: POWER_TYPE_DARK, damage: 10, damage_random: 5, miss_chance: 0.3};
+//TODO: add SFX, balance money
+powers[1] = {name: "Slam", type: POWER_TYPE_FORCE, damage: 10, gold: 100};
+powers[2] = {name: "Gust", type: POWER_TYPE_WIND, damage: 15, miss_chance: 0.2, gold: 100};
+powers[3] = {name: "Quake", type: POWER_TYPE_EARTH, damage: 10, damage_random: 15, gold: 200};
+powers[4] = {name: "Torch", type: POWER_TYPE_FIRE, damage: 25, damage_random: 10, miss_chance: 0.2, gold: 400};
+powers[5] = {name: "Wave", type: POWER_TYPE_WATER, damage: 25, damage_random: 10, miss_chance: 0.2, gold: 500};
+powers[6] = {name: "Zorch", type: POWER_TYPE_ELECTRIC, damage: 35, damage_random: 30, miss_chance: 0.2, gold: 1000};
+powers[7] = {name: "Rend", type: POWER_TYPE_DARK, damage: 50, damage_random: 30, miss_chance: 0.2, gold: 1000};
 
 function power_special_use(power_id)
 {
@@ -49,13 +51,14 @@ function power_special_use(power_id)
     //if 0, call heal
     if(power_id == 0)
     {
-        power_heal();
+        return power_heal();
     }
     
     //if 1-7, call elemental attack
     if(power_id > 0 && power_id <=7)
     {
         power_hero_elemental(powers[power_id]);
+        return true;
     }
 }
 
@@ -83,7 +86,7 @@ function power_hero_elemental(my_power)
     //do hit change (TODO add to spell) (default: perfect accuracy)
     var hit_chance = Math.random();
     var miss_chance = 0.0;
-    if('miss_change' in my_power)
+    if('miss_chance' in my_power)
         miss_chance = my_power.miss_chance;
     
     if (hit_chance < miss_chance)
@@ -94,7 +97,8 @@ function power_hero_elemental(my_power)
     }
     
     //calculate damage (from base and bonus) (default norandom)
-    var attack_damage = my_power.damage + avatar.bonus_atk;
+    var attack_levelbonus = (avatar.armor + avatar.weapon + avatar.gun) / 3;      
+    var attack_damage = my_power.damage + avatar.bonus_atk + (attack_levelbonus * POWER_LEVELFACTOR);
     if('damage_random' in my_power)
     {
         var attack_bonus = ((Math.random() * 2) - 1) * my_power.damage_random;
@@ -116,10 +120,12 @@ function power_hero_elemental(my_power)
     {
         //is strong against this
         attack_damage *= 0.5;
-    }    
-        
-    //play sound (and animation?) (TODO add to spell) (default: lookup name)
-    //TODO allow crits?
+    }
+    
+    //round it!
+    attack_damage = Math.ceil(attack_damage);
+    
+    //play sound (and animation?) (default: lookup name)
     if('sound' in my_power)
         sounds_play(my_power.sound);
     else
@@ -138,7 +144,7 @@ function power_hero_attack() {
   
   // special: override hero action if the boss has bone shield up
   if (boss.boneshield_active) {
-    boss_boneshield_heroattack();
+    boss_boneshield_heroattack(POWER_TYPE_MELEE);
     return;
   }
   
@@ -155,14 +161,13 @@ function power_hero_attack() {
   var atk_max = info.weapons[avatar.weapon].atk_max + avatar.bonus_atk;
   var attack_damage = Math.round(Math.random() * (atk_max - atk_min)) + atk_min;
   
-  //TODO: check strength/weakness
-  
   // check crit
   // hero crits add max damage
   var crit_chance = Math.random();
   if (crit_chance < 0.10) {
     attack_damage += atk_max;
     combat.offense_action = "Critical!";
+    sounds_play(SFX_ATTACK);
     sounds_play(SFX_CRITICAL);
   }
   else {
@@ -191,12 +196,6 @@ function power_hero_rangedattack() {
 
   combat.offense_action = "Shoot!";
   
-  // special: override hero action if the boss has bone shield up
-  if (boss.boneshield_active) {
-    boss_boneshield_heroattack();
-    return;
-  }
-  
   // check miss
   var hit_chance = Math.random();
   if (hit_chance < 0.30) {
@@ -216,6 +215,7 @@ function power_hero_rangedattack() {
   if (crit_chance < 0.10) {
     attack_damage += atk_max;
     combat.offense_action = "Critical!";
+    sounds_play(SFX_ATTACK);
     sounds_play(SFX_CRITICAL);
   }
   else {
@@ -232,6 +232,12 @@ function power_hero_rangedattack() {
   {
       //is strong against this
       attack_damage *= 0.5;
+  }
+  
+  // special: override hero action if the boss has bone shield up
+  if (boss.boneshield_active) {
+    boss_boneshield_heroattack(POWER_TYPE_RANGED,attack_damage);
+    return;
   }
   
   combat.enemy.hp -= attack_damage;
@@ -256,10 +262,12 @@ function power_hero_defend()
 function power_enemy(enemy_id) {
 
   // override for boss action
-  if (enemy_id == ENEMY_DEATH_SPEAKER) {
-    boss_power();
-    return;
+  
+  if (enemy_id == ENEMY_CORE) {
+      if(boss_power())    
+        return;
   }
+
 
   var power_options = enemy.stats[enemy_id].powers.length;
   var power_roll = Math.floor(Math.random() * power_options);
@@ -302,10 +310,15 @@ function power_enemy_attack() {
   if (crit_chance < 0.05) {
     attack_damage += atk_min;
     combat.defense_action = "Critical!";
-    sounds_play(SFX_CRITICAL);
+    if(!combat.hero_defending)
+    {
+        sounds_play(SFX_ATTACK);
+        sounds_play(SFX_CRITICAL);
+    }
   }
   else {
-    sounds_play(SFX_ATTACK);
+      if(!combat.hero_defending)
+            sounds_play(SFX_ATTACK);
   }
   
   // armor absorb
@@ -313,7 +326,11 @@ function power_enemy_attack() {
   
   // defend factor
   if(combat.hero_defending)
+  {
       attack_damage *= 0.75;
+      sounds_play(SFX_BLOCKED);
+  }
+      
   
   //round and clamp attack damage
   attack_damage = Math.round(attack_damage);
@@ -327,8 +344,8 @@ function power_enemy_attack() {
  
 function power_heal() {
 
-  if (avatar.mp == 0) return;
-  if (avatar.hp == avatar.max_hp) return;
+  if (avatar.mp == 0) return false;
+  if (avatar.hp == avatar.max_hp) return false;
 
   var heal_amount = Math.floor(avatar.max_hp/2) + Math.floor(Math.random() * avatar.max_hp/2);
   avatar.hp = avatar.hp + heal_amount;
@@ -346,6 +363,8 @@ function power_heal() {
     info.power_result = "+" + heal_amount + " HP";
 	avatar_save();
   }
+  
+  return true;
 }
 
 function power_burn() {
@@ -503,7 +522,7 @@ function power_scorch() {
     return;
   }
   
-  sounds_play(SFX_FIRE);
+  sounds_play("enemy_fire");
 
   var atk_min = enemy.stats[combat.enemy.type].atk_min;
   var atk_max = enemy.stats[combat.enemy.type].atk_max;
@@ -525,7 +544,7 @@ function power_scorch() {
 
 function power_hpdrain() {
 
-  combat.defense_action = "HP Drain!";
+  combat.defense_action = "Leech!";
   
   // check miss
   var hit_chance = Math.random();
@@ -553,7 +572,7 @@ function power_hpdrain() {
 }
 
 function power_mpdrain() {
-  combat.defense_action = "MP Drain!";
+  combat.defense_action = "Drain!";
   
   // check miss
   var hit_chance = Math.random();

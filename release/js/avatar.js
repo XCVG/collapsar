@@ -40,9 +40,9 @@ function avatar_save() {
 }
 
 function avatar_reset() {
-  avatar.x = 1;
-  avatar.y = 1;
-  avatar.facing = "south";
+  avatar.x = 9;
+  avatar.y = 9;
+  avatar.facing = "north";
   avatar.moved = false;
   avatar.map_id = 0;
   avatar.weapon = 0;
@@ -59,7 +59,7 @@ function avatar_reset() {
   avatar.bonus_atk = 0;
   avatar.bonus_def = 0;
   avatar.spellbook = 0; //will be unused in new combat system
-  avatar.sleeploc = [0,1,1]; // map_id, x, y
+  avatar.sleeploc = [0,8,8]; // map_id, x, y
   avatar.campaign = new Array();
 }
 
@@ -145,7 +145,7 @@ function avatar_move(dx,dy) {
     avatar_save();
   }
   else {
-    sounds_play(SFX_BLOCKED);  
+    sounds_play(SFX_CLICK);  
   }
 }
 

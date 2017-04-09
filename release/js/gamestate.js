@@ -10,6 +10,7 @@ var STATE_DIALOG = 3;
 var STATE_TITLE = 4;
 var STATE_ENDING = 5;
 var STATE_INTRO = 6;
+var STATE_LIFT = 7;
  
 var gamestate = STATE_TITLE;
 
@@ -32,10 +33,13 @@ function gamestate_logic() {
 	  title_logic();
 	  break;
 	case STATE_ENDING:
-	  ending_logic();
+	  ending2_logic();
 	  break;
       case STATE_INTRO:
           intro_logic();
+          break;
+      case STATE_LIFT:
+          lift_logic();
           break;
   } 
 }
@@ -61,10 +65,13 @@ function gamestate_render() {
 	  title_render();
 	  break;
 	case STATE_ENDING:
-	  ending_render();
+	  ending2_render();
 	  break;
       case STATE_INTRO:
           intro_render();
+          break;
+      case STATE_LIFT:
+          lift_render();
           break;
   }
 }

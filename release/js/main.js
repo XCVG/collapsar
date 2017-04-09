@@ -44,10 +44,7 @@ function init() {
 
   resizeCanvas();
 	
-  ctx.imageSmoothingEnabled = false;
-  ctx.webkitImageSmoothingEnabled = false;
-  ctx.mozImageSmoothingEnabled = false;
-  ctx.oImageSmoothingEnabled = false;  
+  //setNearestNeighbor();
   
   if (window.addEventListener) {
     window.addEventListener('keydown', handleKeyDown, true);
@@ -58,13 +55,6 @@ function init() {
     window.addEventListener('touchend', handleTouchEnd, true);
     window.addEventListener('resize', resizeCanvas, false);
     window.addEventListener('orientationchange', resizeCanvas, false);
-  }
-  
-  // load some user preferences
-  //TODO change this to not a cookie
-  var json_save = getCookie("options");
-  if (json_save != null) {
-    OPTIONS = JSON.parse(json_save);
   }
 
   // execute preload
@@ -83,9 +73,11 @@ function init() {
   combat_init();
   dialog_init();
   boss_init();
-  title_init();
+  lift_init();
   ending_init();
+  ending2_init();
   intro_init();
+  title_init();
   sounds_init();
   treasure_init();
   

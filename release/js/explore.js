@@ -23,7 +23,7 @@ function explore_logic() {
   explore.message = "";
 
   avatar_explore();
-	
+  
   // check special script;
   //moved exits and shops into generalized mapscript
   if (avatar.moved) {
@@ -84,7 +84,8 @@ function explore_logic() {
 
 function explore_render() {
 
-  tileset_background();
+  //tileset_background();
+  mazemap_render_background(avatar.facing);
   mazemap_render(avatar.x, avatar.y, avatar.facing);
 
   // HUD elements

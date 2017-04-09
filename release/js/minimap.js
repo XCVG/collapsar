@@ -11,7 +11,7 @@ var MINIMAP_ICON_WALKABLE = 1;
 var MINIMAP_ICON_EXIT = 3;
 
 var MINIMAP_MARGIN_LEFT = 4;
-var MINIMAP_MARGIN_TOP = 4;
+var MINIMAP_MARGIN_TOP = 16;
 
 var MINIMAP_CURSOR_WEST = 0;
 var MINIMAP_CURSOR_NORTH = 1;
@@ -64,20 +64,32 @@ function minimap_render() {
   for (var i=0; i<mazemap.width; i++) {
     draw_x = i * MINIMAP_ICON_SIZE + left_x;
   
-    for (var j=0; j<mazemap.height; j++) {
+    for (var j=0; j<mazemap.height; j++) 
+    {
 	  draw_y = j * MINIMAP_ICON_SIZE + top_y;
 	
       target_tile = mazemap_get_tile(i,j);
-      if (tileset.walkable[target_tile]) {	  
-	    minimap_render_icon(draw_x, draw_y, MINIMAP_ICON_WALKABLE);
-	  }
-      else if (target_tile != 0) {
-        minimap_render_icon(draw_x, draw_y, MINIMAP_ICON_NONWALKABLE);
+      if(tileset.mapicon[target_tile] < 0) //-1 mapicon, use old behaviour
+      {
+        if (tileset.walkable[target_tile]) {	  
+              minimap_render_icon(draw_x, draw_y, MINIMAP_ICON_WALKABLE);
+            }
+        else if (target_tile != 0) {
+          minimap_render_icon(draw_x, draw_y, MINIMAP_ICON_NONWALKABLE);
+        }
       }
-	}
+      else
+      {
+          //positive mapicon, use new behaviour
+          minimap_render_icon(draw_x, draw_y, tileset.mapicon[target_tile]);
+      }
+      
+      
+    }
   }
   
   // render exits
+  //TODO redo this since Collapsar 2.x does not define hotspots this way
   var exit_x;
   var exit_y;
   

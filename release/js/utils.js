@@ -41,14 +41,18 @@ function resizeCanvas() {
 	SCALE = can.width / 160;
   }
   redraw = true;
-  setNearestNeighbor();
+  setNearestNeighborEx(OPTIONS.filtering);
 }
 
 function setNearestNeighbor() {
-  ctx.imageSmoothingEnabled = false;
-  ctx.webkitImageSmoothingEnabled = false;
-  ctx.mozImageSmoothingEnabled = false;
-  ctx.oImageSmoothingEnabled = false;  
+  setNearestNeighborEx(false);
+}
+
+function setNearestNeighborEx(state) {
+  ctx.imageSmoothingEnabled = state;
+  ctx.webkitImageSmoothingEnabled = state;
+  ctx.mozImageSmoothingEnabled = state;
+  ctx.oImageSmoothingEnabled = state;  
 }
 
 /**

@@ -33,6 +33,7 @@ combat.defense_action = "";
 combat.defense_result = "";
 combat.reward_result = "";
 combat.gold_treasure = 0;
+combat.reward_special = null;
 
 combat.victory_status = "";
 combat.hero_defending = false;
@@ -52,10 +53,15 @@ function combat_init() {
  * TODO switch things to use combat.enemy because dynamic
  */
 function combat_set_enemy(enemy_id) {
+    
+    //reset override x/y if exists
+    combat.override_x = -1;
+    combat.override_y = -1;
+    
   combat.enemy.type = enemy_id;
   //combat.enemy.hp = enemy.stats[enemy_id].hp;
   //combat.enemy.category = enemy.stats[enemy_id].category;
-  Object.assign(combat.enemy, enemy.stats[enemy_id]); //sorry, ie users
+  Object.assign(combat.enemy, enemy.stats[enemy_id]); //sorry, ie users (but Android gets a polyfill)
   //semi-deep copy
   combat.enemy.powers = enemy.stats[enemy_id].powers.slice();
   combat.enemy.weaknesses = enemy.stats[enemy_id].weaknesses.slice();
@@ -66,7 +72,18 @@ function combat_set_enemy(enemy_id) {
   
   boss_reset();
   combat.victory_status = "";
-  sounds_play(SFX_MISS);
+  combat.reward_special = null;
+  if(enemy_id == ENEMY_CORE)
+  {
+      sounds_play("emerge_core");
+      avatar.hp = avatar.max_hp;
+      avatar.mp = avatar.max_mp;
+  }
+  else
+  {
+      sounds_play("emerge");
+  }
+  
 }
 
 /**** Logic **************************/
@@ -98,8 +115,16 @@ function combat_logic() {
 function combat_logic_intro() {
 	mazemap_set_music("combat");
 
-    if (OPTIONS.animation == true) {
+    if (OPTIONS.animation == true && combat.enemy.type == ENEMY_CORE) {
       combat.timer--;
+      
+      // animated sliding in from the top
+      enemy.render_offset.y = 0 - combat.timer * 10;
+      redraw = true;
+    }
+    else if(OPTIONS.animation == true)
+    {
+        combat.timer--;
       
       // animated sliding in from the left
       enemy.render_offset.x = 0 - combat.timer * 10;
@@ -117,6 +142,7 @@ function combat_logic_intro() {
 
 function combat_logic_input() {
 
+  combat.hit_shield = false;
   combat.enemy_hurt = false;
   combat.hero_hurt = false;
   combat.run_success = false;
@@ -145,15 +171,15 @@ function combat_logic_input() {
        power_run();
        used_action = true;
    }
-   else if (action_checkUseEx(COMBAT_BUTTON_POS_POWER1,"left") && avatar.mp > 0 && avatar.power_left > 0)
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_POWER1,"left") && avatar.mp > 0 && avatar.power_left >= 0)
    {
-       power_special_use(avatar.power_left);
-       used_action = true;
+       
+       used_action = power_special_use(avatar.power_left);
    }
-   else if (action_checkUseEx(COMBAT_BUTTON_POS_POWER2,"right") && avatar.mp > 0 && avatar.power_right > 0)
+   else if (action_checkUseEx(COMBAT_BUTTON_POS_POWER2,"right") && avatar.mp > 0 && avatar.power_right >= 0)
    {
-       power_special_use(avatar.power_right);
-       used_action = true;
+       
+       used_action = power_special_use(avatar.power_right);
    }
 
   if (used_action) {
@@ -178,10 +204,16 @@ function combat_logic_offense() {
   // assist text delay
   if (combat.timer == 25) redraw = true;
   
-  if (combat.timer > 15 && combat.enemy_hurt) {
+  if (combat.timer > 15 && combat.enemy_hurt && !combat.hit_shield) {
     enemy.render_offset.x = Math.round(Math.random() * 4) - 2;
     enemy.render_offset.y = Math.round(Math.random() * 4) - 2;
 	redraw = true;
+  }
+  else if(combat.timer > 15 && combat.enemy_hurt && combat.hit_shield)
+  {
+    boss.boneshield_offset.x = Math.round(Math.random() * 4) - 2;
+    boss.boneshield_offset.y = Math.round(Math.random() * 4) - 2;
+	redraw = true;  
   }
   else if (combat.timer == 15) {
     enemy.render_offset = {x:0, y:0};
@@ -193,7 +225,12 @@ function combat_logic_offense() {
     // check for defeated enemy
     if (combat.enemy.hp <= 0) {
 	  combat.phase = COMBAT_PHASE_VICTORY;
-	  sounds_play(SFX_COIN);
+          if(combat.enemy.type == ENEMY_CORE)
+          {
+              sounds_play("destroy_core");
+          }
+          else
+            sounds_play(SFX_COIN);
 	  redraw = true;
 	  combat_determine_reward();
 	  return;
@@ -259,14 +296,18 @@ function combat_logic_defense() {
 
 function combat_logic_victory() {
   
+  //TODO boss die and dramatic fadeout
+  
   // end combat by clicking or pressing the action button  
   if (pressing.mouse && !input_lock.mouse) {  
     input_lock.mouse = true;
+    _combat_set_overrides();
     combat_clear_messages();
 	//music gross hack
-	mazemap_set_music(atlas.maps[mazemap.current_id].music);
+	mazemap_set_music(atlas.maps[mazemap.current_id].music);        
 	//boss special
-	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
+        
+	if(combat.enemy.type == ENEMY_CORE)
 	{
 		ending.id = ENDING_GOOD;
 		gamestate = STATE_ENDING;
@@ -281,11 +322,12 @@ function combat_logic_victory() {
   
   if (pressing.action && !input_lock.action) {
     input_lock.action = true;
+    _combat_set_overrides();
     combat_clear_messages();
 	//music gross hack
 	mazemap_set_music(atlas.maps[mazemap.current_id].music);
 	//boss special
-	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
+	if(combat.enemy.type == ENEMY_CORE)
 	{
 		ending.id = ENDING_GOOD;
 		gamestate = STATE_ENDING;
@@ -293,23 +335,35 @@ function combat_logic_victory() {
 	else
 	{
 		gamestate = STATE_EXPLORE;
+                mapscript_execAutorun(mazemap.current_id);
 	}
     redraw = true;
     return;  	
   }
 }
 
+function _combat_set_overrides()
+{
+    if(combat.override_x >= 0)
+    {
+        avatar.x = combat.override_x;
+        avatar.y = combat.override_y;
+    }
+}
+
 function combat_logic_defeat() {
 	mazemap_set_music("defeat");
         
-        //TODO fix this handling please
-	if(combat.enemy.type == ENEMY_DEATH_SPEAKER)
+        //BECAUSE THIS WILL NEVER CAUSE PROBLEMS EVER RIGHT
+        /*
+	if(combat.enemy.type == ENEMY_CORE)
 	{
 		ending.id = ENDING_BAD;
 		gamestate = STATE_ENDING;
 		redraw = true;
 	}	
-	
+	*/
+       
   return;
 }
 
@@ -323,14 +377,29 @@ function combat_clear_messages() {
 function combat_determine_reward() {
 
   // for now, just gold rewards
-  var gold_min = enemy.stats[combat.enemy.type].gold_min;
-  var gold_max = enemy.stats[combat.enemy.type].gold_max;
+    var gold_min = enemy.stats[combat.enemy.type].gold_min;
+    var gold_max = enemy.stats[combat.enemy.type].gold_max;
+
+    var gold_reward = Math.round(Math.random() * (gold_max - gold_min)) + gold_min;
+    
+    //always max the reward if this is a boss/named enemy
+    if(combat.victory_status)
+    {
+        gold_reward = gold_max;
+    }
+    
+    combat.reward_result = "Crystal +" + gold_reward;
+
+    avatar.gold += gold_reward;
+    combat.gold_treasure = gold_reward;
   
-  var gold_reward = Math.round(Math.random() * (gold_max - gold_min)) + gold_min;
-  combat.reward_result = "+" + gold_reward + " gold!";
-  
-  avatar.gold += gold_reward;
-  combat.gold_treasure = gold_reward;
+  //level5 boss keydrop special
+  if(combat.victory_status == "l5_boss")
+  {
+      combat.reward_result = "Cry+" + gold_reward + " & Black Key";
+      avatar.campaign.push("key_l6");
+      combat.reward_special = 20;
+  }
   
   // if killed a named creature, remember
   if (combat.victory_status != "") {
@@ -347,7 +416,15 @@ function combat_render() {
 
   // visuals common to all combat phases
   tileset_background();
-  mazemap_render(avatar.x, avatar.y, avatar.facing);
+  if(combat.override_x >= 0)
+  {
+      mazemap_render(combat.override_x, combat.override_y, avatar.facing); //disgusting hack
+  }
+  else
+  {
+      mazemap_render(avatar.x, avatar.y, avatar.facing);
+  }
+  
 
   switch (combat.phase) {
     case COMBAT_PHASE_INTRO:
@@ -411,6 +488,10 @@ function combat_render_victory() {
   bitfont_render("You win!", 80, 60, JUSTIFY_CENTER);
   bitfont_render(combat.reward_result, 80, 70, JUSTIFY_CENTER);
   treasure_render_gold(combat.gold_treasure);
+  if(combat.reward_special)
+  {
+      treasure_render_item(combat.reward_special);
+  }
   //info_render_gold();
 }
 

@@ -2,6 +2,8 @@
  Conversation and shop handling
  */
 
+var DIALOG_PICTURE_COUNT = 18;
+
 var DIALOG_BUTTON_NONE = 0;
 var DIALOG_BUTTON_BUY = 1;
 var DIALOG_BUTTON_EXIT = 2;
@@ -15,11 +17,17 @@ var dialog = new Object();
 dialog.select_pos = BUTTON_POS_OPT2;
 dialog.button_img = new Image();
 dialog.button_img_loaded = false;
+dialog.picture_img = new Array();
+dialog.picture_img_loaded = false;
+dialog.picture_img_loadcount = 0;
 dialog.option = new Array();
 dialog.message = "";
 dialog.shop_id = 0;
 dialog.items_for_sale = false;
 
+for (i=0; i<DIALOG_PICTURE_COUNT; i++) {
+  dialog.picture_img[i] = new Image();
+}
 
 for (var i=0; i<3; i++) {
   dialog.option[i] = new Object();
@@ -29,6 +37,60 @@ for (var i=0; i<3; i++) {
 function dialog_init() {
   dialog.button_img.src = "images/interface/dialog_buttons.png";
   dialog.button_img.onload = function() {dialog_button_onload();};
+  
+  dialog.picture_img[0].src = "images/pictures/null.png";
+  dialog.picture_img[0].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[1].src = "images/pictures/tavern.png";
+  dialog.picture_img[1].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[2].src = "images/pictures/smith.png";
+  dialog.picture_img[2].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[3].src = "images/pictures/inn.png";
+  dialog.picture_img[3].onload = function() {dialog_picture_onload();};
+
+  dialog.picture_img[4].src = "images/pictures/weapons.png";
+  dialog.picture_img[4].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[5].src = "images/pictures/armor.png";
+  dialog.picture_img[5].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[6].src = "images/pictures/blackmarket.png";
+  dialog.picture_img[6].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[7].src = "images/pictures/portrait1.png";
+  dialog.picture_img[7].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[8].src = "images/pictures/spellmaster.png";
+  dialog.picture_img[8].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[9].src = "images/pictures/techpicture.png";
+  dialog.picture_img[9].onload = function() {dialog_picture_onload();};
+
+  dialog.picture_img[10].src = "images/pictures/hall.png";
+  dialog.picture_img[10].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[11].src = "images/pictures/level1.png";
+  dialog.picture_img[11].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[12].src = "images/pictures/level2.png";
+  dialog.picture_img[12].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[13].src = "images/pictures/level3.png";
+  dialog.picture_img[13].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[14].src = "images/pictures/level4.png";
+  dialog.picture_img[14].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[15].src = "images/pictures/level5.png";
+  dialog.picture_img[15].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[16].src = "images/pictures/level6.png";
+  dialog.picture_img[16].onload = function() {dialog_picture_onload();};
+  
+  dialog.picture_img[17].src = "images/pictures/null.png";
+  dialog.picture_img[17].onload = function() {dialog_picture_onload();};
 
   shop_set(0);
 
@@ -36,6 +98,12 @@ function dialog_init() {
 
 function dialog_button_onload() {dialog.button_img_loaded = true;}
 
+function dialog_picture_onload()
+{
+    dialog.picture_img_loadcount += 1;
+    if(dialog.picture_img_loadcount >= DIALOG_PICTURE_COUNT)
+        dialog.picture_img_loaded = true;
+}
 
 /**** Logic Functions ****/
 
@@ -146,6 +214,11 @@ function dialog_logic_moveselect() {
 function dialog_render() {
 
   tileset_background_render(shop[dialog.shop_id].background);
+  
+  if(shop[dialog.shop_id].picture)
+  {
+      dialog_render_picture(shop[dialog.shop_id].picture);
+  }
 
   bitfont_render(dialog.title, 80, 2, JUSTIFY_CENTER);
 
@@ -165,9 +238,15 @@ function dialog_render() {
   action_render_select(dialog.select_pos);
 
   if (dialog.message != "") {
-    bitfont_render(dialog.message, 80, 40, JUSTIFY_CENTER);
+    bitfont_render(dialog.message, 80, 30, JUSTIFY_CENTER);
     dialog.message = "";
   }
+}
+
+function dialog_render_picture(picture)
+{
+    //console.log(picture);
+    ctx.drawImage(dialog.picture_img[picture],16*SCALE,12*SCALE,128*SCALE,48*SCALE);
 }
 
 function dialog_render_text(option, pos) {

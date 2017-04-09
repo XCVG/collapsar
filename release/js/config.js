@@ -23,5 +23,5 @@ var OPTIONS = new Object();
 OPTIONS.animation = true;
 OPTIONS.music = true;
 OPTIONS.sfx = true;
-OPTIONS.minimap = true;
+OPTIONS.minimap = false;
 OPTIONS.filtering = false;

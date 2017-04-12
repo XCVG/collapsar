@@ -1,4 +1,10 @@
-# Collapsar
+# Dubnium - Ascension Adventure 2
+
+Ascension Adventure 2 puts you back in the boots of The Adventurer on a brand new and massively improved adventure. It's a retro-styled, first-person dungeon crawl with elements of fantasy and sci-fi, now with a bigger and more detailed world to explore. The all-new battle system forces you to make choices, and you'll now face a greater variety of enemies with elemental strengths and weaknesses. New gameplay elements like elevators and changing floors switch things up, and a deeper storyline ties it all together.
+
+Can you survive where others have broken and unlock the secrets of the Forge?
+
+## Collapsar
 
 Collapsar is the internal name for the "engine" that powers a few XCVG Systems games.
 
@@ -10,11 +16,7 @@ Collapsar is the internal name for the "engine" that powers a few XCVG Systems g
 Collapsar is better defined as common chunks of code than an actual engine.
 Collapsar is based on Heroine Dusk by Clint Ballanger http://clintbellanger.net
 
-# Dubnium
-
-Ascension Adventure II TBD
-
-## Technology
+### Technology
 
 Collapsar is written in Javascript using HTML5 canvas.
 
@@ -24,7 +26,7 @@ Collapsar is written in Javascript using HTML5 canvas.
 * Mouse controls: click to move or turn, or click buttons to interact.
 * Touch controls: as mouse controls, supported on some modern device browsers.
 
-## Compatibility
+### Compatibility
 
 Collapsar should, in theory, work on any modern browser.
 
@@ -38,11 +40,13 @@ Collapsar should, in theory, work on any modern browser.
 
 ## License
 
-* The code for Collapsar is released under GPL v3, with later versions permitted.
-* The visual art for Heroine Dusk and Heroin Dusk is released under CC-BY-SA 3.0, with later versions permitted.
+* The code is released under GPL v3, with later versions permitted.
+* The visual art for Heroine Dusk and derived assets in Dubnium is released under CC-BY-SA 3.0, with later versions permitted.
+* Refer to the CREDITS file for details about third-party content.
 * Heroine Dusk is a trademark name that belongs to Clint Bellanger.
 
 ## Thanks
 
 * Clint Bellanger for creating the original Heroine Dusk http://clintbellanger.net
-* Justin Jacobs for contributing the Options menu (WTFPL license) https://github.com/dorkster
+* OpenGameArt for base assets that ended up in the game.
+* All my patient and not so patient friends.

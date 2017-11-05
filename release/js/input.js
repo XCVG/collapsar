@@ -52,7 +52,9 @@ var ALTCODE_QUERY = 81; //q
 
 function handleKeyDown(evt) {
 
+  window.focus();
   evt.preventDefault();
+  evt.stopPropagation();
 
   if (evt.keyCode == KEYCODE_UP || evt.keyCode == ALTCODE_UP) {
     pressing.up = true;
@@ -105,7 +107,9 @@ function handleKeyUp(evt) {
 }
 
 function handleMouseDown(evt) {
+  window.focus();
   evt.preventDefault();
+  evt.stopPropagation();
   pressing.mouse = true;
   mouse_pos = clickCoord(evt);
 }
